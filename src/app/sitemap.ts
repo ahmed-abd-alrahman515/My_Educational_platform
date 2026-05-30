@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const trackRoutes = TRACKS.map((track) => ({
-    url: `${BASE_URL}/quiz/${track.id}`,
+    url: `${BASE_URL}/quiz/${track.category}/${track.id}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,

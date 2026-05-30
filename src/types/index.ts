@@ -67,13 +67,31 @@ export interface Track {
 /*  Levels & difficulty                                                        */
 /* -------------------------------------------------------------------------- */
 
-export type LevelId = "beginner" | "intermediate" | "advanced";
+export type LevelId =
+  | "beginner"
+  | "intermediate"
+  | "advanced"
+  | "expert"
+  | "boss";
+
+/** A badge a player earns for clearing a level (shown on the roadmap). */
+export interface LevelBadge {
+  /** lucide-react icon name. */
+  icon: string;
+  title: LocalizedText;
+}
 
 export interface Level {
   id: LevelId;
   title: LocalizedText;
   /** XP multiplier applied to correct answers at this level. */
   xpMultiplier: number;
+  /** Headline XP reward for clearing the level (display + bonus). */
+  xpReward: number;
+  /** Badge granted on completion, displayed on the roadmap node. */
+  badge: LevelBadge;
+  /** Marks the final "Boss Challenge" level for special styling. */
+  isBoss?: boolean;
 }
 
 /* -------------------------------------------------------------------------- */

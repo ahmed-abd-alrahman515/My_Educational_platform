@@ -12,6 +12,7 @@ import {
   STORAGE_KEYS,
 } from "./constants";
 import { daysBetween, todayKey } from "./utils";
+import { LEVEL_ORDER } from "@/data/levels";
 
 /**
  * localStorage progress system.
@@ -151,8 +152,6 @@ export function applyQuizResult(
     history: [result, ...progress.history].slice(0, 50),
   };
 }
-
-const LEVEL_ORDER = ["beginner", "intermediate", "advanced"] as const;
 
 function highestLevel(
   a: TrackProgress["bestLevel"],

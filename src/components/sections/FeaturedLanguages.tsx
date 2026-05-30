@@ -41,7 +41,7 @@ export function FeaturedLanguages() {
             transition={{ duration: 0.35, delay: i * 0.06 }}
           >
             <Link
-              href={`/quiz/${track.id}`}
+              href={`/quiz/${track.category}/${track.id}`}
               className="group flex items-center gap-3 rounded-2xl border border-line bg-surface px-5 py-3 transition-all duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow"
             >
               <span

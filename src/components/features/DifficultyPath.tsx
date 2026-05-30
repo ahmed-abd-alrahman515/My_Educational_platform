@@ -14,6 +14,8 @@ const DOT_TONE: Record<string, string> = {
   beginner: "bg-success",
   intermediate: "bg-warning",
   advanced: "bg-accent",
+  expert: "bg-primary",
+  boss: "bg-rose-500",
 };
 
 /**

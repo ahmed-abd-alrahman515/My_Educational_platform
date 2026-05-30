@@ -148,7 +148,7 @@ export function TrackCard({ track, index = 0 }: TrackCardProps) {
   }
 
   return (
-    <Link href={`/quiz/${track.id}`} className="block h-full">
+    <Link href={`/quiz/${track.category}/${track.id}`} className="block h-full">
       {card}
     </Link>
   );

@@ -23,6 +23,8 @@ export const LEVEL_XP_MULTIPLIER: Record<LevelId, number> = {
   beginner: 1,
   intermediate: 1.5,
   advanced: 2,
+  expert: 2.5,
+  boss: 3,
 };
 
 /** Resolve the player's current rank from total XP. */
