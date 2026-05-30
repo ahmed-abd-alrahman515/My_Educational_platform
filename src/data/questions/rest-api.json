@@ -1,0 +1,732 @@
+[
+  {
+    "id": "rest-b-1",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which HTTP method should you use to retrieve a list of users from a REST API?", "ar": "ما هو method HTTP الذي يجب استخدامه لاسترجاع قائمة المستخدمين من REST API؟" },
+    "code": "GET /api/users",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "GET", "ar": "GET" } },
+      { "id": "b", "text": { "en": "POST", "ar": "POST" } },
+      { "id": "c", "text": { "en": "PUT", "ar": "PUT" } },
+      { "id": "d", "text": { "en": "DELETE", "ar": "DELETE" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Think about which method is used for reading data without modifying it.", "ar": "فكّر في الـ method المستخدمة لقراءة البيانات دون تعديلها." },
+    "explanation": { "en": "GET is the correct method for retrieving resources. It is both safe (no side effects) and idempotent (multiple calls return the same result).", "ar": "GET هو الـ method الصحيح لاسترجاع الموارد. وهو آمن (لا يُحدث آثاراً جانبية) وidempotent (الاستدعاءات المتعددة تُعطي نفس النتيجة)." },
+    "xp": 10,
+    "tags": ["http-methods", "get", "safe"]
+  },
+  {
+    "id": "rest-b-2",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "What HTTP status code indicates that a resource was successfully created?", "ar": "ما هو كود الحالة HTTP الذي يُشير إلى أن المورد تم إنشاؤه بنجاح؟" },
+    "options": [
+      { "id": "a", "text": { "en": "200 OK", "ar": "200 OK" } },
+      { "id": "b", "text": { "en": "201 Created", "ar": "201 Created" } },
+      { "id": "c", "text": { "en": "204 No Content", "ar": "204 No Content" } },
+      { "id": "d", "text": { "en": "301 Moved Permanently", "ar": "301 Moved Permanently" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "The 2xx range represents success. One code specifically means 'a new resource was created'.", "ar": "نطاق 2xx يمثل النجاح. أحد هذه الأكواد يعني تحديداً 'تم إنشاء مورد جديد'." },
+    "explanation": { "en": "201 Created is returned after a successful POST that creates a new resource. The response should also include a Location header pointing to the new resource.", "ar": "يُرجَع الكود 201 Created بعد نجاح POST الذي يُنشئ مورداً جديداً. يجب أن تتضمن الاستجابة أيضاً ترويسة Location تُشير إلى المورد الجديد." },
+    "xp": 10,
+    "tags": ["status-codes", "201", "post"]
+  },
+  {
+    "id": "rest-b-3",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": { "en": "REST APIs are stateless, meaning the server stores session information between requests.", "ar": "REST APIs عديمة الحالة (stateless)، مما يعني أن الخادم يخزن معلومات الجلسة بين الطلبات." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Stateless means each request must contain ALL information the server needs.", "ar": "عديمة الحالة تعني أن كل طلب يجب أن يحتوي على جميع المعلومات التي يحتاجها الخادم." },
+    "explanation": { "en": "REST is stateless, which means the server does NOT store session information. Each request from the client must contain all the information needed to process it. Authentication tokens (like JWT) are sent with every request.", "ar": "REST عديمة الحالة، مما يعني أن الخادم لا يخزن معلومات الجلسة. يجب أن يحتوي كل طلب من العميل على جميع المعلومات اللازمة لمعالجته. تُرسَل رموز المصادقة (مثل JWT) مع كل طلب." },
+    "xp": 10,
+    "tags": ["statelessness", "rest-constraints"]
+  },
+  {
+    "id": "rest-b-4",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which of the following is the most RESTful URI design for accessing a specific user's orders?", "ar": "أيٌّ من عناوين URI التالية يمثل التصميم الأكثر توافقاً مع REST للوصول إلى طلبات مستخدم محدد؟" },
+    "options": [
+      { "id": "a", "text": { "en": "/getUserOrders?userId=42", "ar": "/getUserOrders?userId=42" } },
+      { "id": "b", "text": { "en": "/users/42/orders", "ar": "/users/42/orders" } },
+      { "id": "c", "text": { "en": "/getOrdersForUser/42", "ar": "/getOrdersForUser/42" } },
+      { "id": "d", "text": { "en": "/user-orders/42", "ar": "/user-orders/42" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "RESTful URIs use nouns (not verbs), plural resource names, and hierarchical nesting.", "ar": "عناوين URI الخاصة بـ REST تستخدم أسماء (ليس أفعالاً)، وأسماء موارد جمع، وتداخلاً هرمياً." },
+    "explanation": { "en": "/users/42/orders follows REST conventions: plural nouns, hierarchical nesting showing that orders belong to a user, and no verbs in the path.", "ar": "/users/42/orders يتبع اتفاقيات REST: أسماء جمع، وتداخل هرمي يُظهر أن الطلبات تنتمي إلى مستخدم، ولا أفعال في المسار." },
+    "xp": 10,
+    "tags": ["uri-design", "resource-naming"]
+  },
+  {
+    "id": "rest-b-5",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "What does a 404 status code mean in a REST API response?", "ar": "ماذا يعني كود الحالة 404 في استجابة REST API؟" },
+    "options": [
+      { "id": "a", "text": { "en": "The request was unauthorized", "ar": "الطلب غير مُصرَّح به" } },
+      { "id": "b", "text": { "en": "The server encountered an internal error", "ar": "واجه الخادم خطأً داخلياً" } },
+      { "id": "c", "text": { "en": "The requested resource was not found", "ar": "لم يتم العثور على المورد المطلوب" } },
+      { "id": "d", "text": { "en": "The request method is not allowed", "ar": "طريقة الطلب غير مسموح بها" } }
+    ],
+    "correctOptionId": "c",
+    "hint": { "en": "4xx codes are client errors. 404 specifically means the server cannot find the resource.", "ar": "أكواد 4xx تمثل أخطاء العميل. 404 تعني تحديداً أن الخادم لا يمكنه إيجاد المورد." },
+    "explanation": { "en": "404 Not Found means the server could not find the requested resource. This could mean the resource never existed, was deleted, or the URI is wrong.", "ar": "404 Not Found يعني أن الخادم لم يستطع إيجاد المورد المطلوب. قد يعني ذلك أن المورد لم يوجد أبداً، أو حُذف، أو أن عنوان URI خاطئ." },
+    "xp": 10,
+    "tags": ["status-codes", "404", "client-errors"]
+  },
+  {
+    "id": "rest-b-6",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which HTTP method is typically used to submit a form or create a new resource?", "ar": "ما هو method HTTP المستخدم عادةً لإرسال نموذج أو إنشاء مورد جديد؟" },
+    "options": [
+      { "id": "a", "text": { "en": "GET", "ar": "GET" } },
+      { "id": "b", "text": { "en": "POST", "ar": "POST" } },
+      { "id": "c", "text": { "en": "PUT", "ar": "PUT" } },
+      { "id": "d", "text": { "en": "PATCH", "ar": "PATCH" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "This method sends data in the request body and is not idempotent.", "ar": "هذه الطريقة تُرسل البيانات في جسم الطلب وليست idempotent." },
+    "explanation": { "en": "POST is used to create new resources or submit data. It is neither safe nor idempotent — calling it multiple times may create multiple resources.", "ar": "POST تُستخدم لإنشاء موارد جديدة أو إرسال البيانات. إنها ليست آمنة ولا idempotent — استدعاؤها مرات متعددة قد ينشئ موارد متعددة." },
+    "xp": 10,
+    "tags": ["http-methods", "post", "idempotent"]
+  },
+  {
+    "id": "rest-b-7",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": { "en": "What is the correct Content-Type header value when sending a JSON body in a REST API request?", "ar": "ما هي القيمة الصحيحة لترويسة Content-Type عند إرسال body بتنسيق JSON في طلب REST API؟" },
+    "code": "POST /api/users HTTP/1.1\nHost: api.example.com\nContent-Type: ???\n\n{\"name\": \"Ahmed\", \"email\": \"ahmed@example.com\"}",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "application/json", "ar": "application/json" } },
+      { "id": "b", "text": { "en": "text/json", "ar": "text/json" } },
+      { "id": "c", "text": { "en": "application/xml", "ar": "application/xml" } },
+      { "id": "d", "text": { "en": "text/plain", "ar": "text/plain" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "JSON has an official MIME type under the 'application' category.", "ar": "لـ JSON نوع MIME رسمي تحت فئة 'application'." },
+    "explanation": { "en": "The correct Content-Type for JSON payloads is 'application/json'. The server uses this header to know how to parse the request body.", "ar": "النوع الصحيح Content-Type لحمولات JSON هو 'application/json'. يستخدم الخادم هذه الترويسة لمعرفة كيفية تحليل جسم الطلب." },
+    "xp": 10,
+    "tags": ["headers", "content-type", "json"]
+  },
+  {
+    "id": "rest-b-8",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": { "en": "A 401 Unauthorized response means the client has authenticated but does not have permission to access the resource.", "ar": "استجابة 401 Unauthorized تعني أن العميل قد تحقق من هويته لكن ليس لديه إذن للوصول إلى المورد." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Think about the difference between authentication (who are you?) and authorization (what can you do?).", "ar": "فكّر في الفرق بين المصادقة (من أنت؟) والتخويل (ماذا يمكنك فعله؟)." },
+    "explanation": { "en": "401 means the client is NOT authenticated (missing or invalid credentials). 403 Forbidden means authenticated but not authorized. The naming is unfortunately confusing in the HTTP spec.", "ar": "401 تعني أن العميل غير مُصادَق عليه (بيانات اعتماد مفقودة أو غير صالحة). أما 403 Forbidden فتعني مُصادَق عليه لكن غير مُخوَّل. التسمية مربكة للأسف في مواصفات HTTP." },
+    "xp": 10,
+    "tags": ["status-codes", "401", "403", "authentication", "authorization"]
+  },
+  {
+    "id": "rest-b-9",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which HTTP method should be used to completely replace an existing resource?", "ar": "ما هو method HTTP الذي يجب استخدامه لاستبدال مورد موجود بالكامل؟" },
+    "options": [
+      { "id": "a", "text": { "en": "POST", "ar": "POST" } },
+      { "id": "b", "text": { "en": "PATCH", "ar": "PATCH" } },
+      { "id": "c", "text": { "en": "PUT", "ar": "PUT" } },
+      { "id": "d", "text": { "en": "DELETE", "ar": "DELETE" } }
+    ],
+    "correctOptionId": "c",
+    "hint": { "en": "One method sends a full representation of the resource; another only sends the fields to update.", "ar": "إحدى الطرق تُرسل تمثيلاً كاملاً للمورد؛ والأخرى تُرسل فقط الحقول المراد تحديثها." },
+    "explanation": { "en": "PUT replaces the entire resource with the provided representation. If a field is omitted in the PUT body, it is removed from the resource. PATCH, by contrast, applies partial modifications.", "ar": "PUT تستبدل المورد بالكامل بالتمثيل المقدَّم. إذا أُغفل حقل في جسم PUT، فإنه يُزال من المورد. PATCH في المقابل تُطبّق تعديلات جزئية." },
+    "xp": 10,
+    "tags": ["http-methods", "put", "patch"]
+  },
+  {
+    "id": "rest-b-10",
+    "trackId": "rest-api",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "What status code should a DELETE request return when the resource is successfully deleted and there is no content to return?", "ar": "ما هو كود الحالة الذي يجب أن يُعيده طلب DELETE عند حذف المورد بنجاح دون وجود محتوى للإرجاع؟" },
+    "options": [
+      { "id": "a", "text": { "en": "200 OK", "ar": "200 OK" } },
+      { "id": "b", "text": { "en": "201 Created", "ar": "201 Created" } },
+      { "id": "c", "text": { "en": "204 No Content", "ar": "204 No Content" } },
+      { "id": "d", "text": { "en": "404 Not Found", "ar": "404 Not Found" } }
+    ],
+    "correctOptionId": "c",
+    "hint": { "en": "When a successful operation has nothing to return in the body, there's a specific 2xx code for that.", "ar": "عندما تنجح عملية ما دون وجود شيء للإرجاع في الـ body، هناك كود 2xx محدد لذلك." },
+    "explanation": { "en": "204 No Content is the correct response for a successful DELETE when there is no response body. It signals success without returning any entity.", "ar": "204 No Content هو الاستجابة الصحيحة لـ DELETE الناجح عندما لا يوجد جسم استجابة. وهو يُشير إلى النجاح دون إرجاع أي كيان." },
+    "xp": 10,
+    "tags": ["status-codes", "204", "delete"]
+  },
+  {
+    "id": "rest-i-1",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which of the following HTTP methods are both safe AND idempotent?", "ar": "أيٌّ من methods HTTP التالية يكون آمناً وidempotent في آنٍ واحد؟" },
+    "options": [
+      { "id": "a", "text": { "en": "POST and PATCH", "ar": "POST وPATCH" } },
+      { "id": "b", "text": { "en": "GET and HEAD", "ar": "GET وHEAD" } },
+      { "id": "c", "text": { "en": "PUT and DELETE", "ar": "PUT وDELETE" } },
+      { "id": "d", "text": { "en": "DELETE and GET", "ar": "DELETE وGET" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Safe methods do not modify server state. Idempotent methods produce the same result when called multiple times.", "ar": "الطرق الآمنة لا تُعدّل حالة الخادم. الطرق الـ idempotent تُنتج نفس النتيجة عند استدعائها مرات متعددة." },
+    "explanation": { "en": "GET and HEAD are both safe (read-only, no side effects) and idempotent (same result every time). PUT and DELETE are idempotent but not safe. POST and PATCH are neither.", "ar": "GET وHEAD كلاهما آمن (للقراءة فقط، بدون آثار جانبية) وidempotent (نفس النتيجة في كل مرة). PUT وDELETE idempotent لكن ليسا آمنَين. POST وPATCH ليسا كذلك." },
+    "xp": 15,
+    "tags": ["http-methods", "safe", "idempotent", "head"]
+  },
+  {
+    "id": "rest-i-2",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": { "en": "A developer returns 200 OK with the following body when a user tries to create a resource that already exists. What is wrong with this response?", "ar": "يُعيد مطوّر الكود 200 OK مع الـ body التالي عندما يحاول مستخدم إنشاء مورد موجود بالفعل. ما الخطأ في هذه الاستجابة؟" },
+    "code": "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n  \"success\": false,\n  \"error\": \"User already exists\"\n}",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "Should use 409 Conflict status code, not 200", "ar": "يجب استخدام كود الحالة 409 Conflict، ليس 200" } },
+      { "id": "b", "text": { "en": "The response body format is incorrect", "ar": "تنسيق جسم الاستجابة غير صحيح" } },
+      { "id": "c", "text": { "en": "Should use 404 Not Found instead", "ar": "يجب استخدام 404 Not Found عوضاً عن ذلك" } },
+      { "id": "d", "text": { "en": "Nothing is wrong; 200 with an error message is acceptable", "ar": "لا يوجد خطأ؛ 200 مع رسالة خطأ مقبول" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "HTTP clients (and intermediaries like API gateways) rely on status codes, not response body content, to determine success or failure.", "ar": "يعتمد عملاء HTTP (والوسطاء مثل API gateways) على أكواد الحالة، وليس محتوى جسم الاستجابة، لتحديد النجاح أو الفشل." },
+    "explanation": { "en": "Returning 200 OK with an error in the body is an anti-pattern. The status code communicates the outcome. 409 Conflict is correct when a resource already exists and the request cannot be fulfilled due to a state conflict.", "ar": "إرجاع 200 OK مع خطأ في الـ body نمط سيئ. يُوصّل كود الحالة النتيجة. 409 Conflict هو الصحيح عندما يكون المورد موجوداً بالفعل ولا يمكن تلبية الطلب بسبب تعارض في الحالة." },
+    "xp": 15,
+    "tags": ["status-codes", "409", "error-design", "debugging"]
+  },
+  {
+    "id": "rest-i-3",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "You need to update only the email field of a user without affecting other fields. Which HTTP method and request body is correct?", "ar": "تحتاج إلى تحديث حقل البريد الإلكتروني فقط للمستخدم دون التأثير على الحقول الأخرى. أيٌّ من method HTTP وجسم الطلب التالي صحيح؟" },
+    "code": "// User resource has: id, name, email, age, role",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "PUT /users/1 with full user object", "ar": "PUT /users/1 مع كائن المستخدم الكامل" } },
+      { "id": "b", "text": { "en": "PATCH /users/1 with { \"email\": \"new@example.com\" }", "ar": "PATCH /users/1 مع { \"email\": \"new@example.com\" }" } },
+      { "id": "c", "text": { "en": "POST /users/1/email with the new email", "ar": "POST /users/1/email مع البريد الإلكتروني الجديد" } },
+      { "id": "d", "text": { "en": "GET /users/1?email=new@example.com", "ar": "GET /users/1?email=new@example.com" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "PATCH is designed for partial updates — send only what you want to change.", "ar": "PATCH مصمم للتحديثات الجزئية — أرسل فقط ما تريد تغييره." },
+    "explanation": { "en": "PATCH is for partial updates. It sends only the fields to be changed. PUT would require sending the entire user object and would overwrite all fields. GET must never modify data.", "ar": "PATCH للتحديثات الجزئية. يُرسل فقط الحقول المراد تغييرها. PUT يتطلب إرسال كائن المستخدم بالكامل وسيُستبدل جميع الحقول. GET يجب ألا يُعدّل البيانات أبداً." },
+    "xp": 15,
+    "tags": ["http-methods", "patch", "put", "partial-update"]
+  },
+  {
+    "id": "rest-i-4",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "A client sends a request without an Authorization header to a protected endpoint. What is the correct status code to return?", "ar": "يُرسل عميل طلباً دون ترويسة Authorization إلى endpoint محمي. ما هو كود الحالة الصحيح للإرجاع؟" },
+    "options": [
+      { "id": "a", "text": { "en": "400 Bad Request", "ar": "400 Bad Request" } },
+      { "id": "b", "text": { "en": "401 Unauthorized", "ar": "401 Unauthorized" } },
+      { "id": "c", "text": { "en": "403 Forbidden", "ar": "403 Forbidden" } },
+      { "id": "d", "text": { "en": "404 Not Found", "ar": "404 Not Found" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "No credentials at all = unauthenticated. Valid credentials but wrong role = unauthorized.", "ar": "لا توجد بيانات اعتماد على الإطلاق = غير مُصادَق. بيانات اعتماد صالحة لكن دور خاطئ = غير مُخوَّل." },
+    "explanation": { "en": "401 is for missing or invalid authentication credentials. The response should include a WWW-Authenticate header. 403 is for authenticated users who lack permission.", "ar": "401 لبيانات المصادقة المفقودة أو غير الصالحة. يجب أن تتضمن الاستجابة ترويسة WWW-Authenticate. 403 للمستخدمين المُصادَق عليهم الذين يفتقرون إلى الإذن." },
+    "xp": 15,
+    "tags": ["status-codes", "401", "403", "authentication"]
+  },
+  {
+    "id": "rest-i-5",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which pagination approach is better for a large dataset that is frequently updated (rows being inserted/deleted)?", "ar": "أي نهج pagination أفضل لمجموعة بيانات كبيرة يتم تحديثها بشكل متكرر (إدراج/حذف صفوف)؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Offset-based pagination (?page=2&limit=10)", "ar": "Offset-based pagination (?page=2&limit=10)" } },
+      { "id": "b", "text": { "en": "Cursor-based pagination (?cursor=eyJpZCI6MTB9&limit=10)", "ar": "Cursor-based pagination (?cursor=eyJpZCI6MTB9&limit=10)" } },
+      { "id": "c", "text": { "en": "Both are equally good for this scenario", "ar": "كلاهما جيد بالتساوي لهذا السيناريو" } },
+      { "id": "d", "text": { "en": "Return all records without pagination", "ar": "إرجاع جميع السجلات دون pagination" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "With offset pagination, inserting a row before your offset can cause a record to appear twice or be skipped.", "ar": "مع offset pagination، إدراج صف قبل offset الخاص بك قد يُتسبب في ظهور سجل مرتين أو تخطيه." },
+    "explanation": { "en": "Cursor-based pagination uses a stable reference (like the last seen ID or timestamp) to fetch the next page. It avoids the 'phantom row' problem that offset pagination suffers from when data changes between requests.", "ar": "يستخدم Cursor-based pagination مرجعاً ثابتاً (مثل آخر ID أو timestamp مرئي) لجلب الصفحة التالية. يتجنب مشكلة 'الصف الوهمي' التي يعاني منها offset pagination عند تغير البيانات بين الطلبات." },
+    "xp": 15,
+    "tags": ["pagination", "cursor", "offset"]
+  },
+  {
+    "id": "rest-i-6",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": { "en": "Your API returns a 500 Internal Server Error when a client sends a request with a missing required field. What is the correct behavior?", "ar": "تُعيد API الخاصة بك 500 Internal Server Error عندما يُرسل عميل طلباً يفتقر إلى حقل مطلوب. ما هو السلوك الصحيح؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Return 400 Bad Request with details about the missing field", "ar": "إرجاع 400 Bad Request مع تفاصيل حول الحقل المفقود" } },
+      { "id": "b", "text": { "en": "Return 422 Unprocessable Entity with validation errors", "ar": "إرجاع 422 Unprocessable Entity مع أخطاء التحقق" } },
+      { "id": "c", "text": { "en": "Both 400 and 422 are acceptable; 500 is always wrong for input validation", "ar": "كلٌّ من 400 و422 مقبولان؛ 500 دائماً خاطئ للتحقق من المدخلات" } },
+      { "id": "d", "text": { "en": "Return 200 OK with an error message in the body", "ar": "إرجاع 200 OK مع رسالة خطأ في الـ body" } }
+    ],
+    "correctOptionId": "c",
+    "hint": { "en": "5xx codes mean the server failed, not the client. Input validation failures are always a client error (4xx).", "ar": "أكواد 5xx تعني فشل الخادم، وليس العميل. فشل التحقق من المدخلات هو دائماً خطأ عميل (4xx)." },
+    "explanation": { "en": "500 should never be returned for invalid client input. 400 Bad Request is for malformed syntax; 422 Unprocessable Entity is for semantically invalid data (correct syntax, wrong values). Both are used in practice.", "ar": "500 لا يجب إرجاعه أبداً لمدخلات عميل غير صالحة. 400 Bad Request للبنية النحوية المشوهة؛ 422 Unprocessable Entity للبيانات غير الصالحة دلالياً (بنية صحيحة، قيم خاطئة). كلاهما مستخدم في الممارسة." },
+    "xp": 15,
+    "tags": ["status-codes", "400", "422", "validation", "error-design"]
+  },
+  {
+    "id": "rest-i-7",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which API versioning strategy embeds the version number directly in the URL path?", "ar": "أي استراتيجية إصدار API تُضمّن رقم الإصدار مباشرةً في مسار URL؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Header versioning: Accept: application/vnd.api+json;version=2", "ar": "Header versioning: Accept: application/vnd.api+json;version=2" } },
+      { "id": "b", "text": { "en": "URI versioning: /api/v2/users", "ar": "URI versioning: /api/v2/users" } },
+      { "id": "c", "text": { "en": "Query parameter versioning: /api/users?version=2", "ar": "Query parameter versioning: /api/users?version=2" } },
+      { "id": "d", "text": { "en": "Subdomain versioning: v2.api.example.com/users", "ar": "Subdomain versioning: v2.api.example.com/users" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "The question specifically asks about the version being 'in the URL path'.", "ar": "يسأل السؤال تحديداً عن كون الإصدار 'في مسار URL'." },
+    "explanation": { "en": "URI versioning (/api/v2/users) places the version directly in the URL path. It is the most common approach because it's explicit, easy to test in browsers, and simple to route. The drawback is it's not truly RESTful since the URI should identify a resource, not a version.", "ar": "URI versioning (/api/v2/users) يضع الإصدار مباشرةً في مسار URL. إنه النهج الأكثر شيوعاً لأنه صريح وسهل الاختبار في المتصفحات وبسيط التوجيه. العيب هو أنه ليس REST حقيقياً إذ يجب أن يُعرّف URI مورداً وليس إصداراً." },
+    "xp": 15,
+    "tags": ["versioning", "uri-design"]
+  },
+  {
+    "id": "rest-i-8",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": { "en": "A 304 Not Modified response includes a response body with the cached resource.", "ar": "استجابة 304 Not Modified تتضمن جسم استجابة يحتوي على المورد المخزن مؤقتاً." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "304 is telling the client 'use your cached version'. There is nothing new to send.", "ar": "304 يُخبر العميل 'استخدم نسختك المخزنة'. لا يوجد شيء جديد للإرسال." },
+    "explanation": { "en": "A 304 Not Modified response MUST NOT include a message body. It tells the client that its cached version is still valid and should be used. The client already has the content.", "ar": "استجابة 304 Not Modified يجب ألا تتضمن جسم رسالة. تُخبر العميل بأن نسخته المخزنة لا تزال صالحة ويجب استخدامها. العميل لديه المحتوى بالفعل." },
+    "xp": 15,
+    "tags": ["caching", "304", "conditional-requests", "etag"]
+  },
+  {
+    "id": "rest-i-9",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "A client is receiving too many API responses and gets throttled. Which header should the API include to tell the client when to retry?", "ar": "يتلقى العميل استجابات API كثيرة جداً ويتم تقييده. أي ترويسة يجب أن تتضمنها API لتُخبر العميل متى يُعيد المحاولة؟" },
+    "code": "HTTP/1.1 429 Too Many Requests\nContent-Type: application/json\n\n{\"error\": \"Rate limit exceeded\"}",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "Cache-Control: max-age=60", "ar": "Cache-Control: max-age=60" } },
+      { "id": "b", "text": { "en": "Retry-After: 60", "ar": "Retry-After: 60" } },
+      { "id": "c", "text": { "en": "X-Rate-Limit-Reset: 60", "ar": "X-Rate-Limit-Reset: 60" } },
+      { "id": "d", "text": { "en": "Location: /api/queue", "ar": "Location: /api/queue" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "There is an official HTTP header specifically designed to tell clients when to retry after a failure.", "ar": "هناك ترويسة HTTP رسمية مصممة خصيصاً لإخبار العملاء متى يُعيدون المحاولة بعد الفشل." },
+    "explanation": { "en": "Retry-After is the standard HTTP header used with 429 (and 503) responses to indicate how long the client should wait before retrying. The value can be seconds or an HTTP date.", "ar": "Retry-After هي ترويسة HTTP القياسية المستخدمة مع استجابات 429 (و503) للإشارة إلى المدة التي يجب أن ينتظرها العميل قبل إعادة المحاولة. يمكن أن تكون القيمة بالثواني أو تاريخ HTTP." },
+    "xp": 15,
+    "tags": ["rate-limiting", "429", "headers", "retry-after"]
+  },
+  {
+    "id": "rest-i-10",
+    "trackId": "rest-api",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": { "en": "A browser-based app on 'app.example.com' makes a fetch request to 'api.example.com'. The request fails. What is the most likely cause and fix?", "ar": "تُجري تطبيق مبني على المتصفح على 'app.example.com' طلب fetch إلى 'api.example.com'. يفشل الطلب. ما السبب الأرجح والحل؟" },
+    "options": [
+      { "id": "a", "text": { "en": "The server is down; restart it", "ar": "الخادم معطّل؛ أعد تشغيله" } },
+      { "id": "b", "text": { "en": "CORS is blocking the request; add Access-Control-Allow-Origin header to the API", "ar": "CORS يحجب الطلب؛ أضف ترويسة Access-Control-Allow-Origin إلى API" } },
+      { "id": "c", "text": { "en": "The API must be on the same port as the app", "ar": "يجب أن تكون API على نفس المنفذ الخاص بالتطبيق" } },
+      { "id": "d", "text": { "en": "The fetch API does not support cross-origin requests", "ar": "Fetch API لا تدعم الطلبات عبر الأصول" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Browsers enforce same-origin policy. Different domain/subdomain = different origin.", "ar": "المتصفحات تُطبّق سياسة المصدر الواحد. نطاق/نطاق فرعي مختلف = مصدر مختلف." },
+    "explanation": { "en": "This is a CORS (Cross-Origin Resource Sharing) issue. The browser blocks the request because 'api.example.com' is a different origin from 'app.example.com'. The API server must include the Access-Control-Allow-Origin header to allow the request.", "ar": "هذه مشكلة CORS (Cross-Origin Resource Sharing). يحجب المتصفح الطلب لأن 'api.example.com' أصل مختلف عن 'app.example.com'. يجب أن يتضمن خادم API ترويسة Access-Control-Allow-Origin للسماح بالطلب." },
+    "xp": 15,
+    "tags": ["cors", "headers", "browser"]
+  },
+  {
+    "id": "rest-a-1",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": { "en": "A client wants to implement conditional updates to avoid overwriting changes made by another client. Which mechanism should you use?", "ar": "يريد عميل تنفيذ تحديثات مشروطة لتجنب الكتابة فوق التغييرات التي أجراها عميل آخر. أي آلية يجب استخدامها؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Send ETag in If-Match header; server returns 412 if ETag is stale", "ar": "أرسل ETag في ترويسة If-Match؛ يُعيد الخادم 412 إذا كان ETag قديماً" } },
+      { "id": "b", "text": { "en": "Add a timestamp query parameter to each update request", "ar": "أضف معامل timestamp للاستعلام مع كل طلب تحديث" } },
+      { "id": "c", "text": { "en": "Use POST with a version field in the body", "ar": "استخدم POST مع حقل version في الـ body" } },
+      { "id": "d", "text": { "en": "Lock the resource on GET and unlock on PUT", "ar": "اقفل المورد على GET وافتحه على PUT" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "HTTP has a built-in optimistic concurrency mechanism using ETags and conditional headers.", "ar": "HTTP لديه آلية optimistic concurrency مدمجة تستخدم ETags وترويسات مشروطة." },
+    "explanation": { "en": "The ETag/If-Match pattern implements optimistic concurrency control. The server generates an ETag for each resource version. On update, the client sends If-Match: <etag>. If the resource has changed, the server returns 412 Precondition Failed, preventing a lost-update race condition.", "ar": "نمط ETag/If-Match يُطبّق التحكم في التزامن التفاؤلي. يُولّد الخادم ETag لكل إصدار مورد. عند التحديث، يُرسل العميل If-Match: <etag>. إذا تغير المورد، يُعيد الخادم 412 Precondition Failed، مما يمنع حالة سباق فقدان التحديث." },
+    "xp": 25,
+    "tags": ["etag", "if-match", "412", "optimistic-concurrency", "caching"]
+  },
+  {
+    "id": "rest-a-2",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which of the following best describes HATEOAS in a REST API?", "ar": "أيٌّ من التالي يصف HATEOAS في REST API بشكل أفضل؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Using HTTPS for all API communications", "ar": "استخدام HTTPS لجميع اتصالات API" } },
+      { "id": "b", "text": { "en": "Responses include links to related actions/resources the client can take next", "ar": "الاستجابات تتضمن روابط للإجراءات/الموارد ذات الصلة التي يمكن للعميل اتخاذها لاحقاً" } },
+      { "id": "c", "text": { "en": "All responses must be encoded in HAL format", "ar": "يجب ترميز جميع الاستجابات بتنسيق HAL" } },
+      { "id": "d", "text": { "en": "The server and client must share the same API schema document", "ar": "يجب أن يتشارك الخادم والعميل نفس وثيقة مخطط API" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "HATEOAS stands for Hypermedia As The Engine Of Application State.", "ar": "HATEOAS اختصار لـ Hypermedia As The Engine Of Application State." },
+    "explanation": { "en": "HATEOAS means the API response includes hypermedia links that tell the client what actions are available next. For example, a GET /orders/1 response includes links for 'cancel', 'pay', and 'track'. The client doesn't need to hardcode URLs.", "ar": "HATEOAS يعني أن استجابة API تتضمن روابط hypermedia تُخبر العميل بالإجراءات المتاحة لاحقاً. مثلاً، استجابة GET /orders/1 تتضمن روابط لـ 'إلغاء' و'دفع' و'تتبع'. لا يحتاج العميل لترميز URLs بشكل ثابت." },
+    "xp": 25,
+    "tags": ["hateoas", "hypermedia", "rest-constraints"]
+  },
+  {
+    "id": "rest-a-3",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": { "en": "Identify the problem with this REST API error response design:", "ar": "حدد المشكلة في تصميم استجابة الخطأ لـ REST API هذا:" },
+    "code": "HTTP/1.1 400 Bad Request\nContent-Type: application/json\n\n{\n  \"error\": true,\n  \"code\": 400,\n  \"message\": \"Validation error\"\n}",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "The status code 400 is repeated in the body unnecessarily", "ar": "كود الحالة 400 يتكرر في الـ body بشكل غير ضروري" } },
+      { "id": "b", "text": { "en": "The response lacks machine-readable error details (field-level errors, error type URI)", "ar": "الاستجابة تفتقر إلى تفاصيل خطأ قابلة للقراءة آلياً (أخطاء على مستوى الحقل، URI نوع الخطأ)" } },
+      { "id": "c", "text": { "en": "Should use 422 instead of 400", "ar": "يجب استخدام 422 بدلاً من 400" } },
+      { "id": "d", "text": { "en": "The Content-Type should be text/plain for errors", "ar": "يجب أن يكون Content-Type نصاً عادياً للأخطاء" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Think about what an API client (not a human) needs to programmatically handle a validation error and retry correctly.", "ar": "فكّر في ما يحتاجه عميل API (ليس إنساناً) للتعامل برمجياً مع خطأ التحقق وإعادة المحاولة بشكل صحيح." },
+    "explanation": { "en": "A good error response should include: which fields failed validation, why they failed, and potentially a 'type' URI (per RFC 7807 Problem Details). 'Validation error' is too vague for a client to act on. Field-level errors like {\"errors\": [{\"field\": \"email\", \"message\": \"Invalid format\"}]} are actionable.", "ar": "يجب أن تتضمن استجابة الخطأ الجيدة: الحقول التي فشل التحقق منها، ولماذا فشلت، وربما URI من نوع 'type' (وفق RFC 7807). 'Validation error' غامض جداً لكي يتصرف العميل بناءً عليه. الأخطاء على مستوى الحقل مثل {\"errors\": [{\"field\": \"email\", \"message\": \"Invalid format\"}]} قابلة للتنفيذ." },
+    "xp": 25,
+    "tags": ["error-design", "400", "422", "rfc-7807"]
+  },
+  {
+    "id": "rest-a-4",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "A payment API processes a charge. The request times out before the client receives a response. The client retries the same request. What should the API use to prevent double-charging?", "ar": "تقوم payment API بمعالجة رسوم. ينتهي الطلب قبل أن يتلقى العميل استجابة. يُعيد العميل المحاولة بنفس الطلب. ما الذي يجب أن تستخدمه API لمنع الرسوم المزدوجة؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Cache-Control headers to cache the first response", "ar": "ترويسات Cache-Control لتخزين الاستجابة الأولى مؤقتاً" } },
+      { "id": "b", "text": { "en": "An Idempotency-Key header sent by the client with each request", "ar": "ترويسة Idempotency-Key يُرسلها العميل مع كل طلب" } },
+      { "id": "c", "text": { "en": "Use GET instead of POST for payment operations", "ar": "استخدام GET بدلاً من POST لعمليات الدفع" } },
+      { "id": "d", "text": { "en": "Return 202 Accepted and process asynchronously", "ar": "إرجاع 202 Accepted ومعالجة الطلب بشكل غير متزامن" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Stripe and other payment APIs solve network retry problems with a special key per request.", "ar": "Stripe وغيرها من APIs الدفع تحل مشاكل إعادة المحاولة عبر الشبكة باستخدام مفتاح خاص لكل طلب." },
+    "explanation": { "en": "An Idempotency-Key (a unique UUID per operation, sent in a request header) allows the server to recognize a retry and return the cached result of the first request, preventing duplicate side effects like double-charging.", "ar": "Idempotency-Key (UUID فريد لكل عملية، مُرسَل في ترويسة الطلب) يسمح للخادم بالتعرف على إعادة المحاولة وإرجاع النتيجة المخزنة للطلب الأول، مما يمنع الآثار الجانبية المكررة مثل الرسوم المزدوجة." },
+    "xp": 25,
+    "tags": ["idempotency", "idempotency-key", "post", "distributed-systems"]
+  },
+  {
+    "id": "rest-a-5",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "When designing a REST API, what is content negotiation and which headers are used?", "ar": "عند تصميم REST API، ما هو content negotiation وأي ترويسات تُستخدم؟" },
+    "options": [
+      { "id": "a", "text": { "en": "The client specifies the desired format via Accept header; server responds with Content-Type matching what it chose", "ar": "يُحدد العميل التنسيق المطلوب عبر ترويسة Accept؛ يُجيب الخادم بـ Content-Type مطابق لما اختاره" } },
+      { "id": "b", "text": { "en": "The server always responds in JSON regardless of client preference", "ar": "يُجيب الخادم دائماً بـ JSON بغض النظر عن تفضيل العميل" } },
+      { "id": "c", "text": { "en": "Content-Type header on the request determines the response format", "ar": "ترويسة Content-Type في الطلب تُحدد تنسيق الاستجابة" } },
+      { "id": "d", "text": { "en": "Negotiation is done by adding a file extension to the URI (/users.json)", "ar": "يتم التفاوض بإضافة امتداد ملف إلى URI (/users.json)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Content-Type describes what you're sending. Accept describes what you want to receive.", "ar": "Content-Type يصف ما تُرسله. Accept يصف ما تريد تلقّيه." },
+    "explanation": { "en": "Content negotiation lets the client advertise acceptable response formats via the Accept header (e.g., Accept: application/json, application/xml;q=0.9). The server picks the best match and sets Content-Type in the response. If it can't satisfy the request, it returns 406 Not Acceptable.", "ar": "Content negotiation يسمح للعميل بالإعلان عن تنسيقات الاستجابة المقبولة عبر ترويسة Accept (مثل Accept: application/json, application/xml;q=0.9). يختار الخادم أفضل تطابق ويضبط Content-Type في الاستجابة. إذا لم يستطع تلبية الطلب، يُعيد 406 Not Acceptable." },
+    "xp": 25,
+    "tags": ["content-negotiation", "headers", "accept", "content-type"]
+  },
+  {
+    "id": "rest-a-6",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": { "en": "A client sends this request. What is the correct response from the server if the resource has NOT changed since the date specified?", "ar": "يُرسل عميل هذا الطلب. ما هي الاستجابة الصحيحة من الخادم إذا لم يتغير المورد منذ التاريخ المحدد؟" },
+    "code": "GET /api/products/55 HTTP/1.1\nIf-Modified-Since: Tue, 28 May 2026 10:00:00 GMT",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "200 OK with the full resource body", "ar": "200 OK مع جسم المورد الكامل" } },
+      { "id": "b", "text": { "en": "304 Not Modified with no body", "ar": "304 Not Modified بدون جسم" } },
+      { "id": "c", "text": { "en": "204 No Content with no body", "ar": "204 No Content بدون جسم" } },
+      { "id": "d", "text": { "en": "412 Precondition Failed", "ar": "412 Precondition Failed" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "If-Modified-Since is used for conditional GET. The server tells the client if its cache is still valid.", "ar": "If-Modified-Since يُستخدم لـ GET المشروط. يُخبر الخادم العميل إذا كانت ذاكرة التخزين المؤقت لا تزال صالحة." },
+    "explanation": { "en": "When using If-Modified-Since, if the resource hasn't changed since that date, the server returns 304 Not Modified with no body. This saves bandwidth because the client uses its cached version.", "ar": "عند استخدام If-Modified-Since، إذا لم يتغير المورد منذ ذلك التاريخ، يُعيد الخادم 304 Not Modified بدون جسم. يوفر ذلك عرض النطاق الترددي لأن العميل يستخدم نسخته المخزنة." },
+    "xp": 25,
+    "tags": ["caching", "304", "if-modified-since", "conditional-requests"]
+  },
+  {
+    "id": "rest-a-7",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": { "en": "You are designing a webhook system. A receiving server is temporarily down when an event fires. What should your webhook delivery system do?", "ar": "تقوم بتصميم نظام webhook. الخادم المُستقبِل متوقف مؤقتاً عند إطلاق حدث. ماذا يجب أن يفعل نظام تسليم webhook الخاص بك؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Drop the event and log it", "ar": "أسقط الحدث وسجّله" } },
+      { "id": "b", "text": { "en": "Retry with exponential backoff and eventually send to a dead-letter queue", "ar": "أعد المحاولة مع exponential backoff وأرسل في النهاية إلى dead-letter queue" } },
+      { "id": "c", "text": { "en": "Wait indefinitely until the server comes back online", "ar": "انتظر إلى أجل غير مسمى حتى يعود الخادم للاتصال" } },
+      { "id": "d", "text": { "en": "Switch to polling instead of webhooks", "ar": "التحول إلى polling بدلاً من webhooks" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Reliable webhook delivery requires retry logic, but you should not hammer a down server.", "ar": "تسليم webhook الموثوق يتطلب منطق إعادة محاولة، لكن لا يجب أن تُثقل خادماً متوقفاً." },
+    "explanation": { "en": "Production webhook systems retry failed deliveries with exponential backoff (e.g., 5s, 10s, 30s, 1m, 5m...) to avoid overwhelming a recovering server. After max retries, the event goes to a dead-letter queue for manual inspection or alerting.", "ar": "أنظمة webhook في الإنتاج تُعيد محاولة التسليمات الفاشلة مع exponential backoff (مثل 5ث، 10ث، 30ث، دقيقة، 5 دقائق...) لتجنب إثقال خادم يتعافى. بعد أقصى عدد محاولات، يذهب الحدث إلى dead-letter queue للفحص اليدوي أو التنبيه." },
+    "xp": 25,
+    "tags": ["webhooks", "reliability", "retry", "distributed-systems"]
+  },
+  {
+    "id": "rest-a-8",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "fill-blank",
+    "prompt": { "en": "A REST API resource has been permanently moved to a new URL. The response should use status code ___ and include a ___ header pointing to the new location.", "ar": "تم نقل مورد REST API بشكل دائم إلى URL جديد. يجب أن تستخدم الاستجابة كود الحالة ___ وتتضمن ترويسة ___ تُشير إلى الموقع الجديد." },
+    "options": [
+      { "id": "a", "text": { "en": "301 and Location", "ar": "301 وLocation" } },
+      { "id": "b", "text": { "en": "302 and Redirect", "ar": "302 وRedirect" } },
+      { "id": "c", "text": { "en": "307 and Location", "ar": "307 وLocation" } },
+      { "id": "d", "text": { "en": "410 and Location", "ar": "410 وLocation" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Permanent redirect vs temporary redirect. Caches and search engines treat them differently.", "ar": "إعادة توجيه دائمة مقابل مؤقتة. تتعامل معها ذاكرات التخزين المؤقت ومحركات البحث بشكل مختلف." },
+    "explanation": { "en": "301 Moved Permanently with a Location header is used when a resource has permanently moved. Clients and caches should update their stored URL. 302 is temporary. 307 is temporary but preserves the HTTP method. 410 Gone means deleted with no new location.", "ar": "301 Moved Permanently مع ترويسة Location يُستخدم عندما ينتقل مورد بشكل دائم. يجب على العملاء والذاكرات المؤقتة تحديث URL المخزنة. 302 مؤقت. 307 مؤقت لكن يحتفظ بطريقة HTTP. 410 Gone يعني حُذف بدون موقع جديد." },
+    "xp": 25,
+    "tags": ["status-codes", "301", "redirect", "location-header"]
+  },
+  {
+    "id": "rest-a-9",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is the key architectural difference between REST and GraphQL?", "ar": "ما هو الفرق المعماري الرئيسي بين REST وGraphQL؟" },
+    "options": [
+      { "id": "a", "text": { "en": "GraphQL only supports GET requests; REST supports all HTTP methods", "ar": "GraphQL تدعم طلبات GET فقط؛ REST تدعم جميع methods HTTP" } },
+      { "id": "b", "text": { "en": "REST uses fixed endpoints per resource; GraphQL uses a single endpoint where clients specify exactly what data they need", "ar": "REST تستخدم endpoints ثابتة لكل مورد؛ GraphQL تستخدم endpoint واحدة حيث يُحدد العملاء بالضبط البيانات التي يحتاجونها" } },
+      { "id": "c", "text": { "en": "GraphQL is always faster than REST", "ar": "GraphQL دائماً أسرع من REST" } },
+      { "id": "d", "text": { "en": "REST requires a schema; GraphQL does not", "ar": "REST تتطلب مخططاً؛ GraphQL لا تتطلب" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Think about over-fetching and under-fetching problems in REST and how GraphQL solves them.", "ar": "فكّر في مشاكل over-fetching وunder-fetching في REST وكيف يحلها GraphQL." },
+    "explanation": { "en": "REST has multiple resource endpoints (/users, /posts, etc.). GraphQL has one endpoint (usually /graphql) and lets clients query exactly what they need — no more, no less. This eliminates over-fetching (too much data) and under-fetching (needing multiple requests).", "ar": "REST لديها endpoints متعددة للموارد (/users، /posts، إلخ). GraphQL لديها endpoint واحدة (عادةً /graphql) وتتيح للعملاء الاستعلام عن ما يحتاجونه بالضبط — لا أكثر ولا أقل. يُزيل ذلك over-fetching (بيانات زائدة) وunder-fetching (الحاجة لطلبات متعددة)." },
+    "xp": 25,
+    "tags": ["rest-vs-graphql", "architecture", "graphql"]
+  },
+  {
+    "id": "rest-a-10",
+    "trackId": "rest-api",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which Cache-Control directive tells all caches (browser + CDN) NOT to store a response under any circumstances?", "ar": "أي توجيه Cache-Control يُخبر جميع الذاكرات المؤقتة (المتصفح + CDN) بعدم تخزين الاستجابة في أي ظرف من الظروف؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Cache-Control: no-cache", "ar": "Cache-Control: no-cache" } },
+      { "id": "b", "text": { "en": "Cache-Control: no-store", "ar": "Cache-Control: no-store" } },
+      { "id": "c", "text": { "en": "Cache-Control: private", "ar": "Cache-Control: private" } },
+      { "id": "d", "text": { "en": "Cache-Control: max-age=0", "ar": "Cache-Control: max-age=0" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "no-cache and no-store sound similar but have very different behaviors. One prevents storage entirely.", "ar": "no-cache وno-store تبدوان متشابهتَين لكن لهما سلوكان مختلفان جداً. أحدهما يمنع التخزين كلياً." },
+    "explanation": { "en": "no-store prevents any cache from storing the response at all (useful for sensitive data). no-cache means the response can be stored but must be revalidated with the server before use. max-age=0 means cached but immediately stale, still requiring revalidation.", "ar": "no-store يمنع أي ذاكرة مؤقتة من تخزين الاستجابة على الإطلاق (مفيد للبيانات الحساسة). no-cache يعني أنه يمكن تخزين الاستجابة لكن يجب إعادة التحقق منها مع الخادم قبل الاستخدام. max-age=0 يعني مخزنة لكن قديمة فوراً، لا تزال تتطلب إعادة التحقق." },
+    "xp": 25,
+    "tags": ["caching", "cache-control", "no-store", "headers"]
+  },
+  {
+    "id": "rest-e-1",
+    "trackId": "rest-api",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": { "en": "In a distributed system, a client sends a POST /orders request. The API gateway times out, but the backend service successfully created the order. The client retries. Without an idempotency key, what is the worst outcome and how does the key solve it?", "ar": "في نظام موزع، يُرسل عميل طلب POST /orders. ينتهي وقت انتظار API gateway، لكن خدمة الخلفية أنشأت الطلب بنجاح. يُعيد العميل المحاولة. بدون مفتاح idempotency، ما هو أسوأ نتيجة وكيف يحل المفتاح ذلك؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Duplicate order created; idempotency key lets server return the original response for retried requests with the same key", "ar": "إنشاء طلب مكرر؛ مفتاح idempotency يسمح للخادم بإرجاع الاستجابة الأصلية للطلبات المُعاد محاولتها بنفس المفتاح" } },
+      { "id": "b", "text": { "en": "Order is deleted; idempotency key prevents deletion on retry", "ar": "حذف الطلب؛ مفتاح idempotency يمنع الحذف عند إعادة المحاولة" } },
+      { "id": "c", "text": { "en": "Network timeout means the order was not created; no duplicate risk", "ar": "انتهاء مهلة الشبكة يعني أن الطلب لم يُنشأ؛ لا يوجد خطر تكرار" } },
+      { "id": "d", "text": { "en": "The API gateway caches the response automatically", "ar": "يقوم API gateway بتخزين الاستجابة تلقائياً" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The timeout occurs between the gateway and the client — the backend already succeeded. The client doesn't know this.", "ar": "انتهاء المهلة يحدث بين gateway والعميل — نجحت الخلفية بالفعل. العميل لا يعلم بذلك." },
+    "explanation": { "en": "A timeout on the client side doesn't mean the server failed. The backend created the order, but the response never reached the client. On retry, a new order is created — duplicate. With an idempotency key (e.g., Idempotency-Key: uuid-123), the server stores the result keyed to that UUID. On retry with the same key, it returns the stored result instead of processing again.", "ar": "انتهاء مهلة جانب العميل لا يعني فشل الخادم. الخلفية أنشأت الطلب، لكن الاستجابة لم تصل إلى العميل. عند إعادة المحاولة، يُنشأ طلب جديد — مكرر. مع مفتاح idempotency (مثل Idempotency-Key: uuid-123)، يخزن الخادم النتيجة بمفتاح ذلك UUID. عند إعادة المحاولة بنفس المفتاح، يُعيد النتيجة المخزنة بدلاً من المعالجة مجدداً." },
+    "xp": 30,
+    "tags": ["idempotency", "distributed-systems", "post", "retry", "idempotency-key"]
+  },
+  {
+    "id": "rest-e-2",
+    "trackId": "rest-api",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": { "en": "A client does GET /items/42 and receives ETag: \"v3\". It then does PUT /items/42 with If-Match: \"v2\". What should the server return and why?", "ar": "يقوم عميل بـ GET /items/42 ويتلقى ETag: \"v3\". ثم يقوم بـ PUT /items/42 مع If-Match: \"v2\". ماذا يجب أن يُعيد الخادم ولماذا؟" },
+    "options": [
+      { "id": "a", "text": { "en": "200 OK — the update succeeded", "ar": "200 OK — التحديث نجح" } },
+      { "id": "b", "text": { "en": "412 Precondition Failed — the ETag doesn't match, indicating a concurrent modification", "ar": "412 Precondition Failed — ETag لا يتطابق، مما يُشير إلى تعديل متزامن" } },
+      { "id": "c", "text": { "en": "409 Conflict — another user has a lock on the resource", "ar": "409 Conflict — مستخدم آخر لديه قفل على المورد" } },
+      { "id": "d", "text": { "en": "428 Precondition Required — the client must include a valid ETag", "ar": "428 Precondition Required — يجب على العميل تضمين ETag صالح" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "If-Match checks whether the resource version the client has matches the server's current version.", "ar": "If-Match يتحقق مما إذا كان إصدار المورد الذي يمتلكه العميل يتطابق مع الإصدار الحالي للخادم." },
+    "explanation": { "en": "The current ETag is 'v3' but the client sent If-Match: 'v2'. The precondition fails because the resource has changed since the client last fetched it (another write happened). 412 Precondition Failed is the correct response, preventing a lost-update problem.", "ar": "ETag الحالي هو 'v3' لكن العميل أرسل If-Match: 'v2'. يفشل الشرط المسبق لأن المورد تغيّر منذ آخر جلب للعميل (حدثت كتابة أخرى). 412 Precondition Failed هو الاستجابة الصحيحة، مما يمنع مشكلة فقدان التحديث." },
+    "xp": 30,
+    "tags": ["etag", "if-match", "412", "optimistic-concurrency", "advanced-caching"]
+  },
+  {
+    "id": "rest-e-3",
+    "trackId": "rest-api",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": { "en": "A microservice partially processes a bulk /batch-create request (creates 3 of 5 items before a database error). What is the best API design for this partial failure?", "ar": "تُعالج microservice جزئياً طلب /batch-create المجمّع (تُنشئ 3 من 5 عناصر قبل خطأ في قاعدة البيانات). ما هو أفضل تصميم API لهذا الفشل الجزئي؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Return 500 Internal Server Error", "ar": "إرجاع 500 Internal Server Error" } },
+      { "id": "b", "text": { "en": "Return 207 Multi-Status with per-item success/failure details", "ar": "إرجاع 207 Multi-Status مع تفاصيل نجاح/فشل لكل عنصر" } },
+      { "id": "c", "text": { "en": "Return 200 OK for the 3 that succeeded and ignore the 2 failures", "ar": "إرجاع 200 OK للـ 3 التي نجحت وتجاهل فشل الاثنين" } },
+      { "id": "d", "text": { "en": "Roll back all 3 created items and return 400 Bad Request", "ar": "تراجع عن جميع العناصر الـ 3 المُنشأة وإرجاع 400 Bad Request" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "HTTP has a specific status code for mixed results in a batch operation — used by WebDAV and modern batch APIs.", "ar": "HTTP لديه كود حالة محدد للنتائج المختلطة في عمليات batch — مستخدم من WebDAV وAPIs الـ batch الحديثة." },
+    "explanation": { "en": "207 Multi-Status is designed exactly for this case. The response body contains the status of each individual item in the batch. This allows clients to know exactly which items succeeded and which failed, and to retry only the failed ones.", "ar": "207 Multi-Status مصمم بالضبط لهذه الحالة. يحتوي جسم الاستجابة على حالة كل عنصر فردي في الـ batch. يسمح ذلك للعملاء بمعرفة العناصر التي نجحت وأيها فشلت، وإعادة محاولة الفاشلة فقط." },
+    "xp": 30,
+    "tags": ["status-codes", "207", "batch", "partial-failure", "error-design"]
+  },
+  {
+    "id": "rest-e-4",
+    "trackId": "rest-api",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": { "en": "A REST API serves both mobile (bandwidth-constrained) and desktop clients. The mobile client only needs 3 of 20 fields. Without changing the server code, which standard REST approach lets the client request a sparse response?", "ar": "REST API يخدم كلاً من عملاء الجوال (محدودي النطاق الترددي) وسطح المكتب. يحتاج عميل الجوال فقط إلى 3 من 20 حقلاً. دون تغيير كود الخادم، أي نهج REST قياسي يسمح للعميل بطلب استجابة متفرقة؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Use a query parameter: GET /users/1?fields=id,name,email", "ar": "استخدم query parameter: GET /users/1?fields=id,name,email" } },
+      { "id": "b", "text": { "en": "Create a separate endpoint: GET /users/1/summary", "ar": "أنشئ endpoint منفصلة: GET /users/1/summary" } },
+      { "id": "c", "text": { "en": "Switch to GraphQL", "ar": "التحول إلى GraphQL" } },
+      { "id": "d", "text": { "en": "Use Accept-Encoding: gzip to compress the response", "ar": "استخدم Accept-Encoding: gzip لضغط الاستجابة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Many major APIs (Google, Facebook) support field selection via a query parameter without endpoint changes.", "ar": "كثير من APIs الكبرى (Google، Facebook) تدعم اختيار الحقول عبر query parameter دون تغيير الـ endpoint." },
+    "explanation": { "en": "Sparse fieldsets via query parameters (e.g., ?fields=id,name,email) is a common REST pattern that lets clients request only the data they need. This reduces payload size without requiring multiple endpoints or a full GraphQL migration.", "ar": "مجموعات الحقول المتفرقة عبر query parameters (مثل ?fields=id,name,email) نمط REST شائع يسمح للعملاء بطلب البيانات التي يحتاجونها فقط. يُقلل هذا حجم الحمولة دون الحاجة إلى endpoints متعددة أو ترحيل كامل إلى GraphQL." },
+    "xp": 30,
+    "tags": ["sparse-fieldsets", "performance", "query-parameters", "mobile"]
+  },
+  {
+    "id": "rest-e-5",
+    "trackId": "rest-api",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": { "en": "Your API must validate webhook payloads to ensure they come from a trusted sender and not a malicious third party. What is the standard approach?", "ar": "يجب على API التحقق من صحة حمولات webhook لضمان قدومها من مُرسِل موثوق وليس طرفاً ثالثاً خبيثاً. ما هو النهج القياسي؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Check the sender's IP address against an allowlist", "ar": "تحقق من عنوان IP للمُرسِل مقابل قائمة مسموح بها" } },
+      { "id": "b", "text": { "en": "Require HTTPS and assume TLS is sufficient", "ar": "اطلب HTTPS وافترض أن TLS كافٍ" } },
+      { "id": "c", "text": { "en": "Verify an HMAC signature in the X-Signature header using a shared secret", "ar": "تحقق من توقيع HMAC في ترويسة X-Signature باستخدام سر مشترك" } },
+      { "id": "d", "text": { "en": "Use Basic Auth on the webhook endpoint", "ar": "استخدم Basic Auth على endpoint الـ webhook" } }
+    ],
+    "correctOptionId": "c",
+    "hint": { "en": "GitHub, Stripe, and Shopify all use this method. The sender computes a hash of the payload using a secret only both parties know.", "ar": "GitHub وStripe وShopify كلها تستخدم هذه الطريقة. يحسب المُرسِل hash للحمولة باستخدام سر يعرفه الطرفان فقط." },
+    "explanation": { "en": "HMAC (Hash-based Message Authentication Code) signature verification is the standard for webhook security. The sender computes HMAC-SHA256(payload, shared_secret) and sends it in a header. The receiver independently computes the same hash and compares — any tampering changes the hash.", "ar": "التحقق من توقيع HMAC هو المعيار لأمان webhook. يحسب المُرسِل HMAC-SHA256(payload, shared_secret) ويُرسله في ترويسة. يحسب المُستقبِل نفس الـ hash بشكل مستقل ويقارن — أي تلاعب يُغيّر الـ hash." },
+    "xp": 30,
+    "tags": ["webhooks", "security", "hmac", "authentication"]
+  },
+  {
+    "id": "rest-boss-1",
+    "trackId": "rest-api",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "A senior engineer reviews your API design and says: 'Your PATCH /users/{id}/status endpoint is not truly idempotent.' They are correct. What makes a PATCH endpoint non-idempotent, and how would you fix it?", "ar": "يراجع مهندس أول تصميم API الخاص بك ويقول: 'PATCH /users/{id}/status الخاص بك ليس idempotent حقاً.' إنه محق. ما الذي يجعل endpoint PATCH غير idempotent، وكيف ستُصلح ذلك؟" },
+    "options": [
+      { "id": "a", "text": { "en": "PATCH is inherently non-idempotent if the operation is relative (e.g., increment a counter); use absolute values to make it idempotent", "ar": "PATCH غير idempotent بطبيعته إذا كانت العملية نسبية (مثل زيادة عداد)؛ استخدم قيماً مطلقة لجعله idempotent" } },
+      { "id": "b", "text": { "en": "PATCH can never be idempotent; replace all PATCH endpoints with PUT", "ar": "PATCH لا يمكن أن يكون idempotent أبداً؛ استبدل جميع endpoints PATCH بـ PUT" } },
+      { "id": "c", "text": { "en": "Add a version field to all PATCH requests", "ar": "أضف حقل version لجميع طلبات PATCH" } },
+      { "id": "d", "text": { "en": "PATCH is always idempotent by the HTTP specification", "ar": "PATCH دائماً idempotent وفق مواصفات HTTP" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Consider PATCH {\"age\": 30} vs PATCH {\"age\": \"+1\"}. One is absolute, one is relative. Which is idempotent?", "ar": "فكّر في PATCH {\"age\": 30} مقابل PATCH {\"age\": \"+1\"}. أحدهما مطلق والآخر نسبي. أيهما idempotent؟" },
+    "explanation": { "en": "The HTTP spec says PATCH is NOT necessarily idempotent (unlike PUT). A PATCH that sets {\"status\": \"active\"} IS idempotent — sending it 10 times produces the same result. A PATCH that says {\"counter\": \"+1\"} is NOT idempotent — each call increments the value. To guarantee idempotency, always use absolute values in PATCH bodies or combine with If-Match.", "ar": "مواصفات HTTP تقول إن PATCH ليس بالضرورة idempotent (على عكس PUT). PATCH الذي يضبط {\"status\": \"active\"} هو idempotent — إرساله 10 مرات يُنتج نفس النتيجة. PATCH الذي يقول {\"counter\": \"+1\"} ليس idempotent — كل استدعاء يزيد القيمة. لضمان idempotency، استخدم دائماً قيماً مطلقة في أجسام PATCH أو اجمع مع If-Match." },
+    "xp": 50,
+    "tags": ["idempotent", "patch", "http-methods", "advanced-design"]
+  },
+  {
+    "id": "rest-boss-2",
+    "trackId": "rest-api",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "You are designing a high-traffic API (10k req/s). You need to implement caching. Describe the correct use of ETag vs Last-Modified and when to use private vs public Cache-Control.", "ar": "تصمم API عالي الحركة (10,000 طلب/ثانية). تحتاج إلى تطبيق caching. صِف الاستخدام الصحيح لـ ETag مقابل Last-Modified ومتى تستخدم private مقابل public في Cache-Control." },
+    "options": [
+      { "id": "a", "text": { "en": "ETag is content-based (hash), more precise; Last-Modified is time-based, less precise. Use public for shared CDN resources, private for user-specific data.", "ar": "ETag يعتمد على المحتوى (hash)، أكثر دقة؛ Last-Modified يعتمد على الوقت، أقل دقة. استخدم public للموارد المشتركة في CDN، وprivate للبيانات الخاصة بالمستخدم." } },
+      { "id": "b", "text": { "en": "ETag and Last-Modified are interchangeable; always use public for performance", "ar": "ETag وLast-Modified قابلان للتبادل؛ استخدم دائماً public للأداء" } },
+      { "id": "c", "text": { "en": "Use Last-Modified for all resources because it uses less CPU than computing a hash", "ar": "استخدم Last-Modified لجميع الموارد لأنه يستخدم وحدة معالجة مركزية أقل من حساب hash" } },
+      { "id": "d", "text": { "en": "Cache-Control: private means the response is encrypted", "ar": "Cache-Control: private يعني أن الاستجابة مُشفَّرة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Think about what happens when a file is saved without changes (Last-Modified updates but content doesn't). And who can cache user profile data?", "ar": "فكّر في ما يحدث عند حفظ ملف دون تغييرات (Last-Modified يتحدث لكن المحتوى لا يتغير). ومن يمكنه تخزين بيانات ملف المستخدم مؤقتاً؟" } ,
+    "explanation": { "en": "ETag uses a hash/fingerprint of the content — precise but requires computation. Last-Modified uses a timestamp — cheaper but can have false positives (file saved without changes). Cache-Control: public allows CDNs and shared caches to cache the response (safe for public, non-personalized content). Cache-Control: private means only the end-user's browser can cache it (required for user-specific responses like /me).", "ar": "ETag يستخدم hash/بصمة للمحتوى — دقيق لكن يتطلب حساباً. Last-Modified يستخدم timestamp — أرخص لكن يمكن أن يُعطي نتائج إيجابية كاذبة (ملف محفوظ دون تغييرات). Cache-Control: public يسمح لـ CDNs والذاكرات المشتركة بتخزين الاستجابة مؤقتاً (آمن للمحتوى العام غير المخصص). Cache-Control: private يعني أن متصفح المستخدم النهائي فقط يمكنه التخزين المؤقت (مطلوب للاستجابات الخاصة بالمستخدم مثل /me)." },
+    "xp": 50,
+    "tags": ["etag", "last-modified", "cache-control", "cdn", "performance", "caching"]
+  },
+  {
+    "id": "rest-boss-3",
+    "trackId": "rest-api",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": { "en": "A developer reports: 'Our DELETE /users/{id} is idempotent — I tested it and the second call returns 404, not 204. So it's fine.' What is wrong with this reasoning?", "ar": "يُفيد مطوّر: 'DELETE /users/{id} لدينا هو idempotent — اختبرته والاستدعاء الثاني يُعيد 404 وليس 204. إذن لا بأس.' ما الخطأ في هذا المنطق؟" },
+    "options": [
+      { "id": "a", "text": { "en": "The developer is correct; idempotent means same status code every time", "ar": "المطوّر محق؛ idempotent يعني نفس كود الحالة في كل مرة" } },
+      { "id": "b", "text": { "en": "Idempotent means same SERVER STATE outcome, not same response code. Both are valid but 404 on retry may break clients that check status codes", "ar": "Idempotent يعني نفس نتيجة حالة الخادم، وليس نفس كود الاستجابة. كلاهما صالح لكن 404 عند إعادة المحاولة قد يُعطّل عملاء يتحققون من أكواد الحالة" } },
+      { "id": "c", "text": { "en": "DELETE is never idempotent in HTTP", "ar": "DELETE ليس idempotent أبداً في HTTP" } },
+      { "id": "d", "text": { "en": "Should return 410 Gone instead of 404 to signal permanent deletion", "ar": "يجب إرجاع 410 Gone بدلاً من 404 للإشارة إلى الحذف الدائم" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "RFC 7231 defines idempotent in terms of server state, not response. The user resource is gone both times — that's idempotent state. But 404 on retry can confuse naive clients.", "ar": "RFC 7231 يُعرّف idempotent من حيث حالة الخادم، وليس الاستجابة. مورد المستخدم غائب في كلتا المرتين — هذه حالة idempotent. لكن 404 عند إعادة المحاولة قد يُربك العملاء البسيطين." },
+    "explanation": { "en": "Idempotency per RFC 7231 means the server state is the same regardless of how many times the request is made. Deleting an already-deleted resource doesn't change state — it's idempotent. However, returning 404 on retry CAN be a problem if clients treat 404 as 'the delete failed'. Some APIs return 204 on both calls (soft-checking existence) to improve client compatibility, though both approaches are used.", "ar": "Idempotency وفق RFC 7231 تعني أن حالة الخادم هي نفسها بغض النظر عن عدد مرات تقديم الطلب. حذف مورد محذوف بالفعل لا يُغيّر الحالة — إنه idempotent. لكن إرجاع 404 عند إعادة المحاولة قد يُشكّل مشكلة إذا اعتبر العملاء 404 'فشل الحذف'. بعض APIs تُعيد 204 في كلتا المرتين (فحص وجود ناعم) لتحسين توافق العميل، رغم استخدام كلا النهجَين." },
+    "xp": 50,
+    "tags": ["idempotent", "delete", "204", "404", "rfc-7231"]
+  },
+  {
+    "id": "rest-boss-4",
+    "trackId": "rest-api",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "You are building a public API that will have breaking changes in v2. Your API currently uses URI versioning (/v1/). A tech lead proposes switching to header-based versioning to be 'more RESTful'. Evaluate both approaches and choose the best answer.", "ar": "تبني API عاماً سيشهد تغييرات جذرية في v2. يستخدم API الخاص بك حالياً URI versioning (/v1/). يقترح قائد تقني التحول إلى header-based versioning لتكون 'أكثر توافقاً مع REST'. قيّم كلا النهجَين واختر أفضل إجابة." },
+    "options": [
+      { "id": "a", "text": { "en": "Header versioning is strictly better; always use it", "ar": "Header versioning أفضل تماماً؛ استخدمه دائماً" } },
+      { "id": "b", "text": { "en": "URI versioning is simpler to use, test, and route; header versioning is more RESTful but harder to use and cache. For a public API, URI versioning is pragmatically superior.", "ar": "URI versioning أبسط للاستخدام والاختبار والتوجيه؛ header versioning أكثر توافقاً مع REST لكن أصعب استخداماً وتخزيناً مؤقتاً. للـ API العام، URI versioning أفضل عملياً." } },
+      { "id": "c", "text": { "en": "Use query parameter versioning (?v=2) instead; it satisfies both camps", "ar": "استخدم query parameter versioning (?v=2) عوضاً عن ذلك؛ يُرضي كلا الفريقَين" } },
+      { "id": "d", "text": { "en": "Never version a REST API; use feature flags instead", "ar": "لا تضع إصداراً لـ REST API أبداً؛ استخدم feature flags عوضاً عن ذلك" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Consider: can you test header versioning by pasting a URL in a browser? Can a CDN cache a URL that varies by a custom header?", "ar": "فكّر: هل يمكنك اختبار header versioning بلصق URL في متصفح؟ هل يمكن لـ CDN تخزين URL يتغير حسب ترويسة مخصصة مؤقتاً؟" },
+    "explanation": { "en": "Header versioning (Accept: application/vnd.api+json;version=2) is theoretically more RESTful because the URI identifies a resource regardless of version. But URI versioning (/v2/users) wins for public APIs because: (1) it's testable in browsers, (2) CDNs cache by URL natively, (3) it's visible in logs, (4) it's easier for developers to use. Both are valid; the tradeoffs are practical, not dogmatic.", "ar": "Header versioning (Accept: application/vnd.api+json;version=2) أكثر توافقاً مع REST من الناحية النظرية لأن URI يُعرّف المورد بغض النظر عن الإصدار. لكن URI versioning (/v2/users) يفوز للـ APIs العامة لأن: (1) قابل للاختبار في المتصفحات، (2) CDNs تخزن عن طريق URL بشكل طبيعي، (3) مرئي في السجلات، (4) أسهل للمطورين. كلاهما صالح؛ المقايضات عملية وليست عقائدية." },
+    "xp": 50,
+    "tags": ["versioning", "uri-design", "pragmatic-rest", "caching"]
+  },
+  {
+    "id": "rest-boss-5",
+    "trackId": "rest-api",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "A client's request results in a 503 Service Unavailable. The response includes: Retry-After: 30 and Cache-Control: no-store. What does each header mean and what should the client do?", "ar": "يُؤدي طلب العميل إلى 503 Service Unavailable. تتضمن الاستجابة: Retry-After: 30 وCache-Control: no-store. ماذا تعني كل ترويسة وما الذي يجب على العميل فعله؟" },
+    "code": "HTTP/1.1 503 Service Unavailable\nRetry-After: 30\nCache-Control: no-store\nContent-Type: application/json\n\n{\"error\": \"Service temporarily unavailable\", \"code\": \"MAINTENANCE\"}",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "Retry-After: 30 means retry in 30 seconds; no-store means don't cache this error response. Client should wait 30s then retry.", "ar": "Retry-After: 30 يعني أعد المحاولة بعد 30 ثانية؛ no-store يعني لا تخزّن استجابة الخطأ هذه مؤقتاً. يجب على العميل الانتظار 30 ثانية ثم إعادة المحاولة." } },
+      { "id": "b", "text": { "en": "Retry-After is only valid for 429 responses, ignore it here", "ar": "Retry-After صالح فقط لاستجابات 429، تجاهله هنا" } },
+      { "id": "c", "text": { "en": "Cache-Control: no-store means retry immediately without caching", "ar": "Cache-Control: no-store يعني أعد المحاولة فوراً دون تخزين مؤقت" } },
+      { "id": "d", "text": { "en": "503 always means a permanent outage; stop retrying", "ar": "503 دائماً يعني انقطاعاً دائماً؛ توقف عن إعادة المحاولة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Retry-After works with both 429 and 503. Cache-Control on an error response prevents clients from serving a stale 'server is down' message from cache.", "ar": "Retry-After يعمل مع 429 و503. Cache-Control على استجابة خطأ يمنع العملاء من تقديم رسالة 'الخادم متوقف' قديمة من الذاكرة المؤقتة." },
+    "explanation": { "en": "503 means the service is temporarily unavailable (maintenance, overload). Retry-After: 30 tells clients to wait 30 seconds before retrying — this prevents thundering-herd on recovery. Cache-Control: no-store ensures no cache serves this error response to future requests as if the service is still down, which could persist even after recovery.", "ar": "503 تعني أن الخدمة غير متاحة مؤقتاً (صيانة، حمل زائد). Retry-After: 30 يُخبر العملاء بالانتظار 30 ثانية قبل إعادة المحاولة — يمنع هذا thundering-herd عند التعافي. Cache-Control: no-store يضمن أن لا ذاكرة مؤقتة تُقدّم استجابة الخطأ هذه للطلبات المستقبلية كأن الخدمة لا تزال متوقفة، مما قد يستمر حتى بعد التعافي." },
+    "xp": 50,
+    "tags": ["status-codes", "503", "retry-after", "cache-control", "reliability", "headers"]
+  }
+]
