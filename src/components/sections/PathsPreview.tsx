@@ -62,7 +62,10 @@ export function PathsPreview() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Link href="/tracks" className="group block h-full">
+              <Link
+                href={`/tracks/${path.category}`}
+                className="group block h-full"
+              >
                 {/* Gradient border wrapper */}
                 <div
                   className={`relative h-full rounded-3xl bg-gradient-to-br p-px transition-transform duration-300 group-hover:-translate-y-1 ${path.gradient}`}

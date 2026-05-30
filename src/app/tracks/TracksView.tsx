@@ -2,38 +2,24 @@
 
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TrackCard } from "@/components/features/TrackCard";
+import { CategoryCard } from "@/components/features/CategoryCard";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import { getTracksByCategory } from "@/data/tracks";
+import { CATEGORIES } from "@/data/categories";
 
-/** Full tracks catalog grouped by category (frontend / backend). */
+/** /tracks — overview that lets the player pick a category (Frontend/Backend). */
 export function TracksView() {
   const { t } = useLanguage();
-  const groups = [
-    { key: "frontend", label: t("common.frontend") },
-    { key: "backend", label: t("common.backend") },
-  ] as const;
 
   return (
-    <Container className="py-12">
+    <Container className="py-14">
       <SectionHeading
-        title={t("tracks.title")}
-        subtitle={t("tracks.subtitle")}
+        title={t("tracks.overviewTitle")}
+        subtitle={t("tracks.overviewSubtitle")}
       />
 
-      <div className="mt-14 space-y-14">
-        {groups.map((group) => (
-          <section key={group.key}>
-            <h2 className="mb-6 flex items-center gap-3 text-xl font-bold">
-              <span className="h-5 w-1 rounded-full bg-gradient-to-b from-primary to-accent" />
-              {group.label}
-            </h2>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {getTracksByCategory(group.key).map((track) => (
-                <TrackCard key={track.id} track={track} />
-              ))}
-            </div>
-          </section>
+      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        {CATEGORIES.map((category, i) => (
+          <CategoryCard key={category.id} category={category} index={i} />
         ))}
       </div>
     </Container>

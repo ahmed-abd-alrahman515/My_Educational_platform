@@ -5,7 +5,14 @@ const BASE_URL = "https://codequest.example";
 
 /** Generates sitemap entries for static pages and every track quiz route. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/tracks", "/dashboard", "/about"].map((path) => ({
+  const staticRoutes = [
+    "",
+    "/tracks",
+    "/tracks/frontend",
+    "/tracks/backend",
+    "/dashboard",
+    "/about",
+  ].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
