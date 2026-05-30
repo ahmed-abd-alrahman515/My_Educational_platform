@@ -54,8 +54,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#080810" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f8fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#060812" },
   ],
 };
 
@@ -66,7 +66,7 @@ export const viewport: Viewport = {
 const themeScript = `
 (function () {
   try {
-    var t = localStorage.getItem('codequest:theme') || 'system';
+    var t = localStorage.getItem('codequest:theme') || 'dark';
     var sys = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var dark = t === 'dark' || (t === 'system' && sys);
     document.documentElement.classList.toggle('dark', dark);
@@ -75,7 +75,9 @@ const themeScript = `
       document.documentElement.lang = 'ar';
       document.documentElement.dir = 'rtl';
     }
-  } catch (e) {}
+  } catch (e) {
+    document.documentElement.classList.add('dark');
+  }
 })();
 `;
 
@@ -85,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="en" dir="ltr" className="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

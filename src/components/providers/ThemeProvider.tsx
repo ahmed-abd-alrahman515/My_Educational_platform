@@ -21,6 +21,9 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const THEME_KEY = "codequest:theme";
 
+/** Dark is the platform default when the user hasn't chosen yet. */
+const DEFAULT_THEME: Theme = "dark";
+
 function getSystemTheme(): ResolvedTheme {
   if (typeof window === "undefined") return "dark";
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -38,13 +41,13 @@ function resolve(theme: Theme): ResolvedTheme {
  * first paint; this provider keeps React state in sync afterwards.
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system");
+  const [theme, setThemeState] = useState<Theme>(DEFAULT_THEME);
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("dark");
 
   // Hydrate from localStorage on mount.
   useEffect(() => {
     const stored = window.localStorage.getItem(THEME_KEY) as Theme | null;
-    const initial = stored ?? "system";
+    const initial = stored ?? DEFAULT_THEME;
     setThemeState(initial);
     setResolvedTheme(resolve(initial));
   }, []);
