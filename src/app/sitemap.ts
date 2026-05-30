@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tracks",
     "/tracks/frontend",
     "/tracks/backend",
+    "/profile",
     "/dashboard",
     "/about",
   ].map((path) => ({

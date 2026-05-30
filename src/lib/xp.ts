@@ -8,14 +8,14 @@ import type { LevelId, PlayerRank } from "@/types";
  * everything from here.
  */
 export const RANKS: PlayerRank[] = [
-  { level: 1, minXp: 0, title: { en: "Novice", ar: "مبتدئ" } },
-  { level: 2, minXp: 250, title: { en: "Apprentice", ar: "متدرّب" } },
-  { level: 3, minXp: 600, title: { en: "Coder", ar: "مبرمج" } },
-  { level: 4, minXp: 1200, title: { en: "Developer", ar: "مطوّر" } },
-  { level: 5, minXp: 2200, title: { en: "Engineer", ar: "مهندس" } },
-  { level: 6, minXp: 3800, title: { en: "Architect", ar: "معماري" } },
-  { level: 7, minXp: 6000, title: { en: "Wizard", ar: "ساحر" } },
-  { level: 8, minXp: 9000, title: { en: "Legend", ar: "أسطورة" } },
+  { level: 1, minXp: 0, title: { en: "Newbie Coder", ar: "مبرمج مبتدئ" } },
+  { level: 2, minXp: 300, title: { en: "Code Explorer", ar: "مستكشف الكود" } },
+  { level: 3, minXp: 800, title: { en: "Bug Hunter", ar: "صائد الأخطاء" } },
+  { level: 4, minXp: 1600, title: { en: "Logic Builder", ar: "باني المنطق" } },
+  { level: 5, minXp: 2800, title: { en: "Frontend Warrior", ar: "محارب الواجهة الأمامية" } },
+  { level: 6, minXp: 4400, title: { en: "Backend Warrior", ar: "محارب الواجهة الخلفية" } },
+  { level: 7, minXp: 6500, title: { en: "Full Stack Challenger", ar: "متحدّي الفول ستاك" } },
+  { level: 8, minXp: 9500, title: { en: "Code Master", ar: "سيّد الكود" } },
 ];
 
 /** XP multiplier per difficulty level. */

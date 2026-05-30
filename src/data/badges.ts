@@ -8,6 +8,7 @@ import { PASS_THRESHOLD } from "@/lib/constants";
  * against a UserProgress snapshot and returns the full set of unlocked ids.
  */
 export const BADGES: Badge[] = [
+  /* ----------------------- Milestone / progression ---------------------- */
   {
     id: "first-steps",
     tier: "bronze",
@@ -51,6 +52,85 @@ export const BADGES: Badge[] = [
     },
     icon: "Flame",
     condition: { kind: "streak-days", value: 7 },
+  },
+
+  /* ------------------------ Per-language starters ----------------------- */
+  {
+    id: "html-starter",
+    tier: "bronze",
+    title: { en: "HTML Starter", ar: "مبتدئ HTML" },
+    description: { en: "Pass an HTML level.", ar: "اجتَز مستوى HTML." },
+    icon: "FileCode2",
+    condition: { kind: "track-completed", trackId: "html" },
+  },
+  {
+    id: "css-stylist",
+    tier: "bronze",
+    title: { en: "CSS Stylist", ar: "منسّق CSS" },
+    description: { en: "Pass a CSS level.", ar: "اجتَز مستوى CSS." },
+    icon: "Palette",
+    condition: { kind: "track-completed", trackId: "css" },
+  },
+  {
+    id: "javascript-thinker",
+    tier: "silver",
+    title: { en: "JavaScript Thinker", ar: "مفكّر جافاسكريبت" },
+    description: { en: "Pass a JavaScript level.", ar: "اجتَز مستوى جافاسكريبت." },
+    icon: "Braces",
+    condition: { kind: "track-completed", trackId: "javascript" },
+  },
+  {
+    id: "react-builder",
+    tier: "silver",
+    title: { en: "React Builder", ar: "باني رياكت" },
+    description: { en: "Pass a React level.", ar: "اجتَز مستوى رياكت." },
+    icon: "Atom",
+    condition: { kind: "track-completed", trackId: "react" },
+  },
+  {
+    id: "next-architect",
+    tier: "gold",
+    title: { en: "Next Architect", ar: "معماري Next" },
+    description: { en: "Pass a Next.js level.", ar: "اجتَز مستوى Next.js." },
+    icon: "Triangle",
+    condition: { kind: "track-completed", trackId: "nextjs" },
+  },
+  {
+    id: "laravel-warrior",
+    tier: "gold",
+    title: { en: "Laravel Warrior", ar: "محارب لارافيل" },
+    description: { en: "Pass a Laravel level.", ar: "اجتَز مستوى لارافيل." },
+    icon: "Flame",
+    condition: { kind: "track-completed", trackId: "laravel" },
+  },
+  {
+    id: "sql-solver",
+    tier: "silver",
+    title: { en: "SQL Solver", ar: "حلّال SQL" },
+    description: { en: "Pass a SQL level.", ar: "اجتَز مستوى SQL." },
+    icon: "Database",
+    condition: { kind: "track-completed", trackId: "sql" },
+  },
+  {
+    id: "api-hunter",
+    tier: "gold",
+    title: { en: "API Hunter", ar: "صائد الواجهات البرمجية" },
+    description: { en: "Pass a REST API level.", ar: "اجتَز مستوى REST API." },
+    icon: "Webhook",
+    condition: { kind: "track-completed", trackId: "rest-api" },
+  },
+
+  /* ----------------------------- Prestige ------------------------------- */
+  {
+    id: "boss-slayer",
+    tier: "platinum",
+    title: { en: "Boss Slayer", ar: "قاهر الزعيم" },
+    description: {
+      en: "Defeat any Boss Challenge.",
+      ar: "اهزم أي تحدٍّ للزعيم.",
+    },
+    icon: "Swords",
+    condition: { kind: "boss-slayer" },
   },
   {
     id: "frontend-master",
@@ -105,6 +185,13 @@ function isCategoryCompleted(
   });
 }
 
+/** True once any track has cleared its Boss Challenge level. */
+function hasSlainBoss(progress: UserProgress): boolean {
+  return Object.values(progress.tracks).some((tp) =>
+    tp.completedLevels.includes("boss"),
+  );
+}
+
 /**
  * Evaluate which badges should be unlocked for the given progress. Pass in the
  * category→trackIds map (from the tracks data) so this module stays decoupled
@@ -139,6 +226,14 @@ export function evaluateBadges(
         met = !!tp && tp.bestScorePercent >= PASS_THRESHOLD;
         break;
       }
+      case "track-mastered": {
+        const tp = progress.tracks[c.trackId];
+        met = !!tp && tp.completedLevels.length >= 5;
+        break;
+      }
+      case "boss-slayer":
+        met = hasSlainBoss(progress);
+        break;
       case "category-completed":
         met = isCategoryCompleted(progress, trackIdsByCategory[c.category]);
         break;

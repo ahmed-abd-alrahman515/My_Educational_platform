@@ -113,7 +113,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Button>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/profile">
               <Button size="lg" variant="outline">
                 <LayoutGrid className="h-4 w-4" />
                 {t("home.hero.secondary")}

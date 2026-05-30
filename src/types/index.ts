@@ -195,6 +195,10 @@ export type BadgeCondition =
   | { kind: "perfect-quizzes"; value: number }
   | { kind: "streak-days"; value: number }
   | { kind: "track-completed"; trackId: TrackId }
+  // All of a track's levels passed (full mastery of one language).
+  | { kind: "track-mastered"; trackId: TrackId }
+  // Cleared the Boss Challenge of any track at least once.
+  | { kind: "boss-slayer" }
   | { kind: "category-completed"; category: TrackCategory };
 
 export interface Badge {

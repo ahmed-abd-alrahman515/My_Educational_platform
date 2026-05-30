@@ -15,7 +15,7 @@ import type { TranslationKey } from "@/i18n/translations";
 const NAV_LINKS: { href: string; key: TranslationKey }[] = [
   { href: "/", key: "nav.home" },
   { href: "/tracks", key: "nav.tracks" },
-  { href: "/dashboard", key: "nav.dashboard" },
+  { href: "/profile", key: "nav.profile" },
   { href: "/about", key: "nav.about" },
 ];
 
