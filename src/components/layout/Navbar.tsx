@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Gamepad2 } from "lucide-react";
 import { Container } from "./Container";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -24,6 +25,11 @@ export function Navbar() {
   const pathname = usePathname();
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/70 glass">
@@ -88,33 +94,53 @@ export function Navbar() {
       </Container>
 
       {/* Mobile menu */}
-      {open && (
-        <nav
-          id="mobile-menu"
-          aria-label="Mobile"
-          className="border-t border-line md:hidden"
-        >
-          <Container className="flex flex-col gap-1 py-3">
-            {NAV_LINKS.map((link) => {
-              const active =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:bg-surface-2 hover:text-foreground"
-                >
-                  {t(link.key)}
-                </Link>
-              );
-            })}
-          </Container>
-        </nav>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="overflow-hidden border-t border-line md:hidden"
+          >
+            <Container className="flex flex-col gap-1 py-3">
+              {NAV_LINKS.map((link) => {
+                const active =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                      active
+                        ? "bg-surface-2 text-foreground"
+                        : "text-muted hover:bg-surface-2 hover:text-foreground",
+                    )}
+                  >
+                    {t(link.key)}
+                  </Link>
+                );
+              })}
+              <Link
+                href="/tracks"
+                onClick={() => setOpen(false)}
+                className="mt-2 sm:hidden"
+              >
+                <Button size="sm" className="w-full">
+                  {t("nav.startLearning")}
+                </Button>
+              </Link>
+            </Container>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

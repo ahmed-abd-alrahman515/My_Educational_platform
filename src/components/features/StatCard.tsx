@@ -11,9 +11,12 @@ interface StatCardProps {
 /** Compact metric tile used on the dashboard and stats strip. */
 export function StatCard({ icon, label, value, accent }: StatCardProps) {
   return (
-    <Card glass className="flex items-center gap-4 p-5">
+    <Card
+      glass
+      className="group flex items-center gap-4 p-5 transition-colors hover:border-primary/30"
+    >
       <span
-        className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary"
+        className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110"
         style={accent ? { color: accent, backgroundColor: `${accent}1a` } : undefined}
       >
         <Icon name={icon} className="h-5 w-5" />

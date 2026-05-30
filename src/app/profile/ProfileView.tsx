@@ -19,6 +19,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Container } from "@/components/layout/Container";
+import { Spinner } from "@/components/ui/Spinner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card, CardBody, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -54,9 +55,9 @@ export function ProfileView() {
 
   if (!hydrated) {
     return (
-      <Container className="py-20">
+      <Container className="py-24">
         <div className="flex justify-center">
-          <div className="h-10 w-10 animate-spin rounded-full border-2 border-line border-t-primary" />
+          <Spinner size={44} />
         </div>
       </Container>
     );

@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import type { Level, LevelResult, Question, Track } from "@/types";
 import type { CategoryMeta } from "@/data/categories";
 import { Container } from "@/components/layout/Container";
+import { Spinner } from "@/components/ui/Spinner";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -85,8 +86,8 @@ export function QuizEngine({ track, level, category }: QuizEngineProps) {
   if (!hydrated) {
     return (
       <Container className="py-12">
-        <div className="mx-auto flex max-w-2xl items-center justify-center py-20">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-primary" />
+        <div className="mx-auto flex max-w-2xl items-center justify-center py-24">
+          <Spinner size={40} />
         </div>
       </Container>
     );
@@ -97,15 +98,18 @@ export function QuizEngine({ track, level, category }: QuizEngineProps) {
     return (
       <Container className="py-12">
         <div className="mx-auto max-w-2xl">
-          <Card glass className="p-10 text-center">
-            <p className="text-muted">{t("quiz.empty")}</p>
-            <Link href={`/quiz/${category.slug}/${track.id}`}>
-              <Button variant="outline" className="mt-6">
-                <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
-                {t("complete.backToRoadmap")}
-              </Button>
-            </Link>
-          </Card>
+          <EmptyState
+            icon={PackageOpen}
+            title={t("quiz.empty")}
+            action={
+              <Link href={`/quiz/${category.slug}/${track.id}`}>
+                <Button variant="outline">
+                  <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
+                  {t("complete.backToRoadmap")}
+                </Button>
+              </Link>
+            }
+          />
         </div>
       </Container>
     );

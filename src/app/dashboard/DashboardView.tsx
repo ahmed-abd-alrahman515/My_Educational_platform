@@ -2,6 +2,7 @@
 
 import { Zap, Trophy, Flame, Award, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/layout/Container";
+import { Spinner } from "@/components/ui/Spinner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card, CardBody, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -23,8 +24,10 @@ export function DashboardView() {
 
   if (!hydrated) {
     return (
-      <Container className="py-12">
-        <p className="text-center text-muted">{t("common.loading")}</p>
+      <Container className="py-24">
+        <div className="flex justify-center">
+          <Spinner size={44} />
+        </div>
       </Container>
     );
   }

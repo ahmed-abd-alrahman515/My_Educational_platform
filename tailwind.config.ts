@@ -39,6 +39,9 @@ const config: Config = {
         arabic: ["var(--font-arabic)", "var(--font-sans)", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
+      spacing: {
+        "13": "3.25rem",
+      },
       borderRadius: {
         xl: "1rem",
         "2xl": "1.25rem",
@@ -48,7 +51,9 @@ const config: Config = {
         glow: "0 0 0 1px rgb(var(--primary) / 0.2), 0 0 40px -8px rgb(var(--primary) / 0.45)",
         "glow-accent":
           "0 0 0 1px rgb(var(--accent) / 0.2), 0 0 40px -8px rgb(var(--accent) / 0.45)",
+        "glow-sm": "0 0 24px -10px rgb(var(--primary) / 0.4)",
         card: "0 1px 2px rgb(0 0 0 / 0.06), 0 8px 30px -12px rgb(0 0 0 / 0.25)",
+        "card-hover": "0 2px 4px rgb(0 0 0 / 0.08), 0 16px 48px -16px rgb(0 0 0 / 0.35)",
       },
       backgroundImage: {
         "grid-pattern":
@@ -72,12 +77,22 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.96)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.5s ease-out both",
-        shimmer: "shimmer 2s infinite",
+        shimmer: "shimmer 1.8s infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
+        "scale-in": "scale-in 0.35s ease-out both",
+        "slide-up": "slide-up 0.5s ease-out both",
       },
     },
   },

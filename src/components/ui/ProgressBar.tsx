@@ -27,11 +27,14 @@ export function ProgressBar({
       className={`h-2 w-full overflow-hidden rounded-full bg-surface-2 ${className ?? ""}`}
     >
       <motion.div
-        className={`h-full rounded-full ${fillClassName}`}
+        className={`relative h-full rounded-full ${fillClassName}`}
         initial={{ width: 0 }}
         animate={{ width: `${pct}%` }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      />
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* subtle top sheen for depth */}
+        <span className="absolute inset-x-0 top-0 h-1/2 rounded-full bg-white/20" />
+      </motion.div>
     </div>
   );
 }
