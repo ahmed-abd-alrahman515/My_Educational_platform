@@ -1,0 +1,97 @@
+[
+  {
+    "id": "js-b-1",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which keyword declares a block-scoped variable that cannot be reassigned?",
+      "ar": "أي كلمة مفتاحية تعلن متغيرًا ذا نطاق كتلي لا يمكن إعادة تعيينه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "var", "ar": "var" } },
+      { "id": "b", "text": { "en": "let", "ar": "let" } },
+      { "id": "c", "text": { "en": "const", "ar": "const" } },
+      { "id": "d", "text": { "en": "static", "ar": "static" } }
+    ],
+    "correctOptionId": "c",
+    "explanation": {
+      "en": "const declares a block-scoped binding that cannot be reassigned (though objects it points to may still mutate).",
+      "ar": "تعلن const ارتباطًا ذا نطاق كتلي لا يمكن إعادة تعيينه (مع إمكانية تغيّر الكائنات التي يشير إليها)."
+    },
+    "xp": 10,
+    "tags": ["variables"]
+  },
+  {
+    "id": "js-b-2",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is printed to the console?",
+      "ar": "ما الذي سيُطبع في وحدة التحكم؟"
+    },
+    "code": "console.log(typeof []);",
+    "options": [
+      { "id": "a", "text": { "en": "\"array\"", "ar": "\"array\"" } },
+      { "id": "b", "text": { "en": "\"object\"", "ar": "\"object\"" } },
+      { "id": "c", "text": { "en": "\"list\"", "ar": "\"list\"" } },
+      { "id": "d", "text": { "en": "\"undefined\"", "ar": "\"undefined\"" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "Arrays are objects in JavaScript, so typeof [] returns \"object\". Use Array.isArray() to detect arrays.",
+      "ar": "المصفوفات كائنات في جافاسكريبت، لذا يُرجع typeof [] القيمة \"object\". استخدم Array.isArray() للكشف عن المصفوفات."
+    },
+    "xp": 10,
+    "tags": ["types"]
+  },
+  {
+    "id": "js-i-1",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this snippet log?",
+      "ar": "ماذا يطبع هذا المقطع؟"
+    },
+    "code": "const a = [1, 2, 3];\nconst b = a.map(x => x * 2);\nconsole.log(b);",
+    "options": [
+      { "id": "a", "text": { "en": "[1, 2, 3]", "ar": "[1, 2, 3]" } },
+      { "id": "b", "text": { "en": "[2, 4, 6]", "ar": "[2, 4, 6]" } },
+      { "id": "c", "text": { "en": "[1, 4, 9]", "ar": "[1, 4, 9]" } },
+      { "id": "d", "text": { "en": "undefined", "ar": "undefined" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "map() returns a new array with each element transformed; here each value is doubled.",
+      "ar": "تُرجع map() مصفوفة جديدة بكل عنصر محوّل؛ هنا تُضاعَف كل قيمة."
+    },
+    "xp": 15,
+    "tags": ["arrays"]
+  },
+  {
+    "id": "js-a-1",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is logged, considering the event loop?",
+      "ar": "ما الذي سيُطبع، مع مراعاة حلقة الأحداث؟"
+    },
+    "code": "console.log(1);\nsetTimeout(() => console.log(2), 0);\nPromise.resolve().then(() => console.log(3));\nconsole.log(4);",
+    "options": [
+      { "id": "a", "text": { "en": "1 4 3 2", "ar": "1 4 3 2" } },
+      { "id": "b", "text": { "en": "1 2 3 4", "ar": "1 2 3 4" } },
+      { "id": "c", "text": { "en": "1 4 2 3", "ar": "1 4 2 3" } },
+      { "id": "d", "text": { "en": "1 3 4 2", "ar": "1 3 4 2" } }
+    ],
+    "correctOptionId": "a",
+    "explanation": {
+      "en": "Sync code runs first (1, 4). Microtasks (Promise) run before macrotasks (setTimeout), so 3 then 2.",
+      "ar": "يُنفّذ الكود المتزامن أولاً (1، 4). تُنفّذ المهام الدقيقة (الوعود) قبل المهام الكبيرة (setTimeout)، فتظهر 3 ثم 2."
+    },
+    "xp": 25,
+    "tags": ["event-loop", "async"]
+  }
+]

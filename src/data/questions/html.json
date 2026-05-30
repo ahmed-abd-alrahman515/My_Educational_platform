@@ -1,0 +1,92 @@
+[
+  {
+    "id": "html-b-1",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does HTML stand for?",
+      "ar": "ماذا تعني اختصار HTML؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "HyperText Markup Language", "ar": "لغة ترميز النص التشعّبي" } },
+      { "id": "b", "text": { "en": "HighText Machine Language", "ar": "لغة الآلة عالية النص" } },
+      { "id": "c", "text": { "en": "Hyperloop Markup Language", "ar": "لغة ترميز هايبرلوب" } },
+      { "id": "d", "text": { "en": "Home Tool Markup Language", "ar": "لغة ترميز أدوات المنزل" } }
+    ],
+    "correctOptionId": "a",
+    "explanation": {
+      "en": "HTML stands for HyperText Markup Language, the standard markup language for documents in a browser.",
+      "ar": "HTML تعني لغة ترميز النص التشعّبي، وهي لغة الترميز القياسية للمستندات في المتصفح."
+    },
+    "xp": 10,
+    "tags": ["basics"]
+  },
+  {
+    "id": "html-b-2",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which tag creates the largest heading?",
+      "ar": "أي وسم ينشئ أكبر عنوان؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<h6>", "ar": "<h6>" } },
+      { "id": "b", "text": { "en": "<heading>", "ar": "<heading>" } },
+      { "id": "c", "text": { "en": "<h1>", "ar": "<h1>" } },
+      { "id": "d", "text": { "en": "<head>", "ar": "<head>" } }
+    ],
+    "correctOptionId": "c",
+    "explanation": {
+      "en": "<h1> is the highest-level (largest) heading; headings go from <h1> down to <h6>.",
+      "ar": "الوسم <h1> هو أعلى مستوى (الأكبر)؛ تتدرّج العناوين من <h1> إلى <h6>."
+    },
+    "xp": 10,
+    "tags": ["text"]
+  },
+  {
+    "id": "html-i-1",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "The <article> element is a semantic element.",
+      "ar": "العنصر <article> هو عنصر دلالي."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "explanation": {
+      "en": "<article> is semantic — it describes self-contained, independently distributable content.",
+      "ar": "العنصر <article> دلالي — فهو يصف محتوى مستقلاً قابلاً للتوزيع بذاته."
+    },
+    "xp": 15,
+    "tags": ["semantics"]
+  },
+  {
+    "id": "html-a-1",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which attribute improves image accessibility for screen readers?",
+      "ar": "أي خاصية تحسّن إتاحة الصور لقارئات الشاشة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "title", "ar": "title" } },
+      { "id": "b", "text": { "en": "alt", "ar": "alt" } },
+      { "id": "c", "text": { "en": "src", "ar": "src" } },
+      { "id": "d", "text": { "en": "longdesc", "ar": "longdesc" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "The alt attribute provides alternative text describing the image for assistive technologies.",
+      "ar": "خاصية alt توفّر نصًا بديلاً يصف الصورة للتقنيات المساعدة."
+    },
+    "xp": 20,
+    "tags": ["accessibility"]
+  }
+]

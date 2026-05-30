@@ -1,0 +1,71 @@
+[
+  {
+    "id": "css-b-1",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which property changes the text color?",
+      "ar": "أي خاصية تغيّر لون النص؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "font-color", "ar": "font-color" } },
+      { "id": "b", "text": { "en": "color", "ar": "color" } },
+      { "id": "c", "text": { "en": "text-style", "ar": "text-style" } },
+      { "id": "d", "text": { "en": "foreground", "ar": "foreground" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "The `color` property sets the foreground (text) color of an element.",
+      "ar": "تحدّد الخاصية `color` لون المقدّمة (النص) للعنصر."
+    },
+    "xp": 10,
+    "tags": ["basics"]
+  },
+  {
+    "id": "css-i-1",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which display value enables a one-dimensional flexible layout?",
+      "ar": "أي قيمة لـ display تفعّل تخطيطًا مرنًا أحادي البعد؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "grid", "ar": "grid" } },
+      { "id": "b", "text": { "en": "block", "ar": "block" } },
+      { "id": "c", "text": { "en": "flex", "ar": "flex" } },
+      { "id": "d", "text": { "en": "inline", "ar": "inline" } }
+    ],
+    "correctOptionId": "c",
+    "explanation": {
+      "en": "`display: flex` creates a flex container for one-dimensional layouts (row or column).",
+      "ar": "تنشئ `display: flex` حاوية مرنة للتخطيطات أحادية البعد (صف أو عمود)."
+    },
+    "xp": 15,
+    "tags": ["layout", "flexbox"]
+  },
+  {
+    "id": "css-a-1",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the specificity of the selector `#nav .item a`?",
+      "ar": "ما هي خصوصية المحدّد `#nav .item a`؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "0,1,1,1", "ar": "0,1,1,1" } },
+      { "id": "b", "text": { "en": "1,1,1,0", "ar": "1,1,1,0" } },
+      { "id": "c", "text": { "en": "0,1,0,2", "ar": "0,1,0,2" } },
+      { "id": "d", "text": { "en": "1,0,1,1", "ar": "1,0,1,1" } }
+    ],
+    "correctOptionId": "a",
+    "explanation": {
+      "en": "One id (#nav), one class (.item), one element (a) → specificity 0,1,1,1.",
+      "ar": "معرّف واحد (#nav) وصنف واحد (.item) وعنصر واحد (a) ← الخصوصية 0,1,1,1."
+    },
+    "xp": 25,
+    "tags": ["specificity"]
+  }
+]

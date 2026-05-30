@@ -1,0 +1,71 @@
+[
+  {
+    "id": "react-b-1",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which hook lets a function component hold local state?",
+      "ar": "أي خطّاف يتيح لمكوّن دالي الاحتفاظ بحالة محلية؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "useEffect", "ar": "useEffect" } },
+      { "id": "b", "text": { "en": "useState", "ar": "useState" } },
+      { "id": "c", "text": { "en": "useRef", "ar": "useRef" } },
+      { "id": "d", "text": { "en": "useMemo", "ar": "useMemo" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "useState returns a stateful value and a setter to update it, triggering a re-render.",
+      "ar": "يُرجع useState قيمة ذات حالة ودالة لتحديثها، ما يؤدي إلى إعادة العرض."
+    },
+    "xp": 10,
+    "tags": ["hooks"]
+  },
+  {
+    "id": "react-i-1",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "When does useEffect run if its dependency array is empty?",
+      "ar": "متى يُنفّذ useEffect إذا كانت مصفوفة الاعتماديات فارغة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "After every render", "ar": "بعد كل عرض" } },
+      { "id": "b", "text": { "en": "Only once, after the first render", "ar": "مرة واحدة فقط، بعد أول عرض" } },
+      { "id": "c", "text": { "en": "Never", "ar": "أبدًا" } },
+      { "id": "d", "text": { "en": "Before every render", "ar": "قبل كل عرض" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "An empty dependency array means the effect runs once after the initial mount.",
+      "ar": "تعني مصفوفة الاعتماديات الفارغة أن التأثير يُنفّذ مرة واحدة بعد التركيب الأولي."
+    },
+    "xp": 15,
+    "tags": ["hooks", "effects"]
+  },
+  {
+    "id": "react-a-1",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which hook memoizes a callback to keep its reference stable?",
+      "ar": "أي خطّاف يحفظ دالة رد نداء للحفاظ على ثبات مرجعها؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "useMemo", "ar": "useMemo" } },
+      { "id": "b", "text": { "en": "useCallback", "ar": "useCallback" } },
+      { "id": "c", "text": { "en": "useReducer", "ar": "useReducer" } },
+      { "id": "d", "text": { "en": "useContext", "ar": "useContext" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "useCallback returns a memoized callback that only changes when its dependencies change.",
+      "ar": "يُرجع useCallback دالة محفوظة لا تتغيّر إلا عند تغيّر اعتمادياتها."
+    },
+    "xp": 25,
+    "tags": ["hooks", "performance"]
+  }
+]

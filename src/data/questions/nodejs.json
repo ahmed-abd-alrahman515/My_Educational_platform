@@ -1,0 +1,71 @@
+[
+  {
+    "id": "node-b-1",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What runtime does Node.js use to execute JavaScript?",
+      "ar": "ما البيئة التي يستخدمها Node.js لتنفيذ جافاسكريبت؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "SpiderMonkey", "ar": "SpiderMonkey" } },
+      { "id": "b", "text": { "en": "V8", "ar": "V8" } },
+      { "id": "c", "text": { "en": "Chakra", "ar": "Chakra" } },
+      { "id": "d", "text": { "en": "JavaScriptCore", "ar": "JavaScriptCore" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "Node.js is built on Chrome's V8 JavaScript engine.",
+      "ar": "بُني Node.js على محرّك جافاسكريبت V8 الخاص بكروم."
+    },
+    "xp": 10,
+    "tags": ["runtime"]
+  },
+  {
+    "id": "node-i-1",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which core module is used to work with file paths?",
+      "ar": "أي وحدة أساسية تُستخدم للتعامل مع مسارات الملفات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "fs", "ar": "fs" } },
+      { "id": "b", "text": { "en": "path", "ar": "path" } },
+      { "id": "c", "text": { "en": "os", "ar": "os" } },
+      { "id": "d", "text": { "en": "url", "ar": "url" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "The `path` module provides utilities for working with file and directory paths.",
+      "ar": "توفّر وحدة `path` أدوات للتعامل مع مسارات الملفات والمجلدات."
+    },
+    "xp": 15,
+    "tags": ["modules"]
+  },
+  {
+    "id": "node-a-1",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which API offloads CPU-intensive work to separate threads?",
+      "ar": "أي واجهة تنقل العمل المكثّف للمعالج إلى خيوط منفصلة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "cluster", "ar": "cluster" } },
+      { "id": "b", "text": { "en": "worker_threads", "ar": "worker_threads" } },
+      { "id": "c", "text": { "en": "child_process", "ar": "child_process" } },
+      { "id": "d", "text": { "en": "async_hooks", "ar": "async_hooks" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "worker_threads runs JavaScript in parallel threads, ideal for CPU-bound tasks while keeping the event loop free.",
+      "ar": "تشغّل worker_threads جافاسكريبت في خيوط متوازية، مثالية للمهام المكثّفة للمعالج مع إبقاء حلقة الأحداث متاحة."
+    },
+    "xp": 25,
+    "tags": ["concurrency"]
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "id": "sql-b-1",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which statement retrieves data from a table?",
+      "ar": "أي عبارة تسترجع البيانات من جدول؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "GET", "ar": "GET" } },
+      { "id": "b", "text": { "en": "SELECT", "ar": "SELECT" } },
+      { "id": "c", "text": { "en": "FETCH", "ar": "FETCH" } },
+      { "id": "d", "text": { "en": "OPEN", "ar": "OPEN" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "SELECT is the SQL statement used to query and retrieve rows from one or more tables.",
+      "ar": "SELECT هي عبارة SQL المستخدمة للاستعلام واسترجاع الصفوف من جدول أو أكثر."
+    },
+    "xp": 10,
+    "tags": ["queries"]
+  },
+  {
+    "id": "sql-i-1",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which JOIN returns only rows with matches in both tables?",
+      "ar": "أي JOIN يُرجع فقط الصفوف المتطابقة في كلا الجدولين؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "LEFT JOIN", "ar": "LEFT JOIN" } },
+      { "id": "b", "text": { "en": "RIGHT JOIN", "ar": "RIGHT JOIN" } },
+      { "id": "c", "text": { "en": "INNER JOIN", "ar": "INNER JOIN" } },
+      { "id": "d", "text": { "en": "FULL OUTER JOIN", "ar": "FULL OUTER JOIN" } }
+    ],
+    "correctOptionId": "c",
+    "explanation": {
+      "en": "INNER JOIN returns rows only where the join condition matches in both tables.",
+      "ar": "يُرجع INNER JOIN الصفوف فقط عند تطابق شرط الربط في كلا الجدولين."
+    },
+    "xp": 15,
+    "tags": ["joins"]
+  },
+  {
+    "id": "sql-a-1",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which clause filters groups created by GROUP BY?",
+      "ar": "أي عبارة تُصفّي المجموعات الناتجة عن GROUP BY؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "WHERE", "ar": "WHERE" } },
+      { "id": "b", "text": { "en": "HAVING", "ar": "HAVING" } },
+      { "id": "c", "text": { "en": "FILTER", "ar": "FILTER" } },
+      { "id": "d", "text": { "en": "ON", "ar": "ON" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "HAVING filters aggregated groups, whereas WHERE filters individual rows before grouping.",
+      "ar": "تُصفّي HAVING المجموعات المجمّعة، بينما تُصفّي WHERE الصفوف الفردية قبل التجميع."
+    },
+    "xp": 25,
+    "tags": ["aggregation"]
+  }
+]
