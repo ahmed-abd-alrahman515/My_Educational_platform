@@ -1,16 +1,25 @@
 import { Hero } from "@/components/sections/Hero";
 import { StatsStrip } from "@/components/sections/StatsStrip";
+import { PathsPreview } from "@/components/sections/PathsPreview";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Features } from "@/components/sections/Features";
-import { TracksShowcase } from "@/components/sections/TracksShowcase";
+import { FeaturedLanguages } from "@/components/sections/FeaturedLanguages";
+import { CallToAction } from "@/components/sections/CallToAction";
 
-/** Landing page: hero → stats → tracks preview → features. */
+/**
+ * Landing page composition:
+ * hero → stats → paths → how it works → features → languages → CTA.
+ */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <StatsStrip />
-      <TracksShowcase />
+      <PathsPreview />
+      <HowItWorks />
       <Features />
+      <FeaturedLanguages />
+      <CallToAction />
     </>
   );
 }

@@ -42,7 +42,44 @@ export const translations = {
     "home.stats.tracks": "Tracks",
     "home.stats.questions": "Questions",
     "home.stats.levels": "Levels",
+    "home.stats.languages": "Languages",
+    "home.stats.xp": "XP to earn",
+    "home.stats.title": "Trusted by curious developers",
+    "home.stats.subtitle": "A growing universe of challenges across the stack.",
     "home.features.title": "Built like a game, designed for learning",
+
+    "home.paths.title": "Two paths, one journey",
+    "home.paths.subtitle": "Specialize in the browser or own the server.",
+    "home.paths.frontend.title": "Frontend Track",
+    "home.paths.frontend.desc":
+      "Craft beautiful, interactive interfaces. Master markup, styling, and the modern component era.",
+    "home.paths.backend.title": "Backend Track",
+    "home.paths.backend.desc":
+      "Power the web behind the scenes. Build APIs, model data, and secure your apps.",
+    "home.paths.explore": "Explore track",
+    "home.paths.skills": "skills",
+
+    "home.how.title": "How it works",
+    "home.how.subtitle": "From zero to hero in five simple steps.",
+    "home.how.step1.title": "Choose a track",
+    "home.how.step1.desc": "Pick from 13 frontend & backend skills.",
+    "home.how.step2.title": "Pick your language",
+    "home.how.step2.desc": "Switch instantly between Arabic and English.",
+    "home.how.step3.title": "Unlock levels",
+    "home.how.step3.desc": "Progress through beginner to advanced.",
+    "home.how.step4.title": "Answer questions",
+    "home.how.step4.desc": "Test yourself with real, practical challenges.",
+    "home.how.step5.title": "Earn XP & badges",
+    "home.how.step5.desc": "Level up your rank and collect achievements.",
+
+    "home.languages.title": "Featured languages & frameworks",
+    "home.languages.subtitle": "The technologies that run the modern web.",
+
+    "home.cta.title": "Ready to start your quest?",
+    "home.cta.subtitle":
+      "No sign-up. No cost. Just pick a track and start leveling up.",
+    "home.cta.button": "Begin now",
+
     "home.tracks.title": "Choose your track",
     "home.tracks.subtitle": "Two paths. Thirteen skills. Infinite levels.",
 
@@ -77,6 +114,9 @@ export const translations = {
 
     "footer.rights": "All rights reserved.",
     "footer.builtWith": "Built with Next.js, Tailwind & Framer Motion.",
+    "footer.connect": "Connect",
+    "footer.explore": "Explore",
+    "footer.madeWith": "Designed & built with passion for learners everywhere.",
   },
 
   ar: {
@@ -113,7 +153,44 @@ export const translations = {
     "home.stats.tracks": "مسارات",
     "home.stats.questions": "أسئلة",
     "home.stats.levels": "مستويات",
+    "home.stats.languages": "لغات",
+    "home.stats.xp": "نقاط خبرة للكسب",
+    "home.stats.title": "موثوق من المطوّرين الفضوليين",
+    "home.stats.subtitle": "عالم متنامٍ من التحديات عبر كامل المنظومة.",
     "home.features.title": "بُنيت كلعبة، صُممت للتعلم",
+
+    "home.paths.title": "مساران، رحلة واحدة",
+    "home.paths.subtitle": "تخصّص في المتصفّح أو تملّك الخادم.",
+    "home.paths.frontend.title": "مسار الواجهة الأمامية",
+    "home.paths.frontend.desc":
+      "اصنع واجهات جميلة وتفاعلية. أتقن الترميز والتنسيق وعصر المكوّنات الحديث.",
+    "home.paths.backend.title": "مسار الواجهة الخلفية",
+    "home.paths.backend.desc":
+      "شغّل الويب من خلف الكواليس. ابنِ الواجهات البرمجية، ونمذِج البيانات، وأمّن تطبيقاتك.",
+    "home.paths.explore": "استكشف المسار",
+    "home.paths.skills": "مهارات",
+
+    "home.how.title": "كيف يعمل",
+    "home.how.subtitle": "من الصفر إلى الاحتراف في خمس خطوات بسيطة.",
+    "home.how.step1.title": "اختر مسارًا",
+    "home.how.step1.desc": "اختر من 13 مهارة في الواجهتين الأمامية والخلفية.",
+    "home.how.step2.title": "اختر لغتك",
+    "home.how.step2.desc": "بدّل فورًا بين العربية والإنجليزية.",
+    "home.how.step3.title": "افتح المستويات",
+    "home.how.step3.desc": "تقدّم من المبتدئ إلى المتقدّم.",
+    "home.how.step4.title": "أجب عن الأسئلة",
+    "home.how.step4.desc": "اختبر نفسك بتحديات عملية حقيقية.",
+    "home.how.step5.title": "اكسب الخبرة والأوسمة",
+    "home.how.step5.desc": "ارفع مرتبتك واجمع الإنجازات.",
+
+    "home.languages.title": "لغات وأطر مميّزة",
+    "home.languages.subtitle": "التقنيات التي تشغّل الويب الحديث.",
+
+    "home.cta.title": "هل أنت مستعد لبدء مهمتك؟",
+    "home.cta.subtitle":
+      "بلا تسجيل. بلا تكلفة. فقط اختر مسارًا وابدأ التطوّر.",
+    "home.cta.button": "ابدأ الآن",
+
     "home.tracks.title": "اختر مسارك",
     "home.tracks.subtitle": "مساران. ثلاث عشرة مهارة. مستويات لا نهائية.",
 
@@ -148,6 +225,9 @@ export const translations = {
 
     "footer.rights": "جميع الحقوق محفوظة.",
     "footer.builtWith": "بُني باستخدام Next.js و Tailwind و Framer Motion.",
+    "footer.connect": "تواصل",
+    "footer.explore": "استكشف",
+    "footer.madeWith": "صُمّم وبُني بشغف للمتعلّمين في كل مكان.",
   },
 } as const;
 
