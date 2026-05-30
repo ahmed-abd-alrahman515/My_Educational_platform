@@ -4,68 +4,743 @@
     "trackId": "react",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": {
-      "en": "Which hook lets a function component hold local state?",
-      "ar": "أي خطّاف يتيح لمكوّن دالي الاحتفاظ بحالة محلية؟"
-    },
+    "prompt": { "en": "What is the correct way to render a list of items in React?", "ar": "ما هي الطريقة الصحيحة لعرض قائمة من العناصر في React؟" },
+    "code": "const items = ['Apple', 'Banana', 'Cherry'];\n\nfunction List() {\n  return (\n    <ul>\n      {items.map((item) => (\n        <li key={item}>{item}</li>\n      ))}\n    </ul>\n  );\n}",
+    "codeLang": "jsx",
     "options": [
-      { "id": "a", "text": { "en": "useEffect", "ar": "useEffect" } },
-      { "id": "b", "text": { "en": "useState", "ar": "useState" } },
-      { "id": "c", "text": { "en": "useRef", "ar": "useRef" } },
-      { "id": "d", "text": { "en": "useMemo", "ar": "useMemo" } }
+      { "id": "a", "text": { "en": "Use .map() with a unique key prop on each element", "ar": "استخدام .map() مع خاصية key فريدة على كل عنصر" } },
+      { "id": "b", "text": { "en": "Use a for loop inside JSX", "ar": "استخدام حلقة for داخل JSX" } },
+      { "id": "c", "text": { "en": "Use .forEach() to push elements into an array", "ar": "استخدام .forEach() لإضافة العناصر إلى مصفوفة" } },
+      { "id": "d", "text": { "en": "Use .map() without any key prop", "ar": "استخدام .map() بدون خاصية key" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React needs a way to identify each list item uniquely for efficient re-rendering.", "ar": "يحتاج React إلى طريقة لتحديد كل عنصر في القائمة بشكل فريد لإعادة الرسم بكفاءة." },
+    "explanation": { "en": ".map() returns a new array of JSX elements. Each element must have a unique key prop so React can track changes efficiently during reconciliation.", "ar": "تُعيد .map() مصفوفة جديدة من عناصر JSX. يجب أن يحتوي كل عنصر على خاصية key فريدة حتى يتمكن React من تتبع التغييرات بكفاءة أثناء عملية المقارنة." },
+    "xp": 10,
+    "tags": ["lists", "keys", "jsx"]
+  },
+  {
+    "id": "react-b-2",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": { "en": "In React, you can directly mutate the state object returned by useState to update the component.", "ar": "في React، يمكنك تعديل كائن الحالة الذي تُعيده useState مباشرةً لتحديث المكوّن." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
     ],
     "correctOptionId": "b",
-    "explanation": {
-      "en": "useState returns a stateful value and a setter to update it, triggering a re-render.",
-      "ar": "يُرجع useState قيمة ذات حالة ودالة لتحديثها، ما يؤدي إلى إعادة العرض."
-    },
+    "hint": { "en": "React state is immutable — you must replace it, not mutate it.", "ar": "حالة React غير قابلة للتغيير — يجب استبدالها وليس تعديلها مباشرة." },
+    "explanation": { "en": "Directly mutating state does not trigger a re-render. You must call the setter function (e.g., setState) with a new value. React compares the old and new references to decide whether to re-render.", "ar": "التعديل المباشر على الحالة لا يُطلق إعادة رسم. يجب عليك استدعاء دالة الضبط (مثل setState) بقيمة جديدة. يقارن React المراجع القديمة والجديدة لتحديد ما إذا كان يجب إعادة الرسم." },
     "xp": 10,
-    "tags": ["hooks"]
+    "tags": ["useState", "state", "immutability"]
+  },
+  {
+    "id": "react-b-3",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": { "en": "What does this component render when the button is clicked once?", "ar": "ماذا يُقدِّم هذا المكوّن عند النقر على الزر مرة واحدة؟" },
+    "code": "function Counter() {\n  const [count, setCount] = React.useState(0);\n  return (\n    <div>\n      <p>{count}</p>\n      <button onClick={() => setCount(count + 1)}>+</button>\n    </div>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "Renders 1 inside the <p>", "ar": "يعرض 1 داخل عنصر <p>" } },
+      { "id": "b", "text": { "en": "Renders 0 inside the <p> (no re-render)", "ar": "يعرض 0 داخل عنصر <p> (لا تحدث إعادة رسم)" } },
+      { "id": "c", "text": { "en": "Throws an error because count is not initialized", "ar": "يُلقي خطأ لأن count لم تُهيَّأ" } },
+      { "id": "d", "text": { "en": "Renders NaN inside the <p>", "ar": "يعرض NaN داخل عنصر <p>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "useState initializes to 0. Calling setCount(count + 1) schedules a re-render with the new value.", "ar": "تُهيَّأ useState بالقيمة 0. استدعاء setCount(count + 1) يجدول إعادة رسم بالقيمة الجديدة." },
+    "explanation": { "en": "React.useState(0) sets the initial value to 0. When the button is clicked, setCount(0 + 1) is called, React schedules a re-render, and the component renders with count = 1.", "ar": "تضبط React.useState(0) القيمة الابتدائية على 0. عند النقر على الزر، يُستدعى setCount(0 + 1)، يجدول React إعادة رسم، ويُقدِّم المكوّن مع count = 1." },
+    "xp": 10,
+    "tags": ["useState", "events"]
+  },
+  {
+    "id": "react-b-4",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is a controlled input in React?", "ar": "ما هو المدخل المتحكَّم به (controlled input) في React؟" },
+    "options": [
+      { "id": "a", "text": { "en": "An input whose value is driven by React state", "ar": "مدخل تُحدَّد قيمته بواسطة حالة React" } },
+      { "id": "b", "text": { "en": "An input that uses a ref to read its value", "ar": "مدخل يستخدم ref لقراءة قيمته" } },
+      { "id": "c", "text": { "en": "An input inside a form element", "ar": "مدخل داخل عنصر form" } },
+      { "id": "d", "text": { "en": "An input with a default value attribute", "ar": "مدخل يحتوي على سمة defaultValue" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The defining trait of a controlled input is that its value prop is tied to state.", "ar": "السمة المميزة للمدخل المتحكَّم به هي أن خاصية value الخاصة به مرتبطة بالحالة." },
+    "explanation": { "en": "A controlled input has its value set by React state and an onChange handler that updates that state. This makes React the single source of truth for the input's value, unlike uncontrolled inputs which rely on the DOM.", "ar": "المدخل المتحكَّم به تُحدَّد قيمته بواسطة حالة React ومعالج onChange الذي يُحدِّث تلك الحالة. هذا يجعل React المصدر الوحيد للحقيقة لقيمة المدخل، على عكس المدخلات غير المتحكَّم بها التي تعتمد على DOM." },
+    "xp": 10,
+    "tags": ["controlled-inputs", "forms", "state"]
+  },
+  {
+    "id": "react-b-5",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which JSX rule explains why this code causes an error?", "ar": "أي قاعدة JSX تُفسِّر سبب حدوث خطأ في هذا الكود؟" },
+    "code": "function App() {\n  return (\n    <h1>Hello</h1>\n    <p>World</p>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "JSX must return a single root element", "ar": "يجب أن يُعيد JSX عنصرًا جذريًا واحدًا فقط" } },
+      { "id": "b", "text": { "en": "You cannot use <p> and <h1> together", "ar": "لا يمكنك استخدام <p> و<h1> معًا" } },
+      { "id": "c", "text": { "en": "JSX does not support text content", "ar": "لا يدعم JSX محتوى نصيًا" } },
+      { "id": "d", "text": { "en": "You must use className instead of class", "ar": "يجب استخدام className بدلاً من class" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Wrap both elements in a Fragment (<> </>) or a div.", "ar": "قم بتغليف كلا العنصرين داخل Fragment (<> </>) أو div." },
+    "explanation": { "en": "JSX compiles to React.createElement() calls which return a single value. Returning two sibling elements without a parent is a syntax error. Wrap them in a <React.Fragment> or shorthand <>...</>.", "ar": "يُترجَم JSX إلى استدعاءات React.createElement() التي تُعيد قيمة واحدة. إعادة عنصرين متجاورين دون عنصر أب يُسبِّب خطأ في الصياغة. قم بتغليفهما في <React.Fragment> أو الاختصار <>...</>." },
+    "xp": 10,
+    "tags": ["jsx", "fragments"]
+  },
+  {
+    "id": "react-b-6",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": { "en": "To prevent a child component from rendering, you can return ______ from the component function.", "ar": "لمنع المكوّن الفرعي من الرسم، يمكنك إعادة ______ من دالة المكوّن." },
+    "options": [
+      { "id": "a", "text": { "en": "null", "ar": "null" } },
+      { "id": "b", "text": { "en": "undefined", "ar": "undefined" } },
+      { "id": "c", "text": { "en": "false", "ar": "false" } },
+      { "id": "d", "text": { "en": "An empty string ''", "ar": "سلسلة نصية فارغة ''" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React renders nothing for this specific return value.", "ar": "لا يُقدِّم React أي شيء لهذه القيمة المُعادة تحديدًا." },
+    "explanation": { "en": "Returning null from a component tells React to render nothing. This is the standard pattern for conditional rendering. Note: returning false or undefined can cause errors in some React versions.", "ar": "إعادة null من مكوّن يُخبر React بعدم رسم أي شيء. هذا هو النمط القياسي للرسم الشرطي. ملاحظة: إعادة false أو undefined قد يُسبِّب أخطاء في بعض إصدارات React." },
+    "xp": 10,
+    "tags": ["conditional-rendering", "jsx"]
+  },
+  {
+    "id": "react-b-7",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "Why is using an array index as a key considered problematic?", "ar": "لماذا يُعدُّ استخدام فهرس المصفوفة كـ key أمرًا إشكاليًا؟" },
+    "code": "items.map((item, index) => <li key={index}>{item}</li>)",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "If items are reordered or deleted, keys no longer match the same elements, causing incorrect DOM updates", "ar": "إذا أُعيد ترتيب العناصر أو حُذفت، لن تتطابق المفاتيح مع نفس العناصر، مما يُسبِّب تحديثات DOM خاطئة" } },
+      { "id": "b", "text": { "en": "Indexes are not numbers in JavaScript", "ar": "الفهارس ليست أرقامًا في JavaScript" } },
+      { "id": "c", "text": { "en": "React does not accept numeric keys", "ar": "لا يقبل React مفاتيح رقمية" } },
+      { "id": "d", "text": { "en": "It causes an infinite re-render loop", "ar": "يُسبِّب حلقة إعادة رسم لا نهائية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Keys help React identify which items changed. Index-based keys break this when the list order changes.", "ar": "تساعد المفاتيح React على تحديد العناصر التي تغيَّرت. المفاتيح المستندة إلى الفهرس تُفسِد هذا عند تغيير ترتيب القائمة." },
+    "explanation": { "en": "When a list is reordered or an item is removed from the middle, index-based keys shift. React sees the same keys but different content, leading to incorrect state persistence or wrong DOM updates. Use stable, unique IDs instead.", "ar": "عند إعادة ترتيب القائمة أو إزالة عنصر من المنتصف، تتحوَّل المفاتيح المستندة إلى الفهرس. يرى React نفس المفاتيح لكن محتوى مختلف، مما يؤدي إلى استمرار الحالة بشكل غير صحيح أو تحديثات DOM خاطئة. استخدم معرفات فريدة وثابتة بدلاً من ذلك." },
+    "xp": 10,
+    "tags": ["keys", "lists", "reconciliation"]
+  },
+  {
+    "id": "react-b-8",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "What does the second argument of useEffect do?", "ar": "ماذا يفعل المعامل الثاني لـ useEffect؟" },
+    "options": [
+      { "id": "a", "text": { "en": "It is the dependency array — the effect re-runs only when one of those values changes", "ar": "إنه مصفوفة التبعيات — يُعاد تشغيل التأثير فقط عند تغيير أحد تلك القيم" } },
+      { "id": "b", "text": { "en": "It is the cleanup function that runs on unmount", "ar": "إنها دالة التنظيف التي تعمل عند إزالة المكوّن" } },
+      { "id": "c", "text": { "en": "It sets a delay (in milliseconds) before the effect runs", "ar": "تضبط تأخيرًا (بالملي ثانية) قبل تشغيل التأثير" } },
+      { "id": "d", "text": { "en": "It is a priority flag for concurrent mode", "ar": "إنها علامة الأولوية لوضع التزامن" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "[] means run once, [value] means run when value changes, omitting it means run every render.", "ar": "[] تعني التشغيل مرة واحدة، [value] تعني التشغيل عند تغيير القيمة، وحذفها يعني التشغيل عند كل رسم." },
+    "explanation": { "en": "The dependency array controls when the effect re-runs. An empty array [] runs the effect only after the first render. Providing values [a, b] re-runs whenever a or b changes. Omitting it runs the effect after every render.", "ar": "تتحكم مصفوفة التبعيات في متى يُعاد تشغيل التأثير. المصفوفة الفارغة [] تشغِّل التأثير فقط بعد أول رسم. توفير قيم [a, b] يُعيد التشغيل عند تغيير a أو b. حذفها يشغِّل التأثير بعد كل رسم." },
+    "xp": 10,
+    "tags": ["useEffect", "hooks"]
+  },
+  {
+    "id": "react-b-9",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": { "en": "Props in React can be modified by the child component that receives them.", "ar": "يمكن للمكوّن الفرعي الذي يستقبل الخصائص (props) تعديلها في React." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": { "en": "Props flow one-way: from parent to child. They are read-only.", "ar": "تتدفق الخصائص في اتجاه واحد: من الأب إلى الابن. وهي للقراءة فقط." },
+    "explanation": { "en": "Props are read-only. A child component should never modify the props it receives. If a child needs to communicate back to the parent, it does so via callback functions passed as props.", "ar": "الخصائص للقراءة فقط. لا ينبغي للمكوّن الفرعي أبدًا تعديل الخصائص التي يستقبلها. إذا احتاج المكوّن الفرعي للتواصل مع الأب، يفعل ذلك عبر دوال رد النداء الممررة كخصائص." },
+    "xp": 10,
+    "tags": ["props", "data-flow"]
+  },
+  {
+    "id": "react-b-10",
+    "trackId": "react",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": { "en": "When should you lift state up in React?", "ar": "متى يجب رفع الحالة (lifting state up) في React؟" },
+    "options": [
+      { "id": "a", "text": { "en": "When multiple sibling components need to share and synchronize the same state", "ar": "عندما تحتاج مكوّنات شقيقة متعددة إلى مشاركة نفس الحالة ومزامنتها" } },
+      { "id": "b", "text": { "en": "When a component is too slow to render", "ar": "عندما يكون المكوّن بطيئًا جدًا في الرسم" } },
+      { "id": "c", "text": { "en": "When you want to avoid using useEffect", "ar": "عندما تريد تجنب استخدام useEffect" } },
+      { "id": "d", "text": { "en": "When the component tree is more than 3 levels deep", "ar": "عندما يكون عمق شجرة المكوّنات أكثر من 3 مستويات" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "If two components need the same data, move the state to their closest common ancestor.", "ar": "إذا احتاج مكوّنان إلى نفس البيانات، انقل الحالة إلى أقرب سلف مشترك لهما." },
+    "explanation": { "en": "Lifting state up means moving state from a child to a common parent so that multiple children can read from and write to the same state. The parent owns the state and passes it down as props along with update callbacks.", "ar": "رفع الحالة يعني نقل الحالة من مكوّن فرعي إلى أب مشترك حتى تتمكن مكوّنات فرعية متعددة من القراءة والكتابة على نفس الحالة. يملك الأب الحالة ويمررها للأسفل كخصائص مع دوال رد نداء التحديث." },
+    "xp": 10,
+    "tags": ["state", "lifting-state", "data-flow"]
   },
   {
     "id": "react-i-1",
     "trackId": "react",
     "level": "intermediate",
-    "type": "multiple-choice",
-    "prompt": {
-      "en": "When does useEffect run if its dependency array is empty?",
-      "ar": "متى يُنفّذ useEffect إذا كانت مصفوفة الاعتماديات فارغة؟"
-    },
+    "type": "debugging",
+    "prompt": { "en": "This useEffect runs infinitely. What is the bug?", "ar": "يعمل useEffect هذا بشكل لا نهائي. ما هو الخطأ؟" },
+    "code": "function UserList() {\n  const [users, setUsers] = React.useState([]);\n\n  React.useEffect(() => {\n    fetch('/api/users')\n      .then(r => r.json())\n      .then(data => setUsers(data));\n  }, [users]);\n\n  return <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>;\n}",
+    "codeLang": "jsx",
     "options": [
-      { "id": "a", "text": { "en": "After every render", "ar": "بعد كل عرض" } },
-      { "id": "b", "text": { "en": "Only once, after the first render", "ar": "مرة واحدة فقط، بعد أول عرض" } },
-      { "id": "c", "text": { "en": "Never", "ar": "أبدًا" } },
-      { "id": "d", "text": { "en": "Before every render", "ar": "قبل كل عرض" } }
+      { "id": "a", "text": { "en": "users is in the dependency array. setUsers updates users, which triggers the effect again, causing an infinite loop", "ar": "users موجودة في مصفوفة التبعيات. يُحدِّث setUsers قيمة users، مما يُشغِّل التأثير مرة أخرى، مسببًا حلقة لا نهائية" } },
+      { "id": "b", "text": { "en": "fetch() is not supported inside useEffect", "ar": "لا يدعم fetch() داخل useEffect" } },
+      { "id": "c", "text": { "en": "The dependency array should be removed entirely", "ar": "يجب إزالة مصفوفة التبعيات كليًا" } },
+      { "id": "d", "text": { "en": "setUsers should be in the dependency array instead", "ar": "يجب وضع setUsers في مصفوفة التبعيات بدلاً من ذلك" } }
     ],
-    "correctOptionId": "b",
-    "explanation": {
-      "en": "An empty dependency array means the effect runs once after the initial mount.",
-      "ar": "تعني مصفوفة الاعتماديات الفارغة أن التأثير يُنفّذ مرة واحدة بعد التركيب الأولي."
-    },
+    "correctOptionId": "a",
+    "hint": { "en": "Every time the effect sets state, React re-renders, and if that state is a dependency, the effect runs again.", "ar": "في كل مرة يضبط فيها التأثير الحالة، يُعيد React الرسم، وإذا كانت تلك الحالة تبعية، يعمل التأثير مرة أخرى." },
+    "explanation": { "en": "The effect fires, fetches data, calls setUsers (new array reference), which triggers a re-render. Since users is in the deps array and now points to a new array, the effect fires again — infinitely. Fix: use [] to fetch only once on mount.", "ar": "يُطلَق التأثير، يجلب البيانات، يستدعي setUsers (مرجع مصفوفة جديد)، مما يُطلِق إعادة رسم. بما أن users في مصفوفة التبعيات وتشير الآن إلى مصفوفة جديدة، يُطلَق التأثير مرة أخرى — بشكل لا نهائي. الحل: استخدام [] للجلب مرة واحدة فقط عند التركيب." },
     "xp": 15,
-    "tags": ["hooks", "effects"]
+    "tags": ["useEffect", "infinite-loop", "dependencies"]
+  },
+  {
+    "id": "react-i-2",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": { "en": "What value does the alert show when the button is clicked after 3 seconds of incrementing?", "ar": "ما القيمة التي يعرضها alert عند النقر على الزر بعد 3 ثوانٍ من الزيادات؟" },
+    "code": "function Timer() {\n  const [count, setCount] = React.useState(0);\n\n  function handleAlert() {\n    setTimeout(() => {\n      alert('count is: ' + count);\n    }, 3000);\n  }\n\n  return (\n    <div>\n      <button onClick={() => setCount(c => c + 1)}>Increment</button>\n      <button onClick={handleAlert}>Alert in 3s</button>\n    </div>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "The value of count at the moment the Alert button was clicked, not the current incremented value", "ar": "قيمة count لحظة النقر على زر Alert، وليس القيمة الحالية بعد الزيادات" } },
+      { "id": "b", "text": { "en": "Always 0 regardless of increments", "ar": "دائمًا 0 بغض النظر عن الزيادات" } },
+      { "id": "c", "text": { "en": "The most up-to-date value of count at the time the alert fires", "ar": "أحدث قيمة لـ count وقت إطلاق alert" } },
+      { "id": "d", "text": { "en": "undefined", "ar": "undefined" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The setTimeout callback closes over the count value from the render in which handleAlert was called.", "ar": "يغلق رد نداء setTimeout على قيمة count من الرسم الذي استُدعي فيه handleAlert." },
+    "explanation": { "en": "This is a classic stale closure. The setTimeout callback captures the count value from the render in which handleAlert was executed. Any subsequent increments create new closures but the alert callback still holds the old snapshot value. To always get the latest value, use a ref: countRef.current.", "ar": "هذا هو الإغلاق القديم الكلاسيكي. يلتقط رد نداء setTimeout قيمة count من الرسم الذي نُفِّذ فيه handleAlert. أي زيادات لاحقة تنشئ إغلاقات جديدة لكن رد نداء alert لا يزال يحمل قيمة اللقطة القديمة. للحصول دائمًا على أحدث قيمة، استخدم ref: countRef.current." },
+    "xp": 15,
+    "tags": ["stale-closure", "useState", "hooks"]
+  },
+  {
+    "id": "react-i-3",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "Which pattern correctly avoids the stale state bug when updating state based on the previous value?", "ar": "أي نمط يتجنب بشكل صحيح خطأ الحالة القديمة عند تحديث الحالة بناءً على القيمة السابقة؟" },
+    "options": [
+      { "id": "a", "text": { "en": "setCount(prevCount => prevCount + 1)", "ar": "setCount(prevCount => prevCount + 1)" } },
+      { "id": "b", "text": { "en": "setCount(count + 1)", "ar": "setCount(count + 1)" } },
+      { "id": "c", "text": { "en": "count = count + 1; setCount(count)", "ar": "count = count + 1; setCount(count)" } },
+      { "id": "d", "text": { "en": "setCount(count++)", "ar": "setCount(count++)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The functional update form always receives the latest state, even in batched updates.", "ar": "صيغة التحديث الوظيفي تستقبل دائمًا أحدث حالة، حتى في التحديثات المُجمَّعة." },
+    "explanation": { "en": "The functional updater form setCount(prev => prev + 1) guarantees you always operate on the most recent state. Using setCount(count + 1) can fail when multiple state updates are batched together or in async contexts where count is stale.", "ar": "صيغة التحديث الوظيفي setCount(prev => prev + 1) تضمن التشغيل دائمًا على أحدث حالة. استخدام setCount(count + 1) قد يفشل عند تجميع تحديثات حالة متعددة معًا أو في السياقات غير المتزامنة حيث تكون count قديمة." },
+    "xp": 15,
+    "tags": ["useState", "functional-update", "stale-state"]
+  },
+  {
+    "id": "react-i-4",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "What does useRef return and how is it different from useState?", "ar": "ماذا يُعيد useRef وكيف يختلف عن useState؟" },
+    "options": [
+      { "id": "a", "text": { "en": "A mutable object { current: value } that persists across renders but does not trigger re-renders when changed", "ar": "كائن قابل للتعديل { current: value } يستمر عبر عمليات الرسم لكن لا يُطلِق إعادة رسم عند تغييره" } },
+      { "id": "b", "text": { "en": "A read-only value that re-renders the component when updated", "ar": "قيمة للقراءة فقط تُعيد رسم المكوّن عند تحديثها" } },
+      { "id": "c", "text": { "en": "A ref is exactly like state but stored in a ref object", "ar": "ref تمامًا مثل الحالة لكنها مُخزَّنة في كائن ref" } },
+      { "id": "d", "text": { "en": "A ref resets to its initial value on every render", "ar": "تُعاد قيمة ref إلى قيمتها الابتدائية عند كل رسم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Mutating ref.current is a side effect — it doesn't notify React.", "ar": "تعديل ref.current هو تأثير جانبي — لا يُخطِر React بذلك." },
+    "explanation": { "en": "useRef returns { current: initialValue }. Unlike useState, mutating .current does not cause a re-render. It is useful for storing DOM references, interval IDs, or any mutable value you want to persist without triggering renders.", "ar": "يُعيد useRef الكائن { current: initialValue }. على عكس useState، تعديل .current لا يُسبِّب إعادة رسم. وهو مفيد لتخزين مراجع DOM، ومعرفات الفترات الزمنية، أو أي قيمة قابلة للتعديل تريد استمرارها دون إطلاق عمليات رسم." },
+    "xp": 15,
+    "tags": ["useRef", "hooks", "rendering"]
+  },
+  {
+    "id": "react-i-5",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": { "en": "This component has a memory leak. What is missing?", "ar": "يحتوي هذا المكوّن على تسرُّب في الذاكرة. ما الذي ينقص؟" },
+    "code": "function Clock() {\n  const [time, setTime] = React.useState(new Date());\n\n  React.useEffect(() => {\n    const id = setInterval(() => {\n      setTime(new Date());\n    }, 1000);\n  }, []);\n\n  return <p>{time.toLocaleTimeString()}</p>;\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "A cleanup function returning () => clearInterval(id) to stop the interval on unmount", "ar": "دالة تنظيف تُعيد () => clearInterval(id) لإيقاف الفترة الزمنية عند إزالة المكوّن" } },
+      { "id": "b", "text": { "en": "time should be in the dependency array", "ar": "يجب أن تكون time في مصفوفة التبعيات" } },
+      { "id": "c", "text": { "en": "setInterval should be replaced with setTimeout", "ar": "يجب استبدال setInterval بـ setTimeout" } },
+      { "id": "d", "text": { "en": "new Date() should be called outside the effect", "ar": "يجب استدعاء new Date() خارج التأثير" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "useEffect can return a cleanup function that React calls when the component unmounts.", "ar": "يمكن لـ useEffect إعادة دالة تنظيف يستدعيها React عند إزالة المكوّن." },
+    "explanation": { "en": "Without a cleanup, the interval keeps running even after the component unmounts, attempting to update state on an unmounted component. The fix is to return () => clearInterval(id) from the effect, which React calls on unmount.", "ar": "بدون تنظيف، تستمر الفترة الزمنية في العمل حتى بعد إزالة المكوّن، محاولةً تحديث الحالة على مكوّن غير مُركَّب. الحل هو إعادة () => clearInterval(id) من التأثير، الذي يستدعيه React عند الإزالة." },
+    "xp": 15,
+    "tags": ["useEffect", "cleanup", "memory-leak"]
+  },
+  {
+    "id": "react-i-6",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "In React 18 StrictMode, useEffect runs twice on mount in development. Why?", "ar": "في React 18 StrictMode، يعمل useEffect مرتين عند التركيب في بيئة التطوير. لماذا؟" },
+    "options": [
+      { "id": "a", "text": { "en": "To expose bugs where effects don't clean up properly after themselves", "ar": "للكشف عن الأخطاء حيث لا تُنظِّف التأثيرات نفسها بشكل صحيح" } },
+      { "id": "b", "text": { "en": "It is a bug in React 18 that was patched in 18.1", "ar": "إنه خطأ في React 18 تم إصلاحه في الإصدار 18.1" } },
+      { "id": "c", "text": { "en": "To warm up the browser's JavaScript engine", "ar": "لتسخين محرك JavaScript في المتصفح" } },
+      { "id": "d", "text": { "en": "Because batching causes effects to queue twice", "ar": "لأن التجميع يجعل التأثيرات تُضاف إلى الطابور مرتين" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React intentionally mounts, unmounts, and remounts components to simulate future fast refresh behaviour.", "ar": "يُركِّب React عمدًا المكوّنات ويُزيلها ويُعيد تركيبها لمحاكاة سلوك التحديث السريع المستقبلي." },
+    "explanation": { "en": "In React 18 StrictMode development builds, React simulates a mount-unmount-remount cycle to help developers find bugs in their cleanup logic. If your effect doesn't properly clean up (e.g., subscriptions, timers), this double-invoke will surface the problem.", "ar": "في إصدارات تطوير React 18 StrictMode، يُحاكي React دورة التركيب-الإزالة-إعادة التركيب لمساعدة المطورين في العثور على أخطاء في منطق التنظيف. إذا لم يُنظِّف تأثيرك بشكل صحيح (مثل الاشتراكات والمؤقتات)، سيكشف هذا التشغيل المزدوج المشكلة." },
+    "xp": 15,
+    "tags": ["useEffect", "StrictMode", "React18"]
+  },
+  {
+    "id": "react-i-7",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": { "en": "You have a parent and two children that both need access to a shared counter. What is the best React pattern?", "ar": "لديك مكوّن أب ومكوّنان فرعيان يحتاجان كلاهما إلى عداد مشترك. ما أفضل نمط في React؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Lift the counter state to the parent and pass it down as props to both children", "ar": "ارفع حالة العداد إلى الأب ومررها للأسفل كخصائص لكلا المكوّنين الفرعيين" } },
+      { "id": "b", "text": { "en": "Give each child its own separate counter state", "ar": "امنح كل مكوّن فرعي حالة عداد مستقلة خاصة به" } },
+      { "id": "c", "text": { "en": "Store the counter in localStorage and read it in each child", "ar": "خزِّن العداد في localStorage واقرأه في كل مكوّن فرعي" } },
+      { "id": "d", "text": { "en": "Use a global variable outside of React", "ar": "استخدم متغيرًا عامًا خارج React" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The single source of truth principle: one piece of state, one owner.", "ar": "مبدأ مصدر الحقيقة الواحد: قطعة واحدة من الحالة، مالك واحد." },
+    "explanation": { "en": "Lifting state ensures one source of truth. The parent holds the state and passes both the value and the update function to children as props. This keeps both children synchronized without complex external solutions.", "ar": "رفع الحالة يضمن وجود مصدر واحد للحقيقة. يحتفظ الأب بالحالة ويمرر القيمة ودالة التحديث للمكوّنين الفرعيين كخصائص. هذا يُبقي المكوّنين الفرعيين متزامنين دون حلول خارجية معقدة." },
+    "xp": 15,
+    "tags": ["lifting-state", "props", "data-flow"]
+  },
+  {
+    "id": "react-i-8",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is 'derived state' and when should you use it instead of useState?", "ar": "ما هي 'الحالة المشتقة' ومتى يجب استخدامها بدلاً من useState؟" },
+    "options": [
+      { "id": "a", "text": { "en": "A value computed from existing state or props during render — use it when you can compute a value without needing to store it separately", "ar": "قيمة تُحسَب من الحالة أو الخصائص الموجودة أثناء الرسم — استخدمها عندما تتمكن من حساب قيمة دون الحاجة إلى تخزينها بشكل منفصل" } },
+      { "id": "b", "text": { "en": "State copied from a parent component into a child via useEffect", "ar": "حالة تُنسخ من مكوّن أب إلى ابن عبر useEffect" } },
+      { "id": "c", "text": { "en": "State that is fetched from an API", "ar": "حالة تُجلَب من واجهة برمجية (API)" } },
+      { "id": "d", "text": { "en": "A Redux selector that reads from the store", "ar": "محدد Redux يقرأ من المتجر" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "If you can calculate something from existing state/props, don't store it in state.", "ar": "إذا كان بإمكانك حساب شيء ما من الحالة/الخصائص الموجودة، فلا تخزِّنه في الحالة." },
+    "explanation": { "en": "Derived state is any value that can be calculated from existing state or props. Instead of storing it with useState and syncing via useEffect (error-prone), just compute it inline during render. For example: const fullName = `${firstName} ${lastName}` needs no separate state.", "ar": "الحالة المشتقة هي أي قيمة يمكن حسابها من الحالة أو الخصائص الموجودة. بدلاً من تخزينها باستخدام useState والمزامنة عبر useEffect (عُرضة للأخطاء)، احسبها مباشرةً أثناء الرسم. على سبيل المثال: const fullName = firstName + ' ' + lastName لا تحتاج إلى حالة منفصلة." },
+    "xp": 15,
+    "tags": ["derived-state", "useState", "best-practices"]
+  },
+  {
+    "id": "react-i-9",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": { "en": "React.memo prevents a component from re-rendering if its props have not changed (by shallow comparison).", "ar": "يمنع React.memo المكوّن من إعادة الرسم إذا لم تتغيَّر خصائصه (بالمقارنة السطحية)." },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React.memo is a higher-order component that memoizes the rendered output.", "ar": "React.memo هو مكوّن عالي الترتيب يحفظ نتيجة الرسم." },
+    "explanation": { "en": "React.memo wraps a component and performs a shallow comparison of its props. If all props are referentially equal to the previous render, React skips re-rendering and reuses the last result. It does not prevent re-renders due to state or context changes inside the component.", "ar": "يُغلِّف React.memo مكوّنًا ويجري مقارنة سطحية لخصائصه. إذا كانت جميع الخصائص متساوية مرجعيًا مع الرسم السابق، يتخطى React إعادة الرسم ويُعيد استخدام آخر نتيجة. لا يمنع إعادة الرسم بسبب تغيُّرات الحالة أو السياق داخل المكوّن." },
+    "xp": 15,
+    "tags": ["React.memo", "performance", "rendering"]
+  },
+  {
+    "id": "react-i-10",
+    "trackId": "react",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": { "en": "A parent passes an inline object as a prop to a memoized child. The child re-renders on every parent render despite React.memo. Why?", "ar": "يُمرِّر أب كائنًا مضمَّنًا كخاصية لمكوّن فرعي محفوظ. يُعيد المكوّن الفرعي الرسم عند كل رسم للأب على الرغم من React.memo. لماذا؟" },
+    "code": "function Parent() {\n  const [count, setCount] = React.useState(0);\n  return (\n    <Child style={{ color: 'red' }} />\n  );\n}\nconst Child = React.memo(({ style }) => <div style={style}>Hello</div>);",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "{ color: 'red' } creates a new object reference on every render, so the shallow comparison always fails", "ar": "يُنشئ { color: 'red' } مرجع كائن جديد عند كل رسم، لذا تفشل المقارنة السطحية دائمًا" } },
+      { "id": "b", "text": { "en": "React.memo does not work with object props", "ar": "لا يعمل React.memo مع خصائص الكائن" } },
+      { "id": "c", "text": { "en": "The child re-renders because count changed", "ar": "يُعيد المكوّن الفرعي الرسم لأن count تغيَّرت" } },
+      { "id": "d", "text": { "en": "React.memo only works on class components", "ar": "يعمل React.memo فقط على المكوّنات الصفية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Object/array literals create a new reference on each render. Memoize the object with useMemo.", "ar": "حرفيات الكائن/المصفوفة تُنشئ مرجعًا جديدًا عند كل رسم. احفظ الكائن باستخدام useMemo." },
+    "explanation": { "en": "Every render of Parent creates a brand-new object { color: 'red' }. Even though the contents are identical, React.memo's shallow comparison sees a different reference and re-renders Child. The fix is to define the object outside the component or memoize it with useMemo.", "ar": "كل رسم للأب ينشئ كائنًا جديدًا تمامًا { color: 'red' }. حتى لو كانت المحتويات متطابقة، تُلاحِظ المقارنة السطحية لـ React.memo مرجعًا مختلفًا وتُعيد رسم المكوّن الفرعي. الحل هو تعريف الكائن خارج المكوّن أو حفظه باستخدام useMemo." },
+    "xp": 15,
+    "tags": ["React.memo", "object-identity", "performance", "useMemo"]
   },
   {
     "id": "react-a-1",
     "trackId": "react",
     "level": "advanced",
-    "type": "multiple-choice",
-    "prompt": {
-      "en": "Which hook memoizes a callback to keep its reference stable?",
-      "ar": "أي خطّاف يحفظ دالة رد نداء للحفاظ على ثبات مرجعها؟"
-    },
+    "type": "debugging",
+    "prompt": { "en": "Why does this custom hook violate the Rules of Hooks?", "ar": "لماذا ينتهك هذا الخطاف المخصَّص قواعد الخطافات؟" },
+    "code": "function useConditionalFetch(shouldFetch) {\n  if (!shouldFetch) {\n    return null;\n  }\n\n  const [data, setData] = React.useState(null);\n\n  React.useEffect(() => {\n    fetch('/api/data').then(r => r.json()).then(setData);\n  }, []);\n\n  return data;\n}",
+    "codeLang": "jsx",
     "options": [
-      { "id": "a", "text": { "en": "useMemo", "ar": "useMemo" } },
-      { "id": "b", "text": { "en": "useCallback", "ar": "useCallback" } },
-      { "id": "c", "text": { "en": "useReducer", "ar": "useReducer" } },
-      { "id": "d", "text": { "en": "useContext", "ar": "useContext" } }
+      { "id": "a", "text": { "en": "Hooks must not be called inside conditions. The early return before useState changes the hooks call order between renders.", "ar": "يجب عدم استدعاء الخطافات داخل شروط. الإعادة المبكرة قبل useState تُغيِّر ترتيب استدعاء الخطافات بين عمليات الرسم." } },
+      { "id": "b", "text": { "en": "You cannot use useEffect inside a custom hook", "ar": "لا يمكنك استخدام useEffect داخل خطاف مخصَّص" } },
+      { "id": "c", "text": { "en": "Custom hooks must return an array, not a single value", "ar": "يجب أن تُعيد الخطافات المخصَّصة مصفوفة، وليس قيمة واحدة" } },
+      { "id": "d", "text": { "en": "fetch() cannot be used inside hooks", "ar": "لا يمكن استخدام fetch() داخل الخطافات" } }
     ],
-    "correctOptionId": "b",
-    "explanation": {
-      "en": "useCallback returns a memoized callback that only changes when its dependencies change.",
-      "ar": "يُرجع useCallback دالة محفوظة لا تتغيّر إلا عند تغيّر اعتمادياتها."
-    },
+    "correctOptionId": "a",
+    "hint": { "en": "React relies on the order of Hook calls being stable across renders. An early return breaks this guarantee.", "ar": "يعتمد React على ثبات ترتيب استدعاءات الخطاف عبر عمليات الرسم. الإعادة المبكرة تُفسِد هذا الضمان." },
+    "explanation": { "en": "The Rules of Hooks require that hooks are called in the same order on every render. If shouldFetch is false on one render and true on another, the hooks (useState, useEffect) are either skipped or called, causing React's internal hook index to desync. Move the condition inside the hook body after all hook calls.", "ar": "تتطلب قواعد الخطافات استدعاء الخطافات بنفس الترتيب في كل رسم. إذا كانت shouldFetch خاطئة في رسم وصحيحة في آخر، يُتخطى الخطافان (useState, useEffect) أو يُستدعيان، مما يُسبِّب عدم تزامن الفهرس الداخلي لـ React. انقل الشرط إلى داخل جسم الخطاف بعد جميع استدعاءات الخطاف." },
     "xp": 25,
-    "tags": ["hooks", "performance"]
+    "tags": ["rules-of-hooks", "custom-hooks", "hooks"]
+  },
+  {
+    "id": "react-a-2",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": { "en": "How many times does this component re-render after one button click in React 18?", "ar": "كم مرة يُعيد هذا المكوّن الرسم بعد نقرة زر واحدة في React 18؟" },
+    "code": "function BatchTest() {\n  const [a, setA] = React.useState(0);\n  const [b, setB] = React.useState(0);\n\n  function handleClick() {\n    setA(a + 1);\n    setB(b + 1);\n  }\n\n  console.log('render');\n  return <button onClick={handleClick}>Click</button>;\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "Once — React 18 batches all state updates in event handlers by default", "ar": "مرة واحدة — يُجمِّع React 18 جميع تحديثات الحالة في معالجات الأحداث بشكل افتراضي" } },
+      { "id": "b", "text": { "en": "Twice — once for each setState call", "ar": "مرتان — مرة لكل استدعاء setState" } },
+      { "id": "c", "text": { "en": "Three times — two updates plus one reconciliation pass", "ar": "ثلاث مرات — تحديثان بالإضافة إلى تمريرة مقارنة واحدة" } },
+      { "id": "d", "text": { "en": "Zero times — React defers all updates to the next tick", "ar": "صفر مرات — يؤجل React جميع التحديثات إلى التحديث التالي" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React 18 introduced automatic batching for all updates, not just those inside React event handlers.", "ar": "قدَّم React 18 التجميع التلقائي لجميع التحديثات، وليس فقط تلك الموجودة داخل معالجات أحداث React." },
+    "explanation": { "en": "React 18 automatically batches multiple state updates from any context (event handlers, setTimeout, Promises) into a single re-render. Both setA and setB calls are batched, resulting in only one re-render — one 'render' log. In React 17, setTimeout would have caused two re-renders.", "ar": "يُجمِّع React 18 تلقائيًا تحديثات الحالة المتعددة من أي سياق (معالجات الأحداث، setTimeout، الوعود) في إعادة رسم واحدة. يُجمَّع كلا الاستدعاءين setA و setB، مما ينتج عنه إعادة رسم واحدة فقط — سجل 'render' واحد. في React 17، كانت setTimeout ستُسبِّب إعادتي رسم." },
+    "xp": 25,
+    "tags": ["batching", "React18", "rendering", "useState"]
+  },
+  {
+    "id": "react-a-3",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "When does useCallback actually improve performance?", "ar": "متى يُحسِّن useCallback الأداء فعليًا؟" },
+    "options": [
+      { "id": "a", "text": { "en": "When passing a callback to a memoized child (React.memo) or as a useEffect dependency, preventing unnecessary re-renders or effect re-runs", "ar": "عند تمرير رد نداء إلى مكوّن فرعي محفوظ (React.memo) أو كتبعية لـ useEffect، مما يمنع إعادات الرسم أو إعادات تشغيل التأثير غير الضرورية" } },
+      { "id": "b", "text": { "en": "Always — useCallback makes every function call faster", "ar": "دائمًا — يجعل useCallback كل استدعاء دالة أسرع" } },
+      { "id": "c", "text": { "en": "When the function contains expensive calculations", "ar": "عندما تحتوي الدالة على حسابات مكلفة" } },
+      { "id": "d", "text": { "en": "When the component has more than 5 state variables", "ar": "عندما يحتوي المكوّن على أكثر من 5 متغيرات حالة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "useCallback memoizes the function reference, not its execution cost.", "ar": "يحفظ useCallback مرجع الدالة، وليس تكلفة تنفيذها." },
+    "explanation": { "en": "useCallback only provides benefit when the stable function reference matters: (1) passed to React.memo'd children — prevents re-renders when parent re-renders, (2) used as a useEffect dependency — prevents the effect from re-running. Applied naively to all functions, useCallback itself has a cost (memoization overhead) and provides no benefit.", "ar": "لا يُقدِّم useCallback فائدة إلا عندما يكون مرجع الدالة الثابت مهمًا: (1) يُمرَّر للمكوّنات الفرعية المحفوظة بـ React.memo — يمنع إعادة الرسم عند إعادة رسم الأب، (2) يُستخدَم كتبعية لـ useEffect — يمنع إعادة تشغيل التأثير. عند تطبيقه بشكل أعمى على جميع الدوال، يمتلك useCallback نفسه تكلفة (عبء الحفظ) ولا يُقدِّم أي فائدة." },
+    "xp": 25,
+    "tags": ["useCallback", "performance", "memoization"]
+  },
+  {
+    "id": "react-a-4",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": { "en": "What is wrong with this Context implementation that causes all consumers to re-render on every parent render?", "ar": "ما الخطأ في تطبيق Context هذا الذي يجعل جميع المستهلكين يُعيدون الرسم عند كل رسم للأب؟" },
+    "code": "function App() {\n  const [user, setUser] = React.useState(null);\n\n  return (\n    <UserContext.Provider value={{ user, setUser }}>\n      <Children />\n    </UserContext.Provider>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "The value prop is a new object literal on every render. Memoize it with useMemo to keep the same reference when user hasn't changed.", "ar": "خاصية value هي حرفية كائن جديدة عند كل رسم. احفظها باستخدام useMemo للحفاظ على نفس المرجع عندما لا تتغيَّر user." } },
+      { "id": "b", "text": { "en": "Context should not include a setter function", "ar": "لا ينبغي أن يتضمن Context دالة ضبط" } },
+      { "id": "c", "text": { "en": "UserContext.Provider must be inside a React.memo wrapper", "ar": "يجب أن يكون UserContext.Provider داخل غلاف React.memo" } },
+      { "id": "d", "text": { "en": "useState cannot be used alongside Context", "ar": "لا يمكن استخدام useState جنبًا إلى جنب مع Context" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Context re-renders all consumers whenever the value reference changes.", "ar": "يُعيد Context رسم جميع المستهلكين كلما تغيَّر مرجع القيمة." },
+    "explanation": { "en": "{ user, setUser } creates a new object on every App render, so React sees a new context value and re-renders all consumers. Fix: const contextValue = useMemo(() => ({ user, setUser }), [user]). Even better: split into two contexts — one for the state value and one for the dispatch/setter.", "ar": "يُنشئ { user, setUser } كائنًا جديدًا عند كل رسم لـ App، لذا يرى React قيمة سياق جديدة ويُعيد رسم جميع المستهلكين. الحل: const contextValue = useMemo(() => ({ user, setUser }), [user]). والأفضل: تقسيمه إلى سياقين — أحدهما لقيمة الحالة والآخر للإرسال/الضبط." },
+    "xp": 25,
+    "tags": ["Context", "performance", "useMemo", "re-renders"]
+  },
+  {
+    "id": "react-a-5",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is the key prop remount trick and when is it useful?", "ar": "ما هيلة إعادة التركيب بواسطة key prop ومتى تكون مفيدة؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Changing a component's key forces React to unmount and remount it, resetting all internal state — useful for fully resetting a component without lifting state", "ar": "تغيير key للمكوّن يُجبر React على إزالته وإعادة تركيبه، مُعيدًا ضبط جميع الحالات الداخلية — مفيد لإعادة ضبط المكوّن كليًا دون رفع الحالة" } },
+      { "id": "b", "text": { "en": "Setting the same key on two elements makes them share state", "ar": "ضبط نفس الـ key على عنصرين يجعلهما يشتركان في الحالة" } },
+      { "id": "c", "text": { "en": "A unique key skips the component during reconciliation for better performance", "ar": "المفتاح الفريد يتخطى المكوّن أثناء المقارنة لأداء أفضل" } },
+      { "id": "d", "text": { "en": "The key prop is passed as a regular prop to the component function", "ar": "تُمرَّر خاصية key كخاصية عادية لدالة المكوّن" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React uses key to identify elements. Changing it is like destroying the old element and creating a new one from scratch.", "ar": "يستخدم React المفتاح لتحديد العناصر. تغييره يشبه تدمير العنصر القديم وإنشاء عنصر جديد من الصفر." },
+    "explanation": { "en": "When you change a component's key prop, React treats it as a completely different component, unmounting the old one and mounting a fresh instance. This resets all useState, useRef, and useEffect state. Common use: <Form key={userId} /> — changing userId resets the form when switching users without extra useEffect logic.", "ar": "عند تغيير خاصية key للمكوّن، يتعامل React معه كمكوّن مختلف تمامًا، يُزيل القديم ويُركِّب نسخة جديدة. هذا يُعيد ضبط جميع حالات useState و useRef و useEffect. الاستخدام الشائع: <Form key={userId} /> — تغيير userId يُعيد ضبط النموذج عند تبديل المستخدمين دون منطق useEffect إضافي." },
+    "xp": 25,
+    "tags": ["key", "remount", "reconciliation", "state-reset"]
+  },
+  {
+    "id": "react-a-6",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is the difference between useMemo and useCallback?", "ar": "ما الفرق بين useMemo و useCallback؟" },
+    "options": [
+      { "id": "a", "text": { "en": "useMemo memoizes the return value of a function; useCallback memoizes the function itself (its reference)", "ar": "يحفظ useMemo القيمة المُعادة من دالة؛ يحفظ useCallback الدالة نفسها (مرجعها)" } },
+      { "id": "b", "text": { "en": "useMemo is for async functions; useCallback is for sync functions", "ar": "useMemo للدوال غير المتزامنة؛ useCallback للدوال المتزامنة" } },
+      { "id": "c", "text": { "en": "They are identical — useCallback is just an alias for useMemo", "ar": "إنهما متطابقان — useCallback هو مجرد اسم مستعار لـ useMemo" } },
+      { "id": "d", "text": { "en": "useCallback runs during render; useMemo runs after render", "ar": "يعمل useCallback أثناء الرسم؛ يعمل useMemo بعد الرسم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).", "ar": "useCallback(fn, deps) يعادل useMemo(() => fn, deps)." },
+    "explanation": { "en": "useMemo(() => computeValue(), [deps]) returns and caches the computed value. useCallback(fn, [deps]) returns and caches the function reference itself. useCallback(fn, deps) is syntactic sugar for useMemo(() => fn, deps). Use useMemo for expensive calculations, useCallback for stable function references passed to memoized children.", "ar": "يُعيد useMemo(() => computeValue(), [deps]) القيمة المحسوبة ويُخزِّنها. يُعيد useCallback(fn, [deps]) مرجع الدالة نفسها ويُخزِّنه. useCallback(fn, deps) هو سكر نحوي لـ useMemo(() => fn, deps). استخدم useMemo للحسابات المكلفة، وuseCallback للمراجع الدالة الثابتة الممررة للمكوّنات الفرعية المحفوظة." },
+    "xp": 25,
+    "tags": ["useMemo", "useCallback", "memoization", "hooks"]
+  },
+  {
+    "id": "react-a-7",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": { "en": "You need to manage a complex state with multiple sub-values and inter-dependent transitions. What hook is better suited than useState?", "ar": "تحتاج إلى إدارة حالة معقدة تحتوي على قيم فرعية متعددة وانتقالات مترابطة. أي خطاف أكثر ملاءمة من useState؟" },
+    "options": [
+      { "id": "a", "text": { "en": "useReducer — it centralizes state transitions in a pure reducer function, making complex state logic predictable and testable", "ar": "useReducer — يمركز انتقالات الحالة في دالة reducer نقية، مما يجعل منطق الحالة المعقد قابلاً للتنبؤ والاختبار" } },
+      { "id": "b", "text": { "en": "useContext — it shares state globally without prop drilling", "ar": "useContext — يشارك الحالة عالميًا دون تمرير الخصائص" } },
+      { "id": "c", "text": { "en": "useRef — it stores the state without causing re-renders", "ar": "useRef — يخزِّن الحالة دون التسبُّب في إعادات الرسم" } },
+      { "id": "d", "text": { "en": "Multiple useState calls, one for each sub-value", "ar": "استدعاءات useState متعددة، واحدة لكل قيمة فرعية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "If your next state depends on the previous state in complex ways, useReducer provides a structured approach.", "ar": "إذا كانت حالتك التالية تعتمد على الحالة السابقة بطرق معقدة، يوفر useReducer نهجًا منظمًا." },
+    "explanation": { "en": "useReducer(reducer, initialState) is preferable when state has multiple sub-values, when the next state depends on complex logic over the previous state, or when you want to colocate state transitions. The reducer is a pure function (state, action) => newState making it easy to test and reason about.", "ar": "يُفضَّل useReducer(reducer, initialState) عندما تحتوي الحالة على قيم فرعية متعددة، أو عندما تعتمد الحالة التالية على منطق معقد فوق الحالة السابقة، أو عندما تريد تمركز انتقالات الحالة. المُخفِّض دالة نقية (state, action) => newState تجعل من السهل اختبارها والتفكير فيها." },
+    "xp": 25,
+    "tags": ["useReducer", "state-management", "hooks"]
+  },
+  {
+    "id": "react-a-8",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "What does React.lazy() do and what must wrap it in the component tree?", "ar": "ماذا يفعل React.lazy() وما الذي يجب أن يُغلِّفه في شجرة المكوّنات؟" },
+    "options": [
+      { "id": "a", "text": { "en": "It enables code-splitting by loading a component dynamically; it must be wrapped in a <Suspense> boundary with a fallback prop", "ar": "يُمكِّن تقسيم الكود عن طريق تحميل مكوّن ديناميكيًا؛ يجب تغليفه في حد <Suspense> مع خاصية fallback" } },
+      { "id": "b", "text": { "en": "It delays rendering by a set number of milliseconds", "ar": "يؤخِّر الرسم لعدد محدد من الملي ثانية" } },
+      { "id": "c", "text": { "en": "It is used only with server-side rendering", "ar": "يُستخدَم فقط مع التصيير من جانب الخادم" } },
+      { "id": "d", "text": { "en": "It must be wrapped in an ErrorBoundary only", "ar": "يجب تغليفه في ErrorBoundary فقط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "React.lazy(() => import('./Component')) is the standard pattern for dynamic imports in React.", "ar": "React.lazy(() => import('./Component')) هو النمط القياسي للاستيرادات الديناميكية في React." },
+    "explanation": { "en": "React.lazy() accepts a function that returns a dynamic import(). The lazily-loaded component must be wrapped in <Suspense fallback={<Loading />}> which renders the fallback while the component's code is loading. This enables route-level or component-level code splitting.", "ar": "يقبل React.lazy() دالة تُعيد استيرادًا ديناميكيًا import(). يجب تغليف المكوّن المحمَّل بشكل كسول في <Suspense fallback={<Loading />}> الذي يعرض الاحتياطي أثناء تحميل كود المكوّن. هذا يُمكِّن تقسيم الكود على مستوى المسار أو المكوّن." },
+    "xp": 25,
+    "tags": ["lazy", "Suspense", "code-splitting"]
+  },
+  {
+    "id": "react-a-9",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is the purpose of forwardRef and when do you need it?", "ar": "ما الغرض من forwardRef ومتى تحتاجه؟" },
+    "options": [
+      { "id": "a", "text": { "en": "To allow a parent component to attach a ref to a DOM node inside a child component", "ar": "للسماح لمكوّن أب بإرفاق ref بعقدة DOM داخل مكوّن فرعي" } },
+      { "id": "b", "text": { "en": "To pass a ref as a regular prop between siblings", "ar": "لتمرير ref كخاصية عادية بين المكوّنات الشقيقة" } },
+      { "id": "c", "text": { "en": "To forward events from child to parent", "ar": "لإعادة توجيه الأحداث من المكوّن الفرعي إلى الأب" } },
+      { "id": "d", "text": { "en": "To memoize a ref value across renders", "ar": "لحفظ قيمة ref عبر عمليات الرسم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "By default, refs do not pass through function components. forwardRef is the escape hatch.", "ar": "بشكل افتراضي، لا تمر المراجع (refs) عبر المكوّنات الوظيفية. forwardRef هو مسار الهروب." },
+    "explanation": { "en": "You cannot pass a ref prop directly to a function component. forwardRef wraps a component and gives it a second parameter (ref) that can be forwarded to a DOM element or another component. Common use: building reusable input components where the parent needs to focus or read the DOM node.", "ar": "لا يمكنك تمرير خاصية ref مباشرةً إلى مكوّن وظيفي. يُغلِّف forwardRef مكوّنًا ويمنحه معاملًا ثانيًا (ref) يمكن إعادة توجيهه إلى عنصر DOM أو مكوّن آخر. الاستخدام الشائع: بناء مكوّنات إدخال قابلة لإعادة الاستخدام حيث يحتاج الأب إلى التركيز على عقدة DOM أو قراءتها." },
+    "xp": 25,
+    "tags": ["forwardRef", "refs", "DOM"]
+  },
+  {
+    "id": "react-a-10",
+    "trackId": "react",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": { "en": "An error boundary can catch which of the following?", "ar": "أي مما يلي يمكن لـ error boundary التقاطه؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Errors thrown during rendering of a child component tree", "ar": "الأخطاء المُلقاة أثناء رسم شجرة المكوّنات الفرعية" } },
+      { "id": "b", "text": { "en": "Errors inside async event handlers (e.g., setTimeout callbacks)", "ar": "الأخطاء داخل معالجات الأحداث غير المتزامنة (مثل ردود نداء setTimeout)" } },
+      { "id": "c", "text": { "en": "Errors inside useEffect cleanup functions", "ar": "الأخطاء داخل دوال تنظيف useEffect" } },
+      { "id": "d", "text": { "en": "Network errors from fetch()", "ar": "أخطاء الشبكة من fetch()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Error boundaries only catch errors in the React rendering lifecycle.", "ar": "تلتقط حدود الخطأ فقط الأخطاء في دورة حياة رسم React." },
+    "explanation": { "en": "Error boundaries (class components implementing componentDidCatch or getDerivedStateFromError) catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them. They do NOT catch errors in event handlers, async code, or server-side rendering.", "ar": "تلتقط حدود الخطأ (مكوّنات الفئة التي تُطبِّق componentDidCatch أو getDerivedStateFromError) الأخطاء أثناء الرسم وفي طرق دورة الحياة وفي منشئات الشجرة بأكملها تحتها. لا تلتقط الأخطاء في معالجات الأحداث أو الكود غير المتزامن أو التصيير من جانب الخادم." },
+    "xp": 25,
+    "tags": ["error-boundary", "error-handling", "lifecycle"]
+  },
+  {
+    "id": "react-e-1",
+    "trackId": "react",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is the key difference between useTransition and useDeferredValue in React 18?", "ar": "ما الفرق الرئيسي بين useTransition وuseDeferredValue في React 18؟" },
+    "options": [
+      { "id": "a", "text": { "en": "useTransition wraps a state update you control; useDeferredValue defers a value you receive (e.g., from props) that you don't control", "ar": "يُغلِّف useTransition تحديث حالة تتحكم فيه؛ يؤجِّل useDeferredValue قيمة تستقبلها (مثل من الخصائص) لا تتحكم فيها" } },
+      { "id": "b", "text": { "en": "useTransition is for animations; useDeferredValue is for data fetching", "ar": "useTransition للرسوم المتحركة؛ useDeferredValue لجلب البيانات" } },
+      { "id": "c", "text": { "en": "They are identical but one uses a hook API and the other a component API", "ar": "إنهما متطابقان لكن أحدهما يستخدم واجهة hook والآخر واجهة مكوّن" } },
+      { "id": "d", "text": { "en": "useDeferredValue is the newer replacement for useTransition", "ar": "useDeferredValue هو البديل الأحدث لـ useTransition" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Think about ownership: do you own the state update, or are you receiving a value from outside?", "ar": "فكِّر في الملكية: هل تمتلك تحديث الحالة، أم أنك تستقبل قيمة من الخارج؟" },
+    "explanation": { "en": "useTransition gives you startTransition to mark your own state updates as non-urgent. useDeferredValue accepts a value (often from props) and returns a deferred version of it — useful when you can't wrap the original setter. Both enable React to keep the UI responsive by deferring expensive re-renders.", "ar": "يمنحك useTransition دالة startTransition لوسم تحديثات حالتك الخاصة كغير عاجلة. يقبل useDeferredValue قيمة (غالبًا من الخصائص) ويُعيد نسخة مؤجلة منها — مفيد عندما لا تستطيع تغليف الضابط الأصلي. كلاهما يُمكِّن React من إبقاء واجهة المستخدم مستجيبة بتأجيل إعادات الرسم المكلفة." },
+    "xp": 30,
+    "tags": ["useTransition", "useDeferredValue", "concurrent", "React18"]
+  },
+  {
+    "id": "react-e-2",
+    "trackId": "react",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": { "en": "What is a React Server Component (RSC) and what is the main constraint on them?", "ar": "ما هو React Server Component (RSC) وما القيد الرئيسي عليه؟" },
+    "options": [
+      { "id": "a", "text": { "en": "A component that runs only on the server and cannot use hooks like useState, useEffect, or browser-only APIs", "ar": "مكوّن يعمل فقط على الخادم ولا يمكنه استخدام خطافات مثل useState وuseEffect أو واجهات برمجية خاصة بالمتصفح" } },
+      { "id": "b", "text": { "en": "A component marked with 'use server' that can run fetch calls", "ar": "مكوّن مُعلَّم بـ 'use server' يمكنه تشغيل استدعاءات fetch" } },
+      { "id": "c", "text": { "en": "A component that hydrates differently from normal components", "ar": "مكوّن يخضع لعملية ترطيب مختلفة عن المكوّنات العادية" } },
+      { "id": "d", "text": { "en": "A component that must use getServerSideProps to fetch data", "ar": "مكوّن يجب أن يستخدم getServerSideProps لجلب البيانات" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Server Components have no client-side lifecycle — they render to HTML/RSC payload on the server.", "ar": "لا تمتلك مكوّنات الخادم دورة حياة على جانب العميل — تُصيَّر إلى HTML/RSC payload على الخادم." },
+    "explanation": { "en": "React Server Components run exclusively on the server (or at build time). They can directly access databases, file systems, and secret env vars. The key constraint: they cannot use useState, useEffect, event handlers, or any browser API. To add interactivity, you compose them with Client Components ('use client' directive).", "ar": "تعمل مكوّنات React Server حصريًا على الخادم (أو في وقت البناء). يمكنها الوصول مباشرةً إلى قواعد البيانات وأنظمة الملفات ومتغيرات البيئة السرية. القيد الرئيسي: لا يمكنها استخدام useState أو useEffect أو معالجات الأحداث أو أي واجهة برمجية للمتصفح. لإضافة التفاعلية، قم بتأليفها مع مكوّنات العميل (التوجيه 'use client')." },
+    "xp": 30,
+    "tags": ["server-components", "RSC", "React19", "architecture"]
+  },
+  {
+    "id": "react-e-3",
+    "trackId": "react",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": { "en": "This component has a missing dependency in useEffect. What is the exact bug and what is the correct fix?", "ar": "يحتوي هذا المكوّن على تبعية مفقودة في useEffect. ما هو الخطأ الدقيق وما هو الحل الصحيح؟" },
+    "code": "function SearchResults({ query }) {\n  const [results, setResults] = React.useState([]);\n\n  React.useEffect(() => {\n    fetchResults(query).then(setResults);\n  }, []); // query intentionally omitted\n\n  return <ResultList items={results} />;\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "The effect never re-runs when query changes, so results always reflect the initial query. Fix: add query to the dependency array.", "ar": "لا يُعاد تشغيل التأثير أبدًا عند تغيير query، لذا تعكس النتائج دائمًا الاستعلام الابتدائي. الحل: إضافة query إلى مصفوفة التبعيات." } },
+      { "id": "b", "text": { "en": "The effect runs too often because query changes constantly", "ar": "يعمل التأثير كثيرًا جدًا لأن query تتغيَّر باستمرار" } },
+      { "id": "c", "text": { "en": "fetchResults should be inside the dependency array", "ar": "يجب أن يكون fetchResults داخل مصفوفة التبعيات" } },
+      { "id": "d", "text": { "en": "setResults must not be called inside an effect", "ar": "يجب ألا يُستدعى setResults داخل تأثير" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "An empty dependency array means 'run once on mount' — which ignores all future prop changes.", "ar": "مصفوفة تبعيات فارغة تعني 'التشغيل مرة واحدة عند التركيب' — مما يتجاهل جميع تغييرات الخصائص المستقبلية." },
+    "explanation": { "en": "With [] as deps, the effect captures the initial query value via closure and never re-fetches when query prop changes. Adding query to deps fixes this. For production, also add a cleanup/abort controller to cancel stale in-flight requests when query changes rapidly.", "ar": "مع [] كتبعيات، يلتقط التأثير قيمة query الابتدائية عبر الإغلاق ولا يُعيد الجلب أبدًا عند تغيير خاصية query. إضافة query إلى التبعيات يُصلِح هذا. للإنتاج، أضف أيضًا وحدة تحكم تنظيف/إلغاء لإلغاء الطلبات القديمة الجارية عند تغيير query بسرعة." },
+    "xp": 30,
+    "tags": ["useEffect", "dependencies", "stale-closure", "debugging"]
+  },
+  {
+    "id": "react-e-4",
+    "trackId": "react",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": { "en": "What does useId() solve and why is it preferred over Math.random() for accessibility attributes?", "ar": "ما الذي يحله useId() ولماذا يُفضَّل على Math.random() لسمات الوصول؟" },
+    "options": [
+      { "id": "a", "text": { "en": "useId generates a stable, unique ID that is consistent between server and client renders, preventing hydration mismatches", "ar": "يولِّد useId معرِّفًا ثابتًا وفريدًا يكون متسقًا بين عمليات تصيير الخادم والعميل، مانعًا أخطاء عدم التطابق في الترطيب" } },
+      { "id": "b", "text": { "en": "useId generates shorter IDs that are faster to compare", "ar": "يولِّد useId معرِّفات أقصر أسرع في المقارنة" } },
+      { "id": "c", "text": { "en": "useId is only useful for key props in lists", "ar": "useId مفيد فقط لخصائص key في القوائم" } },
+      { "id": "d", "text": { "en": "useId avoids re-renders when the ID is used as state", "ar": "يتجنب useId إعادات الرسم عند استخدام المعرِّف كحالة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Hydration mismatches occur when server-rendered HTML differs from what React produces on the client.", "ar": "تحدث أخطاء عدم تطابق الترطيب عندما يختلف HTML المُصيَّر على الخادم عما يُنتِجه React على العميل." },
+    "explanation": { "en": "Math.random() produces different values on the server and client, causing React hydration to fail because the IDs mismatch. useId() generates a deterministic ID based on the component's position in the tree, which is the same on both server and client. Typical use: linking <label htmlFor={id}> to <input id={id}>.", "ar": "يُنتِج Math.random() قيمًا مختلفة على الخادم والعميل، مما يُسبِّب فشل ترطيب React لأن المعرِّفات لا تتطابق. يولِّد useId() معرِّفًا حتميًا بناءً على موضع المكوّن في الشجرة، وهو متطابق على الخادم والعميل. الاستخدام النموذجي: ربط <label htmlFor={id}> بـ <input id={id}>." },
+    "xp": 30,
+    "tags": ["useId", "SSR", "hydration", "accessibility"]
+  },
+  {
+    "id": "react-e-5",
+    "trackId": "react",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": { "en": "In React 18, what is the user experience when startTransition wraps a slow state update?", "ar": "في React 18، ما هي تجربة المستخدم عند استخدام startTransition لتغليف تحديث حالة بطيء؟" },
+    "code": "function App() {\n  const [urgent, setUrgent] = React.useState('');\n  const [deferred, setDeferred] = React.useState('');\n  const [isPending, startTransition] = React.useTransition();\n\n  function handleChange(e) {\n    setUrgent(e.target.value);\n    startTransition(() => {\n      setDeferred(e.target.value);\n    });\n  }\n\n  return (\n    <>\n      <input onChange={handleChange} />\n      <p>Urgent: {urgent}</p>\n      {isPending ? 'Loading...' : <SlowList query={deferred} />}\n    </>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "setUrgent updates immediately keeping the input responsive; setDeferred is marked non-urgent and can be interrupted, showing 'Loading...' meanwhile", "ar": "يُحدِّث setUrgent فورًا مبقيًا المدخل مستجيبًا؛ setDeferred مُعلَّم كغير عاجل ويمكن مقاطعته، عارضًا 'Loading...' في غضون ذلك" } },
+      { "id": "b", "text": { "en": "Both updates are deferred and the input becomes unresponsive temporarily", "ar": "كلا التحديثين مؤجَّلان ويصبح المدخل غير مستجيب مؤقتًا" } },
+      { "id": "c", "text": { "en": "startTransition batches both updates into one render with no visual difference", "ar": "تُجمِّع startTransition كلا التحديثين في رسم واحد بدون فرق مرئي" } },
+      { "id": "d", "text": { "en": "The deferred state update is completely cancelled if the user keeps typing", "ar": "يُلغى تحديث الحالة المؤجَّل كليًا إذا استمر المستخدم في الكتابة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Transitions are interruptible — React can abandon a deferred render if higher-priority work arrives.", "ar": "الانتقالات قابلة للمقاطعة — يمكن لـ React التخلي عن رسم مؤجَّل إذا وصل عمل ذو أولوية أعلى." },
+    "explanation": { "en": "startTransition marks setDeferred as a low-priority (transition) update. React renders the urgent setUrgent immediately, keeping the input snappy. The deferred SlowList render is processed in the background at lower priority. If the user types again before SlowList finishes, React discards the in-progress deferred render and restarts with the new query.", "ar": "تُعلِّم startTransition التحديث setDeferred كتحديث منخفض الأولوية (انتقالي). يُقدِّم React التحديث العاجل setUrgent فورًا، مبقيًا المدخل سريع الاستجابة. يُعالَج رسم SlowList المؤجَّل في الخلفية بأولوية أقل. إذا كتب المستخدم مرة أخرى قبل انتهاء SlowList، يتجاهل React الرسم المؤجَّل الجاري ويبدأ من جديد بالاستعلام الجديد." },
+    "xp": 30,
+    "tags": ["useTransition", "concurrent", "React18", "performance"]
+  },
+  {
+    "id": "react-boss-1",
+    "trackId": "react",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "You are building a Next.js 14 App Router page. A developer marks a data-fetching component with 'use client'. What is the architectural problem and how would you fix it?", "ar": "تقوم ببناء صفحة في Next.js 14 App Router. يُعلِّم مطوِّر مكوّن جلب البيانات بـ 'use client'. ما هي المشكلة المعمارية وكيف ستُصلِحها؟" },
+    "options": [
+      { "id": "a", "text": { "en": "Client Components cannot be async and lose RSC benefits like zero-bundle data fetching. Fix: keep it a Server Component, pass data as props to a Client Component child for interactivity.", "ar": "لا يمكن لمكوّنات العميل أن تكون غير متزامنة وتفقد فوائد RSC مثل جلب البيانات بدون حزمة. الحل: إبقاؤه مكوّن خادم، تمرير البيانات كخصائص لمكوّن عميل فرعي للتفاعلية." } },
+      { "id": "b", "text": { "en": "Nothing is wrong; 'use client' components can fetch data with useEffect", "ar": "لا يوجد خطأ؛ يمكن لمكوّنات 'use client' جلب البيانات باستخدام useEffect" } },
+      { "id": "c", "text": { "en": "The page won't build because Client Components cannot import Server Components", "ar": "لن تُبنى الصفحة لأن مكوّنات العميل لا يمكنها استيراد مكوّنات الخادم" } },
+      { "id": "d", "text": { "en": "You should add 'use server' to the same component alongside 'use client'", "ar": "يجب إضافة 'use server' إلى نفس المكوّن جانبًا لـ 'use client'" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The boundary between Server and Client components is a one-way boundary: Server can render Client children, but not vice-versa (without slots/children patterns).", "ar": "الحد بين مكوّنات الخادم والعميل حد أحادي الاتجاه: يمكن للخادم رسم مكوّنات العميل الفرعية، لكن ليس العكس (بدون أنماط slots/children)." },
+    "explanation": { "en": "Marking a data-fetching component 'use client' moves it to the client bundle, making it unable to be async, losing direct DB access, and shipping more JavaScript. The correct pattern: fetch data in a Server Component using async/await, then pass the result as props to a Client Component that handles only the interactive parts.", "ar": "وسم مكوّن جلب البيانات بـ 'use client' ينقله إلى حزمة العميل، مما يجعله غير قادر على الكون غير متزامن، ويفقد الوصول المباشر لقاعدة البيانات، ويُشحن المزيد من JavaScript. النمط الصحيح: جلب البيانات في مكوّن خادم باستخدام async/await، ثم تمرير النتيجة كخصائص لمكوّن عميل يعالج الأجزاء التفاعلية فقط." },
+    "xp": 50,
+    "tags": ["server-components", "client-components", "Next.js", "architecture", "RSC"]
+  },
+  {
+    "id": "react-boss-2",
+    "trackId": "react",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": { "en": "A senior dev reviews your code and says this pattern is an anti-pattern that will cause bugs. What is the specific problem?", "ar": "يراجع مطوِّر أول كودك ويقول إن هذا النمط يُعدُّ نمطًا مضادًا سيُسبِّب أخطاء. ما هي المشكلة المحددة؟" },
+    "code": "function ParentList({ items }) {\n  const [selected, setSelected] = React.useState(\n    items[0]\n  );\n\n  // When items prop changes from outside,\n  // selected stays as the old value\n  return (\n    <>\n      {items.map(item => (\n        <button\n          key={item.id}\n          onClick={() => setSelected(item)}\n          style={{ fontWeight: item.id === selected.id ? 'bold' : 'normal' }}\n        >\n          {item.name}\n        </button>\n      ))}\n    </>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "State initialized from props gets stale when the prop changes — useState only uses the initial value once. Use a key prop or derive the selected state from the items prop instead.", "ar": "تصبح الحالة المُهيَّأة من الخصائص قديمة عند تغيُّر الخاصية — يستخدم useState القيمة الابتدائية مرة واحدة فقط. استخدم خاصية key أو اشتق حالة التحديد من خاصية items بدلاً من ذلك." } },
+      { "id": "b", "text": { "en": "You should use useEffect to sync selected with items prop changes", "ar": "يجب استخدام useEffect لمزامنة selected مع تغييرات خاصية items" } },
+      { "id": "c", "text": { "en": "items[0] throws if items is empty, which is the main bug", "ar": "يُلقي items[0] خطأ إذا كانت items فارغة، وهو الخطأ الرئيسي" } },
+      { "id": "d", "text": { "en": "The style prop causes unnecessary re-renders because it is an inline object", "ar": "يُسبِّب prop style إعادات رسم غير ضرورية لأنه كائن مضمَّن" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "useState(initialValue) — the initial value is only used on the very first render. Prop changes after mount are ignored.", "ar": "useState(initialValue) — القيمة الابتدائية تُستخدَم فقط في الرسم الأول. تُتجاهَل تغييرات الخصائص بعد التركيب." },
+    "explanation": { "en": "Initializing state from props is a common footgun. useState only uses its argument on the first mount; subsequent prop changes do not update the state. Solutions: (1) Make the component fully controlled (no local state, selection from parent), (2) use a key prop to reset: <ParentList key={listId} items={items} />, or (3) store the selected ID rather than the whole object and derive it from items on each render.", "ar": "تهيئة الحالة من الخصائص خطأ شائع. يستخدم useState معامله فقط عند أول تركيب؛ التغييرات اللاحقة للخصائص لا تُحدِّث الحالة. الحلول: (1) جعل المكوّن متحكَّمًا به بالكامل (بدون حالة محلية، التحديد من الأب)، (2) استخدام خاصية key لإعادة الضبط: <ParentList key={listId} items={items} />، أو (3) تخزين معرِّف العنصر المحدَّد بدلاً من الكائن كله واشتقاقه من items عند كل رسم." },
+    "xp": 50,
+    "tags": ["useState", "props", "anti-pattern", "stale-state", "derived-state"]
+  },
+  {
+    "id": "react-boss-3",
+    "trackId": "react",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "You profile a React app and see that a deeply nested child re-renders every time the root-level user object updates, even though the child only reads user.preferences.theme. What are the two best fixes?", "ar": "تقوم بتحليل تطبيق React وتلاحظ أن مكوّنًا فرعيًا متداخلًا بعمق يُعيد الرسم في كل مرة يتحدث فيها كائن المستخدم على مستوى الجذر، حتى لو كان المكوّن الفرعي يقرأ user.preferences.theme فقط. ما أفضل حلَّين؟" },
+    "options": [
+      { "id": "a", "text": { "en": "1) Split the Context into a ThemeContext that only holds theme, so unrelated updates don't trigger consumers. 2) Wrap the child in React.memo so it only re-renders when theme actually changes.", "ar": "1) قسِّم Context إلى ThemeContext يحمل theme فقط، حتى لا تُطلِق التحديثات غير ذات الصلة المستهلكين. 2) غلِّف المكوّن الفرعي في React.memo حتى يُعيد الرسم فقط عند تغيُّر theme فعليًا." } },
+      { "id": "b", "text": { "en": "Move the user state to Redux so React doesn't track it", "ar": "انقل حالة المستخدم إلى Redux حتى لا يتتبعها React" } },
+      { "id": "c", "text": { "en": "Use shouldComponentUpdate in the child component", "ar": "استخدم shouldComponentUpdate في المكوّن الفرعي" } },
+      { "id": "d", "text": { "en": "Switch from Context to a global module variable for user state", "ar": "انتقل من Context إلى متغير وحدة عالمي لحالة المستخدم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Context re-renders every consumer when its value changes. Granular contexts reduce the blast radius.", "ar": "يُعيد Context رسم كل مستهلك عند تغيُّر قيمته. السياقات الدقيقة تُقلِّل من نطاق التأثير." },
+    "explanation": { "en": "Every Context update re-renders all consumers regardless of which part of the value changed. Two strategies: (1) Context splitting — ThemeContext, UserPrefsContext, AuthContext — each consumer only subscribes to what it needs. (2) React.memo on the child so it skips re-render if the theme prop value is the same. Both together give optimal performance.", "ar": "كل تحديث لـ Context يُعيد رسم جميع المستهلكين بغض النظر عن أي جزء من القيمة تغيَّر. استراتيجيتان: (1) تقسيم Context — ThemeContext وUserPrefsContext وAuthContext — كل مستهلك يشترك فقط في ما يحتاجه. (2) React.memo على المكوّن الفرعي حتى يتخطى إعادة الرسم إذا كانت قيمة theme الخاصية هي نفسها. كلاهما معًا يُعطي أداءً مثاليًا." },
+    "xp": 50,
+    "tags": ["Context", "performance", "React.memo", "re-renders", "optimization"]
+  },
+  {
+    "id": "react-boss-4",
+    "trackId": "react",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": { "en": "This concurrent-mode safe data fetching pattern uses the experimental 'use' hook (React 19). What does 'use(promise)' do differently from await inside useEffect?", "ar": "يستخدم نمط جلب البيانات الآمن للوضع المتزامن هذا خطاف 'use' التجريبي (React 19). ما الذي يفعله 'use(promise)' بشكل مختلف عن await داخل useEffect؟" },
+    "code": "import { use, Suspense } from 'react';\n\nfunction UserProfile({ userPromise }) {\n  const user = use(userPromise);\n  return <h1>{user.name}</h1>;\n}\n\nfunction App() {\n  const promise = fetchUser(1);\n  return (\n    <Suspense fallback={<p>Loading...</p>}>\n      <UserProfile userPromise={promise} />\n    </Suspense>\n  );\n}",
+    "codeLang": "jsx",
+    "options": [
+      { "id": "a", "text": { "en": "use(promise) suspends rendering mid-component until the promise resolves, delegating the loading state to the nearest Suspense boundary — no useEffect, no useState needed", "ar": "يوقف use(promise) الرسم في منتصف المكوّن حتى يُحلَّ الوعد، مُفوِّضًا حالة التحميل إلى أقرب حد Suspense — لا يلزم useEffect أو useState" } },
+      { "id": "b", "text": { "en": "use() is identical to await but works inside components", "ar": "use() مطابق لـ await لكنه يعمل داخل المكوّنات" } },
+      { "id": "c", "text": { "en": "use() fetches data from a URL string, not a promise", "ar": "يجلب use() البيانات من سلسلة URL، وليس من وعد" } },
+      { "id": "d", "text": { "en": "use() can only be called at the top level of a component, exactly like other hooks", "ar": "يمكن استدعاء use() فقط على المستوى الأعلى للمكوّن، تمامًا مثل الخطافات الأخرى" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "Suspense boundaries catch thrown promises. The 'use' hook throws the promise when it is still pending.", "ar": "تلتقط حدود Suspense الوعود المُلقاة. يُلقي خطاف 'use' الوعد عندما يكون لا يزال معلقًا." },
+    "explanation": { "en": "The 'use' hook (React 19) reads a promise or context value during render. When the promise is pending, React throws it — Suspense catches it and renders the fallback. When resolved, React replays the render with the value. Unlike useEffect, there is no loading state boilerplate, no race conditions from sequential effects, and the loading UI is declarative via Suspense. Note: use() can be called conditionally inside loops, unlike regular hooks.", "ar": "يقرأ خطاف 'use' (React 19) وعدًا أو قيمة سياق أثناء الرسم. عندما يكون الوعد معلقًا، يُلقيه React — يلتقطه Suspense ويُقدِّم الاحتياطي. عند الحل، يُعيد React تشغيل الرسم بالقيمة. على عكس useEffect، لا يوجد نموذج حالة تحميل، ولا شروط سباق من التأثيرات المتسلسلة، وواجهة التحميل تصريحية عبر Suspense. ملاحظة: يمكن استدعاء use() بشكل شرطي داخل الحلقات، على عكس الخطافات العادية." },
+    "xp": 50,
+    "tags": ["use-hook", "React19", "Suspense", "concurrent", "data-fetching"]
+  },
+  {
+    "id": "react-boss-5",
+    "trackId": "react",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": { "en": "A team's React app has severe performance issues. Profiling shows a top-level Context with a large object re-renders 200 components on every keystroke in a single input. Walk through the optimal fix strategy.", "ar": "يعاني تطبيق React لفريق من مشكلات أداء حادة. يُظهِر التحليل أن Context على المستوى الأعلى يحتوي على كائن كبير يُعيد رسم 200 مكوّن عند كل ضغطة مفتاح في مدخل واحد. مُرَّ خلال استراتيجية الإصلاح المثلى." },
+    "options": [
+      { "id": "a", "text": { "en": "1) Split the monolith Context into feature-specific contexts. 2) Move the input's local state out of Context. 3) Memoize stable values with useMemo. 4) Wrap pure display components in React.memo. 5) Use useTransition for non-urgent updates.", "ar": "1) قسِّم Context الضخم إلى سياقات خاصة بالميزات. 2) انقل الحالة المحلية للمدخل خارج Context. 3) احفظ القيم الثابتة باستخدام useMemo. 4) غلِّف مكوّنات العرض النقية في React.memo. 5) استخدم useTransition للتحديثات غير العاجلة." } },
+      { "id": "b", "text": { "en": "Replace Context with Redux Toolkit and use selective selectors", "ar": "استبدل Context بـ Redux Toolkit واستخدم محددات انتقائية" } },
+      { "id": "c", "text": { "en": "Set shouldUpdate = false on all components except the input", "ar": "اضبط shouldUpdate = false على جميع المكوّنات باستثناء المدخل" } },
+      { "id": "d", "text": { "en": "Add React.memo to the Context Provider itself", "ar": "أضف React.memo إلى مزوِّد Context نفسه" } }
+    ],
+    "correctOptionId": "a",
+    "hint": { "en": "The root cause: one large context value means every consumer re-renders whenever any part of the value changes. Decompose, isolate, memoize.", "ar": "السبب الجذري: قيمة سياق واحدة كبيرة تعني أن كل مستهلك يُعيد الرسم كلما تغيَّر أي جزء من القيمة. قسِّم، عزِّل، احفظ." },
+    "explanation": { "en": "The complete strategy: (1) Context splitting — each concern gets its own context (AuthContext, ThemeContext, FormContext), consumers only re-render on their specific context changes. (2) Colocation — keep the keystroke state local to the input (not in global context) and only propagate debounced/committed values upward. (3) useMemo on context values to preserve reference identity. (4) React.memo on leaf display components. (5) useTransition to batch search/filter updates as low-priority. This produces near-zero unnecessary re-renders.", "ar": "الاستراتيجية الكاملة: (1) تقسيم Context — كل اهتمام يحصل على سياقه الخاص (AuthContext, ThemeContext, FormContext)، المستهلكون يُعيدون الرسم فقط على تغييرات سياقهم المحدد. (2) التمركز — إبقاء حالة ضغطة المفاتيح محلية للمدخل (وليس في السياق العالمي) ونشر القيم المُؤجَّلة/الملتزم بها فقط للأعلى. (3) useMemo على قيم السياق للحفاظ على هوية المرجع. (4) React.memo على مكوّنات العرض الورقية. (5) useTransition لتجميع تحديثات البحث/التصفية كمنخفضة الأولوية. ينتج عن هذا إعادات رسم غير ضرورية تكاد تكون صفرية." },
+    "xp": 50,
+    "tags": ["performance", "Context", "React.memo", "useMemo", "useTransition", "optimization", "architecture"]
   }
 ]
