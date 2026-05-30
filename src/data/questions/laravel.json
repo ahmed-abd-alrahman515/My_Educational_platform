@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "laravel-b-1",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which file is used to define application routes in a standard Laravel web application?",
+      "ar": "أي ملف يُستخدم لتعريف مسارات التطبيق في تطبيق Laravel الويب القياسي؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "routes/web.php", "ar": "routes/web.php" } },
+      { "id": "b", "text": { "en": "app/Http/routes.php", "ar": "app/Http/routes.php" } },
+      { "id": "c", "text": { "en": "config/routes.php", "ar": "config/routes.php" } },
+      { "id": "d", "text": { "en": "bootstrap/routes.php", "ar": "bootstrap/routes.php" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel separates web and API routes into different files.",
+      "ar": "يفصل Laravel مسارات الويب وAPI في ملفات مختلفة."
+    },
+    "explanation": {
+      "en": "In Laravel, web routes are defined in routes/web.php. API routes go in routes/api.php. This separation was introduced to cleanly distinguish session-based web routes from stateless API routes.",
+      "ar": "في Laravel، تُعرَّف مسارات الويب في routes/web.php، بينما تذهب مسارات API إلى routes/api.php. هذا الفصل يميز بوضوح مسارات الويب المعتمدة على الجلسة عن مسارات API عديمة الحالة."
+    },
+    "xp": 10,
+    "tags": ["routing"]
+  },
+  {
+    "id": "laravel-b-2",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "The `$fillable` property on an Eloquent model protects against mass assignment vulnerabilities.",
+      "ar": "الخاصية `$fillable` في نموذج Eloquent تحمي من ثغرات التعيين الجماعي."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about what happens when you call Model::create($request->all()).",
+      "ar": "فكر في ما يحدث عند استدعاء Model::create($request->all())."
+    },
+    "explanation": {
+      "en": "The `$fillable` array whitelists which attributes can be mass-assigned via methods like `create()` or `fill()`. Without it (and without `$guarded`), any request field could overwrite sensitive columns like `is_admin`.",
+      "ar": "مصفوفة `$fillable` تضع قائمة بيضاء للخصائص التي يمكن تعيينها جماعياً عبر طرق مثل `create()` أو `fill()`. بدونها، يمكن لأي حقل طلب أن يُعيد كتابة أعمدة حساسة مثل `is_admin`."
+    },
+    "xp": 10,
+    "tags": ["eloquent", "security", "mass-assignment"]
+  },
+  {
+    "id": "laravel-b-3",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which Artisan command creates a new Eloquent model along with its migration file?",
+      "ar": "أي أمر Artisan يُنشئ نموذج Eloquent جديداً مع ملف migration الخاص به؟"
+    },
+    "code": "php artisan make:model Post ???",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "-m", "ar": "-m" } },
+      { "id": "b", "text": { "en": "--migration=true", "ar": "--migration=true" } },
+      { "id": "c", "text": { "en": "-migrate", "ar": "-migrate" } },
+      { "id": "d", "text": { "en": "--with-migration", "ar": "--with-migration" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "It's a short flag, just one letter.",
+      "ar": "إنه علامة قصيرة، حرف واحد فقط."
+    },
+    "explanation": {
+      "en": "`php artisan make:model Post -m` creates both the model file and a corresponding migration. You can also use `--migration` (long form). Combining with `-c` or `-r` also scaffolds a controller.",
+      "ar": "`php artisan make:model Post -m` يُنشئ ملف النموذج وملف migration المقابل. يمكنك أيضاً استخدام `--migration` (الشكل الطويل). الجمع مع `-c` أو `-r` ينشئ controller أيضاً."
+    },
+    "xp": 10,
+    "tags": ["artisan", "migrations", "eloquent"]
+  },
+  {
+    "id": "laravel-b-4",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this Blade directive output when `$user->is_admin` is false?",
+      "ar": "ماذا يُخرج توجيه Blade هذا عندما تكون `$user->is_admin` تساوي false؟"
+    },
+    "code": "@if($user->is_admin)\n    <p>Admin Panel</p>\n@else\n    <p>Welcome, User!</p>\n@endif",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "<p>Welcome, User!</p>", "ar": "<p>Welcome, User!</p>" } },
+      { "id": "b", "text": { "en": "<p>Admin Panel</p>", "ar": "<p>Admin Panel</p>" } },
+      { "id": "c", "text": { "en": "Nothing is rendered", "ar": "لا شيء يُعرض" } },
+      { "id": "d", "text": { "en": "A PHP error is thrown", "ar": "يُطرح خطأ PHP" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The @else branch executes when the condition is falsy.",
+      "ar": "يُنفَّذ فرع @else عندما يكون الشرط غير صحيح."
+    },
+    "explanation": {
+      "en": "When `$user->is_admin` is false, the `@else` branch executes and outputs `<p>Welcome, User!</p>`. Blade directives compile to plain PHP conditionals, so they work exactly like PHP if/else.",
+      "ar": "عندما تكون `$user->is_admin` تساوي false، يُنفَّذ فرع `@else` ويُخرج `<p>Welcome, User!</p>`. توجيهات Blade تُترجَم إلى شروط PHP عادية، لذا تعمل تماماً مثل if/else في PHP."
+    },
+    "xp": 10,
+    "tags": ["blade", "templating"]
+  },
+  {
+    "id": "laravel-b-5",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which method is used to retrieve all records from an Eloquent model?",
+      "ar": "أي طريقة تُستخدم لاسترجاع جميع السجلات من نموذج Eloquent؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Post::all()", "ar": "Post::all()" } },
+      { "id": "b", "text": { "en": "Post::get()", "ar": "Post::get()" } },
+      { "id": "c", "text": { "en": "Post::fetch()", "ar": "Post::fetch()" } },
+      { "id": "d", "text": { "en": "Post::select()", "ar": "Post::select()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "There's a static shorthand that says 'give me all of them'.",
+      "ar": "هناك اختصار ثابت يقول 'أعطني كل شيء'."
+    },
+    "explanation": {
+      "en": "`Post::all()` is a static shorthand that fetches every row in the table. `Post::get()` would also work but requires a query builder chain to start with. `all()` is the simplest way for a full table scan.",
+      "ar": "`Post::all()` هو اختصار ثابت يجلب كل صف في الجدول. `Post::get()` ستعمل أيضاً لكنها تتطلب بدء سلسلة query builder. `all()` هي أبسط طريقة لفحص الجدول بالكامل."
+    },
+    "xp": 10,
+    "tags": ["eloquent", "query"]
+  },
+  {
+    "id": "laravel-b-6",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Complete the route definition so that visiting `/users/{id}` calls the `show` method on `UserController`.",
+      "ar": "أكمل تعريف المسار بحيث تستدعي زيارة `/users/{id}` الطريقة `show` في `UserController`."
+    },
+    "code": "Route::get('/users/{id}', [UserController::class, ___]);",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "'show'", "ar": "'show'" } },
+      { "id": "b", "text": { "en": "'index'", "ar": "'index'" } },
+      { "id": "c", "text": { "en": "'display'", "ar": "'display'" } },
+      { "id": "d", "text": { "en": "'get'", "ar": "'get'" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "RESTful convention uses 'show' to display a single resource.",
+      "ar": "الاصطلاح RESTful يستخدم 'show' لعرض مورد واحد."
+    },
+    "explanation": {
+      "en": "Laravel's resourceful controller convention uses `show` for displaying a single resource (GET /users/{id}). The array syntax `[UserController::class, 'show']` is the modern way to reference a controller action.",
+      "ar": "اصطلاح Laravel للـ controller الموردي يستخدم `show` لعرض مورد واحد (GET /users/{id}). صياغة المصفوفة `[UserController::class, 'show']` هي الطريقة الحديثة للإشارة إلى إجراء controller."
+    },
+    "xp": 10,
+    "tags": ["routing", "controllers"]
+  },
+  {
+    "id": "laravel-b-7",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "How do you pass data to a Blade view from a controller?",
+      "ar": "كيف تُمرر بيانات إلى قالب Blade من controller؟"
+    },
+    "code": "return view('profile', ???);",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "['user' => $user]", "ar": "['user' => $user]" } },
+      { "id": "b", "text": { "en": "($user)", "ar": "($user)" } },
+      { "id": "c", "text": { "en": "->with($user)", "ar": "->with($user)" } },
+      { "id": "d", "text": { "en": "::bind(['user' => $user])", "ar": "::bind(['user' => $user])" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The second argument to `view()` is an associative array.",
+      "ar": "المعامل الثاني لـ `view()` هو مصفوفة ترابطية."
+    },
+    "explanation": {
+      "en": "You pass an associative array as the second argument to `view()`: `view('profile', ['user' => $user])`. The keys become variables in the view. You can also chain `->with('user', $user)` for the same result.",
+      "ar": "تُمرر مصفوفة ترابطية كمعامل ثانٍ لـ `view()`: `view('profile', ['user' => $user])`. تصبح المفاتيح متغيرات في القالب. يمكنك أيضاً ربط `->with('user', $user)` للحصول على نفس النتيجة."
+    },
+    "xp": 10,
+    "tags": ["blade", "controllers"]
+  },
+  {
+    "id": "laravel-b-8",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "Running `php artisan migrate:fresh` drops all tables and re-runs all migrations from scratch.",
+      "ar": "تشغيل `php artisan migrate:fresh` يحذف جميع الجداول ويُعيد تشغيل جميع ملفات migration من البداية."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Fresh is more aggressive than rollback; it nukes everything.",
+      "ar": "'fresh' أكثر قسوة من rollback؛ إنها تحذف كل شيء."
+    },
+    "explanation": {
+      "en": "`migrate:fresh` drops every table in the database and then runs all migrations anew. Unlike `migrate:refresh` (which rolls back and re-runs), `fresh` simply drops all tables directly — useful in development, but extremely destructive in production.",
+      "ar": "`migrate:fresh` يحذف كل جدول في قاعدة البيانات ثم يُشغِّل جميع ملفات migration من جديد. على عكس `migrate:refresh` (الذي يتراجع ويُعيد التشغيل)، يحذف `fresh` جميع الجداول مباشرةً — مفيد في التطوير، لكنه مدمر للغاية في الإنتاج."
+    },
+    "xp": 10,
+    "tags": ["migrations", "artisan"]
+  },
+  {
+    "id": "laravel-b-9",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the default HTTP method used by HTML forms, and how does Laravel handle PUT/PATCH/DELETE in forms?",
+      "ar": "ما هو طريقة HTTP الافتراضية المستخدمة في نماذج HTML، وكيف يتعامل Laravel مع PUT/PATCH/DELETE في النماذج؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Forms default to GET/POST; use @method('PUT') Blade directive for other verbs", "ar": "النماذج تعتمد GET/POST افتراضياً؛ استخدم توجيه Blade ‎@method('PUT') للأفعال الأخرى" } },
+      { "id": "b", "text": { "en": "HTML forms natively support all HTTP methods", "ar": "نماذج HTML تدعم جميع طرق HTTP بشكل أصلي" } },
+      { "id": "c", "text": { "en": "Laravel ignores the HTTP method and uses route names instead", "ar": "Laravel يتجاهل طريقة HTTP ويستخدم أسماء المسارات بدلاً منها" } },
+      { "id": "d", "text": { "en": "Use a hidden input named _method with value AJAX", "ar": "استخدم حقل إدخال مخفي باسم _method وقيمة AJAX" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Browsers only send GET and POST. Laravel uses a hidden field to spoof other methods.",
+      "ar": "المتصفحات ترسل GET و POST فقط. يستخدم Laravel حقلاً مخفياً لمحاكاة الطرق الأخرى."
+    },
+    "explanation": {
+      "en": "HTML forms only support GET and POST. To use PUT, PATCH, or DELETE, Laravel uses method spoofing via a hidden `_method` input. The `@method('PUT')` Blade directive adds this automatically: `<input type=\"hidden\" name=\"_method\" value=\"PUT\">`.",
+      "ar": "نماذج HTML تدعم GET و POST فقط. لاستخدام PUT أو PATCH أو DELETE، يستخدم Laravel محاكاة الطريقة عبر حقل `_method` المخفي. توجيه Blade ‎`@method('PUT')` يضيف هذا تلقائياً: `<input type=\"hidden\" name=\"_method\" value=\"PUT\">`."
+    },
+    "xp": 10,
+    "tags": ["routing", "blade", "http"]
+  },
+  {
+    "id": "laravel-b-10",
+    "trackId": "laravel",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which environment file does Laravel read by default to load configuration values like database credentials?",
+      "ar": "أي ملف بيئة يقرأه Laravel افتراضياً لتحميل قيم الإعدادات مثل بيانات اعتماد قاعدة البيانات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": ".env", "ar": ".env" } },
+      { "id": "b", "text": { "en": "config/app.php", "ar": "config/app.php" } },
+      { "id": "c", "text": { "en": "environment.php", "ar": "environment.php" } },
+      { "id": "d", "text": { "en": ".env.php", "ar": ".env.php" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "It's in the project root and should NOT be committed to version control.",
+      "ar": "إنه في جذر المشروع ولا يجب إضافته إلى نظام التحكم بالإصدارات."
+    },
+    "explanation": {
+      "en": "Laravel uses the `.env` file in the project root (via the vlucas/phpdotenv library) to load environment-specific configuration. Values are accessed with `env('KEY')` or via config helpers. The `.env` file should be in `.gitignore` to protect credentials.",
+      "ar": "يستخدم Laravel ملف `.env` في جذر المشروع (عبر مكتبة vlucas/phpdotenv) لتحميل الإعدادات الخاصة بالبيئة. يتم الوصول إلى القيم عبر `env('KEY')` أو عبر مساعدات config. يجب إدراج ملف `.env` في `.gitignore` لحماية بيانات الاعتماد."
+    },
+    "xp": 10,
+    "tags": ["config", "environment"]
+  },
+  {
+    "id": "laravel-i-1",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This code triggers the N+1 problem. What is the fix?",
+      "ar": "هذا الكود يُسبب مشكلة N+1. ما هو الحل؟"
+    },
+    "code": "$posts = Post::all();\nforeach ($posts as $post) {\n    echo $post->author->name; // Runs a query per post!\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "Post::with('author')->get()", "ar": "Post::with('author')->get()" } },
+      { "id": "b", "text": { "en": "Post::join('users', 'posts.user_id', 'users.id')->get()", "ar": "Post::join('users', 'posts.user_id', 'users.id')->get()" } },
+      { "id": "c", "text": { "en": "Post::load('author')->all()", "ar": "Post::load('author')->all()" } },
+      { "id": "d", "text": { "en": "Post::include('author')->get()", "ar": "Post::include('author')->get()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Eager loading loads all relationships in one extra query instead of N queries.",
+      "ar": "التحميل المتحمس يحمل جميع العلاقات في استعلام إضافي واحد بدلاً من N استعلام."
+    },
+    "explanation": {
+      "en": "The N+1 problem occurs when each iteration fires a new query. `Post::with('author')->get()` eager-loads all authors in a single second query (using WHERE IN), reducing N+1 queries to just 2. This is one of the most critical performance patterns in Laravel.",
+      "ar": "تحدث مشكلة N+1 عندما يُطلق كل تكرار استعلاماً جديداً. `Post::with('author')->get()` يحمل جميع المؤلفين مسبقاً في استعلام ثانٍ واحد (باستخدام WHERE IN)، مما يقلل استعلامات N+1 إلى استعلامين فقط. هذا من أهم أنماط الأداء في Laravel."
+    },
+    "xp": 15,
+    "tags": ["eloquent", "n+1", "performance", "eager-loading"]
+  },
+  {
+    "id": "laravel-i-2",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the correct way to define a `hasMany` relationship where a `User` has many `Post` records?",
+      "ar": "ما هي الطريقة الصحيحة لتعريف علاقة `hasMany` حيث يملك `User` سجلات `Post` متعددة؟"
+    },
+    "code": "class User extends Model\n{\n    public function posts()\n    {\n        return $this->???(Post::class);\n    }\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "hasMany", "ar": "hasMany" } },
+      { "id": "b", "text": { "en": "belongsTo", "ar": "belongsTo" } },
+      { "id": "c", "text": { "en": "hasOne", "ar": "hasOne" } },
+      { "id": "d", "text": { "en": "morphMany", "ar": "morphMany" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The 'parent' model defines the 'has' side of the relationship.",
+      "ar": "النموذج 'الأصل' يُعرِّف جانب 'has' في العلاقة."
+    },
+    "explanation": {
+      "en": "`hasMany` is used on the parent model (User) to declare that it owns many child records (Posts). The Post model would use `belongsTo(User::class)` on the other side. Laravel infers the foreign key as `user_id` by convention.",
+      "ar": "`hasMany` تُستخدم على النموذج الأصل (User) للإعلان عن امتلاكه سجلات فرعية متعددة (Posts). سيستخدم نموذج Post `belongsTo(User::class)` على الجانب الآخر. يستنتج Laravel المفتاح الخارجي كـ `user_id` بالاصطلاح."
+    },
+    "xp": 15,
+    "tags": ["eloquent", "relationships"]
+  },
+  {
+    "id": "laravel-i-3",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "A Form Request validation rule returns a 422 response. Where does Laravel redirect the user in a web (non-API) request when validation fails?",
+      "ar": "قاعدة التحقق من Form Request تُرجع استجابة 422. إلى أين يُعيد توجيه Laravel المستخدم في طلب ويب (غير API) عند فشل التحقق؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Back to the previous URL with errors flashed to the session", "ar": "العودة إلى الرابط السابق مع وميض الأخطاء في الجلسة" } },
+      { "id": "b", "text": { "en": "To /errors/422 route", "ar": "إلى مسار /errors/422" } },
+      { "id": "c", "text": { "en": "To the application home page", "ar": "إلى الصفحة الرئيسية للتطبيق" } },
+      { "id": "d", "text": { "en": "Returns a JSON response regardless of request type", "ar": "تُرجع استجابة JSON بغض النظر عن نوع الطلب" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel's Form Request uses the `failedValidation` method which calls `redirect()->back()`.",
+      "ar": "يستخدم Form Request في Laravel طريقة `failedValidation` التي تستدعي `redirect()->back()`."
+    },
+    "explanation": {
+      "en": "For web requests, when Form Request validation fails, Laravel automatically redirects back to the previous page and flashes validation errors to the session. In Blade, you access them with `$errors->get('field')` or `@error`. For API requests (expecting JSON), a 422 JSON response is returned instead.",
+      "ar": "بالنسبة لطلبات الويب، عند فشل تحقق Form Request، يُعيد Laravel التوجيه تلقائياً إلى الصفحة السابقة ويومض أخطاء التحقق في الجلسة. في Blade، تصل إليها عبر `$errors->get('field')` أو `@error`. بالنسبة لطلبات API (التي تتوقع JSON)، تُرجع استجابة JSON 422 بدلاً من ذلك."
+    },
+    "xp": 15,
+    "tags": ["validation", "form-request", "http"]
+  },
+  {
+    "id": "laravel-i-4",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this Collection method chain return?",
+      "ar": "ماذا تُرجع سلسلة طرق Collection هذه؟"
+    },
+    "code": "$result = collect([1, 2, 3, 4, 5])\n    ->filter(fn($n) => $n % 2 === 0)\n    ->values()\n    ->toArray();\n\nvar_dump($result);",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "[2, 4]", "ar": "[2, 4]" } },
+      { "id": "b", "text": { "en": "[1, 3, 5]", "ar": "[1, 3, 5]" } },
+      { "id": "c", "text": { "en": "[0 => 2, 2 => 4]", "ar": "[0 => 2, 2 => 4]" } },
+      { "id": "d", "text": { "en": "[1, 2, 3, 4, 5]", "ar": "[1, 2, 3, 4, 5]" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`filter` keeps items matching the predicate; `values()` re-indexes the keys.",
+      "ar": "`filter` يحتفظ بالعناصر التي تطابق الشرط؛ `values()` يُعيد ترقيم المفاتيح."
+    },
+    "explanation": {
+      "en": "`filter(fn($n) => $n % 2 === 0)` keeps only 2 and 4 (even numbers), preserving original keys (1 and 3). `values()` re-indexes the array to 0-based keys. `toArray()` converts to a plain PHP array, resulting in `[2, 4]` with keys 0 and 1.",
+      "ar": "`filter(fn($n) => $n % 2 === 0)` يحتفظ فقط بـ 2 و 4 (الأعداد الزوجية)، محتفظاً بالمفاتيح الأصلية (1 و 3). `values()` يُعيد فهرسة المصفوفة إلى مفاتيح تبدأ من 0. `toArray()` يحوّل إلى مصفوفة PHP عادية، ينتج [2, 4] بمفاتيح 0 و 1."
+    },
+    "xp": 15,
+    "tags": ["collections"]
+  },
+  {
+    "id": "laravel-i-5",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of a local scope in an Eloquent model?",
+      "ar": "ما هو الغرض من النطاق المحلي (local scope) في نموذج Eloquent؟"
+    },
+    "code": "public function scopeActive(Builder $query): Builder\n{\n    return $query->where('status', 'active');\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "To encapsulate a reusable query constraint callable as Post::active()->get()", "ar": "لتغليف قيد استعلام قابل لإعادة الاستخدام يمكن استدعاؤه كـ Post::active()->get()" } },
+      { "id": "b", "text": { "en": "To restrict which columns can be selected", "ar": "لتقييد أعمدة يمكن تحديدها" } },
+      { "id": "c", "text": { "en": "To automatically apply a where clause to all queries", "ar": "لتطبيق شرط where تلقائياً على جميع الاستعلامات" } },
+      { "id": "d", "text": { "en": "To define a relationship with a condition", "ar": "لتعريف علاقة بشرط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Local scopes are called explicitly; global scopes are applied automatically.",
+      "ar": "النطاقات المحلية تُستدعى بشكل صريح؛ النطاقات العامة تُطبَّق تلقائياً."
+    },
+    "explanation": {
+      "en": "A local scope prefixed with `scope` (e.g., `scopeActive`) lets you chain reusable query logic: `Post::active()->latest()->get()`. It's called without the `scope` prefix. A global scope (`addGlobalScope`) would apply automatically to every query on the model.",
+      "ar": "النطاق المحلي الذي يبدأ بـ `scope` (مثل `scopeActive`) يتيح ربط منطق استعلام قابل لإعادة الاستخدام: `Post::active()->latest()->get()`. يُستدعى بدون بادئة `scope`. النطاق العام (`addGlobalScope`) سيُطبَّق تلقائياً على كل استعلام في النموذج."
+    },
+    "xp": 15,
+    "tags": ["eloquent", "scopes"]
+  },
+  {
+    "id": "laravel-i-6",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "A developer registers middleware in `app/Http/Kernel.php` but it's not running on their route. What is the most likely bug?",
+      "ar": "مطور يسجل middleware في `app/Http/Kernel.php` لكنه لا يعمل على مساره. ما هو الخطأ الأكثر احتمالاً؟"
+    },
+    "code": "// In Kernel.php\nprotected $middlewareAliases = [\n    'check.age' => \\App\\Http\\Middleware\\CheckAge::class,\n];\n\n// In routes/web.php\nRoute::get('/adult', [AdultController::class, 'index']);",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The route is missing ->middleware('check.age') to apply it", "ar": "المسار يفتقر إلى ->middleware('check.age') لتطبيقه" } },
+      { "id": "b", "text": { "en": "Middleware aliases are deprecated in Laravel 10+", "ar": "أسماء middleware المستعارة مهجورة في Laravel 10+" } },
+      { "id": "c", "text": { "en": "The middleware class must be in the global stack", "ar": "يجب أن تكون فئة middleware في المجموعة العامة" } },
+      { "id": "d", "text": { "en": "Middleware must be registered in a ServiceProvider, not Kernel.php", "ar": "يجب تسجيل middleware في ServiceProvider وليس Kernel.php" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Adding to `$middlewareAliases` only registers an alias; you still need to attach it to routes.",
+      "ar": "الإضافة إلى `$middlewareAliases` تُسجِّل اسماً مستعاراً فقط؛ لا تزال بحاجة إلى إرفاقه بالمسارات."
+    },
+    "explanation": {
+      "en": "Registering in `$middlewareAliases` only creates a short name for the middleware class. To actually run it, you must attach it to a route with `->middleware('check.age')`, to a controller, or add it to the global/group middleware stack. Without assignment, it simply won't execute.",
+      "ar": "التسجيل في `$middlewareAliases` يُنشئ فقط اسماً قصيراً لفئة middleware. لتشغيله فعلياً، يجب إرفاقه بمسار عبر `->middleware('check.age')`، أو بـ controller، أو إضافته إلى مجموعة middleware العامة/الجماعية. بدون التعيين، لن يُنفَّذ ببساطة."
+    },
+    "xp": 15,
+    "tags": ["middleware", "routing"]
+  },
+  {
+    "id": "laravel-i-7",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which Eloquent method creates a record if it doesn't exist or retrieves it if it does, based on given attributes?",
+      "ar": "أي طريقة Eloquent تُنشئ سجلاً إن لم يكن موجوداً أو تستعيده إن كان موجوداً، بناءً على خصائص محددة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "firstOrCreate()", "ar": "firstOrCreate()" } },
+      { "id": "b", "text": { "en": "updateOrCreate()", "ar": "updateOrCreate()" } },
+      { "id": "c", "text": { "en": "findOrNew()", "ar": "findOrNew()" } },
+      { "id": "d", "text": { "en": "getOrInsert()", "ar": "getOrInsert()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "There's a difference between 'first or create' and 'update or create'.",
+      "ar": "هناك فرق بين 'first or create' و 'update or create'."
+    },
+    "explanation": {
+      "en": "`firstOrCreate(['email' => $email])` finds the first record matching the attributes or creates one. `updateOrCreate` finds and updates, or creates. `findOrNew` finds by PK or returns a new unsaved model instance. `getOrInsert()` doesn't exist in Laravel.",
+      "ar": "`firstOrCreate(['email' => $email])` يجد أول سجل يطابق الخصائص أو يُنشئ واحداً. `updateOrCreate` يجد ويُحدِّث أو يُنشئ. `findOrNew` يجد حسب المفتاح الأساسي أو يُرجع مثيل نموذج جديد غير محفوظ. `getOrInsert()` غير موجود في Laravel."
+    },
+    "xp": 15,
+    "tags": ["eloquent"]
+  },
+  {
+    "id": "laravel-i-8",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to run a slow report generation in the background so the user gets an immediate HTTP response. What is the correct Laravel approach?",
+      "ar": "تحتاج إلى تشغيل إنشاء تقرير بطيء في الخلفية حتى يحصل المستخدم على استجابة HTTP فورية. ما هو النهج الصحيح في Laravel؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Dispatch a Job to a queue with GenerateReport::dispatch($data)", "ar": "إيفاد Job إلى طابور انتظار باستخدام GenerateReport::dispatch($data)" } },
+      { "id": "b", "text": { "en": "Use set_time_limit(0) and run it synchronously", "ar": "استخدام set_time_limit(0) وتشغيله بشكل متزامن" } },
+      { "id": "c", "text": { "en": "Use a Blade @defer directive", "ar": "استخدام توجيه Blade @defer" } },
+      { "id": "d", "text": { "en": "Use PHP's exec() to spawn a background process", "ar": "استخدام exec() في PHP لإطلاق عملية في الخلفية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel has a built-in queue system specifically for this use case.",
+      "ar": "لدى Laravel نظام طابور انتظار مدمج مخصص لهذا الاستخدام."
+    },
+    "explanation": {
+      "en": "Laravel's queue system is the idiomatic solution: create a Job class and dispatch it. The worker processes it asynchronously. `set_time_limit(0)` blocks the HTTP request. `exec()` is fragile and bypasses Laravel's queue management. There's no `@defer` Blade directive for this purpose.",
+      "ar": "نظام طابور الانتظار في Laravel هو الحل المعتاد: أنشئ فئة Job وأَوْفِدها. يعالجها العامل بشكل غير متزامن. `set_time_limit(0)` يحجب طلب HTTP. `exec()` هش ويتجاوز إدارة طابور انتظار Laravel. لا يوجد توجيه Blade `@defer` لهذا الغرض."
+    },
+    "xp": 15,
+    "tags": ["queues", "jobs"]
+  },
+  {
+    "id": "laravel-i-9",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "How do you define an accessor for a `full_name` computed attribute on an Eloquent model in Laravel 9+?",
+      "ar": "كيف تُعرِّف accessor لخاصية محسوبة `full_name` في نموذج Eloquent في Laravel 9+؟"
+    },
+    "code": "// Modern Laravel 9+ syntax\npublic function fullName(): Attribute\n{\n    return Attribute::make(\n        get: fn () => $this->first_name . ' ' . $this->last_name,\n    );\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "This is the correct modern syntax using the Attribute class", "ar": "هذا هو الصيغة الحديثة الصحيحة باستخدام فئة Attribute" } },
+      { "id": "b", "text": { "en": "Accessors must be prefixed with 'get' and suffixed with 'Attribute', like getFullNameAttribute()", "ar": "يجب أن تبدأ الـ accessors بـ 'get' وتنتهي بـ 'Attribute'، مثل getFullNameAttribute()" } },
+      { "id": "c", "text": { "en": "Both syntaxes are correct but option A is the only supported one in Laravel 9+", "ar": "كلا الصيغتين صحيحتان لكن الخيار A هو الوحيد المدعوم في Laravel 9+" } },
+      { "id": "d", "text": { "en": "Accessors require declaration in the $appends array", "ar": "تتطلب الـ accessors التصريح في مصفوفة $appends" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel 9 introduced the new `Attribute::make()` fluent syntax.",
+      "ar": "قدّم Laravel 9 صيغة `Attribute::make()` الطلاقة الجديدة."
+    },
+    "explanation": {
+      "en": "Laravel 9 introduced `Illuminate\\Database\\Eloquent\\Casts\\Attribute::make()` as the new idiomatic way to define accessors and mutators. The old `getFullNameAttribute()` convention still works but is the legacy approach. `$appends` is optional — it's only needed if you want the accessor included in JSON serialization.",
+      "ar": "قدّم Laravel 9 `Illuminate\\Database\\Eloquent\\Casts\\Attribute::make()` كطريقة اصطلاحية جديدة لتعريف الـ accessors والـ mutators. الاصطلاح القديم `getFullNameAttribute()` لا يزال يعمل لكنه النهج القديم. `$appends` اختيارية — تحتاجها فقط إذا أردت تضمين الـ accessor في تسلسل JSON."
+    },
+    "xp": 15,
+    "tags": ["eloquent", "accessors", "mutators"]
+  },
+  {
+    "id": "laravel-i-10",
+    "trackId": "laravel",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "CSRF protection in Laravel is automatically applied to all routes in `routes/api.php`.",
+      "ar": "حماية CSRF في Laravel تُطبَّق تلقائياً على جميع المسارات في `routes/api.php`."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think about which middleware group api routes use vs web routes.",
+      "ar": "فكر في مجموعة middleware التي تستخدمها مسارات API مقابل مسارات الويب."
+    },
+    "explanation": {
+      "en": "CSRF protection (via `VerifyCsrfToken` middleware) is only applied to routes in the `web` middleware group (routes/web.php). API routes use the `api` middleware group, which is stateless and does not include CSRF verification — API clients use tokens (like Sanctum) instead.",
+      "ar": "حماية CSRF (عبر middleware `VerifyCsrfToken`) تُطبَّق فقط على المسارات في مجموعة middleware `web` (routes/web.php). مسارات API تستخدم مجموعة middleware `api` التي عديمة الحالة ولا تتضمن التحقق من CSRF — تستخدم عملاء API رموزاً بدلاً من ذلك (مثل Sanctum)."
+    },
+    "xp": 15,
+    "tags": ["csrf", "security", "middleware"]
+  },
+  {
+    "id": "laravel-a-1",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This many-to-many relationship is incorrectly defined. What will cause a bug at runtime?",
+      "ar": "علاقة many-to-many هذه مُعرَّفة بشكل غير صحيح. ما الذي سيسبب خطأً في وقت التشغيل؟"
+    },
+    "code": "// User model\npublic function roles()\n{\n    return $this->belongsToMany(Role::class, 'role_user', 'role_id', 'user_id');\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The foreign key arguments are swapped; should be 'user_id', 'role_id'", "ar": "معاملا المفتاح الأجنبي مُعكوسان؛ يجب أن يكونا 'user_id', 'role_id'" } },
+      { "id": "b", "text": { "en": "The pivot table name should be 'users_roles' not 'role_user'", "ar": "اسم جدول pivot يجب أن يكون 'users_roles' وليس 'role_user'" } },
+      { "id": "c", "text": { "en": "belongsToMany should be hasManyThrough", "ar": "belongsToMany يجب أن يكون hasManyThrough" } },
+      { "id": "d", "text": { "en": "The relationship method name must match the model name", "ar": "اسم طريقة العلاقة يجب أن يطابق اسم النموذج" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The third argument is the FK of the *calling* model in the pivot table.",
+      "ar": "المعامل الثالث هو FK للنموذج *الاستدعاء* في جدول pivot."
+    },
+    "explanation": {
+      "en": "`belongsToMany(Related, pivot_table, foreign_key_of_current_model, foreign_key_of_related_model)`. Since this is defined on User, the 3rd arg is the User's FK (`user_id`) and the 4th is Role's FK (`role_id`). They are swapped in this code, causing queries to fail with wrong joins.",
+      "ar": "`belongsToMany(Related, pivot_table, foreign_key_of_current_model, foreign_key_of_related_model)`. بما أن هذا مُعرَّف على User، فإن المعامل الثالث هو FK للمستخدم (`user_id`) والرابع هو FK للدور (`role_id`). إنهما مُعكوسان في هذا الكود، مما يجعل الاستعلامات تفشل مع joins خاطئة."
+    },
+    "xp": 25,
+    "tags": ["eloquent", "relationships", "many-to-many", "debugging"]
+  },
+  {
+    "id": "laravel-a-2",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "In production, your cache config has `CACHE_DRIVER=file`. A high-traffic route calls `Cache::remember()`. What is the performance risk?",
+      "ar": "في الإنتاج، تهيئة cache لديك `CACHE_DRIVER=file`. مسار ذو حركة مرور عالية يستدعي `Cache::remember()`. ما هو خطر الأداء؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "File I/O becomes a bottleneck under concurrent load; use Redis or Memcached instead", "ar": "عمليات I/O على الملفات تصبح عنق زجاجة تحت الحمل المتزامن؛ استخدم Redis أو Memcached بدلاً منها" } },
+      { "id": "b", "text": { "en": "File cache does not support Cache::remember()", "ar": "cache الملف لا يدعم Cache::remember()" } },
+      { "id": "c", "text": { "en": "Cache::remember() always bypasses the driver and hits the database", "ar": "Cache::remember() يتجاوز دائماً الـ driver ويضرب قاعدة البيانات" } },
+      { "id": "d", "text": { "en": "There is no risk; file cache scales infinitely", "ar": "لا يوجد خطر؛ cache الملف يتوسع بلا حدود" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "File I/O and concurrent writes don't scale well on shared filesystems.",
+      "ar": "عمليات I/O على الملفات والكتابة المتزامنة لا تتوسع بشكل جيد على أنظمة الملفات المشتركة."
+    },
+    "explanation": {
+      "en": "File-based caching involves disk I/O and can suffer from file locking and slow reads/writes under high concurrency. In production, in-memory stores like Redis or Memcached are strongly preferred for `Cache::remember()` as they're orders of magnitude faster and handle concurrent access gracefully.",
+      "ar": "الـ caching المبني على الملفات يتضمن I/O على القرص ويمكن أن يعاني من قفل الملفات وعمليات القراءة/الكتابة البطيئة تحت التزامن العالي. في الإنتاج، يُفضَّل بشدة استخدام مخازن الذاكرة مثل Redis أو Memcached لـ `Cache::remember()` لأنها أسرع بمراحل وتتعامل مع الوصول المتزامن بلطف."
+    },
+    "xp": 25,
+    "tags": ["caching", "performance", "production"]
+  },
+  {
+    "id": "laravel-a-3",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this code output? Assume the database has users with ids 1, 2, 3.",
+      "ar": "ماذا يُخرج هذا الكود؟ افترض أن قاعدة البيانات تحتوي على مستخدمين بمعرفات 1، 2، 3."
+    },
+    "code": "$users = User::all();\n\n$result = $users->map(function ($user) {\n    return $user->id * 2;\n})->sum();\n\necho $result;",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "12", "ar": "12" } },
+      { "id": "b", "text": { "en": "6", "ar": "6" } },
+      { "id": "c", "text": { "en": "3", "ar": "3" } },
+      { "id": "d", "text": { "en": "An error because map() doesn't work on Eloquent collections", "ar": "خطأ لأن map() لا تعمل على مجموعات Eloquent" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Map doubles each id, then sum adds them all.",
+      "ar": "map يضاعف كل معرِّف، ثم sum يجمعها كلها."
+    },
+    "explanation": {
+      "en": "`User::all()` returns an Eloquent Collection (which extends Laravel's base Collection). `map` transforms each user's id: [1*2, 2*2, 3*2] = [2, 4, 6]. `sum()` adds them: 2+4+6 = 12. Eloquent collections support all Collection methods.",
+      "ar": "`User::all()` تُرجع Eloquent Collection (التي تمد Collection الأساسية في Laravel). `map` يحوّل معرف كل مستخدم: [1*2, 2*2, 3*2] = [2, 4, 6]. `sum()` يجمعها: 2+4+6 = 12. مجموعات Eloquent تدعم جميع طرق Collection."
+    },
+    "xp": 25,
+    "tags": ["collections", "eloquent"]
+  },
+  {
+    "id": "laravel-a-4",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "How does Laravel's service container resolve a class that has constructor dependencies?",
+      "ar": "كيف يحل حاوي الخدمة في Laravel فئةً لها تبعيات في المُنشئ؟"
+    },
+    "code": "class ReportService\n{\n    public function __construct(private MailerService $mailer) {}\n}\n\n// In a controller:\npublic function generate(ReportService $report) { ... }",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "Laravel uses reflection to inspect the constructor, resolves MailerService automatically, and injects it", "ar": "يستخدم Laravel الانعكاس (reflection) لفحص المُنشئ، يحل MailerService تلقائياً، ويحقنه" } },
+      { "id": "b", "text": { "en": "You must manually bind ReportService in a service provider first", "ar": "يجب عليك ربط ReportService يدوياً في service provider أولاً" } },
+      { "id": "c", "text": { "en": "Constructor injection only works with interfaces, not concrete classes", "ar": "حقن المُنشئ يعمل فقط مع الواجهات وليس مع الفئات الملموسة" } },
+      { "id": "d", "text": { "en": "You must call app()->make() explicitly to trigger injection", "ar": "يجب عليك استدعاء app()->make() صراحةً لتشغيل الحقن" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel's container uses PHP's ReflectionClass to inspect type hints.",
+      "ar": "يستخدم حاوي Laravel فئة ReflectionClass في PHP لفحص تلميحات الأنواع."
+    },
+    "explanation": {
+      "en": "Laravel's IoC container uses PHP Reflection to auto-resolve concrete class dependencies without any manual binding. When `ReportService` is type-hinted in a controller method, the container sees `MailerService` in the constructor, resolves it (recursively if needed), and injects everything automatically. Manual binding is only needed for interfaces or special configuration.",
+      "ar": "يستخدم حاوي IoC في Laravel PHP Reflection لحل تبعيات الفئات الملموسة تلقائياً دون أي ربط يدوي. عندما يُلمَّح إلى `ReportService` في طريقة controller، يرى الحاوي `MailerService` في المُنشئ، يحله (بشكل متكرر إذا لزم)، ويحقن كل شيء تلقائياً. الربط اليدوي مطلوب فقط للواجهات أو التهيئة الخاصة."
+    },
+    "xp": 25,
+    "tags": ["service-container", "dependency-injection"]
+  },
+  {
+    "id": "laravel-a-5",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This database transaction has a subtle bug. What is it?",
+      "ar": "هذه المعاملة قاعدة البيانات تحتوي على خطأ دقيق. ما هو؟"
+    },
+    "code": "DB::transaction(function () use ($orderId) {\n    $order = Order::find($orderId);\n    $order->status = 'paid';\n    $order->save();\n\n    throw new \\Exception('Payment failed');\n\n    Inventory::decrement('stock', 1);\n});",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The exception will rollback the transaction, but the code after throw is unreachable dead code", "ar": "الاستثناء سيُلغي المعاملة، لكن الكود بعد throw هو كود ميت لا يمكن الوصول إليه" } },
+      { "id": "b", "text": { "en": "DB::transaction does not catch exceptions; the order will be saved permanently", "ar": "DB::transaction لا يلتقط الاستثناءات؛ سيُحفَظ الطلب بشكل دائم" } },
+      { "id": "c", "text": { "en": "Inventory::decrement runs before the exception due to query buffering", "ar": "Inventory::decrement يعمل قبل الاستثناء بسبب تخزين الاستعلام مؤقتاً" } },
+      { "id": "d", "text": { "en": "Order::find inside a transaction always returns null", "ar": "Order::find داخل معاملة يُرجع دائماً null" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "DB::transaction catches exceptions and rolls back. What happens to code after a throw?",
+      "ar": "DB::transaction يلتقط الاستثناءات ويتراجع. ماذا يحدث للكود بعد throw؟"
+    },
+    "explanation": {
+      "en": "`DB::transaction()` does catch exceptions and rolls back all changes — so the `$order->save()` will be undone. However, `Inventory::decrement` is dead code that will NEVER execute because it comes after `throw`. The real logical bug is that the business intent is wrong: throwing an exception means inventory is never decremented even if you wanted it to be.",
+      "ar": "`DB::transaction()` يلتقط الاستثناءات ويتراجع عن جميع التغييرات — لذا سيُلغى `$order->save()`. ومع ذلك، `Inventory::decrement` هو كود ميت لن يُنفَّذ أبداً لأنه يأتي بعد `throw`. الخطأ المنطقي الحقيقي هو أن النية التجارية خاطئة: رمي استثناء يعني أن المخزون لن يُنقص حتى لو أردت ذلك."
+    },
+    "xp": 25,
+    "tags": ["transactions", "database", "debugging"]
+  },
+  {
+    "id": "laravel-a-6",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of `API Resources` (JsonResource) in Laravel?",
+      "ar": "ما هو الغرض من `API Resources` (JsonResource) في Laravel؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "To transform Eloquent models into consistent, controlled JSON responses with optional field selection", "ar": "لتحويل نماذج Eloquent إلى استجابات JSON متسقة ومتحكم بها مع اختيار الحقول الاختياري" } },
+      { "id": "b", "text": { "en": "To validate incoming JSON API requests", "ar": "للتحقق من طلبات JSON API الواردة" } },
+      { "id": "c", "text": { "en": "To automatically generate API documentation", "ar": "لإنشاء وثائق API تلقائياً" } },
+      { "id": "d", "text": { "en": "To cache API responses on the server", "ar": "لتخزين استجابات API مؤقتاً على الخادم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about the transformation layer between your model and your JSON output.",
+      "ar": "فكر في طبقة التحويل بين نموذجك ومخرج JSON."
+    },
+    "explanation": {
+      "en": "API Resources (`php artisan make:resource UserResource`) act as a transformation layer between Eloquent models and JSON responses. They let you control exactly which fields are exposed, add computed fields, include conditional relationships, and maintain a consistent API contract without exposing raw database columns.",
+      "ar": "موارد API (`php artisan make:resource UserResource`) تعمل كطبقة تحويل بين نماذج Eloquent واستجابات JSON. تتيح لك التحكم في الحقول المكشوفة بالضبط، وإضافة حقول محسوبة، وتضمين علاقات شرطية، والحفاظ على عقد API متسق دون الكشف عن أعمدة قاعدة البيانات الخام."
+    },
+    "xp": 25,
+    "tags": ["api-resources", "api"]
+  },
+  {
+    "id": "laravel-a-7",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A polymorphic `comments` table stores comments for both `Post` and `Video` models. Which setup is correct?",
+      "ar": "جدول `comments` متعدد الأشكال يخزن تعليقات لنموذجي `Post` و `Video`. أي إعداد صحيح؟"
+    },
+    "code": "// comments table columns:\n// id, body, commentable_id, commentable_type\n\n// Comment model:\npublic function commentable()\n{\n    return $this->morphTo();\n}\n\n// Post model:\npublic function comments()\n{\n    return $this->???(Comment::class, 'commentable');\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "morphMany", "ar": "morphMany" } },
+      { "id": "b", "text": { "en": "hasMany", "ar": "hasMany" } },
+      { "id": "c", "text": { "en": "morphTo", "ar": "morphTo" } },
+      { "id": "d", "text": { "en": "morphOne", "ar": "morphOne" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The parent model (Post) uses the inverse of morphTo, which handles multiple child records.",
+      "ar": "النموذج الأصل (Post) يستخدم عكس morphTo، الذي يتعامل مع سجلات فرعية متعددة."
+    },
+    "explanation": {
+      "en": "In a polymorphic relationship, the child model (Comment) uses `morphTo()` to point back to any parent. The parent model (Post) uses `morphMany(Comment::class, 'commentable')` to declare it can have many polymorphic comments. `morphOne` would be for a single related record.",
+      "ar": "في علاقة متعددة الأشكال، يستخدم النموذج الفرعي (Comment) `morphTo()` للإشارة إلى أي أصل. يستخدم النموذج الأصل (Post) `morphMany(Comment::class, 'commentable')` للإعلان عن إمكانية امتلاكه تعليقات متعددة متعددة الأشكال. `morphOne` ستكون لسجل مرتبط واحد."
+    },
+    "xp": 25,
+    "tags": ["eloquent", "relationships", "polymorphic"]
+  },
+  {
+    "id": "laravel-a-8",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which approach correctly uses a Gate to authorize an action in a controller?",
+      "ar": "أي نهج يستخدم Gate بشكل صحيح لتفويض إجراء في controller؟"
+    },
+    "code": "public function update(Request $request, Post $post)\n{\n    // Authorization check here\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "$this->authorize('update', $post);", "ar": "$this->authorize('update', $post);" } },
+      { "id": "b", "text": { "en": "Gate::check('update', $post);", "ar": "Gate::check('update', $post);" } },
+      { "id": "c", "text": { "en": "Auth::can('update', $post);", "ar": "Auth::can('update', $post);" } },
+      { "id": "d", "text": { "en": "Policy::authorize('update', $post);", "ar": "Policy::authorize('update', $post);" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Controllers have a built-in helper that throws 403 automatically on failure.",
+      "ar": "تمتلك الـ controllers مساعداً مدمجاً يرمي 403 تلقائياً عند الفشل."
+    },
+    "explanation": {
+      "en": "`$this->authorize('update', $post)` is the controller helper that throws an `AuthorizationException` (HTTP 403) if the current user is not authorized. `Gate::check()` returns a boolean without throwing. `Auth::can()` also returns a boolean. The controller's `authorize()` is the most idiomatic for controllers.",
+      "ar": "`$this->authorize('update', $post)` هو مساعد controller الذي يرمي `AuthorizationException` (HTTP 403) إذا لم يكن المستخدم الحالي مُفوَّضاً. `Gate::check()` تُرجع قيمة منطقية دون رمي. `Auth::can()` تُرجع قيمة منطقية أيضاً. `authorize()` في controller هو الأكثر اصطلاحية للـ controllers."
+    },
+    "xp": 25,
+    "tags": ["authorization", "gates", "policies"]
+  },
+  {
+    "id": "laravel-a-9",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the result of this `tap()` helper usage?",
+      "ar": "ما هي نتيجة استخدام مساعد `tap()` هذا؟"
+    },
+    "code": "$user = tap(User::find(1), function ($user) {\n    $user->last_login = now();\n    $user->save();\n});\n\necho get_class($user);",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "App\\Models\\User", "ar": "App\\Models\\User" } },
+      { "id": "b", "text": { "en": "null", "ar": "null" } },
+      { "id": "c", "text": { "en": "void", "ar": "void" } },
+      { "id": "d", "text": { "en": "Illuminate\\Database\\Eloquent\\Model", "ar": "Illuminate\\Database\\Eloquent\\Model" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The `tap()` helper always returns the first argument, not the callback's return value.",
+      "ar": "مساعد `tap()` يُرجع دائماً المعامل الأول، وليس قيمة إرجاع callback."
+    },
+    "explanation": {
+      "en": "`tap($value, $callback)` passes `$value` to the callback for side effects, then returns `$value` unchanged. So `$user` will be the User model instance, not the return of the closure (which is null). `get_class($user)` returns `App\\Models\\User`. This is useful for performing actions on a value while still returning it.",
+      "ar": "`tap($value, $callback)` يمرر `$value` إلى callback للتأثيرات الجانبية، ثم يُرجع `$value` دون تغيير. لذا سيكون `$user` مثيل نموذج User، وليس إرجاع الدالة المجهولة (وهو null). `get_class($user)` يُرجع `App\\Models\\User`. هذا مفيد لتنفيذ إجراءات على قيمة مع إرجاعها في نفس الوقت."
+    },
+    "xp": 25,
+    "tags": ["helpers", "tap"]
+  },
+  {
+    "id": "laravel-a-10",
+    "trackId": "laravel",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to send a welcome email when a user registers. Using Laravel's event system, what is the correct sequence?",
+      "ar": "تحتاج إلى إرسال بريد ترحيبي عند تسجيل مستخدم. باستخدام نظام الأحداث في Laravel، ما هو التسلسل الصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Create UserRegistered event → Create SendWelcomeEmail listener → Register in EventServiceProvider → Fire event with event(new UserRegistered($user))", "ar": "إنشاء حدث UserRegistered → إنشاء مستمع SendWelcomeEmail → تسجيل في EventServiceProvider → إطلاق الحدث بـ event(new UserRegistered($user))" } },
+      { "id": "b", "text": { "en": "Create a middleware that listens for POST /register → Send email in the middleware", "ar": "إنشاء middleware يستمع لـ POST /register → إرسال البريد في middleware" } },
+      { "id": "c", "text": { "en": "Add the email sending code directly in the UserController", "ar": "إضافة كود إرسال البريد مباشرةً في UserController" } },
+      { "id": "d", "text": { "en": "Use an Eloquent observer's creating() method", "ar": "استخدام طريقة creating() في مراقب Eloquent" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Laravel's event system decouples the action (registration) from its side effects (email).",
+      "ar": "نظام الأحداث في Laravel يفصل الإجراء (التسجيل) عن آثاره الجانبية (البريد الإلكتروني)."
+    },
+    "explanation": {
+      "en": "The correct pattern: 1) Create an event class (`php artisan make:event UserRegistered`), 2) Create a listener (`php artisan make:listener SendWelcomeEmail --event=UserRegistered`), 3) Register the mapping in `EventServiceProvider::$listen`, 4) Fire with `event(new UserRegistered($user))` or `UserRegistered::dispatch($user)`. This decouples concerns and makes the listener independently testable and queueable.",
+      "ar": "النمط الصحيح: 1) إنشاء فئة حدث (`php artisan make:event UserRegistered`)، 2) إنشاء مستمع (`php artisan make:listener SendWelcomeEmail --event=UserRegistered`)، 3) تسجيل الربط في `EventServiceProvider::$listen`، 4) الإطلاق بـ `event(new UserRegistered($user))` أو `UserRegistered::dispatch($user)`. هذا يفصل الاهتمامات ويجعل المستمع قابلاً للاختبار المستقل والتوضع في الطابور."
+    },
+    "xp": 25,
+    "tags": ["events", "listeners", "architecture"]
+  },
+  {
+    "id": "laravel-e-1",
+    "trackId": "laravel",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "This contextual binding setup has a bug. The `ReportController` should use `PdfReport`, but it's getting the default `HtmlReport`. What is wrong?",
+      "ar": "إعداد الربط السياقي هذا يحتوي على خطأ. يجب أن يستخدم `ReportController` الـ `PdfReport`، لكنه يحصل على `HtmlReport` الافتراضي. ما الخطأ؟"
+    },
+    "code": "// AppServiceProvider::register()\n$this->app->bind(ReportInterface::class, HtmlReport::class);\n\n$this->app\n    ->when(ReportController::class)\n    ->needs(ReportInterface::class)\n    ->give(PdfReport::class);\n\n// ReportController constructor:\npublic function __construct(private HtmlReport $report) {}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The controller type-hints HtmlReport (concrete class) instead of ReportInterface, bypassing contextual binding", "ar": "الـ controller يُلمِّح إلى HtmlReport (فئة ملموسة) بدلاً من ReportInterface، متجاوزاً الربط السياقي" } },
+      { "id": "b", "text": { "en": "Contextual binding only works in service providers, not controllers", "ar": "الربط السياقي يعمل فقط في service providers وليس في controllers" } },
+      { "id": "c", "text": { "en": "The give() method requires a closure, not a class string", "ar": "طريقة give() تتطلب دالة مجهولة وليس سلسلة فئة" } },
+      { "id": "d", "text": { "en": "bind() always takes precedence over when()->needs()->give()", "ar": "bind() دائماً يُقدَّم على when()->needs()->give()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Contextual binding only overrides when the container resolves the specified abstraction (interface).",
+      "ar": "الربط السياقي يتجاوز فقط عندما يحل الحاوي الاستخلاص المحدد (واجهة)."
+    },
+    "explanation": {
+      "en": "Contextual binding works by intercepting when the container resolves `ReportInterface` for `ReportController`. But the constructor type-hints `HtmlReport` (the concrete class), not `ReportInterface`. The container sees a concrete class request and resolves it directly without checking contextual bindings. Fix: change the constructor to `private ReportInterface $report`.",
+      "ar": "يعمل الربط السياقي عن طريق اعتراض حل الحاوي لـ `ReportInterface` في `ReportController`. لكن المُنشئ يُلمِّح إلى `HtmlReport` (الفئة الملموسة)، وليس `ReportInterface`. يرى الحاوي طلب فئة ملموسة ويحله مباشرةً دون التحقق من الروابط السياقية. الإصلاح: تغيير المُنشئ إلى `private ReportInterface $report`."
+    },
+    "xp": 30,
+    "tags": ["service-container", "contextual-binding", "dependency-injection"]
+  },
+  {
+    "id": "laravel-e-2",
+    "trackId": "laravel",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "A queue job that decrements inventory is processed twice due to a worker crash mid-execution. What Laravel feature prevents the inventory from being decremented twice?",
+      "ar": "مهمة طابور تُنقص المخزون تُعالَج مرتين بسبب انهيار العامل في منتصف التنفيذ. أي ميزة Laravel تمنع تناقص المخزون مرتين؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Implement ShouldBeUnique on the job class to make it idempotent", "ar": "تطبيق ShouldBeUnique على فئة المهمة لجعلها idempotent" } },
+      { "id": "b", "text": { "en": "Set $tries = 1 on the job to prevent retries entirely", "ar": "ضبط $tries = 1 على المهمة لمنع إعادة المحاولة كلياً" } },
+      { "id": "c", "text": { "en": "Use withoutOverlapping() middleware on the job", "ar": "استخدام middleware withoutOverlapping() على المهمة" } },
+      { "id": "d", "text": { "en": "Use DB::transaction inside the job to roll back on crash", "ar": "استخدام DB::transaction داخل المهمة للتراجع عند الانهيار" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Idempotency means running the job multiple times has the same effect as running it once.",
+      "ar": "الـ idempotency يعني أن تشغيل المهمة عدة مرات له نفس تأثير تشغيلها مرة واحدة."
+    },
+    "explanation": {
+      "en": "`ShouldBeUnique` prevents duplicate jobs from being queued simultaneously, reducing double-processing risk. However, for a crash-recovery scenario, true safety requires the job itself to be idempotent — check if the operation was already applied before executing. `withoutOverlapping()` prevents concurrent execution but not retry re-execution. `$tries = 1` disables retries but loses the work if the job fails legitimately.",
+      "ar": "`ShouldBeUnique` يمنع المهام المكررة من الانتظار في الطابور في نفس الوقت، مما يقلل خطر المعالجة المزدوجة. ومع ذلك، للسلامة الحقيقية في سيناريو التعافي من الانهيار، تتطلب المهمة نفسها أن تكون idempotent — تحقق إذا كانت العملية قد طُبِّقت بالفعل قبل التنفيذ. `withoutOverlapping()` يمنع التنفيذ المتزامن لكن ليس إعادة تنفيذ المهمة. `$tries = 1` يُعطِّل إعادة المحاولة لكن يضيع العمل إذا فشلت المهمة بشكل شرعي."
+    },
+    "xp": 30,
+    "tags": ["queues", "jobs", "idempotency", "race-conditions"]
+  },
+  {
+    "id": "laravel-e-3",
+    "trackId": "laravel",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the output of this chained Collection operation?",
+      "ar": "ما هو مخرج عملية Collection المتسلسلة هذه؟"
+    },
+    "code": "$result = collect(['a' => 1, 'b' => 2, 'c' => 3])\n    ->map(fn($v) => $v * 10)\n    ->reject(fn($v) => $v === 20)\n    ->keys()\n    ->first();\n\necho $result;",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "a", "ar": "a" } },
+      { "id": "b", "text": { "en": "10", "ar": "10" } },
+      { "id": "c", "text": { "en": "b", "ar": "b" } },
+      { "id": "d", "text": { "en": "1", "ar": "1" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Trace step by step: map → reject → keys → first.",
+      "ar": "تتبع خطوة بخطوة: map → reject → keys → first."
+    },
+    "explanation": {
+      "en": "Step 1: `map` → `['a' => 10, 'b' => 20, 'c' => 30]`. Step 2: `reject(fn($v) => $v === 20)` removes 'b' → `['a' => 10, 'c' => 30]`. Step 3: `keys()` → `['a', 'c']`. Step 4: `first()` → `'a'`. The key preservation through map and reject is what makes this tricky.",
+      "ar": "الخطوة 1: `map` → `['a' => 10, 'b' => 20, 'c' => 30]`. الخطوة 2: `reject(fn($v) => $v === 20)` يُزيل 'b' → `['a' => 10, 'c' => 30]`. الخطوة 3: `keys()` → `['a', 'c']`. الخطوة 4: `first()` → `'a'`. الحفاظ على المفاتيح عبر map و reject هو ما يجعل هذا صعباً."
+    },
+    "xp": 30,
+    "tags": ["collections", "tricky"]
+  },
+  {
+    "id": "laravel-e-4",
+    "trackId": "laravel",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A deferred service provider's `register()` method is only called when which condition is met?",
+      "ar": "طريقة `register()` في service provider المؤجل تُستدعى فقط عند تحقق أي شرط؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "When one of the services it provides is actually requested from the container", "ar": "عندما يُطلب فعلياً من الحاوي أحد الخدمات التي يوفرها" } },
+      { "id": "b", "text": { "en": "On every request in the production environment", "ar": "في كل طلب في بيئة الإنتاج" } },
+      { "id": "c", "text": { "en": "After the application bootstraps the framework providers", "ar": "بعد تهيئة التطبيق لـ providers الإطار" } },
+      { "id": "d", "text": { "en": "When config/app.php lists it in the deferred array", "ar": "عندما يُدرجه config/app.php في مصفوفة deferred" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Deferred providers are lazy — they skip the bootstrapping cost until needed.",
+      "ar": "الـ providers المؤجلة كسولة — تتخطى تكلفة التهيئة حتى تكون هناك حاجة."
+    },
+    "explanation": {
+      "en": "A deferred service provider (implementing `DeferrableProvider` and returning service names from `provides()`) is not loaded on every request. Laravel caches the list of services it provides, and only bootstraps the provider when one of those services is resolved from the container. This reduces boot time for services not needed on every request.",
+      "ar": "الـ service provider المؤجل (الذي يُطبِّق `DeferrableProvider` ويُرجع أسماء الخدمات من `provides()`) لا يُحمَّل في كل طلب. يُخزِّن Laravel قائمة الخدمات التي يوفرها مؤقتاً، ويُقلِّع الـ provider فقط عند حل إحدى تلك الخدمات من الحاوي. هذا يُقلِّص وقت التشغيل للخدمات غير المطلوبة في كل طلب."
+    },
+    "xp": 30,
+    "tags": ["service-providers", "deferred-providers", "performance"]
+  },
+  {
+    "id": "laravel-e-5",
+    "trackId": "laravel",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "This Eloquent query is supposed to return posts with their comment count, ordered by comment count descending. What is wrong?",
+      "ar": "استعلام Eloquent هذا يُفترض أن يُرجع المنشورات مع عدد تعليقاتها، مُرتَّبة تنازلياً حسب عدد التعليقات. ما الخطأ؟"
+    },
+    "code": "$posts = Post::withCount('comments')\n    ->orderBy('comments_count', 'desc')\n    ->where('published', true)\n    ->get();\n\n// Then in a loop:\nforeach ($posts as $post) {\n    echo $post->comments->count(); // <-- performance issue here\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The loop accesses $post->comments (loads full relationship), causing N+1; should use $post->comments_count", "ar": "الحلقة تصل إلى $post->comments (تحمّل العلاقة كاملة)، مسببةً N+1؛ يجب استخدام $post->comments_count" } },
+      { "id": "b", "text": { "en": "withCount() and orderBy() cannot be chained together", "ar": "لا يمكن ربط withCount() و orderBy() معاً" } },
+      { "id": "c", "text": { "en": "The column name should be 'comment_count' not 'comments_count'", "ar": "يجب أن يكون اسم العمود 'comment_count' وليس 'comments_count'" } },
+      { "id": "d", "text": { "en": "where() must come before withCount()", "ar": "يجب أن يأتي where() قبل withCount()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`withCount()` adds a `comments_count` virtual attribute — you don't need to reload the relationship.",
+      "ar": "`withCount()` يضيف خاصية افتراضية `comments_count` — لا تحتاج إلى إعادة تحميل العلاقة."
+    },
+    "explanation": {
+      "en": "`withCount('comments')` adds a `comments_count` attribute to each post via a subquery — very efficient. But the loop uses `$post->comments->count()`, which lazy-loads the full `comments` relationship for EACH post (N+1). The fix is to use `$post->comments_count` directly, which reads the already-computed value without any extra query.",
+      "ar": "`withCount('comments')` يضيف خاصية `comments_count` لكل منشور عبر استعلام فرعي — فعّال جداً. لكن الحلقة تستخدم `$post->comments->count()`، الذي يُحمِّل بشكل كسول علاقة `comments` الكاملة لكل منشور (N+1). الإصلاح هو استخدام `$post->comments_count` مباشرةً، الذي يقرأ القيمة المحسوبة مسبقاً دون أي استعلام إضافي."
+    },
+    "xp": 30,
+    "tags": ["eloquent", "n+1", "performance", "withCount", "debugging"]
+  },
+  {
+    "id": "laravel-boss-1",
+    "trackId": "laravel",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "BOSS CHALLENGE: You have a global scope on Post that filters by `tenant_id`. In a seeder that runs for multiple tenants, posts are not being created for the correct tenants. Diagnose and fix.",
+      "ar": "تحدي BOSS: لديك نطاق عام على Post يُصفِّي حسب `tenant_id`. في seeder يعمل لعدة مستأجرين، لا تُنشأ المنشورات للمستأجرين الصحيحين. شخِّص وأصلح."
+    },
+    "code": "class TenantScope implements Scope\n{\n    public function apply(Builder $builder, Model $model): void\n    {\n        $builder->where('tenant_id', app('currentTenant')->id);\n    }\n}\n\n// In PostSeeder:\nforeach ($tenants as $tenant) {\n    app()->instance('currentTenant', $tenant);\n    Post::factory()->count(5)->create();\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "The global scope's WHERE clause affects SELECT queries but factory()->create() inserts directly; use Post::withoutGlobalScope(TenantScope::class)->factory() or set tenant_id explicitly in factory state", "ar": "شرط WHERE في النطاق العام يؤثر على استعلامات SELECT لكن factory()->create() يُدرج مباشرةً؛ استخدم Post::withoutGlobalScope(TenantScope::class)->factory() أو اضبط tenant_id صراحةً في حالة factory" } },
+      { "id": "b", "text": { "en": "Global scopes cannot be used with multi-tenant applications", "ar": "النطاقات العامة لا يمكن استخدامها مع التطبيقات متعددة المستأجرين" } },
+      { "id": "c", "text": { "en": "app()->instance() inside a loop doesn't rebind the singleton", "ar": "app()->instance() داخل حلقة لا يُعيد ربط singleton" } },
+      { "id": "d", "text": { "en": "The seeder needs to call DB::purge() between tenants", "ar": "يحتاج seeder إلى استدعاء DB::purge() بين المستأجرين" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Global scopes only filter SELECT queries; they don't auto-fill columns on INSERT.",
+      "ar": "النطاقات العامة تُصفِّي فقط استعلامات SELECT؛ لا تملأ الأعمدة تلقائياً عند INSERT."
+    },
+    "explanation": {
+      "en": "Global scopes add WHERE clauses to SELECT/UPDATE/DELETE queries but do NOT automatically set column values on INSERT. The factory `create()` will insert rows without `tenant_id` (or with null/wrong value) unless it's set in the factory definition or passed explicitly. Solutions: 1) Add a `tenant_id` state to the factory: `Post::factory()->for($tenant)->create()`. 2) Include `tenant_id` in the factory's `definition()`. 3) Use `Post::withoutGlobalScopes()->create(['tenant_id' => $tenant->id, ...])`. The `app()->instance()` approach sets the currentTenant correctly for query scoping but doesn't help with INSERT.",
+      "ar": "النطاقات العامة تضيف شروط WHERE لاستعلامات SELECT/UPDATE/DELETE لكنها لا تضبط تلقائياً قيم الأعمدة عند INSERT. `create()` في factory ستُدرج صفوفاً بدون `tenant_id` (أو بقيمة null/خاطئة) إلا إذا كان مُضبوطاً في تعريف factory أو مُمرَّراً صراحةً. الحلول: 1) إضافة حالة `tenant_id` إلى factory: `Post::factory()->for($tenant)->create()`. 2) تضمين `tenant_id` في `definition()` لـ factory. 3) استخدام `Post::withoutGlobalScopes()->create(['tenant_id' => $tenant->id, ...])`. نهج `app()->instance()` يضبط currentTenant بشكل صحيح لتحديد نطاق الاستعلام لكن لا يساعد في INSERT."
+    },
+    "xp": 50,
+    "tags": ["eloquent", "global-scopes", "multi-tenancy", "factories", "seeders"]
+  },
+  {
+    "id": "laravel-boss-2",
+    "trackId": "laravel",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "BOSS CHALLENGE: This queued job causes a race condition. Two workers process the same order simultaneously. What is the proper fix?",
+      "ar": "تحدي BOSS: مهمة الطابور هذه تُسبب حالة سباق. يعالج عاملان نفس الطلب في نفس الوقت. ما هو الإصلاح الصحيح؟"
+    },
+    "code": "class ProcessPayment implements ShouldQueue\n{\n    public function handle(): void\n    {\n        $order = Order::find($this->orderId);\n\n        if ($order->status !== 'pending') {\n            return; // Already processed\n        }\n\n        // Simulate payment processing\n        $order->status = 'paid';\n        $order->save();\n    }\n}",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "Use atomic locking: Cache::lock('order-'.$this->orderId)->block(5, fn() => ...) or use pessimistic DB locking with lockForUpdate()", "ar": "استخدام القفل الذري: Cache::lock('order-'.$this->orderId)->block(5, fn() => ...) أو استخدام قفل DB المتشائم مع lockForUpdate()" } },
+      { "id": "b", "text": { "en": "Set $tries = 1 to prevent retry race conditions", "ar": "ضبط $tries = 1 لمنع حالات سباق إعادة المحاولة" } },
+      { "id": "c", "text": { "en": "Use ShouldBeUnique to make the job unique in the queue", "ar": "استخدام ShouldBeUnique لجعل المهمة فريدة في الطابور" } },
+      { "id": "d", "text": { "en": "Add a database transaction around the check-and-update", "ar": "إضافة معاملة قاعدة بيانات حول التحقق والتحديث" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A check-then-act without locking is a classic TOCTOU (time-of-check to time-of-use) race condition.",
+      "ar": "التحقق ثم التصرف بدون قفل هو حالة سباق TOCTOU الكلاسيكية (وقت التحقق إلى وقت الاستخدام)."
+    },
+    "explanation": {
+      "en": "The code has a classic TOCTOU race: both workers read `status === 'pending'` simultaneously before either writes. Solutions: 1) `Cache::lock()` — acquire an atomic lock before the check-update block; 2) Pessimistic locking: `Order::lockForUpdate()->find($this->orderId)` inside a DB transaction ensures only one worker proceeds. `ShouldBeUnique` prevents duplicate dispatch but doesn't help once two jobs are already in-flight. DB transactions alone don't prevent phantom reads without explicit row-level locks.",
+      "ar": "الكود يحتوي على سباق TOCTOU الكلاسيكي: كلا العاملين يقرآن `status === 'pending'` في نفس الوقت قبل أن يكتب أي منهما. الحلول: 1) `Cache::lock()` — احصل على قفل ذري قبل كتلة التحقق-التحديث؛ 2) القفل المتشائم: `Order::lockForUpdate()->find($this->orderId)` داخل معاملة DB يضمن أن عاملاً واحداً فقط يتقدم. `ShouldBeUnique` يمنع الإيفاد المكرر لكن لا يساعد بمجرد وجود مهمتين أثناء التنفيذ. معاملات DB وحدها لا تمنع القراءات الوهمية بدون أقفال صف صريحة."
+    },
+    "xp": 50,
+    "tags": ["queues", "race-conditions", "locking", "concurrency"]
+  },
+  {
+    "id": "laravel-boss-3",
+    "trackId": "laravel",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "BOSS CHALLENGE: What does this Eloquent query actually execute as SQL, and what potential problem does it create in production?",
+      "ar": "تحدي BOSS: ما الذي يُنفِّذه استعلام Eloquent هذا فعلياً كـ SQL، وما المشكلة المحتملة التي يخلقها في الإنتاج؟"
+    },
+    "code": "$users = User::with(['posts' => function ($query) {\n    $query->with('comments');\n}])->get();\n\n// Then:\n$total = $users->sum(function ($user) {\n    return $user->posts->sum(function ($post) {\n        return $post->comments->count();\n    });\n});",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "Runs 3 SQL queries (users, posts, comments) but loads all comments into memory — problematic if comment count is in the millions", "ar": "يُشغِّل 3 استعلامات SQL (users, posts, comments) لكن يحمّل جميع التعليقات في الذاكرة — إشكالي إذا كان عدد التعليقات بالملايين" } },
+      { "id": "b", "text": { "en": "Runs N+1 queries because nested with() doesn't work", "ar": "يُشغِّل استعلامات N+1 لأن with() المتداخلة لا تعمل" } },
+      { "id": "c", "text": { "en": "Results in a single JOIN query across all three tables", "ar": "ينتج عنه استعلام JOIN واحد عبر الجداول الثلاثة" } },
+      { "id": "d", "text": { "en": "Throws a memory error immediately", "ar": "يرمي خطأ ذاكرة فوراً" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Nested `with()` reduces query count to 3, but all records are hydrated into PHP memory.",
+      "ar": "with() المتداخلة تُقلِّل عدد الاستعلامات إلى 3، لكن جميع السجلات تُحمَّل في ذاكرة PHP."
+    },
+    "explanation": {
+      "en": "Nested `with()` runs exactly 3 queries: SELECT users, SELECT posts WHERE user_id IN (...), SELECT comments WHERE post_id IN (...). This is efficient query-count-wise. However, ALL comment records are hydrated into PHP Eloquent model instances in memory. If there are millions of comments, this causes a memory exhaustion error. The correct production fix is `withCount('comments')` instead of loading the full relationship, or use `DB::table()` with aggregate queries.",
+      "ar": "with() المتداخلة تُشغِّل بالضبط 3 استعلامات: SELECT users، SELECT posts WHERE user_id IN (...)، SELECT comments WHERE post_id IN (...). هذا فعّال من حيث عدد الاستعلامات. ومع ذلك، جميع سجلات التعليقات تُحمَّل كمثيلات نماذج Eloquent في PHP في الذاكرة. إذا كانت هناك ملايين التعليقات، فهذا يُسبب خطأ نضوب الذاكرة. الإصلاح الصحيح للإنتاج هو `withCount('comments')` بدلاً من تحميل العلاقة الكاملة، أو استخدام `DB::table()` مع استعلامات التجميع."
+    },
+    "xp": 50,
+    "tags": ["eloquent", "eager-loading", "performance", "memory", "production"]
+  },
+  {
+    "id": "laravel-boss-4",
+    "trackId": "laravel",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "BOSS CHALLENGE: A Sanctum-authenticated SPA is experiencing CSRF token mismatch errors on POST requests after the session expires. The frontend calls `/sanctum/csrf-cookie` before every form submission. What is wrong and what is the correct implementation?",
+      "ar": "تحدي BOSS: تطبيق SPA مُصادَق بـ Sanctum يواجه أخطاء عدم تطابق رمز CSRF في طلبات POST بعد انتهاء صلاحية الجلسة. الواجهة الأمامية تستدعي `/sanctum/csrf-cookie` قبل كل إرسال نموذج. ما الخطأ وما هو التطبيق الصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Calling /sanctum/csrf-cookie once at app init (not before every request) and including the XSRF-TOKEN cookie value in the X-XSRF-TOKEN header — Axios does this automatically", "ar": "استدعاء /sanctum/csrf-cookie مرة واحدة عند تهيئة التطبيق (وليس قبل كل طلب) وتضمين قيمة cookie XSRF-TOKEN في header X-XSRF-TOKEN — Axios يفعل هذا تلقائياً" } },
+      { "id": "b", "text": { "en": "Sanctum SPAs should use token-based auth, not cookie-based auth", "ar": "تطبيقات SPA مع Sanctum يجب أن تستخدم المصادقة المبنية على الرمز، وليس المصادقة المبنية على الـ cookie" } },
+      { "id": "c", "text": { "en": "Add 'stateful' to the api middleware group to enable session support", "ar": "إضافة 'stateful' إلى مجموعة middleware الـ api لتمكين دعم الجلسة" } },
+      { "id": "d", "text": { "en": "Disable VerifyCsrfToken middleware for Sanctum routes", "ar": "تعطيل middleware VerifyCsrfToken لمسارات Sanctum" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The CSRF cookie initialization is a one-time step, and Axios's withCredentials handles the rest.",
+      "ar": "تهيئة cookie CSRF هي خطوة لمرة واحدة، وـ withCredentials في Axios يتولى الباقي."
+    },
+    "explanation": {
+      "en": "Sanctum SPA authentication works by: 1) Calling `GET /sanctum/csrf-cookie` ONCE at app initialization to set the `XSRF-TOKEN` cookie. 2) Every subsequent request automatically includes this cookie and Axios reads it, setting the `X-XSRF-TOKEN` header automatically (when `withCredentials: true`). Calling it before every request is redundant and can cause timing issues. The mismatch likely occurs because the old XSRF-TOKEN cookie is expired/invalid — fetch a fresh one on 419 responses and retry.",
+      "ar": "تعمل مصادقة Sanctum SPA على النحو التالي: 1) استدعاء `GET /sanctum/csrf-cookie` مرة واحدة عند تهيئة التطبيق لضبط cookie `XSRF-TOKEN`. 2) كل طلب لاحق يتضمن تلقائياً هذه الـ cookie ويقرأها Axios، مُضبِطاً header `X-XSRF-TOKEN` تلقائياً (عند `withCredentials: true`). استدعاؤه قبل كل طلب زائد وقد يُسبب مشاكل توقيت. عدم التطابق على الأرجح يحدث لأن cookie XSRF-TOKEN القديمة منتهية الصلاحية/غير صالحة — احصل على واحدة جديدة عند استجابات 419 وأعد المحاولة."
+    },
+    "xp": 50,
+    "tags": ["sanctum", "authentication", "csrf", "spa", "security"]
+  },
+  {
+    "id": "laravel-boss-5",
+    "trackId": "laravel",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "BOSS CHALLENGE: This polymorphic eager loading causes an unexpected extra query. Why, and how do you fix it?",
+      "ar": "تحدي BOSS: التحميل المتحمس متعدد الأشكال هذا يُسبب استعلاماً إضافياً غير متوقع. لماذا، وكيف تُصلحه؟"
+    },
+    "code": "// Activity has morphTo 'subject' (can be Post or Video)\n$activities = Activity::with('subject')->get();\n\n// Internally, Laravel runs:\n// SELECT * FROM posts WHERE id IN (1,2,3...)\n// SELECT * FROM videos WHERE id IN (4,5,6...)\n// But then also:\n// SELECT * FROM posts WHERE id IN (1,2,3...) -- again!",
+    "codeLang": "php",
+    "options": [
+      { "id": "a", "text": { "en": "A second query fires because somewhere in the code $activity->subject is accessed on a model whose relationship was not properly eager-loaded due to a missing morphMap registration", "ar": "استعلام ثانٍ يُطلَق لأن في مكان ما في الكود يُصلَح إلى $activity->subject على نموذج لم تُحمَّل علاقته مسبقاً بشكل صحيح بسبب تسجيل morphMap مفقود" } },
+      { "id": "b", "text": { "en": "morphTo() always requires a separate second query per morph type", "ar": "morphTo() تتطلب دائماً استعلاماً ثانياً منفصلاً لكل نوع morph" } },
+      { "id": "c", "text": { "en": "with('subject') does not support polymorphic relationships", "ar": "with('subject') لا تدعم العلاقات متعددة الأشكال" } },
+      { "id": "d", "text": { "en": "The duplicate query is caused by Laravel's query log, not actual execution", "ar": "الاستعلام المكرر ناجم عن سجل الاستعلامات في Laravel وليس التنفيذ الفعلي" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "morphMap() maps morph type strings to model classes, preventing class-string lookups that can cause cache misses.",
+      "ar": "morphMap() يربط سلاسل نوع morph بفئات النماذج، مما يمنع عمليات بحث class-string التي يمكن أن تُسبب إخفاقات الـ cache."
+    },
+    "explanation": {
+      "en": "When `morphMap` is not registered, Laravel stores the fully-qualified class name (e.g., `App\\Models\\Post`) in `subject_type`. During eager loading, if the morph type string doesn't match the registered map, the relationship resolver may not correctly identify already-loaded results, causing a fallback query. Fix: register `Relation::morphMap(['post' => Post::class, 'video' => Video::class])` in `AppServiceProvider::boot()`. This ensures consistent type strings and proper eager load cache hits.",
+      "ar": "عندما لا يُسجَّل `morphMap`، يُخزِّن Laravel اسم الفئة الكامل (مثل `App\\Models\\Post`) في `subject_type`. أثناء التحميل المتحمس، إذا لم تتطابق سلسلة نوع morph مع الخريطة المسجلة، قد لا يُحدِّد محلل العلاقة بشكل صحيح النتائج المحمَّلة مسبقاً، مما يُسبب استعلام احتياطي. الإصلاح: تسجيل `Relation::morphMap(['post' => Post::class, 'video' => Video::class])` في `AppServiceProvider::boot()`. هذا يضمن سلاسل أنواع متسقة وإصابات صحيحة لـ cache التحميل المتحمس."
+    },
+    "xp": 50,
+    "tags": ["eloquent", "polymorphic", "morphMap", "eager-loading", "performance", "debugging"]
+  }
+]
