@@ -11,10 +11,34 @@
     "code": "let x = 42;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "number", "ar": "number" } },
-      { "id": "b", "text": { "en": "int", "ar": "int" } },
-      { "id": "c", "text": { "en": "any", "ar": "any" } },
-      { "id": "d", "text": { "en": "42", "ar": "42" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "number",
+          "ar": "number"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "int",
+          "ar": "int"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "any",
+          "ar": "any"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "42",
+          "ar": "42"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -26,7 +50,10 @@
       "ar": "يستخدم TypeScript استنتاج النوع لتعيين النوع `number` إلى `x` لأن القيمة `42` هي رقم. لا يضيقه إلى النوع الحرفي `42` إلا عند استخدام `const`."
     },
     "xp": 10,
-    "tags": ["type-inference", "basic-types"]
+    "tags": [
+      "type-inference",
+      "basic-types"
+    ]
   },
   {
     "id": "ts-b-2",
@@ -37,10 +64,21 @@
       "en": "In TypeScript, `string` and `String` are interchangeable types.",
       "ar": "في TypeScript، النوعان `string` و `String` قابلان للتبادل."
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "b",
     "hint": {
@@ -52,7 +90,10 @@
       "ar": "`string` هو النوع البدائي في TypeScript. أما `String` فيشير إلى غلاف كائن String في JavaScript. هما ليسا قابلَين للتبادل — ويُنصح بتجنب استخدام `String` كتوصيف للنوع."
     },
     "xp": 10,
-    "tags": ["basic-types", "primitives"]
+    "tags": [
+      "basic-types",
+      "primitives"
+    ]
   },
   {
     "id": "ts-b-3",
@@ -63,12 +104,35 @@
       "en": "Which keyword is used to define a type alias in TypeScript?",
       "ar": "ما الكلمة المفتاحية المستخدمة لتعريف اسم مستعار للنوع في TypeScript؟"
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "interface", "ar": "interface" } },
-      { "id": "b", "text": { "en": "type", "ar": "type" } },
-      { "id": "c", "text": { "en": "alias", "ar": "alias" } },
-      { "id": "d", "text": { "en": "typedef", "ar": "typedef" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "interface",
+          "ar": "interface"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "type",
+          "ar": "type"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "alias",
+          "ar": "alias"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "typedef",
+          "ar": "typedef"
+        }
+      }
     ],
     "correctOptionId": "b",
     "hint": {
@@ -80,7 +144,10 @@
       "ar": "تُنشئ الكلمة المفتاحية `type` اسماً مستعاراً للنوع: `type MyType = string | number`. أما `interface` فتُنشئ واجهة مسماة وليست اسماً مستعاراً."
     },
     "xp": 10,
-    "tags": ["type-alias", "type-vs-interface"]
+    "tags": [
+      "type-alias",
+      "type-vs-interface"
+    ]
   },
   {
     "id": "ts-b-4",
@@ -94,10 +161,34 @@
     "code": "const result = [1, 'hello', true];",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "(number | string | boolean)[]", "ar": "(number | string | boolean)[]" } },
-      { "id": "b", "text": { "en": "any[]", "ar": "any[]" } },
-      { "id": "c", "text": { "en": "[number, string, boolean]", "ar": "[number, string, boolean]" } },
-      { "id": "d", "text": { "en": "object[]", "ar": "object[]" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "(number | string | boolean)[]",
+          "ar": "(number | string | boolean)[]"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "any[]",
+          "ar": "any[]"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "[number, string, boolean]",
+          "ar": "[number, string, boolean]"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "object[]",
+          "ar": "object[]"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -109,7 +200,11 @@
       "ar": "يستنتج TypeScript النوع `(number | string | boolean)[]` لأن حرفي المصفوفة يحتوي على قيم من ثلاثة أنواع مختلفة. يتطلب نوع الصف `[number, string, boolean]` توصيفاً صريحاً."
     },
     "xp": 10,
-    "tags": ["type-inference", "arrays", "union"]
+    "tags": [
+      "type-inference",
+      "arrays",
+      "union"
+    ]
   },
   {
     "id": "ts-b-5",
@@ -123,10 +218,34 @@
     "code": "interface User {\n  name: string;\n  age___: number;\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "age?: number", "ar": "age?: number" } },
-      { "id": "b", "text": { "en": "age!: number", "ar": "age!: number" } },
-      { "id": "c", "text": { "en": "optional age: number", "ar": "optional age: number" } },
-      { "id": "d", "text": { "en": "age: number | undefined", "ar": "age: number | undefined" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "age?: number",
+          "ar": "age?: number"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "age!: number",
+          "ar": "age!: number"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "optional age: number",
+          "ar": "optional age: number"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "age: number | undefined",
+          "ar": "age: number | undefined"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -138,7 +257,10 @@
       "ar": "إضافة `?` بعد اسم الخاصية يجعلها اختيارية: `age?: number`. هذا يعني أن الخاصية قد تكون `number` أو `undefined`. `age: number | undefined` مماثلة لكنها لا تزال تتطلب وجود المفتاح."
     },
     "xp": 10,
-    "tags": ["optional", "interface"]
+    "tags": [
+      "optional",
+      "interface"
+    ]
   },
   {
     "id": "ts-b-6",
@@ -152,10 +274,34 @@
     "code": "const greet = (name: string): string => {\n  return 42;\n};",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Type 'number' is not assignable to type 'string'", "ar": "النوع 'number' غير قابل للتعيين للنوع 'string'" } },
-      { "id": "b", "text": { "en": "Arrow functions cannot have return types", "ar": "لا يمكن لدوال السهم أن تحمل أنواع إرجاع" } },
-      { "id": "c", "text": { "en": "Parameter 'name' is never used", "ar": "المعامل 'name' لم يُستخدم قط" } },
-      { "id": "d", "text": { "en": "No error, this compiles fine", "ar": "لا يوجد خطأ، يتم تجميعه بنجاح" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Type 'number' is not assignable to type 'string'",
+          "ar": "النوع 'number' غير قابل للتعيين للنوع 'string'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Arrow functions cannot have return types",
+          "ar": "لا يمكن لدوال السهم أن تحمل أنواع إرجاع"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Parameter 'name' is never used",
+          "ar": "المعامل 'name' لم يُستخدم قط"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No error, this compiles fine",
+          "ar": "لا يوجد خطأ، يتم تجميعه بنجاح"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -167,7 +313,11 @@
       "ar": "تُعلن الدالة `: string` كنوع إرجاعها، لكن `return 42` يُرجع `number`. يُثير TypeScript الخطأ: `Type 'number' is not assignable to type 'string'`."
     },
     "xp": 10,
-    "tags": ["functions", "return-type", "debugging"]
+    "tags": [
+      "functions",
+      "return-type",
+      "debugging"
+    ]
   },
   {
     "id": "ts-b-7",
@@ -178,12 +328,35 @@
       "en": "Which of the following correctly defines a tuple type for a pair of [string, number]?",
       "ar": "أيٌّ من التالي يُعرِّف بشكل صحيح نوع صف (tuple) لزوج [string, number]؟"
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "let pair: [string, number] = ['hello', 1];", "ar": "let pair: [string, number] = ['hello', 1];" } },
-      { "id": "b", "text": { "en": "let pair: (string, number) = ['hello', 1];", "ar": "let pair: (string, number) = ['hello', 1];" } },
-      { "id": "c", "text": { "en": "let pair: string[] | number[] = ['hello', 1];", "ar": "let pair: string[] | number[] = ['hello', 1];" } },
-      { "id": "d", "text": { "en": "let pair: Array<string, number> = ['hello', 1];", "ar": "let pair: Array<string, number> = ['hello', 1];" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "let pair: [string, number] = ['hello', 1];",
+          "ar": "let pair: [string, number] = ['hello', 1];"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "let pair: (string, number) = ['hello', 1];",
+          "ar": "let pair: (string, number) = ['hello', 1];"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "let pair: string[] | number[] = ['hello', 1];",
+          "ar": "let pair: string[] | number[] = ['hello', 1];"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "let pair: Array<string, number> = ['hello', 1];",
+          "ar": "let pair: Array<string, number> = ['hello', 1];"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -195,7 +368,10 @@
       "ar": "تُعلَن أنواع الصفوف باستخدام `[Type1, Type2, ...]`. يعني التعريف `[string, number]` أن العنصر الأول يجب أن يكون `string` والثاني `number`."
     },
     "xp": 10,
-    "tags": ["tuples", "basic-types"]
+    "tags": [
+      "tuples",
+      "basic-types"
+    ]
   },
   {
     "id": "ts-b-8",
@@ -209,10 +385,34 @@
     "code": "try {\n  // ...\n} catch (e) {\n  // what is e's type?\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "unknown", "ar": "unknown" } },
-      { "id": "b", "text": { "en": "any", "ar": "any" } },
-      { "id": "c", "text": { "en": "Error", "ar": "Error" } },
-      { "id": "d", "text": { "en": "never", "ar": "never" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "unknown",
+          "ar": "unknown"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "any",
+          "ar": "any"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error",
+          "ar": "Error"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -224,7 +424,11 @@
       "ar": "منذ TypeScript 4.0 مع `useUnknownInCatchVariables` (مُفعَّل افتراضياً في الوضع الصارم)، يُكتب `e` في جملة catch كـ `unknown`. يجب عليك تضييقه قبل الوصول إلى خصائصه."
     },
     "xp": 10,
-    "tags": ["unknown", "error-handling", "strict"]
+    "tags": [
+      "unknown",
+      "error-handling",
+      "strict"
+    ]
   },
   {
     "id": "ts-b-9",
@@ -238,10 +442,34 @@
     "code": "enum Direction {\n  Up = ___,\n  Down = 'DOWN',\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "'UP'", "ar": "'UP'" } },
-      { "id": "b", "text": { "en": "0", "ar": "0" } },
-      { "id": "c", "text": { "en": "UP", "ar": "UP" } },
-      { "id": "d", "text": { "en": "\"Up\"", "ar": "\"Up\"" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "'UP'",
+          "ar": "'UP'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "0",
+          "ar": "0"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "UP",
+          "ar": "UP"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "\"Up\"",
+          "ar": "\"Up\""
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -253,7 +481,9 @@
       "ar": "في enum النصي، يجب تهيئة كل عضو بحرفي نصي. يجعل تعيين `Up = 'UP'` العبارة `Direction.Up === 'UP'` صحيحة أثناء التشغيل."
     },
     "xp": 10,
-    "tags": ["enums"]
+    "tags": [
+      "enums"
+    ]
   },
   {
     "id": "ts-b-10",
@@ -264,10 +494,21 @@
       "en": "The `readonly` modifier on an interface property prevents reassignment at compile time.",
       "ar": "يمنع المعدِّل `readonly` على خاصية واجهة إعادة التعيين أثناء وقت التجميع."
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -279,7 +520,10 @@
       "ar": "يجعل `readonly` في TypeScript خاصية غير قابلة للتغيير على مستوى فحص النوع. تؤدي محاولة إعادة تعيين خاصية `readonly` إلى خطأ وقت التجميع. ملاحظة: لا يوجد تطبيق في وقت التشغيل."
     },
     "xp": 10,
-    "tags": ["readonly", "interface"]
+    "tags": [
+      "readonly",
+      "interface"
+    ]
   },
   {
     "id": "ts-i-1",
@@ -290,12 +534,35 @@
       "en": "What is the difference between `type` and `interface` in TypeScript regarding declaration merging?",
       "ar": "ما الفرق بين `type` و `interface` في TypeScript فيما يتعلق بدمج التعريفات؟"
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Only `interface` supports declaration merging; `type` aliases cannot be merged.", "ar": "فقط `interface` تدعم دمج التعريفات؛ أسماء `type` المستعارة لا يمكن دمجها." } },
-      { "id": "b", "text": { "en": "Both `type` and `interface` support declaration merging.", "ar": "كلٌّ من `type` و `interface` تدعم دمج التعريفات." } },
-      { "id": "c", "text": { "en": "Only `type` supports declaration merging.", "ar": "فقط `type` تدعم دمج التعريفات." } },
-      { "id": "d", "text": { "en": "Neither supports declaration merging.", "ar": "لا تدعم أيٌّ منهما دمج التعريفات." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Only `interface` supports declaration merging; `type` aliases cannot be merged.",
+          "ar": "فقط `interface` تدعم دمج التعريفات؛ أسماء `type` المستعارة لا يمكن دمجها."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Both `type` and `interface` support declaration merging.",
+          "ar": "كلٌّ من `type` و `interface` تدعم دمج التعريفات."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only `type` supports declaration merging.",
+          "ar": "فقط `type` تدعم دمج التعريفات."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Neither supports declaration merging.",
+          "ar": "لا تدعم أيٌّ منهما دمج التعريفات."
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -307,7 +574,10 @@
       "ar": "تدعم الواجهات دمج التعريفات: يُدمج تعريفان `interface Foo { ... }` في واحد. لا يمكن دمج أسماء type المستعارة — يُعدّ إعادة تعريف اسم `type` مستعار بنفس الاسم خطأً."
     },
     "xp": 15,
-    "tags": ["type-vs-interface", "declaration-merging"]
+    "tags": [
+      "type-vs-interface",
+      "declaration-merging"
+    ]
   },
   {
     "id": "ts-i-2",
@@ -321,10 +591,34 @@
     "code": "function getValue(flag: boolean) {\n  if (flag) {\n    return 'hello';\n  }\n  return 42;\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "string | number", "ar": "string | number" } },
-      { "id": "b", "text": { "en": "string", "ar": "string" } },
-      { "id": "c", "text": { "en": "any", "ar": "any" } },
-      { "id": "d", "text": { "en": "never", "ar": "never" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "string | number",
+          "ar": "string | number"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "string",
+          "ar": "string"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "any",
+          "ar": "any"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -336,7 +630,11 @@
       "ar": "يستنتج TypeScript نوع الإرجاع كاتحاد لجميع فروع الإرجاع. بما أن أحد الفروع يُرجع `string` والآخر يُرجع `number`، فإن نوع الإرجاع المستنتج هو `string | number`."
     },
     "xp": 15,
-    "tags": ["type-inference", "union", "functions"]
+    "tags": [
+      "type-inference",
+      "union",
+      "functions"
+    ]
   },
   {
     "id": "ts-i-3",
@@ -347,12 +645,35 @@
       "en": "Which utility type makes all properties of `T` optional?",
       "ar": "أيٌّ من أنواع الأدوات يجعل جميع خصائص `T` اختيارية؟"
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Partial<T>", "ar": "Partial<T>" } },
-      { "id": "b", "text": { "en": "Required<T>", "ar": "Required<T>" } },
-      { "id": "c", "text": { "en": "Pick<T, K>", "ar": "Pick<T, K>" } },
-      { "id": "d", "text": { "en": "Omit<T, K>", "ar": "Omit<T, K>" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Partial<T>",
+          "ar": "Partial<T>"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Required<T>",
+          "ar": "Required<T>"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Pick<T, K>",
+          "ar": "Pick<T, K>"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Omit<T, K>",
+          "ar": "Omit<T, K>"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -364,7 +685,10 @@
       "ar": "يبني `Partial<T>` نوعاً تكون فيه جميع خصائص `T` اختيارية. وهو المعادل المدمج لتعيين كل مفتاح بـ `?`."
     },
     "xp": 15,
-    "tags": ["utility-types", "Partial"]
+    "tags": [
+      "utility-types",
+      "Partial"
+    ]
   },
   {
     "id": "ts-i-4",
@@ -378,10 +702,34 @@
     "code": "function printLength(value: string | number) {\n  console.log(value.length);\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Property 'length' does not exist on type 'number'", "ar": "الخاصية 'length' غير موجودة على النوع 'number'" } },
-      { "id": "b", "text": { "en": "Argument of type 'string | number' is not assignable to parameter", "ar": "وسيطة من النوع 'string | number' غير قابلة للتعيين للمعامل" } },
-      { "id": "c", "text": { "en": "Union types cannot be used as parameters", "ar": "لا يمكن استخدام الأنواع الاتحادية كمعاملات" } },
-      { "id": "d", "text": { "en": "No error, this compiles fine", "ar": "لا يوجد خطأ، يتم تجميعه بنجاح" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Property 'length' does not exist on type 'number'",
+          "ar": "الخاصية 'length' غير موجودة على النوع 'number'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Argument of type 'string | number' is not assignable to parameter",
+          "ar": "وسيطة من النوع 'string | number' غير قابلة للتعيين للمعامل"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Union types cannot be used as parameters",
+          "ar": "لا يمكن استخدام الأنواع الاتحادية كمعاملات"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No error, this compiles fine",
+          "ar": "لا يوجد خطأ، يتم تجميعه بنجاح"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -393,7 +741,11 @@
       "ar": "لا يمتلك `number` خاصية `length`. يسمح TypeScript فقط بالوصول إلى الأعضاء الموجودة على كل نوع في الاتحاد. للإصلاح، ضيِّق النوع بـ `typeof value === 'string'` قبل الوصول إلى `.length`."
     },
     "xp": 15,
-    "tags": ["union", "type-narrowing", "debugging"]
+    "tags": [
+      "union",
+      "type-narrowing",
+      "debugging"
+    ]
   },
   {
     "id": "ts-i-5",
@@ -407,10 +759,34 @@
     "code": "interface Person {\n  name: string;\n  age: number;\n}\ntype K = keyof Person;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "K is 'name' | 'age'", "ar": "K هو 'name' | 'age'" } },
-      { "id": "b", "text": { "en": "K is string[]", "ar": "K هو string[]" } },
-      { "id": "c", "text": { "en": "K is { name: string; age: number }", "ar": "K هو { name: string; age: number }" } },
-      { "id": "d", "text": { "en": "K is string | number", "ar": "K هو string | number" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "K is 'name' | 'age'",
+          "ar": "K هو 'name' | 'age'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "K is string[]",
+          "ar": "K هو string[]"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "K is { name: string; age: number }",
+          "ar": "K هو { name: string; age: number }"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "K is string | number",
+          "ar": "K هو string | number"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -422,7 +798,10 @@
       "ar": "يُنتج `keyof T` نوعاً اتحادياً لجميع مفاتيح `T` كأنواع حرفية نصية. بالنسبة لـ `Person`، فإن `keyof Person` هو `'name' | 'age'`."
     },
     "xp": 15,
-    "tags": ["keyof", "mapped-types"]
+    "tags": [
+      "keyof",
+      "mapped-types"
+    ]
   },
   {
     "id": "ts-i-6",
@@ -436,10 +815,34 @@
     "code": "function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "This is correct — K is constrained to be a key of T and the return type is the indexed access type T[K]", "ar": "هذا صحيح — K مُقيَّد ليكون مفتاحاً من T ونوع الإرجاع هو نوع الوصول المفهرس T[K]" } },
-      { "id": "b", "text": { "en": "Error: generics cannot use `extends keyof`", "ar": "خطأ: لا يمكن للأنواع العامة استخدام `extends keyof`" } },
-      { "id": "c", "text": { "en": "This works but the return type should be `any`", "ar": "هذا يعمل لكن يجب أن يكون نوع الإرجاع `any`" } },
-      { "id": "d", "text": { "en": "The return type T[K] is invalid syntax", "ar": "نوع الإرجاع T[K] صياغة غير صالحة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "This is correct — K is constrained to be a key of T and the return type is the indexed access type T[K]",
+          "ar": "هذا صحيح — K مُقيَّد ليكون مفتاحاً من T ونوع الإرجاع هو نوع الوصول المفهرس T[K]"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Error: generics cannot use `extends keyof`",
+          "ar": "خطأ: لا يمكن للأنواع العامة استخدام `extends keyof`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "This works but the return type should be `any`",
+          "ar": "هذا يعمل لكن يجب أن يكون نوع الإرجاع `any`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The return type T[K] is invalid syntax",
+          "ar": "نوع الإرجاع T[K] صياغة غير صالحة"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -451,7 +854,12 @@
       "ar": "هذا هو نمط TypeScript المعياري لدالة `getProperty` مُكتَّبة. يضمن `K extends keyof T` أن `key` يجب أن يكون مفتاحاً صالحاً لـ `obj`، وأن `T[K]` كنوع إرجاع يعني أن قيمة الإرجاع تطابق نوع الخاصية الدقيق."
     },
     "xp": 15,
-    "tags": ["generics", "keyof", "indexed-access", "generic-constraints"]
+    "tags": [
+      "generics",
+      "keyof",
+      "indexed-access",
+      "generic-constraints"
+    ]
   },
   {
     "id": "ts-i-7",
@@ -465,10 +873,34 @@
     "code": "type Shape =\n  | { kind: 'circle'; radius: number }\n  | { kind: 'square'; side: number };",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "A union where each member shares a common literal-typed property used for narrowing", "ar": "اتحاد يتشارك فيه كل عضو خاصية ذات نوع حرفي مشترك تُستخدم للتضييق" } },
-      { "id": "b", "text": { "en": "A union of exactly two types", "ar": "اتحاد من نوعين بالضبط" } },
-      { "id": "c", "text": { "en": "A union where all members have the same properties", "ar": "اتحاد تمتلك فيه جميع الأعضاء نفس الخصائص" } },
-      { "id": "d", "text": { "en": "A union type that only works with classes", "ar": "نوع اتحادي يعمل فقط مع الفئات" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "A union where each member shares a common literal-typed property used for narrowing",
+          "ar": "اتحاد يتشارك فيه كل عضو خاصية ذات نوع حرفي مشترك تُستخدم للتضييق"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A union of exactly two types",
+          "ar": "اتحاد من نوعين بالضبط"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A union where all members have the same properties",
+          "ar": "اتحاد تمتلك فيه جميع الأعضاء نفس الخصائص"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A union type that only works with classes",
+          "ar": "نوع اتحادي يعمل فقط مع الفئات"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -480,7 +912,10 @@
       "ar": "يستخدم الاتحاد المُميَّز خاصية 'مُميِّزة' مشتركة (مثل `kind`) بأنواع حرفية مميزة لكل عضو. يستخدم TypeScript هذه الخاصية لتضييق النوع داخل الشرطيات، مما يوفر سلامة نوع كاملة لكل فرع."
     },
     "xp": 15,
-    "tags": ["discriminated-union", "type-narrowing"]
+    "tags": [
+      "discriminated-union",
+      "type-narrowing"
+    ]
   },
   {
     "id": "ts-i-8",
@@ -494,10 +929,34 @@
     "code": "const config = { host: 'localhost', port: 3000 };\ntype Config = typeof config;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "{ host: string; port: number }", "ar": "{ host: string; port: number }" } },
-      { "id": "b", "text": { "en": "{ host: 'localhost'; port: 3000 }", "ar": "{ host: 'localhost'; port: 3000 }" } },
-      { "id": "c", "text": { "en": "object", "ar": "object" } },
-      { "id": "d", "text": { "en": "Record<string, unknown>", "ar": "Record<string, unknown>" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{ host: string; port: number }",
+          "ar": "{ host: string; port: number }"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "{ host: 'localhost'; port: 3000 }",
+          "ar": "{ host: 'localhost'; port: 3000 }"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "object",
+          "ar": "object"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Record<string, unknown>",
+          "ar": "Record<string, unknown>"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -509,7 +968,11 @@
       "ar": "بدون `as const`، يُوسِّع TypeScript أنواع الخصائص: تصبح `'localhost'` نوع `string` و`3000` نوع `number`. لو استُخدم `as const`، سيكون النوع `{ readonly host: 'localhost'; readonly port: 3000 }`."
     },
     "xp": 15,
-    "tags": ["typeof", "as-const", "type-inference"]
+    "tags": [
+      "typeof",
+      "as-const",
+      "type-inference"
+    ]
   },
   {
     "id": "ts-i-9",
@@ -523,10 +986,34 @@
     "code": "type A = { name: string };\ntype B = { age: number };\ntype C = A & B;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "{ name: string; age: number }", "ar": "{ name: string; age: number }" } },
-      { "id": "b", "text": { "en": "{ name: string } | { age: number }", "ar": "{ name: string } | { age: number }" } },
-      { "id": "c", "text": { "en": "never", "ar": "never" } },
-      { "id": "d", "text": { "en": "{ name: string } & { age: number } cannot be resolved", "ar": "لا يمكن حل { name: string } & { age: number }" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{ name: string; age: number }",
+          "ar": "{ name: string; age: number }"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "{ name: string } | { age: number }",
+          "ar": "{ name: string } | { age: number }"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "{ name: string } & { age: number } cannot be resolved",
+          "ar": "لا يمكن حل { name: string } & { age: number }"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -538,7 +1025,9 @@
       "ar": "يتطلب نوع التقاطع `A & B` أن يُرضي كائنٌ كلاً من `A` و`B`. يمتلك النوع الناتج جميع خصائص كليهما: `{ name: string; age: number }`. هذا يختلف عن الاتحاد الذي سيتطلب إرضاء أحدهما."
     },
     "xp": 15,
-    "tags": ["intersection-types"]
+    "tags": [
+      "intersection-types"
+    ]
   },
   {
     "id": "ts-i-10",
@@ -552,10 +1041,34 @@
     "code": "function first<T>(arr: T[]): T {\n  return arr[0];\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "The return type should be T | undefined because arr[0] may not exist", "ar": "يجب أن يكون نوع الإرجاع T | undefined لأن arr[0] قد لا يوجد" } },
-      { "id": "b", "text": { "en": "Generics cannot be used with arrays", "ar": "لا يمكن استخدام الأنواع العامة مع المصفوفات" } },
-      { "id": "c", "text": { "en": "The function compiles fine without any issue", "ar": "تُجمَّع الدالة بنجاح دون أي مشكلة" } },
-      { "id": "d", "text": { "en": "T must extend object", "ar": "يجب أن يمتد T من object" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The return type should be T | undefined because arr[0] may not exist",
+          "ar": "يجب أن يكون نوع الإرجاع T | undefined لأن arr[0] قد لا يوجد"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Generics cannot be used with arrays",
+          "ar": "لا يمكن استخدام الأنواع العامة مع المصفوفات"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The function compiles fine without any issue",
+          "ar": "تُجمَّع الدالة بنجاح دون أي مشكلة"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "T must extend object",
+          "ar": "يجب أن يمتد T من object"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -567,7 +1080,11 @@
       "ar": "إذا كانت `arr` فارغة، فإن `arr[0]` يكون `undefined`، لكن نوع الإرجاع يقول `T`. التوقيع الأكثر أماناً هو `T | undefined`. مع تفعيل `noUncheckedIndexedAccess`، سيكتشف TypeScript هذا. بدونه، يُجمَّع الكود لكنه غير سليم منطقياً."
     },
     "xp": 15,
-    "tags": ["generics", "arrays", "debugging"]
+    "tags": [
+      "generics",
+      "arrays",
+      "debugging"
+    ]
   },
   {
     "id": "ts-a-1",
@@ -581,10 +1098,34 @@
     "code": "type Readonly<T> = {\n  readonly [K in keyof T]: T[K];\n};",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Creates a new type where all properties of T are readonly", "ar": "يُنشئ نوعاً جديداً تكون فيه جميع خصائص T للقراءة فقط" } },
-      { "id": "b", "text": { "en": "Removes all properties from T", "ar": "يُزيل جميع خصائص T" } },
-      { "id": "c", "text": { "en": "Creates a copy of T with optional properties", "ar": "يُنشئ نسخة من T بخصائص اختيارية" } },
-      { "id": "d", "text": { "en": "Converts all property types to string", "ar": "يُحوِّل جميع أنواع الخصائص إلى string" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Creates a new type where all properties of T are readonly",
+          "ar": "يُنشئ نوعاً جديداً تكون فيه جميع خصائص T للقراءة فقط"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Removes all properties from T",
+          "ar": "يُزيل جميع خصائص T"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Creates a copy of T with optional properties",
+          "ar": "يُنشئ نسخة من T بخصائص اختيارية"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Converts all property types to string",
+          "ar": "يُحوِّل جميع أنواع الخصائص إلى string"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -596,7 +1137,11 @@
       "ar": "تكرر الأنواع المعيَّنة على مفاتيح نوع ما باستخدام `in keyof`. إضافة `readonly` قبل المفتاح تجعل كل خاصية في النوع الناتج للقراءة فقط. هكذا تُنفَّذ نوع الأداة المدمج `Readonly<T>` في TypeScript."
     },
     "xp": 25,
-    "tags": ["mapped-types", "readonly", "keyof"]
+    "tags": [
+      "mapped-types",
+      "readonly",
+      "keyof"
+    ]
   },
   {
     "id": "ts-a-2",
@@ -610,10 +1155,34 @@
     "code": "type IsString<T> = T extends string ? 'yes' : 'no';\ntype x = IsString<42>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "'no'", "ar": "'no'" } },
-      { "id": "b", "text": { "en": "'yes'", "ar": "'yes'" } },
-      { "id": "c", "text": { "en": "boolean", "ar": "boolean" } },
-      { "id": "d", "text": { "en": "string", "ar": "string" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "'no'",
+          "ar": "'no'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "'yes'",
+          "ar": "'yes'"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "boolean",
+          "ar": "boolean"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "string",
+          "ar": "string"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -625,7 +1194,9 @@
       "ar": "النوع `42` هو `number`، الذي لا يمتد من `string`، لذا يُحلَّل النوع الشرطي إلى `'no'`. تتبع الأنواع الشرطية النمط `T extends U ? TrueType : FalseType`."
     },
     "xp": 25,
-    "tags": ["conditional-types"]
+    "tags": [
+      "conditional-types"
+    ]
   },
   {
     "id": "ts-a-3",
@@ -639,10 +1210,34 @@
     "code": "function throwError(msg: string): never {\n  throw new Error(msg);\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Represents values that never occur — functions that always throw or loop forever", "ar": "يمثل القيم التي لا تحدث أبداً — الدوال التي تُلقي استثناءً دائماً أو تحلق إلى الأبد" } },
-      { "id": "b", "text": { "en": "Represents an empty object type", "ar": "يمثل نوع كائن فارغ" } },
-      { "id": "c", "text": { "en": "Same as void — for functions that return nothing", "ar": "مثل void — للدوال التي لا تُرجع شيئاً" } },
-      { "id": "d", "text": { "en": "Used for uninitialized variables", "ar": "يُستخدم للمتغيرات غير المهيأة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Represents values that never occur — functions that always throw or loop forever",
+          "ar": "يمثل القيم التي لا تحدث أبداً — الدوال التي تُلقي استثناءً دائماً أو تحلق إلى الأبد"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Represents an empty object type",
+          "ar": "يمثل نوع كائن فارغ"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Same as void — for functions that return nothing",
+          "ar": "مثل void — للدوال التي لا تُرجع شيئاً"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Used for uninitialized variables",
+          "ar": "يُستخدم للمتغيرات غير المهيأة"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -654,7 +1249,10 @@
       "ar": "يمثل `never` نوع القيم التي لا توجد أبداً. الدالة التي تُلقي استثناءً دائماً أو لا تُرجع أبداً لها نوع إرجاع `never`. وهو أيضاً نتيجة التقاطعات المستحيلة مثل `string & number`. يعني `void` أن الدالة تُرجع `undefined`؛ بينما `never` يعني أنها لا تُرجع أبداً."
     },
     "xp": 25,
-    "tags": ["never", "functions"]
+    "tags": [
+      "never",
+      "functions"
+    ]
   },
   {
     "id": "ts-a-4",
@@ -668,10 +1266,34 @@
     "code": "type Shape = 'circle' | 'square' | 'triangle';\n\nfunction area(shape: Shape): number {\n  switch (shape) {\n    case 'circle': return 3.14;\n    case 'square': return 1;\n    default:\n      const _check: never = shape;\n      return 0;\n  }\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "'triangle' is not handled — at the default branch, shape is 'triangle', not never", "ar": "لم تُعالَج 'triangle' — عند فرع default، تكون shape 'triangle' وليس never" } },
-      { "id": "b", "text": { "en": "The `never` assignment has no effect", "ar": "تعيين `never` ليس له أي تأثير" } },
-      { "id": "c", "text": { "en": "switch statements cannot use never for exhaustiveness", "ar": "لا يمكن لجمل switch استخدام never للشمولية" } },
-      { "id": "d", "text": { "en": "No bug, this is correct", "ar": "لا يوجد خطأ، هذا صحيح" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "'triangle' is not handled — at the default branch, shape is 'triangle', not never",
+          "ar": "لم تُعالَج 'triangle' — عند فرع default، تكون shape 'triangle' وليس never"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The `never` assignment has no effect",
+          "ar": "تعيين `never` ليس له أي تأثير"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "switch statements cannot use never for exhaustiveness",
+          "ar": "لا يمكن لجمل switch استخدام never للشمولية"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No bug, this is correct",
+          "ar": "لا يوجد خطأ، هذا صحيح"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -683,7 +1305,12 @@
       "ar": "تنتمي 'triangle' إلى اتحاد `Shape` لكن لا توجد لها `case` صريح. تسقط في `default`، حيث يحاول TypeScript تعيينها إلى `never`. لكن `'triangle'` ليست `never`، لذا سيُثير TypeScript خطأ تجميع: `Type 'string' is not assignable to type 'never'`. هذا في الواقع فحص الشمولية يعمل بشكل صحيح — الإصلاح هو إضافة `case 'triangle':`."
     },
     "xp": 25,
-    "tags": ["never", "discriminated-union", "exhaustiveness", "debugging"]
+    "tags": [
+      "never",
+      "discriminated-union",
+      "exhaustiveness",
+      "debugging"
+    ]
   },
   {
     "id": "ts-a-5",
@@ -697,10 +1324,34 @@
     "code": "const colors = ['red', 'green', 'blue'] as const;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Infers the type as readonly ['red', 'green', 'blue'] with literal element types", "ar": "يستنتج النوع كـ readonly ['red', 'green', 'blue'] بأنواع عناصر حرفية" } },
-      { "id": "b", "text": { "en": "Makes the array immutable at runtime", "ar": "يجعل المصفوفة غير قابلة للتغيير في وقت التشغيل" } },
-      { "id": "c", "text": { "en": "Infers the type as string[]", "ar": "يستنتج النوع كـ string[]" } },
-      { "id": "d", "text": { "en": "Freezes the array using Object.freeze", "ar": "يجمِّد المصفوفة باستخدام Object.freeze" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Infers the type as readonly ['red', 'green', 'blue'] with literal element types",
+          "ar": "يستنتج النوع كـ readonly ['red', 'green', 'blue'] بأنواع عناصر حرفية"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Makes the array immutable at runtime",
+          "ar": "يجعل المصفوفة غير قابلة للتغيير في وقت التشغيل"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Infers the type as string[]",
+          "ar": "يستنتج النوع كـ string[]"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Freezes the array using Object.freeze",
+          "ar": "يجمِّد المصفوفة باستخدام Object.freeze"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -712,7 +1363,11 @@
       "ar": "`as const` هو تأكيد ثابت يُخبر TypeScript باستنتاج أضيق نوع ممكن. بالنسبة للمصفوفات، يجعل النوع صفاً للقراءة فقط بأنواع عناصر حرفية بدلاً من `string[]` الموسَّع. لا يستدعي `Object.freeze` — يؤثر فقط على نظام النوع."
     },
     "xp": 25,
-    "tags": ["as-const", "literal-types", "type-inference"]
+    "tags": [
+      "as-const",
+      "literal-types",
+      "type-inference"
+    ]
   },
   {
     "id": "ts-a-6",
@@ -726,10 +1381,34 @@
     "code": "function isString(value: unknown)___ {\n  return typeof value === 'string';\n}",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "value is string", "ar": "value is string" } },
-      { "id": "b", "text": { "en": "boolean", "ar": "boolean" } },
-      { "id": "c", "text": { "en": "string", "ar": "string" } },
-      { "id": "d", "text": { "en": "asserts value is string", "ar": "asserts value is string" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "value is string",
+          "ar": "value is string"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "boolean",
+          "ar": "boolean"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "string",
+          "ar": "string"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "asserts value is string",
+          "ar": "asserts value is string"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -741,7 +1420,10 @@
       "ar": "يجب أن يُرجع حارس النوع المُعرَّف من قِبل المستخدم مُحدِّد نوع: `paramName is Type`. هذا يُخبر TypeScript أنه عندما تُرجع الدالة `true`، يضيق نوع المعامل إلى ذلك النوع. التوصيف `: value is string` يجعل `isString` حارس نوع."
     },
     "xp": 25,
-    "tags": ["type-narrowing", "type-guards"]
+    "tags": [
+      "type-narrowing",
+      "type-guards"
+    ]
   },
   {
     "id": "ts-a-7",
@@ -752,12 +1434,35 @@
       "en": "What is the difference between `unknown` and `any` in TypeScript?",
       "ar": "ما الفرق بين `unknown` و `any` في TypeScript؟"
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "`unknown` requires type narrowing before use; `any` disables all type checking", "ar": "`unknown` يتطلب تضييق النوع قبل الاستخدام؛ `any` يعطِّل جميع فحوصات النوع" } },
-      { "id": "b", "text": { "en": "They are identical — both disable type checking", "ar": "هما متطابقان — كلاهما يعطِّل فحص النوع" } },
-      { "id": "c", "text": { "en": "`unknown` is the same as `object`", "ar": "`unknown` هو نفسه `object`" } },
-      { "id": "d", "text": { "en": "`any` requires narrowing; `unknown` does not", "ar": "`any` يتطلب التضييق؛ `unknown` لا يتطلبه" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "`unknown` requires type narrowing before use; `any` disables all type checking",
+          "ar": "`unknown` يتطلب تضييق النوع قبل الاستخدام؛ `any` يعطِّل جميع فحوصات النوع"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They are identical — both disable type checking",
+          "ar": "هما متطابقان — كلاهما يعطِّل فحص النوع"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`unknown` is the same as `object`",
+          "ar": "`unknown` هو نفسه `object`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`any` requires narrowing; `unknown` does not",
+          "ar": "`any` يتطلب التضييق؛ `unknown` لا يتطلبه"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -769,7 +1474,11 @@
       "ar": "`unknown` هو البديل الآمن للنوع من `any`. يمكنك تعيين أي شيء لـ `unknown`، لكن لا يمكنك استخدام قيمته دون تضييق النوع أولاً (مثل `typeof` أو `instanceof` أو حارس نوع). `any` يتجاوز نظام النوع بالكامل — لا حاجة للتضييق، لكنك تفقد كل الأمان."
     },
     "xp": 25,
-    "tags": ["unknown", "any", "type-narrowing"]
+    "tags": [
+      "unknown",
+      "any",
+      "type-narrowing"
+    ]
   },
   {
     "id": "ts-a-8",
@@ -783,10 +1492,34 @@
     "code": "function createUser() {\n  return { id: 1, name: 'Alice' };\n}\ntype User = ReturnType<typeof createUser>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "{ id: number; name: string }", "ar": "{ id: number; name: string }" } },
-      { "id": "b", "text": { "en": "typeof createUser", "ar": "typeof createUser" } },
-      { "id": "c", "text": { "en": "void", "ar": "void" } },
-      { "id": "d", "text": { "en": "{ id: 1; name: 'Alice' }", "ar": "{ id: 1; name: 'Alice' }" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{ id: number; name: string }",
+          "ar": "{ id: number; name: string }"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "typeof createUser",
+          "ar": "typeof createUser"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "void",
+          "ar": "void"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "{ id: 1; name: 'Alice' }",
+          "ar": "{ id: 1; name: 'Alice' }"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -798,7 +1531,11 @@
       "ar": "يستخرج `ReturnType<typeof createUser>` ما تُرجعه `createUser`. تُرجع الدالة `{ id: number; name: string }` (أنواع موسَّعة، وليست حرفية). نوع الأداة هذا مُنفَّذ بـ `infer`: `type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never`."
     },
     "xp": 25,
-    "tags": ["utility-types", "ReturnType", "typeof"]
+    "tags": [
+      "utility-types",
+      "ReturnType",
+      "typeof"
+    ]
   },
   {
     "id": "ts-a-9",
@@ -809,10 +1546,21 @@
       "en": "TypeScript uses structural typing, meaning two types are compatible if they have the same shape, regardless of their declared names.",
       "ar": "يستخدم TypeScript الكتابة البنيوية، مما يعني أن نوعين متوافقان إذا كان لهما نفس الشكل، بغض النظر عن أسمائهما المُعلَنة."
     },
-    "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -824,7 +1572,9 @@
       "ar": "يستخدم TypeScript الكتابة البنيوية (duck typing): إذا كان للكائن الشكل المطلوب (خصائص وطرق)، فهو يُعتبر متوافقاً. اسم النوع غير ذي صلة. يختلف هذا عن الكتابة الاسمية المستخدمة في لغات مثل Java أو C#."
     },
     "xp": 25,
-    "tags": ["structural-typing"]
+    "tags": [
+      "structural-typing"
+    ]
   },
   {
     "id": "ts-a-10",
@@ -838,10 +1588,34 @@
     "code": "const enum Direction { Up, Down }\nconsole.log(Direction.Up);",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "const enum values are inlined at compile time; no runtime object is emitted", "ar": "تُضمَّن قيم const enum في وقت التجميع؛ لا يُصدَر كائن في وقت التشغيل" } },
-      { "id": "b", "text": { "en": "const enum cannot have string values", "ar": "لا يمكن لـ const enum أن يمتلك قيماً نصية" } },
-      { "id": "c", "text": { "en": "const enum is exactly the same as enum", "ar": "const enum هو نفسه enum تماماً" } },
-      { "id": "d", "text": { "en": "const enum produces a frozen object at runtime", "ar": "ينتج const enum كائناً مجمَّداً في وقت التشغيل" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "const enum values are inlined at compile time; no runtime object is emitted",
+          "ar": "تُضمَّن قيم const enum في وقت التجميع؛ لا يُصدَر كائن في وقت التشغيل"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "const enum cannot have string values",
+          "ar": "لا يمكن لـ const enum أن يمتلك قيماً نصية"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "const enum is exactly the same as enum",
+          "ar": "const enum هو نفسه enum تماماً"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "const enum produces a frozen object at runtime",
+          "ar": "ينتج const enum كائناً مجمَّداً في وقت التشغيل"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -853,7 +1627,10 @@
       "ar": "يُمحى `const enum` بالكامل في وقت التجميع. تُستبدَل المراجع مثل `Direction.Up` مُضمَّنةً بقيمتها الرقمية (مثل `0`). تُصدِر enums العادية كائن JavaScript. `const enum` أكثر كفاءة لكن لا يمكن استخدامه مع `--isolatedModules` أو عبر `import` من وحدات أخرى دون معالجة خاصة."
     },
     "xp": 25,
-    "tags": ["enums", "const-enum"]
+    "tags": [
+      "enums",
+      "const-enum"
+    ]
   },
   {
     "id": "ts-e-1",
@@ -867,10 +1644,34 @@
     "code": "type UnpackPromise<T> = T extends Promise<infer U> ? U : T;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "It introduces a type variable U that is inferred from the matched part of T", "ar": "يُدخل متغير نوع U يُستنتج من الجزء المطابق من T" } },
-      { "id": "b", "text": { "en": "It casts T to U", "ar": "يُحوِّل T إلى U" } },
-      { "id": "c", "text": { "en": "It checks if U exists at runtime", "ar": "يفحص ما إذا كان U موجوداً في وقت التشغيل" } },
-      { "id": "d", "text": { "en": "It is a syntax error — `infer` can only appear in function types", "ar": "إنه خطأ نحوي — يمكن لـ `infer` الظهور فقط في أنواع الدوال" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "It introduces a type variable U that is inferred from the matched part of T",
+          "ar": "يُدخل متغير نوع U يُستنتج من الجزء المطابق من T"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It casts T to U",
+          "ar": "يُحوِّل T إلى U"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It checks if U exists at runtime",
+          "ar": "يفحص ما إذا كان U موجوداً في وقت التشغيل"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It is a syntax error — `infer` can only appear in function types",
+          "ar": "إنه خطأ نحوي — يمكن لـ `infer` الظهور فقط في أنواع الدوال"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -882,7 +1683,11 @@
       "ar": "يُدخل `infer U` في نوع شرطي متغير نوع جديد `U` ويلتقط النوع المطابق في ذلك الموضع. هنا، إذا كانت `T` هي `Promise<string>`، يُستنتج `U` كـ `string`، ويُحلَّل النوع إلى `string`. هذه هي الآلية وراء الأدوات المدمجة مثل `ReturnType` و`Awaited`."
     },
     "xp": 30,
-    "tags": ["infer", "conditional-types", "generics"]
+    "tags": [
+      "infer",
+      "conditional-types",
+      "generics"
+    ]
   },
   {
     "id": "ts-e-2",
@@ -896,10 +1701,34 @@
     "code": "type Flatten<T> = T extends Array<infer Item> ? Item : T;\ntype Result = Flatten<string[]>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "string", "ar": "string" } },
-      { "id": "b", "text": { "en": "string[]", "ar": "string[]" } },
-      { "id": "c", "text": { "en": "Array<string>", "ar": "Array<string>" } },
-      { "id": "d", "text": { "en": "never", "ar": "never" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "string",
+          "ar": "string"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "string[]",
+          "ar": "string[]"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Array<string>",
+          "ar": "Array<string>"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -911,7 +1740,10 @@
       "ar": "تمتد `string[]` من `Array<string>`، لذا يُستنتج `Item` كـ `string`. يُحلَّل الشرطي إلى `Item`، وهو `string`. هذا هو المعادل على مستوى النوع للحصول على نوع عنصر المصفوفة."
     },
     "xp": 30,
-    "tags": ["infer", "conditional-types"]
+    "tags": [
+      "infer",
+      "conditional-types"
+    ]
   },
   {
     "id": "ts-e-3",
@@ -925,10 +1757,34 @@
     "code": "type EventName<T extends string> = `on${Capitalize<T>}`;\ntype ClickEvent = EventName<'click'>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "ClickEvent is 'onClick'", "ar": "ClickEvent هو 'onClick'" } },
-      { "id": "b", "text": { "en": "ClickEvent is 'click'", "ar": "ClickEvent هو 'click'" } },
-      { "id": "c", "text": { "en": "ClickEvent is string", "ar": "ClickEvent هو string" } },
-      { "id": "d", "text": { "en": "Compile error: template literal types cannot use generics", "ar": "خطأ تجميع: لا يمكن لأنواع القوالب الحرفية استخدام الأنواع العامة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "ClickEvent is 'onClick'",
+          "ar": "ClickEvent هو 'onClick'"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "ClickEvent is 'click'",
+          "ar": "ClickEvent هو 'click'"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "ClickEvent is string",
+          "ar": "ClickEvent هو string"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Compile error: template literal types cannot use generics",
+          "ar": "خطأ تجميع: لا يمكن لأنواع القوالب الحرفية استخدام الأنواع العامة"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -940,7 +1796,10 @@
       "ar": "تسمح أنواع القوالب الحرفية ببناء أنواع حرفية نصية بالجمع بين الأجزاء. `Capitalize<'click'>` هو `'Click'`، وقالب backtick `` `on${...}` `` يُنشئ `'onClick'`. هذا نمط قوي لأنواع معالجات الأحداث."
     },
     "xp": 30,
-    "tags": ["template-literal-types", "generics"]
+    "tags": [
+      "template-literal-types",
+      "generics"
+    ]
   },
   {
     "id": "ts-e-4",
@@ -954,10 +1813,34 @@
     "code": "type RequireKeys<T, K extends keyof T> = \n  Omit<T, K> & Required<Pick<T, K>>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Omit<T, K> & Required<Pick<T, K>> — omit K from T then intersect with required picked keys", "ar": "Omit<T, K> & Required<Pick<T, K>> — احذف K من T ثم تقاطع مع المفاتيح المُنتقاة المطلوبة" } },
-      { "id": "b", "text": { "en": "Pick<T, K> & Partial<Omit<T, K>>", "ar": "Pick<T, K> & Partial<Omit<T, K>>" } },
-      { "id": "c", "text": { "en": "Required<T> — makes all keys required", "ar": "Required<T> — يجعل جميع المفاتيح مطلوبة" } },
-      { "id": "d", "text": { "en": "This cannot be typed in TypeScript", "ar": "لا يمكن كتابة هذا في TypeScript" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Omit<T, K> & Required<Pick<T, K>> — omit K from T then intersect with required picked keys",
+          "ar": "Omit<T, K> & Required<Pick<T, K>> — احذف K من T ثم تقاطع مع المفاتيح المُنتقاة المطلوبة"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Pick<T, K> & Partial<Omit<T, K>>",
+          "ar": "Pick<T, K> & Partial<Omit<T, K>>"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Required<T> — makes all keys required",
+          "ar": "Required<T> — يجعل جميع المفاتيح مطلوبة"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "This cannot be typed in TypeScript",
+          "ar": "لا يمكن كتابة هذا في TypeScript"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -969,7 +1852,13 @@
       "ar": "يُزيل `Omit<T, K>` المفاتيح K، تاركاً الخصائص الأخرى الاختيارية. ينتقي `Required<Pick<T, K>>` فقط المفاتيح K ويجعلها مطلوبة. يجمع التقاطع `&` كليهما، مما ينتج نوعاً تكون فيه خصائص K مطلوبة وتحتفظ الباقية بقابلية اختياريتها الأصلية."
     },
     "xp": 30,
-    "tags": ["utility-types", "Omit", "Pick", "Required", "intersection-types"]
+    "tags": [
+      "utility-types",
+      "Omit",
+      "Pick",
+      "Required",
+      "intersection-types"
+    ]
   },
   {
     "id": "ts-e-5",
@@ -983,10 +1872,34 @@
     "code": "function process(x: string): string;\nfunction process(x: number): number;\nfunction process(x: string | number): string | number {\n  return x;\n}\n\nconst r = process(true);",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "No overload matches this call — boolean is not covered by any overload signature", "ar": "لا يتطابق أي تحميل زائد مع هذه الاستدعاء — لا يغطي أي توقيع تحميل زائد النوع boolean" } },
-      { "id": "b", "text": { "en": "The implementation signature is wrong — it should return void", "ar": "توقيع التنفيذ خاطئ — يجب أن يُرجع void" } },
-      { "id": "c", "text": { "en": "Overloads cannot have different return types", "ar": "لا يمكن للتحميلات الزائدة أن تمتلك أنواع إرجاع مختلفة" } },
-      { "id": "d", "text": { "en": "No error, boolean is assignable to string | number", "ar": "لا يوجد خطأ، boolean قابل للتعيين لـ string | number" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "No overload matches this call — boolean is not covered by any overload signature",
+          "ar": "لا يتطابق أي تحميل زائد مع هذه الاستدعاء — لا يغطي أي توقيع تحميل زائد النوع boolean"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The implementation signature is wrong — it should return void",
+          "ar": "توقيع التنفيذ خاطئ — يجب أن يُرجع void"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Overloads cannot have different return types",
+          "ar": "لا يمكن للتحميلات الزائدة أن تمتلك أنواع إرجاع مختلفة"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No error, boolean is assignable to string | number",
+          "ar": "لا يوجد خطأ، boolean قابل للتعيين لـ string | number"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -998,7 +1911,11 @@
       "ar": "عند استدعاء دالة محمَّلة بشكل زائد، يفحص TypeScript توقيعات التحميل الزائد المُعلَنة فقط (وليس توقيع التنفيذ). بما أن `process(string)` ولا `process(number)` تقبلان `boolean`، فإن استدعاء `process(true)` هو خطأ نوع: 'لا يتطابق أي تحميل زائد مع هذا الاستدعاء'."
     },
     "xp": 30,
-    "tags": ["functions", "overloads", "debugging"]
+    "tags": [
+      "functions",
+      "overloads",
+      "debugging"
+    ]
   },
   {
     "id": "ts-boss-1",
@@ -1012,10 +1929,34 @@
     "code": "type Flatten<T> = T extends Array<infer Item>\n  ? Flatten<Item>\n  : T;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "1 | 2 | 3 | 4", "ar": "1 | 2 | 3 | 4" } },
-      { "id": "b", "text": { "en": "[1, 2, 3, 4]", "ar": "[1, 2, 3, 4]" } },
-      { "id": "c", "text": { "en": "number", "ar": "number" } },
-      { "id": "d", "text": { "en": "never", "ar": "never" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "1 | 2 | 3 | 4",
+          "ar": "1 | 2 | 3 | 4"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "[1, 2, 3, 4]",
+          "ar": "[1, 2, 3, 4]"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "number",
+          "ar": "number"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -1027,7 +1968,11 @@
       "ar": "يُفكِّك `Flatten` عودياً المصفوفات باستخدام `infer`. عندما يُوزِّع TypeScript على اتحاد في الأنواع الشرطية، يُستخرج كل عنصر من المصفوفات المتداخلة. يُفكَّك `[[1,2],[3,[4]]]` إلى `[1,2] | [3,[4]]`، ثم إلى `1 | 2 | 3 | [4]`، ثم إلى `1 | 2 | 3 | 4` — اتحاد جميع أنواع الأوراق الحرفية."
     },
     "xp": 50,
-    "tags": ["recursive-types", "conditional-types", "infer"]
+    "tags": [
+      "recursive-types",
+      "conditional-types",
+      "infer"
+    ]
   },
   {
     "id": "ts-boss-2",
@@ -1041,10 +1986,34 @@
     "code": "type OnlyStringValues<T> = {\n  [K in keyof T as T[K] extends string ? K : never]: T[K];\n};\n\ninterface Mixed {\n  name: string;\n  age: number;\n  city: string;\n}\n\ntype StringKeys = OnlyStringValues<Mixed>;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "{ name: string; city: string }", "ar": "{ name: string; city: string }" } },
-      { "id": "b", "text": { "en": "{ name: string; age: number; city: string }", "ar": "{ name: string; age: number; city: string }" } },
-      { "id": "c", "text": { "en": "{ age: number }", "ar": "{ age: number }" } },
-      { "id": "d", "text": { "en": "never", "ar": "never" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{ name: string; city: string }",
+          "ar": "{ name: string; city: string }"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "{ name: string; age: number; city: string }",
+          "ar": "{ name: string; age: number; city: string }"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "{ age: number }",
+          "ar": "{ age: number }"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "never",
+          "ar": "never"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -1056,7 +2025,12 @@
       "ar": "هذا نوع معيَّن مع إعادة تعيين المفاتيح (جملة `as`). لكل مفتاح `K`، يُقيِّم `T[K] extends string ? K : never`. إذا أُعيد تعيين `K` إلى `never`، يُسقط TypeScript ذلك المفتاح بالكامل. يفشل `age: number` في فحص `extends string`، لذا يُعاد تعيين `age` إلى `never` ويُسقَط. النتيجة هي `{ name: string; city: string }`."
     },
     "xp": 50,
-    "tags": ["mapped-types", "conditional-types", "keyof", "key-remapping"]
+    "tags": [
+      "mapped-types",
+      "conditional-types",
+      "keyof",
+      "key-remapping"
+    ]
   },
   {
     "id": "ts-boss-3",
@@ -1070,10 +2044,34 @@
     "code": "type Animal = { name: string };\ntype Dog = { name: string; breed: string };\n\ntype AnimalFunc = (a: Animal) => Animal;\ntype DogFunc = (d: Dog) => Dog;\n\nlet f: AnimalFunc = (x) => ({ name: x.name });\nlet g: DogFunc = f; // Is this valid?",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Invalid — function parameters are contravariant; AnimalFunc accepts broader input than DogFunc expects", "ar": "غير صالح — معاملات الدوال تغايرية معاكسة؛ AnimalFunc تقبل مدخلاً أوسع مما تتوقعه DogFunc" } },
-      { "id": "b", "text": { "en": "Valid — Dog extends Animal so DogFunc extends AnimalFunc", "ar": "صالح — Dog يمتد من Animal لذا DogFunc يمتد من AnimalFunc" } },
-      { "id": "c", "text": { "en": "Valid because TypeScript uses bivariance for all function types", "ar": "صالح لأن TypeScript يستخدم التغاير الثنائي لجميع أنواع الدوال" } },
-      { "id": "d", "text": { "en": "Invalid because return types are incompatible", "ar": "غير صالح لأن أنواع الإرجاع غير متوافقة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Invalid — function parameters are contravariant; AnimalFunc accepts broader input than DogFunc expects",
+          "ar": "غير صالح — معاملات الدوال تغايرية معاكسة؛ AnimalFunc تقبل مدخلاً أوسع مما تتوقعه DogFunc"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Valid — Dog extends Animal so DogFunc extends AnimalFunc",
+          "ar": "صالح — Dog يمتد من Animal لذا DogFunc يمتد من AnimalFunc"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Valid because TypeScript uses bivariance for all function types",
+          "ar": "صالح لأن TypeScript يستخدم التغاير الثنائي لجميع أنواع الدوال"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Invalid because return types are incompatible",
+          "ar": "غير صالح لأن أنواع الإرجاع غير متوافقة"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -1085,7 +2083,12 @@
       "ar": "مع `strictFunctionTypes`، يفحص TypeScript أنواع معاملات الدوال بشكل تغايري معاكس. تأخذ `AnimalFunc` نوع `Animal`، لكن `DogFunc` تتوقع `Dog` (نوع فرعي). تعيين `AnimalFunc` إلى `DogFunc` غير آمن لأن مُستدعي `g` سيمرر `Dog`، لكن `f` تعرف فقط أنها تحصل على `Animal`. أنواع الإرجاع تغايرية متشابهة — إرجاع `Animal` من فتحة `DogFunc` غير صالح لأن المُستدعِين يتوقعون `Dog`."
     },
     "xp": 50,
-    "tags": ["variance", "structural-typing", "strictFunctionTypes", "functions"]
+    "tags": [
+      "variance",
+      "structural-typing",
+      "strictFunctionTypes",
+      "functions"
+    ]
   },
   {
     "id": "ts-boss-4",
@@ -1099,10 +2102,34 @@
     "code": "interface Events {\n  login: { userId: string };\n  logout: { userId: string; reason: string };\n  error: Error;\n}\n\ndeclare function on<K extends keyof Events>(\n  event: K,\n  handler: (payload: Events[K]) => void\n): void;",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "This is correct — K is constrained to valid event names and Events[K] gives the exact payload type", "ar": "هذا صحيح — K مُقيَّد بأسماء أحداث صالحة وEvents[K] يعطي نوع الحمولة الدقيق" } },
-      { "id": "b", "text": { "en": "The handler should use `any` for the payload type", "ar": "يجب أن يستخدم المعالج `any` لنوع الحمولة" } },
-      { "id": "c", "text": { "en": "This doesn't work — indexed access types cannot be used in function parameters", "ar": "لا يعمل هذا — لا يمكن استخدام أنواع الوصول المفهرس في معاملات الدوال" } },
-      { "id": "d", "text": { "en": "You must use overloads instead of a generic", "ar": "يجب عليك استخدام التحميلات الزائدة بدلاً من نوع عام" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "This is correct — K is constrained to valid event names and Events[K] gives the exact payload type",
+          "ar": "هذا صحيح — K مُقيَّد بأسماء أحداث صالحة وEvents[K] يعطي نوع الحمولة الدقيق"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The handler should use `any` for the payload type",
+          "ar": "يجب أن يستخدم المعالج `any` لنوع الحمولة"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "This doesn't work — indexed access types cannot be used in function parameters",
+          "ar": "لا يعمل هذا — لا يمكن استخدام أنواع الوصول المفهرس في معاملات الدوال"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "You must use overloads instead of a generic",
+          "ar": "يجب عليك استخدام التحميلات الزائدة بدلاً من نوع عام"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -1114,7 +2141,12 @@
       "ar": "هذا هو النمط المعهود لمُصدِّرات الأحداث المُكتَّبة. يضمن `K extends keyof Events` قبول أسماء أحداث صالحة فقط. `Events[K]` كنوع حمولة المعالج يعني أن TypeScript يستنتج نوع الحمولة الدقيق لكل حدث في مواقع الاستدعاء. `on('login', p => p.userId)` يعمل؛ `on('login', p => p.reason)` يُخطئ لأن `login` لا تمتلك `reason`."
     },
     "xp": 50,
-    "tags": ["generics", "keyof", "indexed-access", "structural-typing"]
+    "tags": [
+      "generics",
+      "keyof",
+      "indexed-access",
+      "structural-typing"
+    ]
   },
   {
     "id": "ts-boss-5",
@@ -1128,10 +2160,34 @@
     "code": "type DeepReadonly<T> = {\n  readonly [K in keyof T]: T[K] extends object\n    ? DeepReadonly<T[K]>\n    : T[K];\n};\n\ntype Config = DeepReadonly<{\n  server: { host: string; port: number };\n  debug: boolean;\n}>;\n\nconst c: Config = { server: { host: 'a', port: 80 }, debug: false };\nc.server.port = 9000; // line A\nc.debug = true;       // line B",
     "codeLang": "ts",
     "options": [
-      { "id": "a", "text": { "en": "Both line A and B error — DeepReadonly applies readonly recursively to all nested objects", "ar": "كلٌّ من السطر A والسطر B يُخطئ — يُطبِّق DeepReadonly readonly بشكل عودي على جميع الكائنات المتداخلة" } },
-      { "id": "b", "text": { "en": "Only line B errors — nested objects are not made readonly", "ar": "السطر B فقط يُخطئ — الكائنات المتداخلة لا تُجعل للقراءة فقط" } },
-      { "id": "c", "text": { "en": "No errors — readonly only affects top-level properties", "ar": "لا توجد أخطاء — readonly يؤثر فقط على الخصائص ذات المستوى الأعلى" } },
-      { "id": "d", "text": { "en": "Compile error in DeepReadonly itself — recursive types are not allowed", "ar": "خطأ تجميع في DeepReadonly نفسه — الأنواع العودية غير مسموح بها" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Both line A and B error — DeepReadonly applies readonly recursively to all nested objects",
+          "ar": "كلٌّ من السطر A والسطر B يُخطئ — يُطبِّق DeepReadonly readonly بشكل عودي على جميع الكائنات المتداخلة"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only line B errors — nested objects are not made readonly",
+          "ar": "السطر B فقط يُخطئ — الكائنات المتداخلة لا تُجعل للقراءة فقط"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "No errors — readonly only affects top-level properties",
+          "ar": "لا توجد أخطاء — readonly يؤثر فقط على الخصائص ذات المستوى الأعلى"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Compile error in DeepReadonly itself — recursive types are not allowed",
+          "ar": "خطأ تجميع في DeepReadonly نفسه — الأنواع العودية غير مسموح بها"
+        }
+      }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -1143,6 +2199,11 @@
       "ar": "`DeepReadonly` هو نوع معيَّن عودي. لكل مفتاح، إذا كانت القيمة `object`، يُطبِّق `DeepReadonly` بشكل عودي عليها. `server` هو كائن، لذا يصبح `DeepReadonly<{ host: string; port: number }>`, مما يجعل `port` أيضاً `readonly`. كلٌّ من السطر A (`c.server.port = 9000`) والسطر B (`c.debug = true`) يُسبِّبان أخطاء وقت التجميع. يدعم TypeScript الأنواع العودية منذ 3.7."
     },
     "xp": 50,
-    "tags": ["recursive-types", "mapped-types", "readonly", "conditional-types"]
+    "tags": [
+      "recursive-types",
+      "mapped-types",
+      "readonly",
+      "conditional-types"
+    ]
   }
 ]

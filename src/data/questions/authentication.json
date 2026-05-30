@@ -1,0 +1,1086 @@
+[
+  {
+    "id": "auth-b-1",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the difference between authentication and authorization?",
+      "ar": "ما الفرق بين المصادقة (authentication) والتفويض (authorization)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Authentication verifies who you are; authorization decides what you can do", "ar": "المصادقة تتحقق من هويتك؛ والتفويض يحدّد ما يُسمح لك بفعله" } },
+      { "id": "b", "text": { "en": "They are two words for the same thing", "ar": "هما كلمتان لنفس المعنى" } },
+      { "id": "c", "text": { "en": "Authorization verifies who you are; authentication grants permissions", "ar": "التفويض يتحقق من هويتك؛ والمصادقة تمنح الصلاحيات" } },
+      { "id": "d", "text": { "en": "Authentication is only for APIs; authorization is only for web pages", "ar": "المصادقة للواجهات البرمجية فقط؛ والتفويض لصفحات الويب فقط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "One asks 'who are you?', the other asks 'are you allowed?'.",
+      "ar": "إحداهما تسأل \"من أنت؟\" والأخرى تسأل \"هل يُسمح لك؟\"."
+    },
+    "explanation": {
+      "en": "Authentication (AuthN) confirms identity (login). Authorization (AuthZ) determines access rights once identity is known. You authenticate first, then authorize.",
+      "ar": "تؤكّد المصادقة (AuthN) الهوية (تسجيل الدخول). ويحدّد التفويض (AuthZ) حقوق الوصول بعد معرفة الهوية. تتم المصادقة أولًا ثم التفويض."
+    },
+    "xp": 10,
+    "tags": ["basics"]
+  },
+  {
+    "id": "auth-b-2",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which HTTP status code means 'authenticated but not allowed to access this resource'?",
+      "ar": "أي رمز حالة HTTP يعني \"مُصادَق عليه لكن غير مسموح له بالوصول إلى هذا المورد\"؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "401 Unauthorized", "ar": "401 Unauthorized" } },
+      { "id": "b", "text": { "en": "403 Forbidden", "ar": "403 Forbidden" } },
+      { "id": "c", "text": { "en": "404 Not Found", "ar": "404 Not Found" } },
+      { "id": "d", "text": { "en": "400 Bad Request", "ar": "400 Bad Request" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "401 is about identity; the other is about permission.",
+      "ar": "401 تتعلّق بالهوية؛ والأخرى تتعلّق بالإذن."
+    },
+    "explanation": {
+      "en": "403 Forbidden means the server knows who you are but you lack permission. 401 Unauthorized actually means 'not authenticated' (missing/invalid credentials).",
+      "ar": "403 Forbidden تعني أن الخادم يعرف هويتك لكنك تفتقر إلى الإذن. أما 401 Unauthorized فتعني فعليًا \"غير مُصادَق\" (بيانات اعتماد مفقودة أو غير صالحة)."
+    },
+    "xp": 10,
+    "tags": ["status-codes"]
+  },
+  {
+    "id": "auth-b-3",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "Passwords should be stored in the database as plain text so they can be emailed back to users who forget them.",
+      "ar": "يجب تخزين كلمات المرور في قاعدة البيانات كنص صريح حتى يمكن إرسالها بالبريد للمستخدمين الذين ينسونها."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "If you can read a password, so can an attacker who steals the DB.",
+      "ar": "إذا كان بإمكانك قراءة كلمة المرور، فيمكن للمهاجم الذي يسرق قاعدة البيانات قراءتها أيضًا."
+    },
+    "explanation": {
+      "en": "Never store plain-text passwords. Store a slow, salted hash (bcrypt/argon2). Password reset should issue a one-time link, never reveal the original password.",
+      "ar": "لا تخزّن كلمات المرور كنص صريح أبدًا. خزّن تجزئة بطيئة ومملّحة (bcrypt/argon2). وينبغي أن تُصدر إعادة التعيين رابطًا لمرة واحدة، لا أن تكشف كلمة المرور الأصلية."
+    },
+    "xp": 10,
+    "tags": ["passwords"]
+  },
+  {
+    "id": "auth-b-4",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which algorithm is appropriate for hashing passwords?",
+      "ar": "أي خوارزمية مناسبة لتجزئة كلمات المرور؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "MD5", "ar": "MD5" } },
+      { "id": "b", "text": { "en": "SHA-1", "ar": "SHA-1" } },
+      { "id": "c", "text": { "en": "bcrypt", "ar": "bcrypt" } },
+      { "id": "d", "text": { "en": "Base64", "ar": "Base64" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "You want something deliberately slow and salted — not fast, not reversible.",
+      "ar": "تريد شيئًا بطيئًا عمدًا ومملّحًا — لا سريعًا ولا قابلًا للعكس."
+    },
+    "explanation": {
+      "en": "bcrypt (or argon2/scrypt) is a slow, salted password hashing function. MD5/SHA-1 are fast general hashes (easy to brute-force), and Base64 is encoding, not hashing.",
+      "ar": "bcrypt (أو argon2/scrypt) دالة تجزئة بطيئة ومملّحة لكلمات المرور. أما MD5/SHA-1 فهما تجزئتان عامّتان سريعتان (سهلتا الكسر بالقوة الغاشمة)، وBase64 ترميز لا تجزئة."
+    },
+    "xp": 10,
+    "tags": ["passwords", "hashing"]
+  },
+  {
+    "id": "auth-b-5",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A JWT is made of three Base64URL parts separated by dots. What are they?",
+      "ar": "يتكوّن JWT من ثلاثة أجزاء بترميز Base64URL مفصولة بنقاط. ما هي؟"
+    },
+    "code": "header.payload.signature",
+    "codeLang": "text",
+    "options": [
+      { "id": "a", "text": { "en": "header, payload, signature", "ar": "header وpayload وsignature" } },
+      { "id": "b", "text": { "en": "username, password, token", "ar": "username وpassword وtoken" } },
+      { "id": "c", "text": { "en": "issuer, subject, audience", "ar": "issuer وsubject وaudience" } },
+      { "id": "d", "text": { "en": "key, value, hash", "ar": "key وvalue وhash" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Metadata, then claims, then the part that proves integrity.",
+      "ar": "بيانات وصفية، ثم المطالبات، ثم الجزء الذي يثبت السلامة."
+    },
+    "explanation": {
+      "en": "A JWT is header.payload.signature. Header describes the algorithm/type, payload holds the claims, and the signature verifies integrity. Header and payload are only Base64URL-encoded — not encrypted.",
+      "ar": "يتكوّن JWT من header.payload.signature. يصف الـ header الخوارزمية/النوع، ويحمل الـ payload المطالبات، ويتحقّق الـ signature من السلامة. الـ header والـ payload مُرمّزان بـ Base64URL فقط — وليسا مشفّرين."
+    },
+    "xp": 10,
+    "tags": ["jwt"]
+  },
+  {
+    "id": "auth-b-6",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "The payload of a standard (signed, not encrypted) JWT can be read by anyone who has the token.",
+      "ar": "يمكن لأي شخص يملك الرمز قراءة حمولة (payload) رمز JWT القياسي (الموقّع وغير المشفّر)."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Signing proves integrity, not secrecy.",
+      "ar": "التوقيع يثبت السلامة لا السرّية."
+    },
+    "explanation": {
+      "en": "A signed JWT (JWS) is only Base64URL-encoded, so anyone can decode and read the payload. The signature prevents tampering, not reading. Never put secrets in a JWT payload.",
+      "ar": "رمز JWT الموقّع (JWS) مُرمّز بـ Base64URL فقط، فيمكن لأي شخص فكّ ترميزه وقراءة الحمولة. التوقيع يمنع التلاعب لا القراءة. لا تضع أسرارًا في حمولة JWT أبدًا."
+    },
+    "xp": 10,
+    "tags": ["jwt"]
+  },
+  {
+    "id": "auth-b-7",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of a 'salt' in password hashing?",
+      "ar": "ما الغرض من \"الملح\" (salt) في تجزئة كلمات المرور؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "To make identical passwords hash differently and defeat rainbow tables", "ar": "لجعل كلمات المرور المتطابقة تُجزّأ بشكل مختلف وإبطال جداول قوس قزح" } },
+      { "id": "b", "text": { "en": "To encrypt the password so it can be decrypted later", "ar": "لتشفير كلمة المرور حتى يمكن فكّها لاحقًا" } },
+      { "id": "c", "text": { "en": "To make the hash shorter and faster", "ar": "لجعل التجزئة أقصر وأسرع" } },
+      { "id": "d", "text": { "en": "To store the password in plain text safely", "ar": "لتخزين كلمة المرور كنص صريح بأمان" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "It's a unique random value added per user before hashing.",
+      "ar": "قيمة عشوائية فريدة تُضاف لكل مستخدم قبل التجزئة."
+    },
+    "explanation": {
+      "en": "A salt is a unique random value combined with each password before hashing. It ensures two users with the same password get different hashes, defeating precomputed rainbow-table attacks. bcrypt embeds the salt automatically.",
+      "ar": "الملح قيمة عشوائية فريدة تُدمج مع كل كلمة مرور قبل التجزئة. يضمن أن يحصل مستخدمان بنفس كلمة المرور على تجزئتين مختلفتين، ما يُبطل هجمات جداول قوس قزح المحسوبة مسبقًا. ويضمّن bcrypt الملح تلقائيًا."
+    },
+    "xp": 10,
+    "tags": ["passwords", "hashing"]
+  },
+  {
+    "id": "auth-b-8",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which cookie attribute prevents JavaScript from reading the cookie (mitigating XSS token theft)?",
+      "ar": "أي خاصية لملف تعريف الارتباط تمنع جافاسكريبت من قراءته (للتخفيف من سرقة الرموز عبر XSS)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Secure", "ar": "Secure" } },
+      { "id": "b", "text": { "en": "SameSite", "ar": "SameSite" } },
+      { "id": "c", "text": { "en": "HttpOnly", "ar": "HttpOnly" } },
+      { "id": "d", "text": { "en": "Path", "ar": "Path" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "The name says it: accessible to HTTP only, not scripts.",
+      "ar": "الاسم يوضّح ذلك: متاح لـ HTTP فقط، لا للسكربتات."
+    },
+    "explanation": {
+      "en": "HttpOnly makes a cookie inaccessible to document.cookie / JavaScript, so an XSS payload can't steal it. Secure restricts it to HTTPS; SameSite mitigates CSRF.",
+      "ar": "تجعل HttpOnly ملف تعريف الارتباط غير متاح لـ document.cookie / جافاسكريبت، فلا يستطيع هجوم XSS سرقته. وتقصره Secure على HTTPS؛ وتخفّف SameSite من CSRF."
+    },
+    "xp": 10,
+    "tags": ["cookies", "xss"]
+  },
+  {
+    "id": "auth-b-9",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In which HTTP header is a bearer token typically sent to an API?",
+      "ar": "في أي ترويسة HTTP يُرسَل رمز الحامل (bearer token) عادةً إلى الواجهة البرمجية؟"
+    },
+    "code": "Authorization: Bearer <token>",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "Authorization", "ar": "Authorization" } },
+      { "id": "b", "text": { "en": "Cookie", "ar": "Cookie" } },
+      { "id": "c", "text": { "en": "Content-Type", "ar": "Content-Type" } },
+      { "id": "d", "text": { "en": "Accept", "ar": "Accept" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The header value starts with the word 'Bearer'.",
+      "ar": "تبدأ قيمة الترويسة بكلمة \"Bearer\"."
+    },
+    "explanation": {
+      "en": "Bearer tokens are sent in the Authorization header: `Authorization: Bearer <token>`. The server reads and validates the token from there.",
+      "ar": "تُرسَل رموز الحامل في ترويسة Authorization: ‏`Authorization: Bearer <token>`. ويقرأ الخادم الرمز ويتحقّق منه من هناك."
+    },
+    "xp": 10,
+    "tags": ["tokens", "http"]
+  },
+  {
+    "id": "auth-b-10",
+    "trackId": "authentication",
+    "level": "beginner",
+    "type": "scenario",
+    "prompt": {
+      "en": "Your login form sends credentials over plain HTTP. What is the most urgent fix?",
+      "ar": "نموذج تسجيل الدخول لديك يرسل بيانات الاعتماد عبر HTTP عادي. ما الإصلاح الأكثر إلحاحًا؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Serve the site over HTTPS (TLS) so credentials are encrypted in transit", "ar": "قدّم الموقع عبر HTTPS (TLS) حتى تُشفّر بيانات الاعتماد أثناء النقل" } },
+      { "id": "b", "text": { "en": "Hash the password in JavaScript before sending", "ar": "جزّئ كلمة المرور في جافاسكريبت قبل الإرسال" } },
+      { "id": "c", "text": { "en": "Use a longer password field", "ar": "استخدم حقل كلمة مرور أطول" } },
+      { "id": "d", "text": { "en": "Add a CAPTCHA to the form", "ar": "أضف CAPTCHA إلى النموذج" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Plain HTTP means anyone on the network can read the password.",
+      "ar": "HTTP العادي يعني أن أي شخص على الشبكة يمكنه قراءة كلمة المرور."
+    },
+    "explanation": {
+      "en": "Over plain HTTP, credentials travel in clear text and can be sniffed. HTTPS/TLS encrypts the whole exchange. Client-side hashing doesn't help (the hash just becomes the new password and is still sniffable).",
+      "ar": "عبر HTTP العادي، تنتقل بيانات الاعتماد كنص واضح ويمكن التنصّت عليها. يشفّر HTTPS/TLS التبادل بأكمله. ولا تفيد التجزئة من جهة العميل (إذ تصبح التجزئة هي كلمة المرور الجديدة وتظل قابلة للتنصّت)."
+    },
+    "xp": 10,
+    "tags": ["tls", "transport"]
+  },
+  {
+    "id": "auth-i-1",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "Where is the safest place to store a JWT in a browser app to limit XSS theft?",
+      "ar": "أين أأمن مكان لتخزين JWT في تطبيق متصفّح للحدّ من سرقته عبر XSS؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "An HttpOnly, Secure, SameSite cookie", "ar": "ملف تعريف ارتباط HttpOnly وSecure وSameSite" } },
+      { "id": "b", "text": { "en": "localStorage", "ar": "localStorage" } },
+      { "id": "c", "text": { "en": "sessionStorage", "ar": "sessionStorage" } },
+      { "id": "d", "text": { "en": "A global JavaScript variable", "ar": "متغيّر جافاسكريبت عام" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Anything JS can read, an XSS payload can steal.",
+      "ar": "أي شيء يمكن لجافاسكريبت قراءته يمكن لهجوم XSS سرقته."
+    },
+    "explanation": {
+      "en": "localStorage/sessionStorage are readable by any script, so an XSS bug leaks the token. An HttpOnly cookie is invisible to JS; pair it with SameSite + CSRF protection. The tradeoff: cookies need CSRF defenses, storage needs XSS defenses.",
+      "ar": "يمكن لأي سكربت قراءة localStorage/sessionStorage، فيتسرّب الرمز عند وجود ثغرة XSS. أما ملف تعريف الارتباط HttpOnly فغير مرئي لجافاسكريبت؛ اقرنه بـ SameSite وحماية CSRF. والمقايضة: تحتاج ملفات الارتباط إلى دفاعات CSRF، ويحتاج التخزين إلى دفاعات XSS."
+    },
+    "xp": 15,
+    "tags": ["jwt", "xss", "storage"]
+  },
+  {
+    "id": "auth-i-2",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "Using bcrypt to compare a password, you should compare the plain input against the stored hash with bcrypt.compare(), not by hashing the input and using ===.",
+      "ar": "عند استخدام bcrypt لمقارنة كلمة المرور، يجب مقارنة الإدخال الصريح بالتجزئة المخزّنة عبر bcrypt.compare()، لا بتجزئة الإدخال واستخدام ===."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "bcrypt embeds a random salt, so re-hashing won't match.",
+      "ar": "يضمّن bcrypt ملحًا عشوائيًا، فلن تتطابق إعادة التجزئة."
+    },
+    "explanation": {
+      "en": "bcrypt stores a unique salt inside each hash, so hashing the input again yields a different string. bcrypt.compare() extracts the salt and verifies correctly, in constant time to resist timing attacks.",
+      "ar": "يخزّن bcrypt ملحًا فريدًا داخل كل تجزئة، فتنتج إعادة تجزئة الإدخال سلسلة مختلفة. تستخرج bcrypt.compare() الملح وتتحقّق بشكل صحيح، وبزمن ثابت لمقاومة هجمات التوقيت."
+    },
+    "xp": 15,
+    "tags": ["passwords", "bcrypt"]
+  },
+  {
+    "id": "auth-i-3",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the main purpose of a refresh token alongside a short-lived access token?",
+      "ar": "ما الغرض الأساسي من رمز التحديث (refresh token) إلى جانب رمز وصول قصير العمر؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Obtain new access tokens without forcing the user to log in again", "ar": "الحصول على رموز وصول جديدة دون إجبار المستخدم على تسجيل الدخول مجددًا" } },
+      { "id": "b", "text": { "en": "Encrypt the access token", "ar": "تشفير رمز الوصول" } },
+      { "id": "c", "text": { "en": "Store the user's password securely", "ar": "تخزين كلمة مرور المستخدم بأمان" } },
+      { "id": "d", "text": { "en": "Replace the need for HTTPS", "ar": "الاستغناء عن الحاجة إلى HTTPS" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Access tokens expire fast; something must renew them quietly.",
+      "ar": "تنتهي رموز الوصول بسرعة؛ ويجب أن يجدّدها شيء بهدوء."
+    },
+    "explanation": {
+      "en": "Short access-token lifetimes limit damage if leaked. A longer-lived refresh token (stored securely) lets the client silently obtain new access tokens, balancing security and UX.",
+      "ar": "تحدّ الأعمار القصيرة لرموز الوصول من الضرر عند التسرّب. ويتيح رمز تحديث أطول عمرًا (مخزّن بأمان) للعميل الحصول بهدوء على رموز وصول جديدة، موازنًا بين الأمان وتجربة المستخدم."
+    },
+    "xp": 15,
+    "tags": ["tokens", "refresh"]
+  },
+  {
+    "id": "auth-i-4",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which cookie attribute is the primary defense against CSRF?",
+      "ar": "أي خاصية لملف تعريف الارتباط هي الدفاع الأساسي ضد CSRF؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "HttpOnly", "ar": "HttpOnly" } },
+      { "id": "b", "text": { "en": "SameSite", "ar": "SameSite" } },
+      { "id": "c", "text": { "en": "Secure", "ar": "Secure" } },
+      { "id": "d", "text": { "en": "Domain", "ar": "Domain" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "It controls whether the cookie rides along on cross-site requests.",
+      "ar": "تتحكّم في ما إذا كان ملف الارتباط يُرسَل مع الطلبات عبر المواقع."
+    },
+    "explanation": {
+      "en": "SameSite=Lax/Strict stops the browser from attaching the cookie to cross-site requests, neutralizing classic CSRF. HttpOnly fights XSS, Secure enforces HTTPS — neither stops CSRF on its own.",
+      "ar": "تمنع SameSite=Lax/Strict المتصفّح من إرفاق ملف الارتباط بالطلبات عبر المواقع، ما يُبطل CSRF الكلاسيكي. تكافح HttpOnly هجوم XSS، وتفرض Secure استخدام HTTPS — ولا تمنع أي منهما CSRF بمفردها."
+    },
+    "xp": 15,
+    "tags": ["csrf", "cookies"]
+  },
+  {
+    "id": "auth-i-5",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This token check is insecure. What's the vulnerability?",
+      "ar": "هذا الفحص للرمز غير آمن. ما الثغرة؟"
+    },
+    "code": "function verify(provided, expected) {\n  return provided === expected;\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "=== returns early on first mismatch, enabling timing attacks; use a constant-time compare", "ar": "تعود === مبكرًا عند أول اختلاف، ما يتيح هجمات التوقيت؛ استخدم مقارنة بزمن ثابت" } },
+      { "id": "b", "text": { "en": "It should use == instead of ===", "ar": "ينبغي أن تستخدم == بدلًا من ===" } },
+      { "id": "c", "text": { "en": "Strings can't be compared in JavaScript", "ar": "لا يمكن مقارنة النصوص في جافاسكريبت" } },
+      { "id": "d", "text": { "en": "Nothing is wrong with it", "ar": "لا يوجد خطأ فيها" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "How long the comparison takes can leak how many characters matched.",
+      "ar": "المدة التي تستغرقها المقارنة قد تكشف عدد الأحرف المتطابقة."
+    },
+    "explanation": {
+      "en": "=== short-circuits at the first differing byte, so response time leaks how much of the secret matched. Use a constant-time comparison (e.g. crypto.timingSafeEqual) for tokens, signatures, and MACs.",
+      "ar": "تتوقّف === عند أول بايت مختلف، فيكشف زمن الاستجابة مقدار ما تطابق من السرّ. استخدم مقارنة بزمن ثابت (مثل crypto.timingSafeEqual) للرموز والتواقيع ورموز MAC."
+    },
+    "xp": 15,
+    "tags": ["timing-attack", "tokens"]
+  },
+  {
+    "id": "auth-i-6",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does the 'exp' claim in a JWT represent?",
+      "ar": "ماذا تمثّل المطالبة 'exp' في رمز JWT؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "The expiration time after which the token is invalid", "ar": "وقت الانتهاء الذي يصبح الرمز بعده غير صالح" } },
+      { "id": "b", "text": { "en": "The encryption key", "ar": "مفتاح التشفير" } },
+      { "id": "c", "text": { "en": "The export format", "ar": "صيغة التصدير" } },
+      { "id": "d", "text": { "en": "The number of allowed requests", "ar": "عدد الطلبات المسموح بها" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "It's a standard registered claim about the token's lifetime.",
+      "ar": "إنها مطالبة مسجّلة قياسية تتعلّق بعمر الرمز."
+    },
+    "explanation": {
+      "en": "'exp' is a registered claim holding a Unix timestamp; verifiers must reject tokens past it. Related claims include 'iat' (issued at), 'nbf' (not before), 'iss', 'aud', and 'sub'.",
+      "ar": "'exp' مطالبة مسجّلة تحمل طابعًا زمنيًا بنظام Unix؛ وعلى المتحقّقين رفض الرموز بعد تجاوزه. ومن المطالبات ذات الصلة 'iat' (وقت الإصدار) و'nbf' (ليس قبل) و'iss' و'aud' و'sub'."
+    },
+    "xp": 15,
+    "tags": ["jwt", "claims"]
+  },
+  {
+    "id": "auth-i-7",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "On a failed login, which message best avoids account enumeration?",
+      "ar": "عند فشل تسجيل الدخول، أي رسالة تتجنّب بشكل أفضل كشف وجود الحسابات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "\"Invalid email or password\"", "ar": "\"البريد الإلكتروني أو كلمة المرور غير صحيحة\"" } },
+      { "id": "b", "text": { "en": "\"That email is not registered\"", "ar": "\"هذا البريد غير مسجّل\"" } },
+      { "id": "c", "text": { "en": "\"Wrong password for this account\"", "ar": "\"كلمة مرور خاطئة لهذا الحساب\"" } },
+      { "id": "d", "text": { "en": "\"User exists but password failed\"", "ar": "\"المستخدم موجود لكن كلمة المرور فشلت\"" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Don't reveal whether the email or the password was the problem.",
+      "ar": "لا تكشف ما إذا كانت المشكلة في البريد أم في كلمة المرور."
+    },
+    "explanation": {
+      "en": "A generic \"invalid email or password\" hides whether the account exists, preventing attackers from enumerating valid emails. The other messages confirm account existence.",
+      "ar": "تخفي رسالة \"البريد أو كلمة المرور غير صحيحة\" العامة ما إذا كان الحساب موجودًا، ما يمنع المهاجمين من حصر البُرد الصالحة. أما الرسائل الأخرى فتؤكّد وجود الحساب."
+    },
+    "xp": 15,
+    "tags": ["enumeration"]
+  },
+  {
+    "id": "auth-i-8",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What kind of second factor is a TOTP authenticator app (e.g. Google Authenticator)?",
+      "ar": "أي نوع من العامل الثاني هو تطبيق مصادقة TOTP (مثل Google Authenticator)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Something you have (a time-based one-time code from a shared secret)", "ar": "شيء تملكه (رمز لمرة واحدة قائم على الوقت من سرّ مشترك)" } },
+      { "id": "b", "text": { "en": "Something you are (biometric)", "ar": "شيء تكونه (قياس حيوي)" } },
+      { "id": "c", "text": { "en": "Something you know (a password)", "ar": "شيء تعرفه (كلمة مرور)" } },
+      { "id": "d", "text": { "en": "A CAPTCHA challenge", "ar": "تحدّي CAPTCHA" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The device generates a rotating 6-digit code from a seed.",
+      "ar": "يولّد الجهاز رمزًا متغيّرًا من 6 أرقام من بذرة."
+    },
+    "explanation": {
+      "en": "TOTP is a 'something you have' factor: the app and server share a secret seed and derive the same time-based 6-digit code (RFC 6238). It's phishable but far better than password-only.",
+      "ar": "TOTP عامل \"شيء تملكه\": يتشارك التطبيق والخادم بذرة سرّية ويشتقّان نفس الرمز المكوّن من 6 أرقام القائم على الوقت (RFC 6238). وهو قابل للتصيّد لكنه أفضل بكثير من الاكتفاء بكلمة المرور."
+    },
+    "xp": 15,
+    "tags": ["mfa", "totp"]
+  },
+  {
+    "id": "auth-i-9",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "Rate limiting login attempts helps defend against brute-force and credential-stuffing attacks.",
+      "ar": "تحديد معدّل محاولات تسجيل الدخول يساعد في الدفاع ضد هجمات القوة الغاشمة وحشو بيانات الاعتماد."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Slowing down guesses makes mass attacks impractical.",
+      "ar": "إبطاء التخمينات يجعل الهجمات الجماعية غير عملية."
+    },
+    "explanation": {
+      "en": "Rate limiting (plus lockouts/backoff and CAPTCHAs) caps how many guesses an attacker can make, blunting brute-force and credential-stuffing. Combine with MFA and breached-password checks.",
+      "ar": "يحدّ تحديد المعدّل (مع الإغلاق/التراجع وCAPTCHA) من عدد التخمينات الممكنة للمهاجم، ما يُضعف القوة الغاشمة وحشو بيانات الاعتماد. اجمعه مع المصادقة الثنائية وفحص كلمات المرور المسرّبة."
+    },
+    "xp": 15,
+    "tags": ["brute-force", "rate-limiting"]
+  },
+  {
+    "id": "auth-i-10",
+    "trackId": "authentication",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A password reset link should be:",
+      "ar": "ينبغي أن يكون رابط إعادة تعيين كلمة المرور:"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A single-use, time-limited, cryptographically random token", "ar": "رمزًا عشوائيًا تشفيريًا لمرة واحدة ومحدود الوقت" } },
+      { "id": "b", "text": { "en": "The user's email address Base64-encoded", "ar": "عنوان بريد المستخدم مُرمّزًا بـ Base64" } },
+      { "id": "c", "text": { "en": "A sequential numeric id like reset?id=1042", "ar": "معرّفًا رقميًا متسلسلًا مثل reset?id=1042" } },
+      { "id": "d", "text": { "en": "The user's hashed password", "ar": "كلمة مرور المستخدم المجزّأة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Guessable or reusable tokens let attackers hijack accounts.",
+      "ar": "الرموز القابلة للتخمين أو إعادة الاستخدام تتيح للمهاجمين اختطاف الحسابات."
+    },
+    "explanation": {
+      "en": "Reset tokens must be unpredictable (high-entropy random), expire quickly, work only once, and be invalidated after use or password change. Sequential ids or encoded emails are trivially guessable.",
+      "ar": "يجب أن تكون رموز إعادة التعيين غير قابلة للتنبّؤ (عشوائية عالية الإنتروبيا)، وتنتهي بسرعة، وتعمل مرة واحدة، وتُبطَل بعد الاستخدام أو تغيير كلمة المرور. والمعرّفات المتسلسلة أو البُرد المُرمّزة سهلة التخمين."
+    },
+    "xp": 15,
+    "tags": ["password-reset"]
+  },
+  {
+    "id": "auth-a-1",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "A JWT library is configured like this. What is the critical vulnerability?",
+      "ar": "تمت تهيئة مكتبة JWT هكذا. ما الثغرة الحرجة؟"
+    },
+    "code": "jwt.verify(token, secret, {\n  algorithms: ['HS256', 'none']\n});",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Allowing 'none' lets an attacker forge a token with no signature", "ar": "السماح بـ 'none' يتيح للمهاجم تزوير رمز بلا توقيع" } },
+      { "id": "b", "text": { "en": "HS256 is too slow", "ar": "HS256 بطيئة جدًا" } },
+      { "id": "c", "text": { "en": "The secret should be in the token", "ar": "ينبغي أن يكون السرّ داخل الرمز" } },
+      { "id": "d", "text": { "en": "verify() should be called twice", "ar": "ينبغي استدعاء verify() مرتين" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What happens if the attacker sets alg to 'none'?",
+      "ar": "ماذا يحدث إذا ضبط المهاجم alg على 'none'؟"
+    },
+    "explanation": {
+      "en": "Accepting the 'none' algorithm means a token with an empty signature is treated as valid, letting anyone forge claims. Always pin a single expected algorithm and never allow 'none'.",
+      "ar": "قبول خوارزمية 'none' يعني اعتبار رمز بتوقيع فارغ صالحًا، فيستطيع أي شخص تزوير المطالبات. ثبّت دائمًا خوارزمية واحدة متوقّعة ولا تسمح بـ 'none' أبدًا."
+    },
+    "xp": 25,
+    "tags": ["jwt", "alg-none"]
+  },
+  {
+    "id": "auth-a-2",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You must be able to instantly revoke a user's access, but you use stateless JWTs. What's the best approach?",
+      "ar": "يجب أن تتمكّن من إلغاء وصول مستخدم فورًا، لكنك تستخدم رموز JWT عديمة الحالة. ما أفضل نهج؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Keep access tokens short-lived and maintain a server-side revocation/denylist (often keyed by token id 'jti')", "ar": "اجعل رموز الوصول قصيرة العمر واحتفظ بقائمة إلغاء/حظر من جهة الخادم (غالبًا بمفتاح معرّف الرمز 'jti')" } },
+      { "id": "b", "text": { "en": "Make access tokens last one year", "ar": "اجعل رموز الوصول تدوم سنة" } },
+      { "id": "c", "text": { "en": "Store the JWT secret in the client", "ar": "خزّن سرّ JWT في العميل" } },
+      { "id": "d", "text": { "en": "Stop using HTTPS to save time", "ar": "توقّف عن استخدام HTTPS لتوفير الوقت" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Pure stateless JWTs can't be revoked — reintroduce a little state.",
+      "ar": "رموز JWT عديمة الحالة الخالصة لا يمكن إلغاؤها — أعد إدخال قليل من الحالة."
+    },
+    "explanation": {
+      "en": "Stateless JWTs are valid until expiry, so revocation needs either very short lifetimes plus refresh-token control, or a server-side denylist of revoked 'jti' values checked on each request. This trades a bit of statelessness for control.",
+      "ar": "تظل رموز JWT عديمة الحالة صالحة حتى انتهائها، فيتطلّب الإلغاء إما أعمارًا قصيرة جدًا مع التحكّم برموز التحديث، أو قائمة حظر من جهة الخادم لقيم 'jti' الملغاة تُفحَص في كل طلب. وهذا يقايض قليلًا من انعدام الحالة مقابل التحكّم."
+    },
+    "xp": 25,
+    "tags": ["jwt", "revocation"]
+  },
+  {
+    "id": "auth-a-3",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In OAuth 2.0, why is PKCE required for public clients (e.g. SPAs and mobile apps)?",
+      "ar": "في OAuth 2.0، لماذا يُشترط PKCE للعملاء العامّين (مثل تطبيقات SPA والجوال)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It binds the authorization code to the client, preventing stolen-code interception attacks", "ar": "يربط رمز التفويض بالعميل، ما يمنع هجمات اعتراض الرمز المسروق" } },
+      { "id": "b", "text": { "en": "It encrypts the access token end to end", "ar": "يشفّر رمز الوصول من طرف إلى طرف" } },
+      { "id": "c", "text": { "en": "It replaces the need for user login", "ar": "يستغني عن الحاجة لتسجيل دخول المستخدم" } },
+      { "id": "d", "text": { "en": "It makes tokens last longer", "ar": "يجعل الرموز تدوم أطول" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Public clients can't keep a secret; PKCE adds a per-request proof.",
+      "ar": "لا يستطيع العملاء العامّون حفظ سرّ؛ ويضيف PKCE إثباتًا لكل طلب."
+    },
+    "explanation": {
+      "en": "Public clients can't safely store a client secret. PKCE adds a code_verifier/code_challenge so that even if the authorization code is intercepted, it can't be exchanged without the original verifier, stopping authorization-code interception.",
+      "ar": "لا يستطيع العملاء العامّون تخزين سرّ العميل بأمان. يضيف PKCE قيمتي code_verifier/code_challenge بحيث لا يمكن استبدال رمز التفويض حتى لو اعتُرض دون المتحقّق الأصلي، ما يوقف اعتراض رمز التفويض."
+    },
+    "xp": 25,
+    "tags": ["oauth", "pkce"]
+  },
+  {
+    "id": "auth-a-4",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In OpenID Connect, what is the ID token used for (vs the access token)?",
+      "ar": "في OpenID Connect، فيمَ يُستخدم رمز الهوية (ID token) مقابل رمز الوصول؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "The ID token authenticates the user to the client; the access token authorizes API calls", "ar": "يصادق رمز الهوية المستخدمَ لدى العميل؛ ويفوّض رمز الوصول استدعاءات الواجهة البرمجية" } },
+      { "id": "b", "text": { "en": "They are interchangeable", "ar": "هما قابلان للتبادل" } },
+      { "id": "c", "text": { "en": "The ID token is sent to resource servers as a bearer token", "ar": "يُرسَل رمز الهوية إلى خوادم الموارد كرمز حامل" } },
+      { "id": "d", "text": { "en": "The ID token stores the user's password", "ar": "يخزّن رمز الهوية كلمة مرور المستخدم" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "One is about identity for the app; the other is a key to APIs.",
+      "ar": "أحدهما عن الهوية للتطبيق؛ والآخر مفتاح للواجهات البرمجية."
+    },
+    "explanation": {
+      "en": "OIDC adds an ID token (a JWT with identity claims) for the client to authenticate the user. The access token is opaque to the client and used only to call resource servers. Don't send ID tokens to APIs as access tokens.",
+      "ar": "يضيف OIDC رمز هوية (JWT بمطالبات الهوية) ليصادق العميلُ المستخدمَ. ورمز الوصول معتم بالنسبة للعميل ويُستخدم فقط لاستدعاء خوادم الموارد. لا تُرسل رموز الهوية إلى الواجهات البرمجية كرموز وصول."
+    },
+    "xp": 25,
+    "tags": ["oidc", "oauth"]
+  },
+  {
+    "id": "auth-a-5",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You store the JWT in an HttpOnly cookie. Which attack are you still exposed to, and what mitigates it?",
+      "ar": "تخزّن JWT في ملف تعريف ارتباط HttpOnly. لأي هجوم لا تزال معرّضًا، وما الذي يخفّفه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "CSRF — mitigated by SameSite cookies and/or anti-CSRF tokens", "ar": "CSRF — يخفّفه استخدام SameSite و/أو رموز مضادة لـ CSRF" } },
+      { "id": "b", "text": { "en": "SQL injection — mitigated by HttpOnly", "ar": "حقن SQL — يخفّفه HttpOnly" } },
+      { "id": "c", "text": { "en": "Nothing; HttpOnly cookies are fully immune", "ar": "لا شيء؛ ملفات HttpOnly محصّنة بالكامل" } },
+      { "id": "d", "text": { "en": "Clickjacking — mitigated by bcrypt", "ar": "اختطاف النقر — يخفّفه bcrypt" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The browser auto-sends cookies, even on requests the user didn't intend.",
+      "ar": "يرسل المتصفّح ملفات الارتباط تلقائيًا، حتى في طلبات لم يقصدها المستخدم."
+    },
+    "explanation": {
+      "en": "Because browsers attach cookies automatically, cookie-based auth is vulnerable to CSRF. Mitigate with SameSite=Lax/Strict, anti-CSRF tokens, and checking Origin/Referer. HttpOnly only stops JS reads (XSS theft).",
+      "ar": "لأن المتصفّحات ترفق ملفات الارتباط تلقائيًا، فإن المصادقة المعتمدة عليها معرّضة لـ CSRF. خفّفها بـ SameSite=Lax/Strict ورموز مضادة لـ CSRF وفحص Origin/Referer. ولا يمنع HttpOnly سوى قراءة جافاسكريبت (سرقة XSS)."
+    },
+    "xp": 25,
+    "tags": ["csrf", "cookies", "jwt"]
+  },
+  {
+    "id": "auth-a-6",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the key difference between RBAC and ABAC?",
+      "ar": "ما الفرق الجوهري بين RBAC وABAC؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "RBAC grants access by roles; ABAC evaluates attributes/policies (user, resource, context)", "ar": "يمنح RBAC الوصول حسب الأدوار؛ ويقيّم ABAC السمات/السياسات (المستخدم، المورد، السياق)" } },
+      { "id": "b", "text": { "en": "RBAC is for APIs only; ABAC is for databases only", "ar": "RBAC للواجهات البرمجية فقط؛ وABAC لقواعد البيانات فقط" } },
+      { "id": "c", "text": { "en": "They are the same model", "ar": "هما نفس النموذج" } },
+      { "id": "d", "text": { "en": "ABAC cannot express fine-grained rules", "ar": "لا يستطيع ABAC التعبير عن قواعد دقيقة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "One keys off named roles, the other off arbitrary attributes.",
+      "ar": "أحدهما يعتمد على أدوار مسمّاة، والآخر على سمات اعتباطية."
+    },
+    "explanation": {
+      "en": "RBAC assigns permissions to roles and roles to users — simple but coarse. ABAC decides via policies over attributes (department, owner, time, location), enabling fine-grained, context-aware access at the cost of complexity.",
+      "ar": "يسند RBAC الصلاحيات للأدوار والأدوار للمستخدمين — بسيط لكنه خشن. ويقرّر ABAC عبر سياسات على السمات (القسم، المالك، الوقت، الموقع)، ما يتيح وصولًا دقيقًا واعيًا بالسياق مقابل التعقيد."
+    },
+    "xp": 25,
+    "tags": ["authorization", "rbac", "abac"]
+  },
+  {
+    "id": "auth-a-7",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This Express middleware is meant to protect routes. What's the security bug?",
+      "ar": "هذه الوسيطة في Express تهدف لحماية المسارات. ما الخطأ الأمني؟"
+    },
+    "code": "function auth(req, res, next) {\n  const token = req.headers.authorization;\n  if (token) next();\n  else res.status(401).end();\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "It only checks that a token exists, never verifies its signature/validity", "ar": "تتحقّق فقط من وجود رمز، ولا تتحقّق أبدًا من توقيعه/صلاحيته" } },
+      { "id": "b", "text": { "en": "It should use req.body instead of headers", "ar": "ينبغي أن تستخدم req.body بدلًا من الترويسات" } },
+      { "id": "c", "text": { "en": "401 is the wrong status code", "ar": "401 رمز حالة خاطئ" } },
+      { "id": "d", "text": { "en": "next() must never be called in middleware", "ar": "يجب ألّا تُستدعى next() في الوسائط أبدًا" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Any non-empty string passes. Is that really authentication?",
+      "ar": "أي سلسلة غير فارغة تمرّ. هل هذه مصادقة حقًا؟"
+    },
+    "explanation": {
+      "en": "The middleware accepts any present header — an attacker sends `Authorization: anything` and passes. You must verify the token (e.g. jwt.verify with a pinned algorithm) and attach the validated user before calling next().",
+      "ar": "تقبل الوسيطة أي ترويسة موجودة — يرسل المهاجم `Authorization: anything` فيمرّ. يجب التحقّق من الرمز (مثل jwt.verify بخوارزمية مثبّتة) وإرفاق المستخدم المُتحقّق قبل استدعاء next()."
+    },
+    "xp": 25,
+    "tags": ["middleware", "jwt"]
+  },
+  {
+    "id": "auth-a-8",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Why must access tokens NOT be logged in plain text on the server?",
+      "ar": "لماذا يجب ألّا تُسجَّل رموز الوصول كنص صريح في سجلّات الخادم؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Anyone with log access could replay the token to impersonate the user", "ar": "أي شخص يملك الوصول للسجلّات يمكنه إعادة استخدام الرمز لانتحال المستخدم" } },
+      { "id": "b", "text": { "en": "Logs make tokens expire faster", "ar": "السجلّات تجعل الرموز تنتهي أسرع" } },
+      { "id": "c", "text": { "en": "It increases token size", "ar": "يزيد حجم الرمز" } },
+      { "id": "d", "text": { "en": "Tokens can't be written to disk", "ar": "لا يمكن كتابة الرموز على القرص" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A bearer token is like a password — logging it is leaking it.",
+      "ar": "رمز الحامل كالكلمة السرّية — تسجيله تسريب له."
+    },
+    "explanation": {
+      "en": "Bearer tokens grant access by possession. Logged tokens (in app logs, proxies, or error trackers) can be replayed before expiry. Redact Authorization headers and secrets from all logs and monitoring.",
+      "ar": "تمنح رموز الحامل الوصول بمجرد امتلاكها. ويمكن إعادة استخدام الرموز المسجّلة (في سجلّات التطبيق أو الوسطاء أو متتبّعات الأخطاء) قبل انتهائها. أخفِ ترويسات Authorization والأسرار من كل السجلّات والمراقبة."
+    },
+    "xp": 25,
+    "tags": ["tokens", "logging"]
+  },
+  {
+    "id": "auth-a-9",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "true-false",
+    "prompt": {
+      "en": "Setting CORS to Access-Control-Allow-Origin: * together with Access-Control-Allow-Credentials: true is a valid, secure configuration.",
+      "ar": "ضبط CORS على Access-Control-Allow-Origin: * مع Access-Control-Allow-Credentials: true تهيئة صالحة وآمنة."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Browsers actually forbid this exact combination.",
+      "ar": "المتصفّحات تمنع هذه التركيبة بالذات فعليًا."
+    },
+    "explanation": {
+      "en": "Browsers reject credentialed requests when the origin is the wildcard '*'. You must echo a specific allowed origin with Allow-Credentials: true. Using '*' with credentials is both invalid and a security anti-pattern.",
+      "ar": "ترفض المتصفّحات الطلبات المعتمِدة عندما يكون الأصل هو الرمز '*'. يجب إرجاع أصل محدّد مسموح به مع Allow-Credentials: true. واستخدام '*' مع الاعتماد غير صالح وممارسة أمنية سيّئة."
+    },
+    "xp": 25,
+    "tags": ["cors"]
+  },
+  {
+    "id": "auth-a-10",
+    "trackId": "authentication",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You support 'Sign in with Google'. Which token should your backend verify to trust the user's identity?",
+      "ar": "تدعم \"تسجيل الدخول عبر Google\". أي رمز يجب أن يتحقّق منه خادمك ليثق بهوية المستخدم؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "The signed ID token (verify signature, issuer, audience, and expiry)", "ar": "رمز الهوية الموقّع (تحقّق من التوقيع والمُصدِر والجمهور والانتهاء)" } },
+      { "id": "b", "text": { "en": "Whatever email the frontend sends in the request body", "ar": "أي بريد يرسله الواجهة الأمامية في جسم الطلب" } },
+      { "id": "c", "text": { "en": "A random UUID generated on the client", "ar": "معرّف UUID عشوائي يولّده العميل" } },
+      { "id": "d", "text": { "en": "The user's Google password", "ar": "كلمة مرور المستخدم في Google" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Never trust client-asserted identity; verify a provider-signed token.",
+      "ar": "لا تثق أبدًا بهوية يدّعيها العميل؛ تحقّق من رمز موقّع من المزوّد."
+    },
+    "explanation": {
+      "en": "Trust must come from the provider-signed ID token: verify its signature against Google's public keys (JWKS), and check iss, aud (your client id), and exp. Trusting a client-supplied email lets anyone impersonate any user.",
+      "ar": "يجب أن تأتي الثقة من رمز الهوية الموقّع من المزوّد: تحقّق من توقيعه مقابل مفاتيح Google العامة (JWKS)، وافحص iss وaud (معرّف عميلك) وexp. والثقة ببريد يقدّمه العميل تتيح لأي شخص انتحال أي مستخدم."
+    },
+    "xp": 25,
+    "tags": ["oauth", "oidc", "verification"]
+  },
+  {
+    "id": "auth-e-1",
+    "trackId": "authentication",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "A server uses asymmetric RS256 JWTs and verifies with a public key. An attacker submits a token whose header says alg: HS256. What is the attack?",
+      "ar": "يستخدم خادم رموز JWT غير المتماثلة RS256 ويتحقّق بمفتاح عام. يقدّم مهاجم رمزًا تقول ترويسته alg: HS256. ما الهجوم؟"
+    },
+    "code": "{ \"alg\": \"HS256\", \"typ\": \"JWT\" }",
+    "codeLang": "json",
+    "options": [
+      { "id": "a", "text": { "en": "Algorithm confusion: the public key is used as the HMAC secret, letting the attacker forge a valid signature", "ar": "خلط الخوارزميات: يُستخدم المفتاح العام كسرّ HMAC، ما يتيح للمهاجم تزوير توقيع صالح" } },
+      { "id": "b", "text": { "en": "Nothing; switching algorithms is always safe", "ar": "لا شيء؛ تبديل الخوارزميات آمن دائمًا" } },
+      { "id": "c", "text": { "en": "The token will simply be too large to process", "ar": "سيكون الرمز ببساطة أكبر من أن يُعالَج" } },
+      { "id": "d", "text": { "en": "It forces the server to use TLS 1.0", "ar": "يجبر الخادم على استخدام TLS 1.0" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What if the verifier feeds the RSA public key into an HMAC check?",
+      "ar": "ماذا لو زوّد المتحقّق فحص HMAC بمفتاح RSA العام؟"
+    },
+    "explanation": {
+      "en": "If the server picks the algorithm from the token header, an attacker switches RS256→HS256 and signs with the well-known RSA public key as the HMAC secret. The server verifies HMAC with that same public key and accepts the forgery. Fix: pin the expected algorithm server-side; never trust the header's alg.",
+      "ar": "إذا اختار الخادم الخوارزمية من ترويسة الرمز، يبدّل المهاجم RS256 إلى HS256 ويوقّع بمفتاح RSA العام المعروف كسرّ HMAC. فيتحقّق الخادم من HMAC بنفس المفتاح العام ويقبل التزوير. الحل: ثبّت الخوارزمية المتوقّعة في الخادم؛ ولا تثق أبدًا بـ alg في الترويسة."
+    },
+    "xp": 30,
+    "tags": ["jwt", "algorithm-confusion"]
+  },
+  {
+    "id": "auth-e-2",
+    "trackId": "authentication",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "To detect stolen refresh tokens, you implement refresh-token rotation. What signals a breach?",
+      "ar": "لاكتشاف رموز التحديث المسروقة، تطبّق تدوير رموز التحديث. ما الذي يشير إلى اختراق؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A previously-used (rotated-out) refresh token is presented again — reuse detection; revoke the whole token family", "ar": "تقديم رمز تحديث مستخدَم سابقًا (تم تدويره) مجددًا — كشف إعادة الاستخدام؛ ألغِ عائلة الرموز بأكملها" } },
+      { "id": "b", "text": { "en": "The access token is used more than once", "ar": "استخدام رمز الوصول أكثر من مرة" } },
+      { "id": "c", "text": { "en": "The user logs in from the same device twice", "ar": "تسجيل المستخدم الدخول من نفس الجهاز مرتين" } },
+      { "id": "d", "text": { "en": "The token contains an 'exp' claim", "ar": "احتواء الرمز على مطالبة 'exp'" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Each refresh token is one-time use; seeing an old one again is suspicious.",
+      "ar": "كل رمز تحديث للاستخدام مرة واحدة؛ ورؤية رمز قديم مجددًا مريبة."
+    },
+    "explanation": {
+      "en": "With rotation, each refresh issues a new token and invalidates the old one. If an already-rotated token is replayed, both the legitimate user and attacker hold copies — reuse detection. The response is to revoke the entire token family, forcing re-authentication.",
+      "ar": "مع التدوير، يُصدر كل تحديث رمزًا جديدًا ويُبطل القديم. وإذا أُعيد تقديم رمز سبق تدويره، فهذا يعني أن المستخدم الشرعي والمهاجم يحملان نسختين — كشف إعادة الاستخدام. والاستجابة هي إلغاء عائلة الرموز بأكملها وفرض إعادة المصادقة."
+    },
+    "xp": 30,
+    "tags": ["refresh", "rotation"]
+  },
+  {
+    "id": "auth-e-3",
+    "trackId": "authentication",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Why is the OAuth 'state' parameter required in the authorization-code flow?",
+      "ar": "لماذا يُشترط معامل 'state' في OAuth في تدفّق رمز التفويض؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It binds the callback to the user's session, preventing CSRF on the redirect", "ar": "يربط الاستدعاء الراجع بجلسة المستخدم، ما يمنع CSRF على إعادة التوجيه" } },
+      { "id": "b", "text": { "en": "It stores the access token", "ar": "يخزّن رمز الوصول" } },
+      { "id": "c", "text": { "en": "It encrypts the authorization code", "ar": "يشفّر رمز التفويض" } },
+      { "id": "d", "text": { "en": "It sets the token expiry", "ar": "يحدّد انتهاء الرمز" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "It's an unguessable value you generate and later verify on the callback.",
+      "ar": "قيمة غير قابلة للتخمين تولّدها وتتحقّق منها لاحقًا عند الاستدعاء الراجع."
+    },
+    "explanation": {
+      "en": "'state' is a random value tied to the user's session, sent on the authorize request and checked on the callback. If it doesn't match, the response is rejected — blocking CSRF / login-CSRF where an attacker injects their own auth code.",
+      "ar": "'state' قيمة عشوائية مرتبطة بجلسة المستخدم، تُرسَل مع طلب التفويض وتُفحَص عند الاستدعاء الراجع. وإذا لم تتطابق رُفضت الاستجابة — ما يمنع CSRF / CSRF تسجيل الدخول حيث يحقن المهاجم رمز تفويضه."
+    },
+    "xp": 30,
+    "tags": ["oauth", "csrf", "state"]
+  },
+  {
+    "id": "auth-e-4",
+    "trackId": "authentication",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "A SPA refreshes tokens via a hidden iframe and stores the access token in memory. In production, sessions silently break after a deploy. Likely cause?",
+      "ar": "تطبيق SPA يحدّث الرموز عبر iframe مخفي ويخزّن رمز الوصول في الذاكرة. في الإنتاج، تنقطع الجلسات بصمت بعد كل نشر. السبب المرجّح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "In-memory tokens are lost on full page reload; without a persistent refresh mechanism the session can't be restored", "ar": "تُفقَد الرموز في الذاكرة عند إعادة تحميل الصفحة كاملةً؛ ودون آلية تحديث دائمة لا يمكن استعادة الجلسة" } },
+      { "id": "b", "text": { "en": "JWTs cannot be used in SPAs at all", "ar": "لا يمكن استخدام JWT في تطبيقات SPA إطلاقًا" } },
+      { "id": "c", "text": { "en": "bcrypt is too slow for refresh", "ar": "bcrypt بطيء جدًا للتحديث" } },
+      { "id": "d", "text": { "en": "CORS always blocks refresh requests", "ar": "يحظر CORS دائمًا طلبات التحديث" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What happens to memory when the deploy forces a hard reload?",
+      "ar": "ماذا يحدث للذاكرة عندما يفرض النشر إعادة تحميل صارمة؟"
+    },
+    "explanation": {
+      "en": "Memory-only access tokens vanish on reload. If refresh relies solely on that lost in-memory state (and no durable refresh token in an HttpOnly cookie or silent-auth session), a deploy-triggered reload logs everyone out. Use a persistent refresh path (HttpOnly cookie / provider silent renew).",
+      "ar": "تختفي رموز الوصول الموجودة في الذاكرة فقط عند إعادة التحميل. وإذا اعتمد التحديث حصرًا على تلك الحالة المفقودة (دون رمز تحديث دائم في ملف HttpOnly أو جلسة مصادقة صامتة)، فإن إعادة التحميل بسبب النشر تُخرج الجميع. استخدم مسار تحديث دائمًا (ملف HttpOnly / تجديد صامت من المزوّد)."
+    },
+    "xp": 30,
+    "tags": ["spa", "refresh", "production"]
+  },
+  {
+    "id": "auth-e-5",
+    "trackId": "authentication",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which storage/transport choice best resists BOTH XSS token theft and CSRF for a first-party web app?",
+      "ar": "أي خيار تخزين/نقل يقاوم بشكل أفضل سرقة الرموز عبر XSS وكذلك CSRF لتطبيق ويب من الطرف الأول؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Access token in memory + refresh token in an HttpOnly, Secure, SameSite=Strict cookie", "ar": "رمز وصول في الذاكرة + رمز تحديث في ملف HttpOnly وSecure وSameSite=Strict" } },
+      { "id": "b", "text": { "en": "Both tokens in localStorage", "ar": "كلا الرمزين في localStorage" } },
+      { "id": "c", "text": { "en": "Both tokens in a non-HttpOnly cookie", "ar": "كلا الرمزين في ملف ارتباط غير HttpOnly" } },
+      { "id": "d", "text": { "en": "Access token in the URL query string", "ar": "رمز الوصول في سلسلة استعلام URL" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Keep the short-lived token away from disk; keep the long-lived one away from JS.",
+      "ar": "أبقِ الرمز قصير العمر بعيدًا عن القرص؛ وأبقِ طويل العمر بعيدًا عن جافاسكريبت."
+    },
+    "explanation": {
+      "en": "Memory-held access tokens aren't readable from persistent storage (limits XSS exfiltration window), and the refresh token in an HttpOnly+SameSite=Strict cookie is invisible to JS (XSS) and not sent cross-site (CSRF). URLs leak via logs/referrers; localStorage is fully XSS-exposed.",
+      "ar": "رموز الوصول المحفوظة في الذاكرة غير قابلة للقراءة من تخزين دائم (يحدّ من نافذة تسريب XSS)، ورمز التحديث في ملف HttpOnly+SameSite=Strict غير مرئي لجافاسكريبت (XSS) ولا يُرسَل عبر المواقع (CSRF). وتتسرّب عناوين URL عبر السجلّات/المراجع؛ وlocalStorage مكشوف بالكامل لـ XSS."
+    },
+    "xp": 30,
+    "tags": ["storage", "xss", "csrf"]
+  },
+  {
+    "id": "auth-boss-1",
+    "trackId": "authentication",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "Boss: You verify Google ID tokens but only check the signature, not the 'aud' claim. Why is this exploitable?",
+      "ar": "الزعيم: تتحقّق من رموز هوية Google لكنك تفحص التوقيع فقط دون مطالبة 'aud'. لماذا يمكن استغلال ذلك؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A token validly signed by Google but issued for a DIFFERENT app is accepted — token from another client confuses your audience check", "ar": "يُقبَل رمز موقّع بشكل صحيح من Google لكنه صادر لتطبيق مختلف — رمز من عميل آخر يخدع فحص الجمهور لديك" } },
+      { "id": "b", "text": { "en": "The signature check alone makes 'aud' irrelevant", "ar": "فحص التوقيع وحده يجعل 'aud' غير ذي صلة" } },
+      { "id": "c", "text": { "en": "Google never sets the 'aud' claim", "ar": "Google لا تضبط مطالبة 'aud' أبدًا" } },
+      { "id": "d", "text": { "en": "It only affects expired tokens", "ar": "يؤثّر فقط على الرموز المنتهية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Google signs tokens for many apps. Which app was THIS token meant for?",
+      "ar": "توقّع Google رموزًا لتطبيقات كثيرة. لأي تطبيق كان هذا الرمز مُعدًّا؟"
+    },
+    "explanation": {
+      "en": "A signature only proves Google issued the token, not that it was issued for YOUR client. Without checking aud == your client_id, an attacker replays a genuine Google token minted for a different (possibly malicious) app and is accepted as that user. Always verify iss, aud, and exp in addition to the signature.",
+      "ar": "يثبت التوقيع فقط أن Google أصدرت الرمز، لا أنه صادر لعميلك. ودون فحص aud == معرّف عميلك، يعيد المهاجم استخدام رمز Google حقيقي صُكّ لتطبيق مختلف (ربما خبيث) فيُقبَل بصفته ذلك المستخدم. تحقّق دائمًا من iss وaud وexp إضافةً إلى التوقيع."
+    },
+    "xp": 50,
+    "tags": ["oidc", "audience", "boss"]
+  },
+  {
+    "id": "auth-boss-2",
+    "trackId": "authentication",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "Boss: After login you keep the same session id the user had before authenticating. What attack does this enable?",
+      "ar": "الزعيم: بعد تسجيل الدخول تُبقي نفس معرّف الجلسة الذي كان للمستخدم قبل المصادقة. أي هجوم يتيحه ذلك؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Session fixation — an attacker who planted a known session id is now logged in as the victim", "ar": "تثبيت الجلسة — المهاجم الذي زرع معرّف جلسة معروفًا أصبح الآن مسجّلًا كالضحية" } },
+      { "id": "b", "text": { "en": "SQL injection", "ar": "حقن SQL" } },
+      { "id": "c", "text": { "en": "Clickjacking", "ar": "اختطاف النقر" } },
+      { "id": "d", "text": { "en": "Nothing; reusing session ids is best practice", "ar": "لا شيء؛ إعادة استخدام معرّفات الجلسة ممارسة مثلى" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What if the attacker chose the session id BEFORE the victim logged in?",
+      "ar": "ماذا لو اختار المهاجم معرّف الجلسة قبل تسجيل الضحية الدخول؟"
+    },
+    "explanation": {
+      "en": "If the pre-login session id survives authentication, an attacker who fixed a known id in the victim's browser can use that same id after the victim logs in — session fixation. Always regenerate the session id on privilege change (login).",
+      "ar": "إذا نجا معرّف الجلسة السابق للدخول من المصادقة، فإن المهاجم الذي ثبّت معرّفًا معروفًا في متصفّح الضحية يمكنه استخدام المعرّف نفسه بعد دخول الضحية — تثبيت الجلسة. أعد توليد معرّف الجلسة دائمًا عند تغيّر الامتياز (تسجيل الدخول)."
+    },
+    "xp": 50,
+    "tags": ["session-fixation", "boss"]
+  },
+  {
+    "id": "auth-boss-3",
+    "trackId": "authentication",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "Boss: This 'remember me' implementation is dangerous. What's the core flaw?",
+      "ar": "الزعيم: تطبيق \"تذكّرني\" هذا خطير. ما العيب الجوهري؟"
+    },
+    "code": "// on login\nres.cookie('remember', user.id, { maxAge: 1000*60*60*24*30 });\n// on request\nconst user = db.findById(req.cookies.remember);\nif (user) req.user = user;",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "It trusts a guessable user id with no signed/random secret — anyone can set remember=<id> to impersonate users", "ar": "يثق بمعرّف مستخدم قابل للتخمين دون سرّ موقّع/عشوائي — يمكن لأي شخص ضبط remember=<id> لانتحال المستخدمين" } },
+      { "id": "b", "text": { "en": "maxAge is too short", "ar": "maxAge قصير جدًا" } },
+      { "id": "c", "text": { "en": "Cookies cannot store numbers", "ar": "لا يمكن لملفات الارتباط تخزين أرقام" } },
+      { "id": "d", "text": { "en": "findById is too slow", "ar": "findById بطيئة جدًا" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What stops me from sending remember=1 to become user #1?",
+      "ar": "ما الذي يمنعني من إرسال remember=1 لأصبح المستخدم رقم 1؟"
+    },
+    "explanation": {
+      "en": "The cookie holds only a predictable user id with no secret, so anyone can forge remember=<any-id> and be logged in as that user. Use a long, random, hashed-at-rest 'remember' token tied to the user, set HttpOnly+Secure, and rotate/revoke it. Never authenticate from a raw, guessable identifier.",
+      "ar": "يحمل ملف الارتباط معرّف مستخدم متوقّعًا فقط دون سرّ، فيستطيع أي شخص تزوير remember=<أي-معرّف> وتسجيل الدخول بصفته ذلك المستخدم. استخدم رمز \"تذكّر\" طويلًا وعشوائيًا ومجزّأً عند التخزين ومرتبطًا بالمستخدم، واضبط HttpOnly+Secure، ودوّره/ألغِه. ولا تصادق أبدًا من معرّف خام قابل للتخمين."
+    },
+    "xp": 50,
+    "tags": ["remember-me", "broken-auth", "boss"]
+  },
+  {
+    "id": "auth-boss-4",
+    "trackId": "authentication",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "Boss: Your password reset emails a link with a token, but the token never expires and isn't invalidated after use. What's the worst-case impact?",
+      "ar": "الزعيم: تُرسِل إعادة تعيين كلمة المرور رابطًا برمز، لكن الرمز لا ينتهي أبدًا ولا يُبطَل بعد الاستخدام. ما أسوأ أثر ممكن؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A leaked old reset email (forwarded, archived, or breached) permanently takes over the account", "ar": "بريد إعادة تعيين قديم مسرّب (مُعاد توجيهه أو مؤرشف أو مخترق) يستولي على الحساب دائمًا" } },
+      { "id": "b", "text": { "en": "The user can never log in again", "ar": "لا يستطيع المستخدم تسجيل الدخول مجددًا أبدًا" } },
+      { "id": "c", "text": { "en": "Emails will be marked as spam", "ar": "ستُصنَّف الرسائل كبريد مزعج" } },
+      { "id": "d", "text": { "en": "The database will run out of space", "ar": "ستنفد مساحة قاعدة البيانات" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Old emails live forever in inboxes, archives, and backups.",
+      "ar": "تعيش الرسائل القديمة للأبد في صناديق الوارد والأرشيفات والنسخ الاحتياطية."
+    },
+    "explanation": {
+      "en": "A non-expiring, reusable reset token means any old reset email — forwarded, sitting in an archive, or exposed in a breach — remains a working master key to the account forever. Reset tokens must be single-use, short-lived, and invalidated on use or password change.",
+      "ar": "الرمز غير المنتهي والقابل لإعادة الاستخدام يعني أن أي بريد إعادة تعيين قديم — مُعاد توجيهه أو في أرشيف أو مكشوف في اختراق — يبقى مفتاحًا رئيسيًا فعّالًا للحساب للأبد. يجب أن تكون رموز إعادة التعيين لمرة واحدة وقصيرة العمر وتُبطَل عند الاستخدام أو تغيير كلمة المرور."
+    },
+    "xp": 50,
+    "tags": ["password-reset", "boss"]
+  },
+  {
+    "id": "auth-boss-5",
+    "trackId": "authentication",
+    "level": "boss",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Boss: Which design most robustly prevents replay of a captured API request, even over HTTPS?",
+      "ar": "الزعيم: أي تصميم يمنع بأقوى شكل إعادة تشغيل طلب API ملتقَط، حتى عبر HTTPS؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A per-request signature over method, path, body, a nonce, and a timestamp, with server-side nonce tracking and a short validity window", "ar": "توقيع لكل طلب يشمل الطريقة والمسار والجسم وقيمة nonce وطابعًا زمنيًا، مع تتبّع nonce في الخادم ونافذة صلاحية قصيرة" } },
+      { "id": "b", "text": { "en": "Sending the password with every request", "ar": "إرسال كلمة المرور مع كل طلب" } },
+      { "id": "c", "text": { "en": "Using a longer bearer token", "ar": "استخدام رمز حامل أطول" } },
+      { "id": "d", "text": { "en": "Disabling HTTPS to simplify debugging", "ar": "تعطيل HTTPS لتبسيط التصحيح" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Bind the request to a one-time nonce and time so a copy can't be re-sent.",
+      "ar": "اربط الطلب بـ nonce لمرة واحدة وبالوقت حتى لا يمكن إعادة إرسال نسخة."
+    },
+    "explanation": {
+      "en": "HTTPS stops sniffing but not replay by a client/proxy that already holds a valid request. Signing each request over its contents plus a unique nonce and timestamp — with the server rejecting reused nonces and stale timestamps — makes captured requests non-replayable. A static bearer token alone is fully replayable.",
+      "ar": "يمنع HTTPS التنصّت لا إعادة التشغيل من عميل/وسيط يملك أصلًا طلبًا صالحًا. وتوقيع كل طلب على محتواه مع nonce فريد وطابع زمني — مع رفض الخادم لقيم nonce المعاد استخدامها والطوابع القديمة — يجعل الطلبات الملتقطة غير قابلة لإعادة التشغيل. أما رمز الحامل الثابت وحده فقابل لإعادة التشغيل بالكامل."
+    },
+    "xp": 50,
+    "tags": ["replay", "request-signing", "boss"]
+  }
+]

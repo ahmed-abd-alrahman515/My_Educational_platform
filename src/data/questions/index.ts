@@ -2,33 +2,47 @@ import type { LevelId, Question, Quiz, TrackId } from "@/types";
 import { QUESTIONS_PER_QUIZ } from "@/lib/constants";
 import { shuffle } from "@/lib/utils";
 
+// Frontend
 import html from "./html.json";
 import css from "./css.json";
 import javascript from "./javascript.json";
+import typescript from "./typescript.json";
 import react from "./react.json";
-import sql from "./sql.json";
+import nextjs from "./nextjs.json";
+// Backend
+import php from "./php.json";
+import laravel from "./laravel.json";
 import nodejs from "./nodejs.json";
+import express from "./express.json";
+import sql from "./sql.json";
+import restApi from "./rest-api.json";
+import authentication from "./authentication.json";
 
 /**
  * Central question bank.
  *
- * Each track maps to an array of questions loaded from its JSON file. Tracks
- * without a JSON file yet resolve to an empty array — the UI handles this
- * gracefully (shows an "empty" state) so the platform stays shippable while
- * the bank is filled in incrementally.
- *
- * To add a track's questions: create `src/data/questions/<track>.json`, import
- * it here, and register it in QUESTION_BANK. The `as Question[]` cast keeps the
- * JSON aligned with the domain type.
+ * Every track ships with a full bank of 40 questions (10 beginner /
+ * 10 intermediate / 10 advanced / 5 expert / 5 boss), bilingual (EN/AR). To
+ * extend a track, edit its `src/data/questions/<track>.json` file — no code
+ * changes needed. The `as Question[]` cast keeps the JSON aligned with the
+ * domain type.
  */
 export const QUESTION_BANK: Partial<Record<TrackId, Question[]>> = {
+  // Frontend
   html: html as Question[],
   css: css as Question[],
   javascript: javascript as Question[],
+  typescript: typescript as Question[],
   react: react as Question[],
-  sql: sql as Question[],
+  nextjs: nextjs as Question[],
+  // Backend
+  php: php as Question[],
+  laravel: laravel as Question[],
   nodejs: nodejs as Question[],
-  // typescript, nextjs, php, laravel, express, rest-api, authentication: TODO
+  express: express as Question[],
+  sql: sql as Question[],
+  "rest-api": restApi as Question[],
+  authentication: authentication as Question[],
 };
 
 /** All questions for a track (across every level). */

@@ -4,795 +4,2256 @@
     "trackId": "php",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which of the following is the correct way to declare a variable in PHP?", "ar": "أيٌّ من التالي هو الطريقة الصحيحة للتصريح عن متغير في PHP؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "Which of the following is the correct way to declare a variable in PHP?",
+      "ar": "أيٌّ من التالي هو الطريقة الصحيحة للتصريح عن متغير في PHP؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "$myVar = 5;", "ar": "$myVar = 5;" } },
-      { "id": "b", "text": { "en": "var myVar = 5;", "ar": "var myVar = 5;" } },
-      { "id": "c", "text": { "en": "int myVar = 5;", "ar": "int myVar = 5;" } },
-      { "id": "d", "text": { "en": "declare myVar = 5;", "ar": "declare myVar = 5;" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "$myVar = 5;",
+          "ar": "$myVar = 5;"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "var myVar = 5;",
+          "ar": "var myVar = 5;"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "int myVar = 5;",
+          "ar": "int myVar = 5;"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "declare myVar = 5;",
+          "ar": "declare myVar = 5;"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "PHP variables always start with a dollar sign.", "ar": "المتغيرات في PHP تبدأ دائمًا بعلامة الدولار." },
-    "explanation": { "en": "In PHP, all variables must start with the $ symbol followed by the variable name. No type keyword is needed since PHP is dynamically typed.", "ar": "في PHP، يجب أن تبدأ جميع المتغيرات بالرمز $ متبوعًا باسم المتغير. لا حاجة لكلمة نوع البيانات لأن PHP ذات نوع ديناميكي." },
+    "hint": {
+      "en": "PHP variables always start with a dollar sign.",
+      "ar": "المتغيرات في PHP تبدأ دائمًا بعلامة الدولار."
+    },
+    "explanation": {
+      "en": "In PHP, all variables must start with the $ symbol followed by the variable name. No type keyword is needed since PHP is dynamically typed.",
+      "ar": "في PHP، يجب أن تبدأ جميع المتغيرات بالرمز $ متبوعًا باسم المتغير. لا حاجة لكلمة نوع البيانات لأن PHP ذات نوع ديناميكي."
+    },
     "xp": 10,
-    "tags": ["variables", "syntax"]
+    "tags": [
+      "variables",
+      "syntax"
+    ]
   },
   {
     "id": "php-b-2",
     "trackId": "php",
     "level": "beginner",
     "type": "code-output",
-    "prompt": { "en": "What will this PHP code output?", "ar": "ما الذي سيُخرجه هذا الكود PHP؟" },
+    "prompt": {
+      "en": "What will this PHP code output?",
+      "ar": "ما الذي سيُخرجه هذا الكود PHP؟"
+    },
     "code": "<?php\n$a = 5;\n$b = \"5\";\nvar_dump($a == $b);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "bool(true)", "ar": "bool(true)" } },
-      { "id": "b", "text": { "en": "bool(false)", "ar": "bool(false)" } },
-      { "id": "c", "text": { "en": "Error", "ar": "خطأ في التنفيذ" } },
-      { "id": "d", "text": { "en": "int(5)", "ar": "int(5)" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "bool(true)",
+          "ar": "bool(true)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "bool(false)",
+          "ar": "bool(false)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error",
+          "ar": "خطأ في التنفيذ"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "int(5)",
+          "ar": "int(5)"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "== performs loose comparison and converts types before comparing.", "ar": "يُجري == مقارنة فضفاضة ويُحوّل الأنواع قبل المقارنة." },
-    "explanation": { "en": "The == operator uses type coercion. PHP converts the string \"5\" to the integer 5 before comparing, so 5 == 5 is true.", "ar": "يستخدم العامل == تحويل الأنواع (type coercion). يُحوّل PHP السلسلة \"5\" إلى العدد الصحيح 5 قبل المقارنة، لذا 5 == 5 يساوي true." },
+    "hint": {
+      "en": "== performs loose comparison and converts types before comparing.",
+      "ar": "يُجري == مقارنة فضفاضة ويُحوّل الأنواع قبل المقارنة."
+    },
+    "explanation": {
+      "en": "The == operator uses type coercion. PHP converts the string \"5\" to the integer 5 before comparing, so 5 == 5 is true.",
+      "ar": "يستخدم العامل == تحويل الأنواع (type coercion). يُحوّل PHP السلسلة \"5\" إلى العدد الصحيح 5 قبل المقارنة، لذا 5 == 5 يساوي true."
+    },
     "xp": 10,
-    "tags": ["type-juggling", "comparison", "loose-comparison"]
+    "tags": [
+      "type-juggling",
+      "comparison",
+      "loose-comparison"
+    ]
   },
   {
     "id": "php-b-3",
     "trackId": "php",
     "level": "beginner",
     "type": "true-false",
-    "prompt": { "en": "In PHP, the === operator checks both value AND type.", "ar": "في PHP، يتحقق العامل === من القيمة والنوع معًا." },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "In PHP, the === operator checks both value AND type.",
+      "ar": "في PHP، يتحقق العامل === من القيمة والنوع معًا."
+    },
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "There are two equality operators in PHP: == (loose) and === (strict).", "ar": "يوجد في PHP عاملان للمساواة: == (فضفاض) و=== (صارم)." },
-    "explanation": { "en": "The === operator is called the strict equality operator. It returns true only when both the value and the data type are identical, unlike == which performs type coercion.", "ar": "يُسمى العامل === بعامل المساواة الصارم. يُعيد true فقط عندما تكون القيمة ونوع البيانات متطابقين، خلافًا لـ == الذي يُجري تحويل الأنواع." },
+    "hint": {
+      "en": "There are two equality operators in PHP: == (loose) and === (strict).",
+      "ar": "يوجد في PHP عاملان للمساواة: == (فضفاض) و=== (صارم)."
+    },
+    "explanation": {
+      "en": "The === operator is called the strict equality operator. It returns true only when both the value and the data type are identical, unlike == which performs type coercion.",
+      "ar": "يُسمى العامل === بعامل المساواة الصارم. يُعيد true فقط عندما تكون القيمة ونوع البيانات متطابقين، خلافًا لـ == الذي يُجري تحويل الأنواع."
+    },
     "xp": 10,
-    "tags": ["comparison", "strict-comparison", "type-juggling"]
+    "tags": [
+      "comparison",
+      "strict-comparison",
+      "type-juggling"
+    ]
   },
   {
     "id": "php-b-4",
     "trackId": "php",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which PHP function is used to get the length of a string?", "ar": "أيّ دالة PHP تُستخدم للحصول على طول السلسلة النصية؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "Which PHP function is used to get the length of a string?",
+      "ar": "أيّ دالة PHP تُستخدم للحصول على طول السلسلة النصية؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "strlen()", "ar": "strlen()" } },
-      { "id": "b", "text": { "en": "length()", "ar": "length()" } },
-      { "id": "c", "text": { "en": "strLen()", "ar": "strLen()" } },
-      { "id": "d", "text": { "en": "count()", "ar": "count()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "strlen()",
+          "ar": "strlen()"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "length()",
+          "ar": "length()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "strLen()",
+          "ar": "strLen()"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "count()",
+          "ar": "count()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This is a built-in PHP string function.", "ar": "هذه دالة مدمجة في PHP لمعالجة السلاسل النصية." },
-    "explanation": { "en": "strlen() returns the number of bytes in a string. count() is for arrays, and length() does not exist in PHP.", "ar": "تُعيد strlen() عدد البايتات في السلسلة النصية. أما count() فهي للمصفوفات، و length() غير موجودة في PHP." },
+    "hint": {
+      "en": "This is a built-in PHP string function.",
+      "ar": "هذه دالة مدمجة في PHP لمعالجة السلاسل النصية."
+    },
+    "explanation": {
+      "en": "strlen() returns the number of bytes in a string. count() is for arrays, and length() does not exist in PHP.",
+      "ar": "تُعيد strlen() عدد البايتات في السلسلة النصية. أما count() فهي للمصفوفات، و length() غير موجودة في PHP."
+    },
     "xp": 10,
-    "tags": ["strings", "functions"]
+    "tags": [
+      "strings",
+      "functions"
+    ]
   },
   {
     "id": "php-b-5",
     "trackId": "php",
     "level": "beginner",
     "type": "code-output",
-    "prompt": { "en": "What will this code print?", "ar": "ماذا سيطبع هذا الكود؟" },
+    "prompt": {
+      "en": "What will this code print?",
+      "ar": "ماذا سيطبع هذا الكود؟"
+    },
     "code": "<?php\n$fruits = [\"apple\", \"banana\", \"cherry\"];\necho count($fruits);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "3", "ar": "3" } },
-      { "id": "b", "text": { "en": "2", "ar": "2" } },
-      { "id": "c", "text": { "en": "1", "ar": "1" } },
-      { "id": "d", "text": { "en": "0", "ar": "0" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "3",
+          "ar": "3"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "2",
+          "ar": "2"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "1",
+          "ar": "1"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "0",
+          "ar": "0"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "count() returns the number of elements in an array.", "ar": "تُعيد count() عدد العناصر في المصفوفة." },
-    "explanation": { "en": "The array has 3 elements: \"apple\", \"banana\", \"cherry\". count() returns 3.", "ar": "تحتوي المصفوفة على 3 عناصر: \"apple\" و\"banana\" و\"cherry\". تُعيد count() القيمة 3." },
+    "hint": {
+      "en": "count() returns the number of elements in an array.",
+      "ar": "تُعيد count() عدد العناصر في المصفوفة."
+    },
+    "explanation": {
+      "en": "The array has 3 elements: \"apple\", \"banana\", \"cherry\". count() returns 3.",
+      "ar": "تحتوي المصفوفة على 3 عناصر: \"apple\" و\"banana\" و\"cherry\". تُعيد count() القيمة 3."
+    },
     "xp": 10,
-    "tags": ["arrays", "functions"]
+    "tags": [
+      "arrays",
+      "functions"
+    ]
   },
   {
     "id": "php-b-6",
     "trackId": "php",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which superglobal is used to collect form data sent via the HTTP POST method?", "ar": "أيّ متغير عام خاص (superglobal) يُستخدم لجمع بيانات النماذج المُرسلة عبر طريقة HTTP POST؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "Which superglobal is used to collect form data sent via the HTTP POST method?",
+      "ar": "أيّ متغير عام خاص (superglobal) يُستخدم لجمع بيانات النماذج المُرسلة عبر طريقة HTTP POST؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "$_POST", "ar": "$_POST" } },
-      { "id": "b", "text": { "en": "$_GET", "ar": "$_GET" } },
-      { "id": "c", "text": { "en": "$_REQUEST", "ar": "$_REQUEST" } },
-      { "id": "d", "text": { "en": "$_FORM", "ar": "$_FORM" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "$_POST",
+          "ar": "$_POST"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "$_GET",
+          "ar": "$_GET"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "$_REQUEST",
+          "ar": "$_REQUEST"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "$_FORM",
+          "ar": "$_FORM"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "$_FORM does not exist. Think about the HTTP method names.", "ar": "$_FORM غير موجود. فكّر في أسماء طرق HTTP." },
-    "explanation": { "en": "$_POST is the superglobal that holds form data sent via POST. $_GET holds query string parameters. $_REQUEST holds data from both GET, POST, and COOKIE. $_FORM does not exist in PHP.", "ar": "$_POST هو المتغير العام الخاص الذي يحتوي على بيانات النماذج المُرسلة عبر POST. يحتوي $_GET على معاملات سلسلة الاستعلام. يحتوي $_REQUEST على بيانات من GET وPOST وCOOKIE. $_FORM غير موجود في PHP." },
+    "hint": {
+      "en": "$_FORM does not exist. Think about the HTTP method names.",
+      "ar": "$_FORM غير موجود. فكّر في أسماء طرق HTTP."
+    },
+    "explanation": {
+      "en": "$_POST is the superglobal that holds form data sent via POST. $_GET holds query string parameters. $_REQUEST holds data from both GET, POST, and COOKIE. $_FORM does not exist in PHP.",
+      "ar": "$_POST هو المتغير العام الخاص الذي يحتوي على بيانات النماذج المُرسلة عبر POST. يحتوي $_GET على معاملات سلسلة الاستعلام. يحتوي $_REQUEST على بيانات من GET وPOST وCOOKIE. $_FORM غير موجود في PHP."
+    },
     "xp": 10,
-    "tags": ["superglobals", "forms", "http"]
+    "tags": [
+      "superglobals",
+      "forms",
+      "http"
+    ]
   },
   {
     "id": "php-b-7",
     "trackId": "php",
     "level": "beginner",
     "type": "fill-blank",
-    "prompt": { "en": "Complete the code to create an associative array with keys 'name' and 'age':", "ar": "أكمل الكود لإنشاء مصفوفة ترابطية (associative array) بمفاتيح 'name' و'age':" },
+    "prompt": {
+      "en": "Complete the code to create an associative array with keys 'name' and 'age':",
+      "ar": "أكمل الكود لإنشاء مصفوفة ترابطية (associative array) بمفاتيح 'name' و'age':"
+    },
     "code": "<?php\n$person = ___[\"name\" => \"Alice\", \"age\" => 30];",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "No keyword needed — just use []", "ar": "لا حاجة لكلمة مفتاحية — استخدم [] فقط" } },
-      { "id": "b", "text": { "en": "array", "ar": "array" } },
-      { "id": "c", "text": { "en": "dict", "ar": "dict" } },
-      { "id": "d", "text": { "en": "map", "ar": "map" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "No keyword needed — just use []",
+          "ar": "لا حاجة لكلمة مفتاحية — استخدم [] فقط"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "array",
+          "ar": "array"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "dict",
+          "ar": "dict"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "map",
+          "ar": "map"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "In modern PHP, the short array syntax [] is used directly without any keyword before it.", "ar": "في PHP الحديثة، تُستخدم بنية المصفوفة المختصرة [] مباشرة دون أي كلمة مفتاحية قبلها." },
-    "explanation": { "en": "In PHP, you can create an array with the short syntax $arr = [...]. You can also use $arr = array(...), but [] is the modern way. There is no 'dict' or 'map' keyword.", "ar": "في PHP، يمكن إنشاء مصفوفة بالبنية المختصرة $arr = [...]. يمكنك أيضًا استخدام $arr = array(...)، لكن [] هي الطريقة الحديثة. لا توجد كلمة 'dict' أو 'map'." },
+    "hint": {
+      "en": "In modern PHP, the short array syntax [] is used directly without any keyword before it.",
+      "ar": "في PHP الحديثة، تُستخدم بنية المصفوفة المختصرة [] مباشرة دون أي كلمة مفتاحية قبلها."
+    },
+    "explanation": {
+      "en": "In PHP, you can create an array with the short syntax $arr = [...]. You can also use $arr = array(...), but [] is the modern way. There is no 'dict' or 'map' keyword.",
+      "ar": "في PHP، يمكن إنشاء مصفوفة بالبنية المختصرة $arr = [...]. يمكنك أيضًا استخدام $arr = array(...)، لكن [] هي الطريقة الحديثة. لا توجد كلمة 'dict' أو 'map'."
+    },
     "xp": 10,
-    "tags": ["arrays", "associative-array"]
+    "tags": [
+      "arrays",
+      "associative-array"
+    ]
   },
   {
     "id": "php-b-8",
     "trackId": "php",
     "level": "beginner",
     "type": "code-output",
-    "prompt": { "en": "What does this code output?", "ar": "ما الذي يُخرجه هذا الكود؟" },
+    "prompt": {
+      "en": "What does this code output?",
+      "ar": "ما الذي يُخرجه هذا الكود؟"
+    },
     "code": "<?php\n$x = 0;\necho $x == \"a\" ? \"true\" : \"false\";",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "true (in PHP 7) / false (in PHP 8)", "ar": "true (في PHP 7) / false (في PHP 8)" } },
-      { "id": "b", "text": { "en": "false always", "ar": "false دائمًا" } },
-      { "id": "c", "text": { "en": "true always", "ar": "true دائمًا" } },
-      { "id": "d", "text": { "en": "Error", "ar": "خطأ في التنفيذ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "true (in PHP 7) / false (in PHP 8)",
+          "ar": "true (في PHP 7) / false (في PHP 8)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "false always",
+          "ar": "false دائمًا"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "true always",
+          "ar": "true دائمًا"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Error",
+          "ar": "خطأ في التنفيذ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This is one of PHP's famous type-juggling gotchas. The behavior changed in PHP 8.", "ar": "هذه إحدى مشكلات تحويل الأنواع الشهيرة في PHP. تغيّر السلوك في PHP 8." },
-    "explanation": { "en": "In PHP 7 and earlier, comparing 0 == \"a\" returned true because the string \"a\" was cast to 0. In PHP 8, the string is cast to 0 only if it's numeric; non-numeric strings like \"a\" compare as strings, so 0 == \"a\" returns false.", "ar": "في PHP 7 وما قبلها، كانت مقارنة 0 == \"a\" تُعيد true لأن السلسلة \"a\" كانت تُحوَّل إلى 0. في PHP 8، تُحوَّل السلسلة إلى 0 فقط إذا كانت رقمية؛ السلاسل غير الرقمية مثل \"a\" تُقارن كسلاسل، لذا 0 == \"a\" تُعيد false." },
+    "hint": {
+      "en": "This is one of PHP's famous type-juggling gotchas. The behavior changed in PHP 8.",
+      "ar": "هذه إحدى مشكلات تحويل الأنواع الشهيرة في PHP. تغيّر السلوك في PHP 8."
+    },
+    "explanation": {
+      "en": "In PHP 7 and earlier, comparing 0 == \"a\" returned true because the string \"a\" was cast to 0. In PHP 8, the string is cast to 0 only if it's numeric; non-numeric strings like \"a\" compare as strings, so 0 == \"a\" returns false.",
+      "ar": "في PHP 7 وما قبلها، كانت مقارنة 0 == \"a\" تُعيد true لأن السلسلة \"a\" كانت تُحوَّل إلى 0. في PHP 8، تُحوَّل السلسلة إلى 0 فقط إذا كانت رقمية؛ السلاسل غير الرقمية مثل \"a\" تُقارن كسلاسل، لذا 0 == \"a\" تُعيد false."
+    },
     "xp": 10,
-    "tags": ["type-juggling", "comparison", "php8"]
+    "tags": [
+      "type-juggling",
+      "comparison",
+      "php8"
+    ]
   },
   {
     "id": "php-b-9",
     "trackId": "php",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which operator is used for null coalescing in PHP?", "ar": "أيّ عامل يُستخدم للمعالجة في حالة القيمة الفارغة (null coalescing) في PHP؟" },
+    "prompt": {
+      "en": "Which operator is used for null coalescing in PHP?",
+      "ar": "أيّ عامل يُستخدم للمعالجة في حالة القيمة الفارغة (null coalescing) في PHP؟"
+    },
     "code": "<?php\n$name = $_GET['name'] ?? 'Guest';",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "??", "ar": "??" } },
-      { "id": "b", "text": { "en": "?:", "ar": "?:" } },
-      { "id": "c", "text": { "en": "?->", "ar": "?->" } },
-      { "id": "d", "text": { "en": "||", "ar": "||" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "??",
+          "ar": "??"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "?:",
+          "ar": "?:"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "?->",
+          "ar": "?->"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "||",
+          "ar": "||"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This operator was introduced in PHP 7 and returns the first operand if it exists and is not null.", "ar": "تم تقديم هذا العامل في PHP 7 ويُعيد المعامل الأول إذا كان موجودًا وليس null." },
-    "explanation": { "en": "The ?? operator (null coalescing) returns its left operand if it exists and is not null; otherwise it returns its right operand. It's perfect for handling missing array keys without isset().", "ar": "يُعيد عامل ?? (null coalescing) معامله الأيسر إذا كان موجودًا وليس null؛ وإلا يُعيد المعامل الأيمن. إنه مثالي للتعامل مع مفاتيح المصفوفة المفقودة دون الحاجة لـ isset()." },
+    "hint": {
+      "en": "This operator was introduced in PHP 7 and returns the first operand if it exists and is not null.",
+      "ar": "تم تقديم هذا العامل في PHP 7 ويُعيد المعامل الأول إذا كان موجودًا وليس null."
+    },
+    "explanation": {
+      "en": "The ?? operator (null coalescing) returns its left operand if it exists and is not null; otherwise it returns its right operand. It's perfect for handling missing array keys without isset().",
+      "ar": "يُعيد عامل ?? (null coalescing) معامله الأيسر إذا كان موجودًا وليس null؛ وإلا يُعيد المعامل الأيمن. إنه مثالي للتعامل مع مفاتيح المصفوفة المفقودة دون الحاجة لـ isset()."
+    },
     "xp": 10,
-    "tags": ["null-coalescing", "operators", "php7"]
+    "tags": [
+      "null-coalescing",
+      "operators",
+      "php7"
+    ]
   },
   {
     "id": "php-b-10",
     "trackId": "php",
     "level": "beginner",
     "type": "debugging",
-    "prompt": { "en": "Why does this code produce an error?", "ar": "لماذا يُنتج هذا الكود خطأ؟" },
+    "prompt": {
+      "en": "Why does this code produce an error?",
+      "ar": "لماذا يُنتج هذا الكود خطأ؟"
+    },
     "code": "<?php\nfunction greet($name) {\n    echo \"Hello, \" . name . \"!\";\n}\ngreet(\"Alice\");",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "name should be $name (missing $ sign)", "ar": "يجب أن يكون name هو $name (علامة $ مفقودة)" } },
-      { "id": "b", "text": { "en": "The echo statement is incorrect", "ar": "عبارة echo غير صحيحة" } },
-      { "id": "c", "text": { "en": "The function needs a return type", "ar": "الدالة تحتاج إلى نوع إرجاع" } },
-      { "id": "d", "text": { "en": "String concatenation with . is not allowed", "ar": "ربط السلاسل بـ . غير مسموح به" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "name should be $name (missing $ sign)",
+          "ar": "يجب أن يكون name هو $name (علامة $ مفقودة)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The echo statement is incorrect",
+          "ar": "عبارة echo غير صحيحة"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The function needs a return type",
+          "ar": "الدالة تحتاج إلى نوع إرجاع"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "String concatenation with . is not allowed",
+          "ar": "ربط السلاسل بـ . غير مسموح به"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "PHP variables always need the $ prefix inside the function body.", "ar": "متغيرات PHP تحتاج دائمًا إلى البادئة $ داخل جسم الدالة." },
-    "explanation": { "en": "Inside the function, name (without $) is treated as a constant, not a variable. PHP will look for a constant named 'name', not find it, and either use 'name' as a string (with a notice) or throw an error. The fix is to use $name.", "ar": "داخل الدالة، يُعامَل name (بدون $) كثابت وليس متغيرًا. سيبحث PHP عن ثابت اسمه 'name'، ولن يجده، وسيستخدم 'name' كسلسلة نصية (مع إشعار) أو سيُلقي خطأ. الحل هو استخدام $name." },
+    "hint": {
+      "en": "PHP variables always need the $ prefix inside the function body.",
+      "ar": "متغيرات PHP تحتاج دائمًا إلى البادئة $ داخل جسم الدالة."
+    },
+    "explanation": {
+      "en": "Inside the function, name (without $) is treated as a constant, not a variable. PHP will look for a constant named 'name', not find it, and either use 'name' as a string (with a notice) or throw an error. The fix is to use $name.",
+      "ar": "داخل الدالة، يُعامَل name (بدون $) كثابت وليس متغيرًا. سيبحث PHP عن ثابت اسمه 'name'، ولن يجده، وسيستخدم 'name' كسلسلة نصية (مع إشعار) أو سيُلقي خطأ. الحل هو استخدام $name."
+    },
     "xp": 10,
-    "tags": ["variables", "debugging", "syntax"]
+    "tags": [
+      "variables",
+      "debugging",
+      "syntax"
+    ]
   },
   {
     "id": "php-i-1",
     "trackId": "php",
     "level": "intermediate",
     "type": "debugging",
-    "prompt": { "en": "This foreach loop has a classic PHP bug. What is it?", "ar": "حلقة foreach هذه تحتوي على خطأ PHP كلاسيكي. ما هو؟" },
+    "prompt": {
+      "en": "This foreach loop has a classic PHP bug. What is it?",
+      "ar": "حلقة foreach هذه تحتوي على خطأ PHP كلاسيكي. ما هو؟"
+    },
     "code": "<?php\n$numbers = [1, 2, 3, 4, 5];\nforeach ($numbers as &$num) {\n    $num *= 2;\n}\nforeach ($numbers as $num) {\n    echo $num . \" \";\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "The last element gets duplicated because $num is still a reference after the first loop", "ar": "العنصر الأخير يتكرر لأن $num لا يزال مرجعًا بعد الحلقة الأولى" } },
-      { "id": "b", "text": { "en": "foreach does not support references", "ar": "foreach لا تدعم المراجع" } },
-      { "id": "c", "text": { "en": "The *= operator is not valid in PHP", "ar": "العامل *= غير صالح في PHP" } },
-      { "id": "d", "text": { "en": "The second foreach will throw an error", "ar": "الحلقة الثانية foreach ستُلقي خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The last element gets duplicated because $num is still a reference after the first loop",
+          "ar": "العنصر الأخير يتكرر لأن $num لا يزال مرجعًا بعد الحلقة الأولى"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "foreach does not support references",
+          "ar": "foreach لا تدعم المراجع"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The *= operator is not valid in PHP",
+          "ar": "العامل *= غير صالح في PHP"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The second foreach will throw an error",
+          "ar": "الحلقة الثانية foreach ستُلقي خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "After a foreach by reference, the last element's reference persists. unset($num) after the first loop is the fix.", "ar": "بعد حلقة foreach بالمرجع، يظل مرجع العنصر الأخير موجودًا. الحل هو unset($num) بعد الحلقة الأولى." },
-    "explanation": { "en": "After the first foreach, $num is a reference to $numbers[4]. In the second foreach, each iteration assigns the current value to $num, which overwrites $numbers[4]. So the last printed value will be a duplicate of the second-to-last. Always unset() reference variables after foreach loops.", "ar": "بعد الحلقة الأولى، $num هو مرجع لـ $numbers[4]. في الحلقة الثانية، تُسند كل تكرار القيمة الحالية إلى $num مما يُكتب فوق $numbers[4]. لذا ستكون القيمة المطبوعة الأخيرة نسخة مكررة من ما قبل الأخير. استخدم دائمًا unset() للمتغيرات المرجعية بعد حلقات foreach." },
+    "hint": {
+      "en": "After a foreach by reference, the last element's reference persists. unset($num) after the first loop is the fix.",
+      "ar": "بعد حلقة foreach بالمرجع، يظل مرجع العنصر الأخير موجودًا. الحل هو unset($num) بعد الحلقة الأولى."
+    },
+    "explanation": {
+      "en": "After the first foreach, $num is a reference to $numbers[4]. In the second foreach, each iteration assigns the current value to $num, which overwrites $numbers[4]. So the last printed value will be a duplicate of the second-to-last. Always unset() reference variables after foreach loops.",
+      "ar": "بعد الحلقة الأولى، $num هو مرجع لـ $numbers[4]. في الحلقة الثانية، تُسند كل تكرار القيمة الحالية إلى $num مما يُكتب فوق $numbers[4]. لذا ستكون القيمة المطبوعة الأخيرة نسخة مكررة من ما قبل الأخير. استخدم دائمًا unset() للمتغيرات المرجعية بعد حلقات foreach."
+    },
     "xp": 15,
-    "tags": ["arrays", "foreach", "references", "debugging"]
+    "tags": [
+      "arrays",
+      "foreach",
+      "references",
+      "debugging"
+    ]
   },
   {
     "id": "php-i-2",
     "trackId": "php",
     "level": "intermediate",
     "type": "code-output",
-    "prompt": { "en": "What does this spaceship operator code output?", "ar": "ما الذي يُخرجه هذا الكود الذي يستخدم عامل المركبة الفضائية (spaceship operator)؟" },
+    "prompt": {
+      "en": "What does this spaceship operator code output?",
+      "ar": "ما الذي يُخرجه هذا الكود الذي يستخدم عامل المركبة الفضائية (spaceship operator)؟"
+    },
     "code": "<?php\necho 1 <=> 2;\necho \" \";\necho 2 <=> 1;\necho \" \";\necho 1 <=> 1;",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "-1 1 0", "ar": "-1 1 0" } },
-      { "id": "b", "text": { "en": "0 1 -1", "ar": "0 1 -1" } },
-      { "id": "c", "text": { "en": "false true false", "ar": "false true false" } },
-      { "id": "d", "text": { "en": "-1 0 1", "ar": "-1 0 1" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "-1 1 0",
+          "ar": "-1 1 0"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "0 1 -1",
+          "ar": "0 1 -1"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "false true false",
+          "ar": "false true false"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "-1 0 1",
+          "ar": "-1 0 1"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The spaceship operator returns -1, 0, or 1 depending on whether the left side is less than, equal to, or greater than the right side.", "ar": "يُعيد عامل المركبة الفضائية -1 أو 0 أو 1 بناءً على ما إذا كان الجانب الأيسر أصغر من أو يساوي أو أكبر من الجانب الأيمن." },
-    "explanation": { "en": "The <=> (spaceship) operator returns -1 when left < right, 0 when equal, and 1 when left > right. So 1<=>2 is -1, 2<=>1 is 1, and 1<=>1 is 0. It's commonly used in usort() callbacks.", "ar": "يُعيد عامل <=> (spaceship) القيمة -1 عندما يكون الأيسر < الأيمن، و0 عند التساوي، و1 عندما الأيسر > الأيمن. إذن 1<=>2 يساوي -1، و2<=>1 يساوي 1، و1<=>1 يساوي 0. يُستخدم عادةً في callbacks مع usort()." },
+    "hint": {
+      "en": "The spaceship operator returns -1, 0, or 1 depending on whether the left side is less than, equal to, or greater than the right side.",
+      "ar": "يُعيد عامل المركبة الفضائية -1 أو 0 أو 1 بناءً على ما إذا كان الجانب الأيسر أصغر من أو يساوي أو أكبر من الجانب الأيمن."
+    },
+    "explanation": {
+      "en": "The <=> (spaceship) operator returns -1 when left < right, 0 when equal, and 1 when left > right. So 1<=>2 is -1, 2<=>1 is 1, and 1<=>1 is 0. It's commonly used in usort() callbacks.",
+      "ar": "يُعيد عامل <=> (spaceship) القيمة -1 عندما يكون الأيسر < الأيمن، و0 عند التساوي، و1 عندما الأيسر > الأيمن. إذن 1<=>2 يساوي -1، و2<=>1 يساوي 1، و1<=>1 يساوي 0. يُستخدم عادةً في callbacks مع usort()."
+    },
     "xp": 15,
-    "tags": ["operators", "spaceship-operator", "php7"]
+    "tags": [
+      "operators",
+      "spaceship-operator",
+      "php7"
+    ]
   },
   {
     "id": "php-i-3",
     "trackId": "php",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "What is the output of the following closure code?", "ar": "ما هو ناتج كود الـ closure التالي؟" },
+    "prompt": {
+      "en": "What is the output of the following closure code?",
+      "ar": "ما هو ناتج كود الـ closure التالي؟"
+    },
     "code": "<?php\n$message = \"Hello\";\n$greet = function($name) use ($message) {\n    return $message . \", \" . $name . \"!\";\n};\n$message = \"Goodbye\";\necho $greet(\"World\");",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Hello, World!", "ar": "Hello, World!" } },
-      { "id": "b", "text": { "en": "Goodbye, World!", "ar": "Goodbye, World!" } },
-      { "id": "c", "text": { "en": "Error: $message is not defined", "ar": "خطأ: $message غير معرّف" } },
-      { "id": "d", "text": { "en": ", World!", "ar": ", World!" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Hello, World!",
+          "ar": "Hello, World!"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Goodbye, World!",
+          "ar": "Goodbye, World!"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error: $message is not defined",
+          "ar": "خطأ: $message غير معرّف"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": ", World!",
+          "ar": ", World!"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The 'use' keyword captures variables by value at the time the closure is defined, not when it's called.", "ar": "تلتقط الكلمة المفتاحية 'use' المتغيرات بالقيمة عند تعريف الـ closure، وليس عند استدعائها." },
-    "explanation": { "en": "When 'use ($message)' is written without &, the closure captures the value of $message at the time of closure creation (\"Hello\"). The subsequent reassignment of $message to \"Goodbye\" does not affect the captured value.", "ar": "عند كتابة 'use ($message)' بدون &، يلتقط الـ closure قيمة $message وقت إنشاء الـ closure (\"Hello\"). إعادة تعيين $message إلى \"Goodbye\" لاحقًا لا تؤثر على القيمة المُلتقطة." },
+    "hint": {
+      "en": "The 'use' keyword captures variables by value at the time the closure is defined, not when it's called.",
+      "ar": "تلتقط الكلمة المفتاحية 'use' المتغيرات بالقيمة عند تعريف الـ closure، وليس عند استدعائها."
+    },
+    "explanation": {
+      "en": "When 'use ($message)' is written without &, the closure captures the value of $message at the time of closure creation (\"Hello\"). The subsequent reassignment of $message to \"Goodbye\" does not affect the captured value.",
+      "ar": "عند كتابة 'use ($message)' بدون &، يلتقط الـ closure قيمة $message وقت إنشاء الـ closure (\"Hello\"). إعادة تعيين $message إلى \"Goodbye\" لاحقًا لا تؤثر على القيمة المُلتقطة."
+    },
     "xp": 15,
-    "tags": ["closures", "functions", "use"]
+    "tags": [
+      "closures",
+      "functions",
+      "use"
+    ]
   },
   {
     "id": "php-i-4",
     "trackId": "php",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "Which array function returns a new array with only the values that pass a test function?", "ar": "أيّ دالة مصفوفة تُعيد مصفوفة جديدة تحتوي فقط على القيم التي تجتاز دالة اختبار؟" },
+    "prompt": {
+      "en": "Which array function returns a new array with only the values that pass a test function?",
+      "ar": "أيّ دالة مصفوفة تُعيد مصفوفة جديدة تحتوي فقط على القيم التي تجتاز دالة اختبار؟"
+    },
     "code": "<?php\n$nums = [1, 2, 3, 4, 5, 6];\n$evens = ___($nums, fn($n) => $n % 2 === 0);\nprint_r($evens);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "array_filter()", "ar": "array_filter()" } },
-      { "id": "b", "text": { "en": "array_map()", "ar": "array_map()" } },
-      { "id": "c", "text": { "en": "array_walk()", "ar": "array_walk()" } },
-      { "id": "d", "text": { "en": "array_search()", "ar": "array_search()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "array_filter()",
+          "ar": "array_filter()"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "array_map()",
+          "ar": "array_map()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "array_walk()",
+          "ar": "array_walk()"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "array_search()",
+          "ar": "array_search()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This function 'filters' elements — it keeps the ones for which the callback returns true.", "ar": "هذه الدالة 'تُصفّي' العناصر — تحتفظ بالعناصر التي تُعيد callback القيمة true لها." },
-    "explanation": { "en": "array_filter() applies a callback to each element and returns only those elements for which the callback returns true. array_map() transforms elements, array_walk() modifies in-place, and array_search() finds a value's key.", "ar": "تُطبّق array_filter() callback على كل عنصر وتُعيد فقط العناصر التي تُعيد callback القيمة true لها. أما array_map() فتحوّل العناصر، وarray_walk() تُعدّل في المكان، وarray_search() تجد مفتاح قيمة." },
+    "hint": {
+      "en": "This function 'filters' elements — it keeps the ones for which the callback returns true.",
+      "ar": "هذه الدالة 'تُصفّي' العناصر — تحتفظ بالعناصر التي تُعيد callback القيمة true لها."
+    },
+    "explanation": {
+      "en": "array_filter() applies a callback to each element and returns only those elements for which the callback returns true. array_map() transforms elements, array_walk() modifies in-place, and array_search() finds a value's key.",
+      "ar": "تُطبّق array_filter() callback على كل عنصر وتُعيد فقط العناصر التي تُعيد callback القيمة true لها. أما array_map() فتحوّل العناصر، وarray_walk() تُعدّل في المكان، وarray_search() تجد مفتاح قيمة."
+    },
     "xp": 15,
-    "tags": ["arrays", "array-functions", "closures"]
+    "tags": [
+      "arrays",
+      "array-functions",
+      "closures"
+    ]
   },
   {
     "id": "php-i-5",
     "trackId": "php",
     "level": "intermediate",
     "type": "scenario",
-    "prompt": { "en": "A developer writes this PDO code. What critical security issue does it have?", "ar": "يكتب مطوّر هذا الكود PDO. ما هي المشكلة الأمنية الحرجة فيه؟" },
+    "prompt": {
+      "en": "A developer writes this PDO code. What critical security issue does it have?",
+      "ar": "يكتب مطوّر هذا الكود PDO. ما هي المشكلة الأمنية الحرجة فيه؟"
+    },
     "code": "<?php\n$db = new PDO($dsn, $user, $pass);\n$username = $_POST['username'];\n$query = \"SELECT * FROM users WHERE username = '$username'\";\n$result = $db->query($query);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "SQL Injection vulnerability — user input is directly interpolated into the query", "ar": "ثغرة حقن SQL — يُدرج إدخال المستخدم مباشرة في الاستعلام" } },
-      { "id": "b", "text": { "en": "PDO is not the right tool for MySQL", "ar": "PDO ليس الأداة المناسبة لـ MySQL" } },
-      { "id": "c", "text": { "en": "The $dsn variable is not defined", "ar": "المتغير $dsn غير معرّف" } },
-      { "id": "d", "text": { "en": "query() method does not return results", "ar": "الدالة query() لا تُعيد نتائج" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "SQL Injection vulnerability — user input is directly interpolated into the query",
+          "ar": "ثغرة حقن SQL — يُدرج إدخال المستخدم مباشرة في الاستعلام"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "PDO is not the right tool for MySQL",
+          "ar": "PDO ليس الأداة المناسبة لـ MySQL"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The $dsn variable is not defined",
+          "ar": "المتغير $dsn غير معرّف"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "query() method does not return results",
+          "ar": "الدالة query() لا تُعيد نتائج"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "User input should never be directly placed inside a SQL string. Use prepared statements with placeholders.", "ar": "يجب ألا يُوضع إدخال المستخدم مباشرة داخل سلسلة SQL. استخدم prepared statements مع placeholders." },
-    "explanation": { "en": "Interpolating $_POST data directly into a SQL query is a classic SQL injection vulnerability. An attacker could input ' OR '1'='1 to bypass authentication. The fix is to use prepared statements: $stmt = $db->prepare('SELECT * FROM users WHERE username = ?'); $stmt->execute([$username]);", "ar": "إدراج بيانات $_POST مباشرة في استعلام SQL هو ثغرة حقن SQL كلاسيكية. يمكن للمهاجم إدخال ' OR '1'='1 لتجاوز المصادقة. الحل هو استخدام prepared statements: $stmt = $db->prepare('SELECT * FROM users WHERE username = ?'); $stmt->execute([$username]);" },
+    "hint": {
+      "en": "User input should never be directly placed inside a SQL string. Use prepared statements with placeholders.",
+      "ar": "يجب ألا يُوضع إدخال المستخدم مباشرة داخل سلسلة SQL. استخدم prepared statements مع placeholders."
+    },
+    "explanation": {
+      "en": "Interpolating $_POST data directly into a SQL query is a classic SQL injection vulnerability. An attacker could input ' OR '1'='1 to bypass authentication. The fix is to use prepared statements: $stmt = $db->prepare('SELECT * FROM users WHERE username = ?'); $stmt->execute([$username]);",
+      "ar": "إدراج بيانات $_POST مباشرة في استعلام SQL هو ثغرة حقن SQL كلاسيكية. يمكن للمهاجم إدخال ' OR '1'='1 لتجاوز المصادقة. الحل هو استخدام prepared statements: $stmt = $db->prepare('SELECT * FROM users WHERE username = ?'); $stmt->execute([$username]);"
+    },
     "xp": 15,
-    "tags": ["security", "sql-injection", "pdo", "prepared-statements"]
+    "tags": [
+      "security",
+      "sql-injection",
+      "pdo",
+      "prepared-statements"
+    ]
   },
   {
     "id": "php-i-6",
     "trackId": "php",
     "level": "intermediate",
     "type": "code-output",
-    "prompt": { "en": "What does this code output?", "ar": "ما الذي يُخرجه هذا الكود؟" },
+    "prompt": {
+      "en": "What does this code output?",
+      "ar": "ما الذي يُخرجه هذا الكود؟"
+    },
     "code": "<?php\nfunction addSuffix(string &$str, string $suffix): void {\n    $str .= $suffix;\n}\n$word = \"Hello\";\naddSuffix($word, \" World\");\necho $word;",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Hello World", "ar": "Hello World" } },
-      { "id": "b", "text": { "en": "Hello", "ar": "Hello" } },
-      { "id": "c", "text": { "en": "Error: cannot pass by reference", "ar": "خطأ: لا يمكن التمرير بالمرجع" } },
-      { "id": "d", "text": { "en": "Hello World Hello World", "ar": "Hello World Hello World" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Hello World",
+          "ar": "Hello World"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Hello",
+          "ar": "Hello"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error: cannot pass by reference",
+          "ar": "خطأ: لا يمكن التمرير بالمرجع"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Hello World Hello World",
+          "ar": "Hello World Hello World"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The & before $str means the function modifies the original variable.", "ar": "علامة & قبل $str تعني أن الدالة تُعدّل المتغير الأصلي." },
-    "explanation": { "en": "Passing $str by reference with & means any changes inside the function affect the original variable. So $word becomes \"Hello World\" after the function call.", "ar": "تمرير $str بالمرجع باستخدام & يعني أن أي تغييرات داخل الدالة تؤثر على المتغير الأصلي. لذا يصبح $word مساويًا لـ \"Hello World\" بعد استدعاء الدالة." },
+    "hint": {
+      "en": "The & before $str means the function modifies the original variable.",
+      "ar": "علامة & قبل $str تعني أن الدالة تُعدّل المتغير الأصلي."
+    },
+    "explanation": {
+      "en": "Passing $str by reference with & means any changes inside the function affect the original variable. So $word becomes \"Hello World\" after the function call.",
+      "ar": "تمرير $str بالمرجع باستخدام & يعني أن أي تغييرات داخل الدالة تؤثر على المتغير الأصلي. لذا يصبح $word مساويًا لـ \"Hello World\" بعد استدعاء الدالة."
+    },
     "xp": 15,
-    "tags": ["functions", "references", "pass-by-reference"]
+    "tags": [
+      "functions",
+      "references",
+      "pass-by-reference"
+    ]
   },
   {
     "id": "php-i-7",
     "trackId": "php",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "Which PHP 8 feature allows you to use function arguments by name instead of position?", "ar": "أيّ ميزة في PHP 8 تُتيح استخدام وسيطات الدوال بالاسم بدلًا من الموضع؟" },
+    "prompt": {
+      "en": "Which PHP 8 feature allows you to use function arguments by name instead of position?",
+      "ar": "أيّ ميزة في PHP 8 تُتيح استخدام وسيطات الدوال بالاسم بدلًا من الموضع؟"
+    },
     "code": "<?php\nfunction createUser(string $name, int $age, string $role = 'user'): void {\n    echo \"$name ($age) - $role\";\n}\ncreateUser(age: 25, name: 'Alice');",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Named arguments", "ar": "الوسيطات المُسمّاة (Named arguments)" } },
-      { "id": "b", "text": { "en": "Keyword arguments", "ar": "وسيطات الكلمات المفتاحية" } },
-      { "id": "c", "text": { "en": "Labeled parameters", "ar": "المعاملات الموسومة" } },
-      { "id": "d", "text": { "en": "Destructured arguments", "ar": "الوسيطات المفككة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Named arguments",
+          "ar": "الوسيطات المُسمّاة (Named arguments)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Keyword arguments",
+          "ar": "وسيطات الكلمات المفتاحية"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Labeled parameters",
+          "ar": "المعاملات الموسومة"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Destructured arguments",
+          "ar": "الوسيطات المفككة"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This PHP 8.0 feature lets you skip optional parameters and makes the code more readable.", "ar": "هذه الميزة في PHP 8.0 تُتيح تخطي المعاملات الاختيارية وتجعل الكود أكثر قابلية للقراءة." },
-    "explanation": { "en": "Named arguments (introduced in PHP 8.0) allow passing arguments to a function by specifying the parameter name, so order doesn't matter. This is especially useful for functions with many optional parameters.", "ar": "تُتيح الوسيطات المُسمّاة (المُقدَّمة في PHP 8.0) تمرير الوسيطات إلى دالة بتحديد اسم المعامل، لذا لا يهم الترتيب. هذا مفيد بشكل خاص للدوال التي تحتوي على كثير من المعاملات الاختيارية." },
+    "hint": {
+      "en": "This PHP 8.0 feature lets you skip optional parameters and makes the code more readable.",
+      "ar": "هذه الميزة في PHP 8.0 تُتيح تخطي المعاملات الاختيارية وتجعل الكود أكثر قابلية للقراءة."
+    },
+    "explanation": {
+      "en": "Named arguments (introduced in PHP 8.0) allow passing arguments to a function by specifying the parameter name, so order doesn't matter. This is especially useful for functions with many optional parameters.",
+      "ar": "تُتيح الوسيطات المُسمّاة (المُقدَّمة في PHP 8.0) تمرير الوسيطات إلى دالة بتحديد اسم المعامل، لذا لا يهم الترتيب. هذا مفيد بشكل خاص للدوال التي تحتوي على كثير من المعاملات الاختيارية."
+    },
     "xp": 15,
-    "tags": ["php8", "named-arguments", "functions"]
+    "tags": [
+      "php8",
+      "named-arguments",
+      "functions"
+    ]
   },
   {
     "id": "php-i-8",
     "trackId": "php",
     "level": "intermediate",
     "type": "true-false",
-    "prompt": { "en": "In PHP, password_hash() uses a one-way algorithm, meaning the original password cannot be retrieved from the hash.", "ar": "في PHP، تستخدم password_hash() خوارزمية أحادية الاتجاه، مما يعني أنه لا يمكن استرداد كلمة المرور الأصلية من الـ hash." },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "In PHP, password_hash() uses a one-way algorithm, meaning the original password cannot be retrieved from the hash.",
+      "ar": "في PHP، تستخدم password_hash() خوارزمية أحادية الاتجاه، مما يعني أنه لا يمكن استرداد كلمة المرور الأصلية من الـ hash."
+    },
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Hashing is different from encryption. Verify with password_verify().", "ar": "التجزئة (hashing) تختلف عن التشفير (encryption). التحقق يتم باستخدام password_verify()." },
-    "explanation": { "en": "password_hash() uses bcrypt (or argon2) by default, which is a one-way hashing function. You cannot decrypt a hash. To verify a password, use password_verify($plaintext, $hash), which rehashes the input and compares.", "ar": "تستخدم password_hash() خوارزمية bcrypt (أو argon2) بشكل افتراضي، وهي دالة تجزئة أحادية الاتجاه. لا يمكن فكّ تشفير الـ hash. للتحقق من كلمة المرور، استخدم password_verify($plaintext, $hash) التي تُعيد تجزئة المدخل وتُقارنه." },
+    "hint": {
+      "en": "Hashing is different from encryption. Verify with password_verify().",
+      "ar": "التجزئة (hashing) تختلف عن التشفير (encryption). التحقق يتم باستخدام password_verify()."
+    },
+    "explanation": {
+      "en": "password_hash() uses bcrypt (or argon2) by default, which is a one-way hashing function. You cannot decrypt a hash. To verify a password, use password_verify($plaintext, $hash), which rehashes the input and compares.",
+      "ar": "تستخدم password_hash() خوارزمية bcrypt (أو argon2) بشكل افتراضي، وهي دالة تجزئة أحادية الاتجاه. لا يمكن فكّ تشفير الـ hash. للتحقق من كلمة المرور، استخدم password_verify($plaintext, $hash) التي تُعيد تجزئة المدخل وتُقارنه."
+    },
     "xp": 15,
-    "tags": ["security", "password-hashing", "password_hash"]
+    "tags": [
+      "security",
+      "password-hashing",
+      "password_hash"
+    ]
   },
   {
     "id": "php-i-9",
     "trackId": "php",
     "level": "intermediate",
     "type": "code-output",
-    "prompt": { "en": "What does this variadic function output?", "ar": "ما الذي تُخرجه هذه الدالة المتغيرة الوسيطات (variadic)؟" },
+    "prompt": {
+      "en": "What does this variadic function output?",
+      "ar": "ما الذي تُخرجه هذه الدالة المتغيرة الوسيطات (variadic)؟"
+    },
     "code": "<?php\nfunction sum(int ...$numbers): int {\n    return array_sum($numbers);\n}\necho sum(1, 2, 3, 4, 5);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "15", "ar": "15" } },
-      { "id": "b", "text": { "en": "12345", "ar": "12345" } },
-      { "id": "c", "text": { "en": "Error", "ar": "خطأ" } },
-      { "id": "d", "text": { "en": "5", "ar": "5" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "15",
+          "ar": "15"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "12345",
+          "ar": "12345"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error",
+          "ar": "خطأ"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "5",
+          "ar": "5"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The ... (splat) operator collects all passed arguments into an array.", "ar": "عامل ... (splat) يجمع كل الوسيطات الممررة في مصفوفة." },
-    "explanation": { "en": "The ... operator before a parameter name collects all extra arguments into an array. Inside the function, $numbers will be [1, 2, 3, 4, 5]. array_sum() returns 15.", "ar": "يجمع عامل ... قبل اسم معامل جميع الوسيطات الإضافية في مصفوفة. داخل الدالة، سيكون $numbers مساويًا لـ [1, 2, 3, 4, 5]. تُعيد array_sum() القيمة 15." },
+    "hint": {
+      "en": "The ... (splat) operator collects all passed arguments into an array.",
+      "ar": "عامل ... (splat) يجمع كل الوسيطات الممررة في مصفوفة."
+    },
+    "explanation": {
+      "en": "The ... operator before a parameter name collects all extra arguments into an array. Inside the function, $numbers will be [1, 2, 3, 4, 5]. array_sum() returns 15.",
+      "ar": "يجمع عامل ... قبل اسم معامل جميع الوسيطات الإضافية في مصفوفة. داخل الدالة، سيكون $numbers مساويًا لـ [1, 2, 3, 4, 5]. تُعيد array_sum() القيمة 15."
+    },
     "xp": 15,
-    "tags": ["functions", "variadic", "array-functions"]
+    "tags": [
+      "functions",
+      "variadic",
+      "array-functions"
+    ]
   },
   {
     "id": "php-i-10",
     "trackId": "php",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "What does json_encode(['name' => 'Alice', 'score' => 100]) return?", "ar": "ماذا تُعيد json_encode(['name' => 'Alice', 'score' => 100])؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "What does json_encode(['name' => 'Alice', 'score' => 100]) return?",
+      "ar": "ماذا تُعيد json_encode(['name' => 'Alice', 'score' => 100])؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "{\"name\":\"Alice\",\"score\":100}", "ar": "{\"name\":\"Alice\",\"score\":100}" } },
-      { "id": "b", "text": { "en": "[\"name\":\"Alice\",\"score\":100]", "ar": "[\"name\":\"Alice\",\"score\":100]" } },
-      { "id": "c", "text": { "en": "Array ( [name] => Alice [score] => 100 )", "ar": "Array ( [name] => Alice [score] => 100 )" } },
-      { "id": "d", "text": { "en": "null", "ar": "null" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{\"name\":\"Alice\",\"score\":100}",
+          "ar": "{\"name\":\"Alice\",\"score\":100}"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "[\"name\":\"Alice\",\"score\":100]",
+          "ar": "[\"name\":\"Alice\",\"score\":100]"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Array ( [name] => Alice [score] => 100 )",
+          "ar": "Array ( [name] => Alice [score] => 100 )"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "null",
+          "ar": "null"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Associative arrays in PHP become JSON objects (curly braces), not arrays (square brackets).", "ar": "المصفوفات الترابطية في PHP تصبح كائنات JSON (أقواس معقوفة)، وليس مصفوفات (أقواس مربعة)." },
-    "explanation": { "en": "json_encode() converts PHP associative arrays to JSON objects ({}), and indexed arrays to JSON arrays ([]). Since the input uses string keys, the output is a JSON object.", "ar": "تُحوّل json_encode() المصفوفات الترابطية في PHP إلى كائنات JSON ({})، والمصفوفات المُفهرسة إلى مصفوفات JSON ([]). نظرًا لأن المدخل يستخدم مفاتيح نصية، فإن الناتج هو كائن JSON." },
+    "hint": {
+      "en": "Associative arrays in PHP become JSON objects (curly braces), not arrays (square brackets).",
+      "ar": "المصفوفات الترابطية في PHP تصبح كائنات JSON (أقواس معقوفة)، وليس مصفوفات (أقواس مربعة)."
+    },
+    "explanation": {
+      "en": "json_encode() converts PHP associative arrays to JSON objects ({}), and indexed arrays to JSON arrays ([]). Since the input uses string keys, the output is a JSON object.",
+      "ar": "تُحوّل json_encode() المصفوفات الترابطية في PHP إلى كائنات JSON ({})، والمصفوفات المُفهرسة إلى مصفوفات JSON ([]). نظرًا لأن المدخل يستخدم مفاتيح نصية، فإن الناتج هو كائن JSON."
+    },
     "xp": 15,
-    "tags": ["json", "arrays", "functions"]
+    "tags": [
+      "json",
+      "arrays",
+      "functions"
+    ]
   },
   {
     "id": "php-a-1",
     "trackId": "php",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What does this OOP code output?", "ar": "ما الذي يُخرجه كود OOP هذا؟" },
+    "prompt": {
+      "en": "What does this OOP code output?",
+      "ar": "ما الذي يُخرجه كود OOP هذا؟"
+    },
     "code": "<?php\nclass Animal {\n    public static function create(): static {\n        return new static();\n    }\n    public function type(): string {\n        return 'Animal';\n    }\n}\nclass Dog extends Animal {\n    public function type(): string {\n        return 'Dog';\n    }\n}\n$dog = Dog::create();\necho $dog->type();",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Dog", "ar": "Dog" } },
-      { "id": "b", "text": { "en": "Animal", "ar": "Animal" } },
-      { "id": "c", "text": { "en": "Error: static not allowed here", "ar": "خطأ: static غير مسموح هنا" } },
-      { "id": "d", "text": { "en": "null", "ar": "null" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Dog",
+          "ar": "Dog"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Animal",
+          "ar": "Animal"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error: static not allowed here",
+          "ar": "خطأ: static غير مسموح هنا"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "null",
+          "ar": "null"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "new static() creates an instance of the class on which the method was called (late static binding).", "ar": "new static() ينشئ نسخة من الصنف الذي استُدعيت منه الدالة (ربط ثابت متأخر — late static binding)." },
-    "explanation": { "en": "new static() uses Late Static Binding (LSB). When Dog::create() is called, static refers to Dog, not Animal. So it creates a Dog instance. new self() would always create an Animal. The return type static also benefits from LSB.", "ar": "يستخدم new static() الربط الثابت المتأخر (Late Static Binding). عند استدعاء Dog::create()، يشير static إلى Dog وليس Animal. لذا ينشئ نسخة من Dog. أما new self() فسينشئ دائمًا نسخة من Animal. نوع الإرجاع static يستفيد أيضًا من LSB." },
+    "hint": {
+      "en": "new static() creates an instance of the class on which the method was called (late static binding).",
+      "ar": "new static() ينشئ نسخة من الصنف الذي استُدعيت منه الدالة (ربط ثابت متأخر — late static binding)."
+    },
+    "explanation": {
+      "en": "new static() uses Late Static Binding (LSB). When Dog::create() is called, static refers to Dog, not Animal. So it creates a Dog instance. new self() would always create an Animal. The return type static also benefits from LSB.",
+      "ar": "يستخدم new static() الربط الثابت المتأخر (Late Static Binding). عند استدعاء Dog::create()، يشير static إلى Dog وليس Animal. لذا ينشئ نسخة من Dog. أما new self() فسينشئ دائمًا نسخة من Animal. نوع الإرجاع static يستفيد أيضًا من LSB."
+    },
     "xp": 25,
-    "tags": ["oop", "late-static-binding", "static", "self"]
+    "tags": [
+      "oop",
+      "late-static-binding",
+      "static",
+      "self"
+    ]
   },
   {
     "id": "php-a-2",
     "trackId": "php",
     "level": "advanced",
     "type": "multiple-choice",
-    "prompt": { "en": "Which PHP 8.1 feature allows defining a set of named constants that belong to a type?", "ar": "أيّ ميزة في PHP 8.1 تُتيح تعريف مجموعة من الثوابت المُسمّاة التي تنتمي إلى نوع محدد؟" },
+    "prompt": {
+      "en": "Which PHP 8.1 feature allows defining a set of named constants that belong to a type?",
+      "ar": "أيّ ميزة في PHP 8.1 تُتيح تعريف مجموعة من الثوابت المُسمّاة التي تنتمي إلى نوع محدد؟"
+    },
     "code": "<?php\nenum Status {\n    case Active;\n    case Inactive;\n    case Pending;\n}\nfunction process(Status $status): void {\n    if ($status === Status::Active) {\n        echo 'Processing...';\n    }\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Enums", "ar": "التعدادات (Enums)" } },
-      { "id": "b", "text": { "en": "Constants class", "ar": "صنف الثوابت" } },
-      { "id": "c", "text": { "en": "Type aliases", "ar": "أسماء بديلة للأنواع" } },
-      { "id": "d", "text": { "en": "Abstract constants", "ar": "الثوابت المجردة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Enums",
+          "ar": "التعدادات (Enums)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Constants class",
+          "ar": "صنف الثوابت"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Type aliases",
+          "ar": "أسماء بديلة للأنواع"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Abstract constants",
+          "ar": "الثوابت المجردة"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This feature was a major addition to PHP 8.1 and provides type safety for a fixed set of values.", "ar": "هذه الميزة كانت إضافة رئيسية لـ PHP 8.1 وتوفر أمان الأنواع لمجموعة ثابتة من القيم." },
-    "explanation": { "en": "Enums (introduced in PHP 8.1) allow defining a type with a fixed set of possible values. They can be pure enums (as shown) or backed enums with int or string values. They can implement interfaces and have methods.", "ar": "تُتيح التعدادات (المُقدَّمة في PHP 8.1) تعريف نوع يحتوي على مجموعة ثابتة من القيم الممكنة. يمكن أن تكون تعدادات نقية (كما هو موضح) أو تعدادات مدعومة بقيم int أو string. يمكنها تنفيذ الواجهات (interfaces) وامتلاك دوال." },
+    "hint": {
+      "en": "This feature was a major addition to PHP 8.1 and provides type safety for a fixed set of values.",
+      "ar": "هذه الميزة كانت إضافة رئيسية لـ PHP 8.1 وتوفر أمان الأنواع لمجموعة ثابتة من القيم."
+    },
+    "explanation": {
+      "en": "Enums (introduced in PHP 8.1) allow defining a type with a fixed set of possible values. They can be pure enums (as shown) or backed enums with int or string values. They can implement interfaces and have methods.",
+      "ar": "تُتيح التعدادات (المُقدَّمة في PHP 8.1) تعريف نوع يحتوي على مجموعة ثابتة من القيم الممكنة. يمكن أن تكون تعدادات نقية (كما هو موضح) أو تعدادات مدعومة بقيم int أو string. يمكنها تنفيذ الواجهات (interfaces) وامتلاك دوال."
+    },
     "xp": 25,
-    "tags": ["php81", "enums", "type-safety"]
+    "tags": [
+      "php81",
+      "enums",
+      "type-safety"
+    ]
   },
   {
     "id": "php-a-3",
     "trackId": "php",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What does this PHP 8.0 match expression output?", "ar": "ما الذي يُخرجه تعبير match في PHP 8.0 هذا؟" },
+    "prompt": {
+      "en": "What does this PHP 8.0 match expression output?",
+      "ar": "ما الذي يُخرجه تعبير match في PHP 8.0 هذا؟"
+    },
     "code": "<?php\n$status = 2;\n$label = match($status) {\n    1 => 'Active',\n    2, 3 => 'Pending',\n    4 => 'Closed',\n    default => 'Unknown',\n};\necho $label;",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Pending", "ar": "Pending" } },
-      { "id": "b", "text": { "en": "Active", "ar": "Active" } },
-      { "id": "c", "text": { "en": "Unknown", "ar": "Unknown" } },
-      { "id": "d", "text": { "en": "Error: match requires break", "ar": "خطأ: match يتطلب break" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Pending",
+          "ar": "Pending"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Active",
+          "ar": "Active"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Unknown",
+          "ar": "Unknown"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Error: match requires break",
+          "ar": "خطأ: match يتطلب break"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "match uses strict comparison and can match multiple conditions in one arm.", "ar": "يستخدم match المقارنة الصارمة ويمكنه مطابقة شروط متعددة في ذراع واحدة." },
-    "explanation": { "en": "The match expression in PHP 8.0 is similar to switch but uses strict (===) comparison and returns a value. Multiple conditions can share one arm (2, 3 => 'Pending'). Since $status is 2, it matches the second arm and returns 'Pending'.", "ar": "تعبير match في PHP 8.0 يشبه switch لكنه يستخدم مقارنة صارمة (===) ويُعيد قيمة. يمكن لشروط متعددة مشاركة ذراع واحدة (2, 3 => 'Pending'). نظرًا لأن $status يساوي 2، فإنه يطابق الذراع الثانية ويُعيد 'Pending'." },
+    "hint": {
+      "en": "match uses strict comparison and can match multiple conditions in one arm.",
+      "ar": "يستخدم match المقارنة الصارمة ويمكنه مطابقة شروط متعددة في ذراع واحدة."
+    },
+    "explanation": {
+      "en": "The match expression in PHP 8.0 is similar to switch but uses strict (===) comparison and returns a value. Multiple conditions can share one arm (2, 3 => 'Pending'). Since $status is 2, it matches the second arm and returns 'Pending'.",
+      "ar": "تعبير match في PHP 8.0 يشبه switch لكنه يستخدم مقارنة صارمة (===) ويُعيد قيمة. يمكن لشروط متعددة مشاركة ذراع واحدة (2, 3 => 'Pending'). نظرًا لأن $status يساوي 2، فإنه يطابق الذراع الثانية ويُعيد 'Pending'."
+    },
     "xp": 25,
-    "tags": ["php8", "match", "control-flow"]
+    "tags": [
+      "php8",
+      "match",
+      "control-flow"
+    ]
   },
   {
     "id": "php-a-4",
     "trackId": "php",
     "level": "advanced",
     "type": "multiple-choice",
-    "prompt": { "en": "What does the nullsafe operator (?->) do in this code?", "ar": "ما الذي يفعله عامل nullsafe (?->) في هذا الكود؟" },
+    "prompt": {
+      "en": "What does the nullsafe operator (?->) do in this code?",
+      "ar": "ما الذي يفعله عامل nullsafe (?->) في هذا الكود؟"
+    },
     "code": "<?php\n$user = getUser(42);\n$city = $user?->getAddress()?->getCity()?->getName();",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "If any call in the chain returns null, the entire expression short-circuits and returns null", "ar": "إذا أعادت أي استدعاء في السلسلة قيمة null، فإن التعبير بأكمله يتوقف ويُعيد null" } },
-      { "id": "b", "text": { "en": "It throws an exception if null is encountered", "ar": "يُلقي استثناءً إذا وُجدت قيمة null" } },
-      { "id": "c", "text": { "en": "It converts null to an empty string automatically", "ar": "يُحوّل null إلى سلسلة فارغة تلقائيًا" } },
-      { "id": "d", "text": { "en": "It only works on the first call in the chain", "ar": "يعمل فقط على الاستدعاء الأول في السلسلة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "If any call in the chain returns null, the entire expression short-circuits and returns null",
+          "ar": "إذا أعادت أي استدعاء في السلسلة قيمة null، فإن التعبير بأكمله يتوقف ويُعيد null"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It throws an exception if null is encountered",
+          "ar": "يُلقي استثناءً إذا وُجدت قيمة null"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It converts null to an empty string automatically",
+          "ar": "يُحوّل null إلى سلسلة فارغة تلقائيًا"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It only works on the first call in the chain",
+          "ar": "يعمل فقط على الاستدعاء الأول في السلسلة"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "?-> was introduced in PHP 8.0 to avoid nested null checks.", "ar": "تم تقديم ?-> في PHP 8.0 لتجنب التحقق المتداخل من null." },
-    "explanation": { "en": "The nullsafe operator (?->) short-circuits a method chain when null is encountered. If $user is null, $city becomes null without throwing an error. This replaces verbose null checks like: $city = $user ? ($user->getAddress() ? $user->getAddress()->getCity()... : null) : null;", "ar": "يوقف عامل nullsafe (?->) سلسلة الدوال عند مواجهة null. إذا كان $user هو null، يصبح $city مساويًا لـ null دون إلقاء خطأ. يستبدل هذا التحقق المطوّل من null مثل: $city = $user ? ($user->getAddress() ? ... : null) : null;" },
+    "hint": {
+      "en": "?-> was introduced in PHP 8.0 to avoid nested null checks.",
+      "ar": "تم تقديم ?-> في PHP 8.0 لتجنب التحقق المتداخل من null."
+    },
+    "explanation": {
+      "en": "The nullsafe operator (?->) short-circuits a method chain when null is encountered. If $user is null, $city becomes null without throwing an error. This replaces verbose null checks like: $city = $user ? ($user->getAddress() ? $user->getAddress()->getCity()... : null) : null;",
+      "ar": "يوقف عامل nullsafe (?->) سلسلة الدوال عند مواجهة null. إذا كان $user هو null، يصبح $city مساويًا لـ null دون إلقاء خطأ. يستبدل هذا التحقق المطوّل من null مثل: $city = $user ? ($user->getAddress() ? ... : null) : null;"
+    },
     "xp": 25,
-    "tags": ["php8", "nullsafe-operator", "oop"]
+    "tags": [
+      "php8",
+      "nullsafe-operator",
+      "oop"
+    ]
   },
   {
     "id": "php-a-5",
     "trackId": "php",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What is the output of this PHP 8.0 constructor promotion code?", "ar": "ما هو ناتج كود constructor promotion في PHP 8.0 هذا؟" },
+    "prompt": {
+      "en": "What is the output of this PHP 8.0 constructor promotion code?",
+      "ar": "ما هو ناتج كود constructor promotion في PHP 8.0 هذا؟"
+    },
     "code": "<?php\nclass Point {\n    public function __construct(\n        public readonly float $x,\n        public readonly float $y,\n    ) {}\n}\n$p = new Point(3.0, 4.0);\n$p->x = 10.0;\necho $p->x;",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Fatal error: Cannot modify readonly property", "ar": "خطأ قاتل: لا يمكن تعديل خاصية readonly" } },
-      { "id": "b", "text": { "en": "10", "ar": "10" } },
-      { "id": "c", "text": { "en": "3", "ar": "3" } },
-      { "id": "d", "text": { "en": "Error: readonly is not a valid modifier here", "ar": "خطأ: readonly ليس مُعدِّلًا صالحًا هنا" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Fatal error: Cannot modify readonly property",
+          "ar": "خطأ قاتل: لا يمكن تعديل خاصية readonly"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "10",
+          "ar": "10"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "3",
+          "ar": "3"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Error: readonly is not a valid modifier here",
+          "ar": "خطأ: readonly ليس مُعدِّلًا صالحًا هنا"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "readonly properties can only be set once, at initialization time.", "ar": "يمكن تعيين خصائص readonly مرة واحدة فقط، عند التهيئة." },
-    "explanation": { "en": "readonly properties (PHP 8.1) can only be assigned once — during object construction. Any attempt to modify them after initialization throws a Fatal Error. Constructor promotion allows declaring and assigning properties directly in the constructor signature.", "ar": "خصائص readonly (PHP 8.1) يمكن تعيينها مرة واحدة فقط — أثناء إنشاء الكائن. أي محاولة لتعديلها بعد التهيئة تُلقي خطأ قاتل (Fatal Error). يُتيح constructor promotion التصريح عن الخصائص وتعيينها مباشرة في توقيع constructor." },
+    "hint": {
+      "en": "readonly properties can only be set once, at initialization time.",
+      "ar": "يمكن تعيين خصائص readonly مرة واحدة فقط، عند التهيئة."
+    },
+    "explanation": {
+      "en": "readonly properties (PHP 8.1) can only be assigned once — during object construction. Any attempt to modify them after initialization throws a Fatal Error. Constructor promotion allows declaring and assigning properties directly in the constructor signature.",
+      "ar": "خصائص readonly (PHP 8.1) يمكن تعيينها مرة واحدة فقط — أثناء إنشاء الكائن. أي محاولة لتعديلها بعد التهيئة تُلقي خطأ قاتل (Fatal Error). يُتيح constructor promotion التصريح عن الخصائص وتعيينها مباشرة في توقيع constructor."
+    },
     "xp": 25,
-    "tags": ["php81", "readonly", "constructor-promotion", "oop"]
+    "tags": [
+      "php81",
+      "readonly",
+      "constructor-promotion",
+      "oop"
+    ]
   },
   {
     "id": "php-a-6",
     "trackId": "php",
     "level": "advanced",
     "type": "multiple-choice",
-    "prompt": { "en": "What is the PSR-4 autoloading standard?", "ar": "ما هو معيار PSR-4 للتحميل التلقائي (autoloading)؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "What is the PSR-4 autoloading standard?",
+      "ar": "ما هو معيار PSR-4 للتحميل التلقائي (autoloading)؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "A specification that maps namespace prefixes to filesystem directories for class autoloading", "ar": "مواصفة تُعيّن بادئات الـ namespace إلى مجلدات نظام الملفات لتحميل الأصناف تلقائيًا" } },
-      { "id": "b", "text": { "en": "A tool for minifying PHP code", "ar": "أداة لضغط كود PHP" } },
-      { "id": "c", "text": { "en": "A database connection standard", "ar": "معيار لاتصالات قاعدة البيانات" } },
-      { "id": "d", "text": { "en": "A PHP version compatibility checker", "ar": "أداة للتحقق من توافق إصدارات PHP" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "A specification that maps namespace prefixes to filesystem directories for class autoloading",
+          "ar": "مواصفة تُعيّن بادئات الـ namespace إلى مجلدات نظام الملفات لتحميل الأصناف تلقائيًا"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A tool for minifying PHP code",
+          "ar": "أداة لضغط كود PHP"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A database connection standard",
+          "ar": "معيار لاتصالات قاعدة البيانات"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A PHP version compatibility checker",
+          "ar": "أداة للتحقق من توافق إصدارات PHP"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "PSR-4 is used by Composer to automatically load class files based on their namespace.", "ar": "يستخدم Composer معيار PSR-4 لتحميل ملفات الأصناف تلقائيًا بناءً على الـ namespace." },
-    "explanation": { "en": "PSR-4 defines how namespaces map to file paths. For example, App\\Models\\User maps to src/Models/User.php. Composer uses this standard to generate autoload maps, eliminating the need for manual require statements.", "ar": "يُحدد PSR-4 كيفية تعيين الـ namespaces إلى مسارات الملفات. على سبيل المثال، App\\Models\\User يُعيَّن إلى src/Models/User.php. يستخدم Composer هذا المعيار لإنشاء خرائط التحميل التلقائي، مما يُلغي الحاجة لعبارات require اليدوية." },
+    "hint": {
+      "en": "PSR-4 is used by Composer to automatically load class files based on their namespace.",
+      "ar": "يستخدم Composer معيار PSR-4 لتحميل ملفات الأصناف تلقائيًا بناءً على الـ namespace."
+    },
+    "explanation": {
+      "en": "PSR-4 defines how namespaces map to file paths. For example, App\\Models\\User maps to src/Models/User.php. Composer uses this standard to generate autoload maps, eliminating the need for manual require statements.",
+      "ar": "يُحدد PSR-4 كيفية تعيين الـ namespaces إلى مسارات الملفات. على سبيل المثال، App\\Models\\User يُعيَّن إلى src/Models/User.php. يستخدم Composer هذا المعيار لإنشاء خرائط التحميل التلقائي، مما يُلغي الحاجة لعبارات require اليدوية."
+    },
     "xp": 25,
-    "tags": ["namespaces", "autoloading", "psr-4", "composer"]
+    "tags": [
+      "namespaces",
+      "autoloading",
+      "psr-4",
+      "composer"
+    ]
   },
   {
     "id": "php-a-7",
     "trackId": "php",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What does this generator function output?", "ar": "ما الذي تُخرجه دالة generator هذه؟" },
+    "prompt": {
+      "en": "What does this generator function output?",
+      "ar": "ما الذي تُخرجه دالة generator هذه؟"
+    },
     "code": "<?php\nfunction fibonacci(): Generator {\n    [$a, $b] = [0, 1];\n    while (true) {\n        yield $a;\n        [$a, $b] = [$b, $a + $b];\n    }\n}\n$gen = fibonacci();\nfor ($i = 0; $i < 5; $i++) {\n    echo $gen->current() . \" \";\n    $gen->next();\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "0 1 1 2 3", "ar": "0 1 1 2 3" } },
-      { "id": "b", "text": { "en": "1 1 2 3 5", "ar": "1 1 2 3 5" } },
-      { "id": "c", "text": { "en": "Error: infinite loop", "ar": "خطأ: حلقة لا نهائية" } },
-      { "id": "d", "text": { "en": "0 1 2 3 4", "ar": "0 1 2 3 4" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "0 1 1 2 3",
+          "ar": "0 1 1 2 3"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "1 1 2 3 5",
+          "ar": "1 1 2 3 5"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Error: infinite loop",
+          "ar": "خطأ: حلقة لا نهائية"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "0 1 2 3 4",
+          "ar": "0 1 2 3 4"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Generators pause at each yield statement and resume when next() is called.", "ar": "تتوقف Generators عند كل عبارة yield وتستأنف عند استدعاء next()." },
-    "explanation": { "en": "The generator starts with [0, 1]. Each iteration yields $a and updates [a, b] to [b, a+b]. The sequence is: yield 0 → [1,1], yield 1 → [1,2], yield 1 → [2,3], yield 2 → [3,5], yield 3. Output: 0 1 1 2 3.", "ar": "تبدأ generator بـ [0, 1]. في كل تكرار، تُخرج $a وتُحدّث [a, b] إلى [b, a+b]. التسلسل: yield 0 → [1,1]، yield 1 → [1,2]، yield 1 → [2,3]، yield 2 → [3,5]، yield 3. الناتج: 0 1 1 2 3." },
+    "hint": {
+      "en": "Generators pause at each yield statement and resume when next() is called.",
+      "ar": "تتوقف Generators عند كل عبارة yield وتستأنف عند استدعاء next()."
+    },
+    "explanation": {
+      "en": "The generator starts with [0, 1]. Each iteration yields $a and updates [a, b] to [b, a+b]. The sequence is: yield 0 → [1,1], yield 1 → [1,2], yield 1 → [2,3], yield 2 → [3,5], yield 3. Output: 0 1 1 2 3.",
+      "ar": "تبدأ generator بـ [0, 1]. في كل تكرار، تُخرج $a وتُحدّث [a, b] إلى [b, a+b]. التسلسل: yield 0 → [1,1]، yield 1 → [1,2]، yield 1 → [2,3]، yield 2 → [3,5]، yield 3. الناتج: 0 1 1 2 3."
+    },
     "xp": 25,
-    "tags": ["generators", "yield", "advanced-functions"]
+    "tags": [
+      "generators",
+      "yield",
+      "advanced-functions"
+    ]
   },
   {
     "id": "php-a-8",
     "trackId": "php",
     "level": "advanced",
     "type": "debugging",
-    "prompt": { "en": "What is the bug in this traits usage?", "ar": "ما هو الخطأ في استخدام traits هذا؟" },
+    "prompt": {
+      "en": "What is the bug in this traits usage?",
+      "ar": "ما هو الخطأ في استخدام traits هذا؟"
+    },
     "code": "<?php\ntrait Greetable {\n    public function greet(): string {\n        return \"Hello, I am \" . $this->name;\n    }\n}\ntrait Farewell {\n    public function greet(): string {\n        return \"Goodbye from \" . $this->name;\n    }\n}\nclass Person {\n    use Greetable, Farewell;\n    public function __construct(public string $name) {}\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Fatal error: Trait method conflict — both traits define greet() and the conflict is not resolved", "ar": "خطأ قاتل: تعارض في دوال الـ trait — كلا الـ trait يُعرّف greet() ولم يُحل التعارض" } },
-      { "id": "b", "text": { "en": "Traits cannot access $this->name", "ar": "لا يمكن للـ traits الوصول إلى $this->name" } },
-      { "id": "c", "text": { "en": "A class cannot use two traits", "ar": "لا يمكن للصنف استخدام trait اثنين" } },
-      { "id": "d", "text": { "en": "No bug — the last used trait's method wins", "ar": "لا يوجد خطأ — تفوز دالة آخر trait تم استخدامه" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Fatal error: Trait method conflict — both traits define greet() and the conflict is not resolved",
+          "ar": "خطأ قاتل: تعارض في دوال الـ trait — كلا الـ trait يُعرّف greet() ولم يُحل التعارض"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Traits cannot access $this->name",
+          "ar": "لا يمكن للـ traits الوصول إلى $this->name"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A class cannot use two traits",
+          "ar": "لا يمكن للصنف استخدام trait اثنين"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No bug — the last used trait's method wins",
+          "ar": "لا يوجد خطأ — تفوز دالة آخر trait تم استخدامه"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "When two traits define the same method, you must explicitly resolve the conflict using 'insteadof' or 'as'.", "ar": "عندما يُعرّف trait-ان نفس الدالة، يجب حل التعارض صراحةً باستخدام 'insteadof' أو 'as'." },
-    "explanation": { "en": "PHP throws a fatal error when two used traits define the same method. The fix is to resolve with 'insteadof': use Greetable, Farewell { Greetable::greet insteadof Farewell; Farewell::greet as farewell; }", "ar": "يُلقي PHP خطأً قاتلًا عندما يُعرّف trait-ان مستخدمان نفس الدالة. الحل هو استخدام 'insteadof': use Greetable, Farewell { Greetable::greet insteadof Farewell; Farewell::greet as farewell; }" },
+    "hint": {
+      "en": "When two traits define the same method, you must explicitly resolve the conflict using 'insteadof' or 'as'.",
+      "ar": "عندما يُعرّف trait-ان نفس الدالة، يجب حل التعارض صراحةً باستخدام 'insteadof' أو 'as'."
+    },
+    "explanation": {
+      "en": "PHP throws a fatal error when two used traits define the same method. The fix is to resolve with 'insteadof': use Greetable, Farewell { Greetable::greet insteadof Farewell; Farewell::greet as farewell; }",
+      "ar": "يُلقي PHP خطأً قاتلًا عندما يُعرّف trait-ان مستخدمان نفس الدالة. الحل هو استخدام 'insteadof': use Greetable, Farewell { Greetable::greet insteadof Farewell; Farewell::greet as farewell; }"
+    },
     "xp": 25,
-    "tags": ["traits", "oop", "debugging", "conflict-resolution"]
+    "tags": [
+      "traits",
+      "oop",
+      "debugging",
+      "conflict-resolution"
+    ]
   },
   {
     "id": "php-a-9",
     "trackId": "php",
     "level": "advanced",
     "type": "scenario",
-    "prompt": { "en": "A developer stores sessions in files (default PHP behavior). Which of the following is a real production risk?", "ar": "يخزّن مطوّر الجلسات في ملفات (السلوك الافتراضي لـ PHP). أيٌّ من التالي يُمثّل خطرًا حقيقيًا في بيئة الإنتاج؟" },
-    "code": null,
-    "codeLang": "php",
+    "prompt": {
+      "en": "A developer stores sessions in files (default PHP behavior). Which of the following is a real production risk?",
+      "ar": "يخزّن مطوّر الجلسات في ملفات (السلوك الافتراضي لـ PHP). أيٌّ من التالي يُمثّل خطرًا حقيقيًا في بيئة الإنتاج؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "Session fixation and session hijacking via predictable or stolen session IDs", "ar": "تثبيت الجلسة (session fixation) واختطاف الجلسة (session hijacking) عبر معرّفات الجلسة القابلة للتنبؤ أو المسروقة" } },
-      { "id": "b", "text": { "en": "Sessions cannot persist across requests", "ar": "الجلسات لا يمكنها الاستمرار عبر الطلبات المتعددة" } },
-      { "id": "c", "text": { "en": "Sessions cannot store objects", "ar": "الجلسات لا تستطيع تخزين الكائنات" } },
-      { "id": "d", "text": { "en": "File-based sessions cause database corruption", "ar": "الجلسات المعتمدة على الملفات تتسبب في تلف قاعدة البيانات" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Session fixation and session hijacking via predictable or stolen session IDs",
+          "ar": "تثبيت الجلسة (session fixation) واختطاف الجلسة (session hijacking) عبر معرّفات الجلسة القابلة للتنبؤ أو المسروقة"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Sessions cannot persist across requests",
+          "ar": "الجلسات لا يمكنها الاستمرار عبر الطلبات المتعددة"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Sessions cannot store objects",
+          "ar": "الجلسات لا تستطيع تخزين الكائنات"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "File-based sessions cause database corruption",
+          "ar": "الجلسات المعتمدة على الملفات تتسبب في تلف قاعدة البيانات"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about what an attacker could do if they obtained a user's session ID.", "ar": "فكّر فيما يمكن للمهاجم فعله إذا حصل على معرّف جلسة المستخدم." },
-    "explanation": { "en": "Session hijacking occurs when an attacker steals a session ID (via XSS, network sniffing, etc.) and uses it to impersonate a user. Mitigations include: session_regenerate_id(true) on login, httpOnly cookies, secure flag on HTTPS, short session lifetimes, and server-side session storage.", "ar": "يحدث اختطاف الجلسة (session hijacking) عندما يسرق المهاجم معرّف الجلسة (عبر XSS أو شمّ الشبكة وغيرها) ويستخدمه لانتحال شخصية المستخدم. وسائل الحماية تشمل: session_regenerate_id(true) عند تسجيل الدخول، وcookies بخاصية httpOnly، والعَلَم secure على HTTPS، وعمر قصير للجلسة، وتخزين الجلسة من جانب الخادم." },
+    "hint": {
+      "en": "Think about what an attacker could do if they obtained a user's session ID.",
+      "ar": "فكّر فيما يمكن للمهاجم فعله إذا حصل على معرّف جلسة المستخدم."
+    },
+    "explanation": {
+      "en": "Session hijacking occurs when an attacker steals a session ID (via XSS, network sniffing, etc.) and uses it to impersonate a user. Mitigations include: session_regenerate_id(true) on login, httpOnly cookies, secure flag on HTTPS, short session lifetimes, and server-side session storage.",
+      "ar": "يحدث اختطاف الجلسة (session hijacking) عندما يسرق المهاجم معرّف الجلسة (عبر XSS أو شمّ الشبكة وغيرها) ويستخدمه لانتحال شخصية المستخدم. وسائل الحماية تشمل: session_regenerate_id(true) عند تسجيل الدخول، وcookies بخاصية httpOnly، والعَلَم secure على HTTPS، وعمر قصير للجلسة، وتخزين الجلسة من جانب الخادم."
+    },
     "xp": 25,
-    "tags": ["sessions", "security", "session-hijacking"]
+    "tags": [
+      "sessions",
+      "security",
+      "session-hijacking"
+    ]
   },
   {
     "id": "php-a-10",
     "trackId": "php",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What does this code using __invoke magic method output?", "ar": "ما الذي يُخرجه هذا الكود الذي يستخدم الدالة السحرية __invoke؟" },
+    "prompt": {
+      "en": "What does this code using __invoke magic method output?",
+      "ar": "ما الذي يُخرجه هذا الكود الذي يستخدم الدالة السحرية __invoke؟"
+    },
     "code": "<?php\nclass Multiplier {\n    public function __construct(private int $factor) {}\n    public function __invoke(int $value): int {\n        return $value * $this->factor;\n    }\n}\n$double = new Multiplier(2);\n$triple = new Multiplier(3);\necho $double(5) . \" \" . $triple(4);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "10 12", "ar": "10 12" } },
-      { "id": "b", "text": { "en": "Error: objects are not callable", "ar": "خطأ: الكائنات ليست قابلة للاستدعاء" } },
-      { "id": "c", "text": { "en": "5 4", "ar": "5 4" } },
-      { "id": "d", "text": { "en": "2 3", "ar": "2 3" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "10 12",
+          "ar": "10 12"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Error: objects are not callable",
+          "ar": "خطأ: الكائنات ليست قابلة للاستدعاء"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "5 4",
+          "ar": "5 4"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "2 3",
+          "ar": "2 3"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "__invoke makes an object callable like a function.", "ar": "الدالة __invoke تجعل الكائن قابلًا للاستدعاء مثل الدالة." },
-    "explanation": { "en": "When an object defines __invoke, it can be called like a function. $double(5) calls $double->__invoke(5) which returns 5*2=10, and $triple(4) returns 4*3=12. This is useful for creating callable objects with configurable behavior.", "ar": "عندما يُعرّف كائن الدالة __invoke، يمكن استدعاؤه مثل الدالة. يستدعي $double(5) الدالة $double->__invoke(5) التي تُعيد 5*2=10، ويُعيد $triple(4) القيمة 4*3=12. هذا مفيد لإنشاء كائنات قابلة للاستدعاء ذات سلوك قابل للتهيئة." },
+    "hint": {
+      "en": "__invoke makes an object callable like a function.",
+      "ar": "الدالة __invoke تجعل الكائن قابلًا للاستدعاء مثل الدالة."
+    },
+    "explanation": {
+      "en": "When an object defines __invoke, it can be called like a function. $double(5) calls $double->__invoke(5) which returns 5*2=10, and $triple(4) returns 4*3=12. This is useful for creating callable objects with configurable behavior.",
+      "ar": "عندما يُعرّف كائن الدالة __invoke، يمكن استدعاؤه مثل الدالة. يستدعي $double(5) الدالة $double->__invoke(5) التي تُعيد 5*2=10، ويُعيد $triple(4) القيمة 4*3=12. هذا مفيد لإنشاء كائنات قابلة للاستدعاء ذات سلوك قابل للتهيئة."
+    },
     "xp": 25,
-    "tags": ["magic-methods", "__invoke", "oop", "callables"]
+    "tags": [
+      "magic-methods",
+      "__invoke",
+      "oop",
+      "callables"
+    ]
   },
   {
     "id": "php-e-1",
     "trackId": "php",
     "level": "expert",
     "type": "code-output",
-    "prompt": { "en": "What does this code output? (PHP 8)", "ar": "ما الذي يُخرجه هذا الكود؟ (PHP 8)" },
+    "prompt": {
+      "en": "What does this code output? (PHP 8)",
+      "ar": "ما الذي يُخرجه هذا الكود؟ (PHP 8)"
+    },
     "code": "<?php\ninterface Stringable {\n    public function __toString(): string;\n}\nabstract class Base {\n    abstract protected function value(): int;\n    public function __toString(): string {\n        return (string) $this->value();\n    }\n}\nclass Concrete extends Base implements Stringable {\n    protected function value(): int { return 42; }\n}\n$obj = new Concrete();\necho $obj . \" is the answer\";",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "42 is the answer", "ar": "42 is the answer" } },
-      { "id": "b", "text": { "en": "Error: cannot concatenate object", "ar": "خطأ: لا يمكن تسلسل الكائن" } },
-      { "id": "c", "text": { "en": "Object is the answer", "ar": "Object is the answer" } },
-      { "id": "d", "text": { "en": "0 is the answer", "ar": "0 is the answer" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "42 is the answer",
+          "ar": "42 is the answer"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Error: cannot concatenate object",
+          "ar": "خطأ: لا يمكن تسلسل الكائن"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Object is the answer",
+          "ar": "Object is the answer"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "0 is the answer",
+          "ar": "0 is the answer"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "When concatenating an object with a string, PHP calls __toString() automatically.", "ar": "عند تسلسل كائن مع سلسلة نصية، يستدعي PHP الدالة __toString() تلقائيًا." },
-    "explanation": { "en": "When an object is used in a string context, PHP calls __toString(). Concrete inherits __toString() from Base, which calls $this->value() through the abstract method. Concrete::value() returns 42, so __toString() returns '42', and the output is '42 is the answer'.", "ar": "عند استخدام كائن في سياق نصي، يستدعي PHP الدالة __toString(). يرث Concrete الدالة __toString() من Base، التي تستدعي $this->value() عبر الدالة المجردة. تُعيد Concrete::value() القيمة 42، لذا تُعيد __toString() القيمة '42'، والناتج هو '42 is the answer'." },
+    "hint": {
+      "en": "When concatenating an object with a string, PHP calls __toString() automatically.",
+      "ar": "عند تسلسل كائن مع سلسلة نصية، يستدعي PHP الدالة __toString() تلقائيًا."
+    },
+    "explanation": {
+      "en": "When an object is used in a string context, PHP calls __toString(). Concrete inherits __toString() from Base, which calls $this->value() through the abstract method. Concrete::value() returns 42, so __toString() returns '42', and the output is '42 is the answer'.",
+      "ar": "عند استخدام كائن في سياق نصي، يستدعي PHP الدالة __toString(). يرث Concrete الدالة __toString() من Base، التي تستدعي $this->value() عبر الدالة المجردة. تُعيد Concrete::value() القيمة 42، لذا تُعيد __toString() القيمة '42'، والناتج هو '42 is the answer'."
+    },
     "xp": 30,
-    "tags": ["magic-methods", "__toString", "abstract", "interfaces", "oop"]
+    "tags": [
+      "magic-methods",
+      "__toString",
+      "abstract",
+      "interfaces",
+      "oop"
+    ]
   },
   {
     "id": "php-e-2",
     "trackId": "php",
     "level": "expert",
     "type": "debugging",
-    "prompt": { "en": "This exception handling code has a subtle bug. What is it?", "ar": "كود معالجة الاستثناءات هذا يحتوي على خطأ دقيق. ما هو؟" },
+    "prompt": {
+      "en": "This exception handling code has a subtle bug. What is it?",
+      "ar": "كود معالجة الاستثناءات هذا يحتوي على خطأ دقيق. ما هو؟"
+    },
     "code": "<?php\nfunction riskyOperation(): string {\n    try {\n        throw new RuntimeException('Something went wrong');\n        return 'success';\n    } catch (InvalidArgumentException $e) {\n        return 'invalid argument: ' . $e->getMessage();\n    } finally {\n        return 'finally block';\n    }\n}\necho riskyOperation();",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "The finally block's return overrides the thrown exception, silently swallowing it", "ar": "عبارة return في كتلة finally تتجاوز الاستثناء المُلقى وتبتلعه بصمت" } },
-      { "id": "b", "text": { "en": "RuntimeException is not a valid exception class", "ar": "RuntimeException ليس صنف استثناء صالحًا" } },
-      { "id": "c", "text": { "en": "The catch block cannot catch RuntimeException", "ar": "كتلة catch لا تستطيع التقاط RuntimeException" } },
-      { "id": "d", "text": { "en": "finally blocks cannot contain return statements", "ar": "كتل finally لا يمكنها احتواء عبارات return" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The finally block's return overrides the thrown exception, silently swallowing it",
+          "ar": "عبارة return في كتلة finally تتجاوز الاستثناء المُلقى وتبتلعه بصمت"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "RuntimeException is not a valid exception class",
+          "ar": "RuntimeException ليس صنف استثناء صالحًا"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The catch block cannot catch RuntimeException",
+          "ar": "كتلة catch لا تستطيع التقاط RuntimeException"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "finally blocks cannot contain return statements",
+          "ar": "كتل finally لا يمكنها احتواء عبارات return"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "A return statement in a finally block has a surprising effect in PHP.", "ar": "عبارة return في كتلة finally لها تأثير مفاجئ في PHP." },
-    "explanation": { "en": "In PHP, if a finally block contains a return statement, it overrides any exception that was thrown (or any return value from the try/catch blocks). The function outputs 'finally block' even though RuntimeException was thrown and not caught. This is a dangerous pattern that silently swallows exceptions.", "ar": "في PHP، إذا احتوت كتلة finally على عبارة return، فإنها تتجاوز أي استثناء مُلقى (أو أي قيمة إرجاع من كتل try/catch). تُخرج الدالة 'finally block' حتى مع إلقاء RuntimeException وعدم التقاطه. هذا نمط خطير يبتلع الاستثناءات بصمت." },
+    "hint": {
+      "en": "A return statement in a finally block has a surprising effect in PHP.",
+      "ar": "عبارة return في كتلة finally لها تأثير مفاجئ في PHP."
+    },
+    "explanation": {
+      "en": "In PHP, if a finally block contains a return statement, it overrides any exception that was thrown (or any return value from the try/catch blocks). The function outputs 'finally block' even though RuntimeException was thrown and not caught. This is a dangerous pattern that silently swallows exceptions.",
+      "ar": "في PHP، إذا احتوت كتلة finally على عبارة return، فإنها تتجاوز أي استثناء مُلقى (أو أي قيمة إرجاع من كتل try/catch). تُخرج الدالة 'finally block' حتى مع إلقاء RuntimeException وعدم التقاطه. هذا نمط خطير يبتلع الاستثناءات بصمت."
+    },
     "xp": 30,
-    "tags": ["exceptions", "error-handling", "finally", "debugging"]
+    "tags": [
+      "exceptions",
+      "error-handling",
+      "finally",
+      "debugging"
+    ]
   },
   {
     "id": "php-e-3",
     "trackId": "php",
     "level": "expert",
     "type": "scenario",
-    "prompt": { "en": "A developer implements this union type function. What happens when called with null?", "ar": "يُنفّذ مطوّر دالة بنوع الاتحاد (union type) هذه. ماذا يحدث عند استدعائها بـ null؟" },
+    "prompt": {
+      "en": "A developer implements this union type function. What happens when called with null?",
+      "ar": "يُنفّذ مطوّر دالة بنوع الاتحاد (union type) هذه. ماذا يحدث عند استدعائها بـ null؟"
+    },
     "code": "<?php\ndeclare(strict_types=1);\nfunction process(int|string $value): string {\n    return \"Value: $value\";\n}\necho process(null);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Fatal error: Argument must be of type int|string, null given", "ar": "خطأ قاتل: يجب أن تكون الوسيطة من النوع int|string، تم إعطاء null" } },
-      { "id": "b", "text": { "en": "Value: ", "ar": "Value: " } },
-      { "id": "c", "text": { "en": "Value: null", "ar": "Value: null" } },
-      { "id": "d", "text": { "en": "Value: 0", "ar": "Value: 0" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Fatal error: Argument must be of type int|string, null given",
+          "ar": "خطأ قاتل: يجب أن تكون الوسيطة من النوع int|string، تم إعطاء null"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Value: ",
+          "ar": "Value: "
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Value: null",
+          "ar": "Value: null"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Value: 0",
+          "ar": "Value: 0"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "With strict_types=1, PHP does not coerce types. int|string does not include null.", "ar": "مع strict_types=1، لا يُحوّل PHP الأنواع. int|string لا يتضمن null." },
-    "explanation": { "en": "With declare(strict_types=1), PHP enforces strict type checking. The union type int|string does not include null. To allow null, you'd need int|string|null or ?string. Passing null results in a TypeError.", "ar": "مع declare(strict_types=1)، يُطبّق PHP فحص الأنواع الصارم. نوع الاتحاد int|string لا يتضمن null. للسماح بـ null، ستحتاج إلى int|string|null أو ?string. تمرير null يُسفر عن TypeError." },
+    "hint": {
+      "en": "With strict_types=1, PHP does not coerce types. int|string does not include null.",
+      "ar": "مع strict_types=1، لا يُحوّل PHP الأنواع. int|string لا يتضمن null."
+    },
+    "explanation": {
+      "en": "With declare(strict_types=1), PHP enforces strict type checking. The union type int|string does not include null. To allow null, you'd need int|string|null or ?string. Passing null results in a TypeError.",
+      "ar": "مع declare(strict_types=1)، يُطبّق PHP فحص الأنواع الصارم. نوع الاتحاد int|string لا يتضمن null. للسماح بـ null، ستحتاج إلى int|string|null أو ?string. تمرير null يُسفر عن TypeError."
+    },
     "xp": 30,
-    "tags": ["type-declarations", "union-types", "strict-types", "php8"]
+    "tags": [
+      "type-declarations",
+      "union-types",
+      "strict-types",
+      "php8"
+    ]
   },
   {
     "id": "php-e-4",
     "trackId": "php",
     "level": "expert",
     "type": "code-output",
-    "prompt": { "en": "What does this static vs self code output?", "ar": "ما الذي يُخرجه هذا الكود الذي يقارن static و self؟" },
+    "prompt": {
+      "en": "What does this static vs self code output?",
+      "ar": "ما الذي يُخرجه هذا الكود الذي يقارن static و self؟"
+    },
     "code": "<?php\nclass ParentClass {\n    protected static string $name = 'Parent';\n    public static function getSelfName(): string {\n        return self::$name;\n    }\n    public static function getStaticName(): string {\n        return static::$name;\n    }\n}\nclass ChildClass extends ParentClass {\n    protected static string $name = 'Child';\n}\necho ChildClass::getSelfName() . \"\\n\";\necho ChildClass::getStaticName();",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Parent\\nChild", "ar": "Parent\\nChild" } },
-      { "id": "b", "text": { "en": "Child\\nChild", "ar": "Child\\nChild" } },
-      { "id": "c", "text": { "en": "Parent\\nParent", "ar": "Parent\\nParent" } },
-      { "id": "d", "text": { "en": "Error: static properties cannot be overridden", "ar": "خطأ: لا يمكن تجاوز الخصائص الثابتة" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Parent\\nChild",
+          "ar": "Parent\\nChild"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Child\\nChild",
+          "ar": "Child\\nChild"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Parent\\nParent",
+          "ar": "Parent\\nParent"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Error: static properties cannot be overridden",
+          "ar": "خطأ: لا يمكن تجاوز الخصائص الثابتة"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "self refers to the class where the method is defined; static uses late static binding.", "ar": "يشير self إلى الصنف الذي تم تعريف الدالة فيه؛ بينما يستخدم static الربط الثابت المتأخر." },
-    "explanation": { "en": "self:: always resolves to the class where the method is lexically defined (ParentClass), regardless of which class calls it. static:: uses Late Static Binding and resolves to the class that was used at call time. So getSelfName() always returns 'Parent', while getStaticName() returns 'Child' when called from ChildClass.", "ar": "self:: يُحلَّل دائمًا إلى الصنف الذي تُعرَّف فيه الدالة نصيًا (ParentClass)، بغض النظر عن الصنف الذي يستدعيها. أما static:: فيستخدم الربط الثابت المتأخر ويُحلَّل إلى الصنف المستخدم وقت الاستدعاء. لذا تُعيد getSelfName() دائمًا 'Parent'، بينما تُعيد getStaticName() القيمة 'Child' عند استدعائها من ChildClass." },
+    "hint": {
+      "en": "self refers to the class where the method is defined; static uses late static binding.",
+      "ar": "يشير self إلى الصنف الذي تم تعريف الدالة فيه؛ بينما يستخدم static الربط الثابت المتأخر."
+    },
+    "explanation": {
+      "en": "self:: always resolves to the class where the method is lexically defined (ParentClass), regardless of which class calls it. static:: uses Late Static Binding and resolves to the class that was used at call time. So getSelfName() always returns 'Parent', while getStaticName() returns 'Child' when called from ChildClass.",
+      "ar": "self:: يُحلَّل دائمًا إلى الصنف الذي تُعرَّف فيه الدالة نصيًا (ParentClass)، بغض النظر عن الصنف الذي يستدعيها. أما static:: فيستخدم الربط الثابت المتأخر ويُحلَّل إلى الصنف المستخدم وقت الاستدعاء. لذا تُعيد getSelfName() دائمًا 'Parent'، بينما تُعيد getStaticName() القيمة 'Child' عند استدعائها من ChildClass."
+    },
     "xp": 30,
-    "tags": ["static", "self", "late-static-binding", "oop", "inheritance"]
+    "tags": [
+      "static",
+      "self",
+      "late-static-binding",
+      "oop",
+      "inheritance"
+    ]
   },
   {
     "id": "php-e-5",
     "trackId": "php",
     "level": "expert",
     "type": "multiple-choice",
-    "prompt": { "en": "Which PHP 8.0+ feature allows attaching metadata to classes, methods, and properties that can be read at runtime?", "ar": "أيّ ميزة في PHP 8.0+ تُتيح إرفاق بيانات وصفية بالأصناف والدوال والخصائص ويمكن قراءتها في وقت التشغيل؟" },
+    "prompt": {
+      "en": "Which PHP 8.0+ feature allows attaching metadata to classes, methods, and properties that can be read at runtime?",
+      "ar": "أيّ ميزة في PHP 8.0+ تُتيح إرفاق بيانات وصفية بالأصناف والدوال والخصائص ويمكن قراءتها في وقت التشغيل؟"
+    },
     "code": "<?php\n#[Route('/api/users', methods: ['GET'])]\n#[Middleware('auth')]\nclass UserController {\n    #[Inject]\n    private UserService $service;\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Attributes (PHP 8.0)", "ar": "الـ Attributes (PHP 8.0)" } },
-      { "id": "b", "text": { "en": "Annotations (Doctrine-style)", "ar": "الـ Annotations (أسلوب Doctrine)" } },
-      { "id": "c", "text": { "en": "Decorators", "ar": "الـ Decorators" } },
-      { "id": "d", "text": { "en": "DocBlocks", "ar": "الـ DocBlocks" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Attributes (PHP 8.0)",
+          "ar": "الـ Attributes (PHP 8.0)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Annotations (Doctrine-style)",
+          "ar": "الـ Annotations (أسلوب Doctrine)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Decorators",
+          "ar": "الـ Decorators"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "DocBlocks",
+          "ar": "الـ DocBlocks"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "These are native PHP 8 metadata markers using the #[] syntax.", "ar": "هذه علامات بيانات وصفية أصلية في PHP 8 تستخدم بنية #[]." },
-    "explanation": { "en": "PHP 8.0 introduced Attributes (#[...]) as a native way to add structured metadata to code elements. Unlike docblock annotations (used by Doctrine/PHPStan), Attributes are part of the language and can be read via Reflection API at runtime without parsing comment strings.", "ar": "قدّمت PHP 8.0 الـ Attributes (#[...]) كطريقة أصلية لإضافة بيانات وصفية منظمة لعناصر الكود. على عكس تعليقات docblock (المستخدمة من قبل Doctrine/PHPStan)، فإن الـ Attributes جزء من اللغة ويمكن قراءتها عبر Reflection API في وقت التشغيل دون تحليل سلاسل التعليقات." },
+    "hint": {
+      "en": "These are native PHP 8 metadata markers using the #[] syntax.",
+      "ar": "هذه علامات بيانات وصفية أصلية في PHP 8 تستخدم بنية #[]."
+    },
+    "explanation": {
+      "en": "PHP 8.0 introduced Attributes (#[...]) as a native way to add structured metadata to code elements. Unlike docblock annotations (used by Doctrine/PHPStan), Attributes are part of the language and can be read via Reflection API at runtime without parsing comment strings.",
+      "ar": "قدّمت PHP 8.0 الـ Attributes (#[...]) كطريقة أصلية لإضافة بيانات وصفية منظمة لعناصر الكود. على عكس تعليقات docblock (المستخدمة من قبل Doctrine/PHPStan)، فإن الـ Attributes جزء من اللغة ويمكن قراءتها عبر Reflection API في وقت التشغيل دون تحليل سلاسل التعليقات."
+    },
     "xp": 30,
-    "tags": ["php8", "attributes", "reflection", "metadata"]
+    "tags": [
+      "php8",
+      "attributes",
+      "reflection",
+      "metadata"
+    ]
   },
   {
     "id": "php-boss-1",
     "trackId": "php",
     "level": "boss",
     "type": "code-output",
-    "prompt": { "en": "BOSS CHALLENGE: What is the exact output of this type-juggling minefield?", "ar": "تحدي BOSS: ما هو الناتج الدقيق لهذا الكود المليء بمشكلات تحويل الأنواع؟" },
+    "prompt": {
+      "en": "BOSS CHALLENGE: What is the exact output of this type-juggling minefield?",
+      "ar": "تحدي BOSS: ما هو الناتج الدقيق لهذا الكود المليء بمشكلات تحويل الأنواع؟"
+    },
     "code": "<?php\n$a = \"1\";\n$b = \"01\";\n$c = \"1.0\";\n$d = true;\nvar_dump($a == $b);\nvar_dump($a === $b);\nvar_dump((int)$c == (int)$a);\nvar_dump($d == $a);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "bool(true)\\nbool(false)\\nbool(true)\\nbool(true)", "ar": "bool(true)\\nbool(false)\\nbool(true)\\nbool(true)" } },
-      { "id": "b", "text": { "en": "bool(false)\\nbool(false)\\nbool(true)\\nbool(true)", "ar": "bool(false)\\nbool(false)\\nbool(true)\\nbool(true)" } },
-      { "id": "c", "text": { "en": "bool(true)\\nbool(true)\\nbool(true)\\nbool(true)", "ar": "bool(true)\\nbool(true)\\nbool(true)\\nbool(true)" } },
-      { "id": "d", "text": { "en": "bool(true)\\nbool(false)\\nbool(false)\\nbool(true)", "ar": "bool(true)\\nbool(false)\\nbool(false)\\nbool(true)" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "bool(true)\\nbool(false)\\nbool(true)\\nbool(true)",
+          "ar": "bool(true)\\nbool(false)\\nbool(true)\\nbool(true)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "bool(false)\\nbool(false)\\nbool(true)\\nbool(true)",
+          "ar": "bool(false)\\nbool(false)\\nbool(true)\\nbool(true)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "bool(true)\\nbool(true)\\nbool(true)\\nbool(true)",
+          "ar": "bool(true)\\nbool(true)\\nbool(true)\\nbool(true)"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "bool(true)\\nbool(false)\\nbool(false)\\nbool(true)",
+          "ar": "bool(true)\\nbool(false)\\nbool(false)\\nbool(true)"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Check each comparison carefully: numeric string comparison, string identity, integer cast, and bool comparison.", "ar": "تحقق من كل مقارنة بعناية: مقارنة السلاسل الرقمية، وهوية السلاسل، والتحويل لعدد صحيح، ومقارنة bool." },
-    "explanation": { "en": "1: '1' == '01' → both are numeric strings, PHP compares as numbers: 1==1 → true. 2: '1' === '01' → strict, different strings → false. 3: (int)'1.0' == (int)'1' → 1==1 → true. 4: true == '1' → PHP converts true to 1 and '1' to 1 → 1==1 → true.", "ar": "1: '1' == '01' → كلاهما سلاسل رقمية، يُقارن PHP كأرقام: 1==1 → true. 2: '1' === '01' → صارم، سلاسل مختلفة → false. 3: (int)'1.0' == (int)'1' → 1==1 → true. 4: true == '1' → يُحوّل PHP true إلى 1 و'1' إلى 1 → 1==1 → true." },
+    "hint": {
+      "en": "Check each comparison carefully: numeric string comparison, string identity, integer cast, and bool comparison.",
+      "ar": "تحقق من كل مقارنة بعناية: مقارنة السلاسل الرقمية، وهوية السلاسل، والتحويل لعدد صحيح، ومقارنة bool."
+    },
+    "explanation": {
+      "en": "1: '1' == '01' → both are numeric strings, PHP compares as numbers: 1==1 → true. 2: '1' === '01' → strict, different strings → false. 3: (int)'1.0' == (int)'1' → 1==1 → true. 4: true == '1' → PHP converts true to 1 and '1' to 1 → 1==1 → true.",
+      "ar": "1: '1' == '01' → كلاهما سلاسل رقمية، يُقارن PHP كأرقام: 1==1 → true. 2: '1' === '01' → صارم، سلاسل مختلفة → false. 3: (int)'1.0' == (int)'1' → 1==1 → true. 4: true == '1' → يُحوّل PHP true إلى 1 و'1' إلى 1 → 1==1 → true."
+    },
     "xp": 50,
-    "tags": ["type-juggling", "comparison", "loose-comparison", "strict-comparison", "boss"]
+    "tags": [
+      "type-juggling",
+      "comparison",
+      "loose-comparison",
+      "strict-comparison",
+      "boss"
+    ]
   },
   {
     "id": "php-boss-2",
     "trackId": "php",
     "level": "boss",
     "type": "debugging",
-    "prompt": { "en": "BOSS CHALLENGE: This password reset feature has multiple security vulnerabilities. Identify the MOST critical one.", "ar": "تحدي BOSS: ميزة إعادة تعيين كلمة المرور هذه تحتوي على ثغرات أمنية متعددة. حدّد الأكثر خطورة." },
+    "prompt": {
+      "en": "BOSS CHALLENGE: This password reset feature has multiple security vulnerabilities. Identify the MOST critical one.",
+      "ar": "تحدي BOSS: ميزة إعادة تعيين كلمة المرور هذه تحتوي على ثغرات أمنية متعددة. حدّد الأكثر خطورة."
+    },
     "code": "<?php\n$token = $_GET['token'];\n$newPass = $_POST['password'];\n$db = new PDO($dsn, $user, $pass);\n\n$stmt = $db->query(\"SELECT * FROM resets WHERE token='$token'\");\n$reset = $stmt->fetch();\n\nif ($reset && $reset['expires'] > time()) {\n    $hashed = md5($newPass);\n    $db->query(\"UPDATE users SET password='$hashed' WHERE id={$reset['user_id']}\");\n    $db->query(\"DELETE FROM resets WHERE token='$token'\");\n    echo \"Password updated!\";\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "SQL injection in $token + MD5 is broken for passwords (use password_hash)", "ar": "حقن SQL في $token + MD5 مكسور لكلمات المرور (استخدم password_hash)" } },
-      { "id": "b", "text": { "en": "PDO is not supported for UPDATE queries", "ar": "PDO غير مدعوم لاستعلامات UPDATE" } },
-      { "id": "c", "text": { "en": "The DELETE query should run before the UPDATE", "ar": "استعلام DELETE يجب أن يُنفَّذ قبل UPDATE" } },
-      { "id": "d", "text": { "en": "The token comparison should use hash_equals()", "ar": "مقارنة الـ token يجب أن تستخدم hash_equals()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "SQL injection in $token + MD5 is broken for passwords (use password_hash)",
+          "ar": "حقن SQL في $token + MD5 مكسور لكلمات المرور (استخدم password_hash)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "PDO is not supported for UPDATE queries",
+          "ar": "PDO غير مدعوم لاستعلامات UPDATE"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The DELETE query should run before the UPDATE",
+          "ar": "استعلام DELETE يجب أن يُنفَّذ قبل UPDATE"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The token comparison should use hash_equals()",
+          "ar": "مقارنة الـ token يجب أن تستخدم hash_equals()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Look at how $token is used in the SQL query, and what hashing algorithm is used for the password.", "ar": "انظر كيف يُستخدم $token في استعلام SQL، وما خوارزمية التجزئة المستخدمة لكلمة المرور." },
-    "explanation": { "en": "Two critical bugs: (1) SQL injection: $token is directly interpolated — an attacker can manipulate the query. Use prepared statements. (2) MD5 is cryptographically broken and must never be used for passwords. Use password_hash() with PASSWORD_BCRYPT. Bonus: hash_equals() should be used to prevent timing attacks during token comparison.", "ar": "خطأان حرجان: (1) حقن SQL: $token مُدرج مباشرة — يمكن للمهاجم التلاعب بالاستعلام. استخدم prepared statements. (2) MD5 مكسور تشفيريًا ويجب عدم استخدامه أبدًا لكلمات المرور. استخدم password_hash() مع PASSWORD_BCRYPT. إضافة: يجب استخدام hash_equals() لمنع هجمات التوقيت (timing attacks) أثناء مقارنة الـ token." },
+    "hint": {
+      "en": "Look at how $token is used in the SQL query, and what hashing algorithm is used for the password.",
+      "ar": "انظر كيف يُستخدم $token في استعلام SQL، وما خوارزمية التجزئة المستخدمة لكلمة المرور."
+    },
+    "explanation": {
+      "en": "Two critical bugs: (1) SQL injection: $token is directly interpolated — an attacker can manipulate the query. Use prepared statements. (2) MD5 is cryptographically broken and must never be used for passwords. Use password_hash() with PASSWORD_BCRYPT. Bonus: hash_equals() should be used to prevent timing attacks during token comparison.",
+      "ar": "خطأان حرجان: (1) حقن SQL: $token مُدرج مباشرة — يمكن للمهاجم التلاعب بالاستعلام. استخدم prepared statements. (2) MD5 مكسور تشفيريًا ويجب عدم استخدامه أبدًا لكلمات المرور. استخدم password_hash() مع PASSWORD_BCRYPT. إضافة: يجب استخدام hash_equals() لمنع هجمات التوقيت (timing attacks) أثناء مقارنة الـ token."
+    },
     "xp": 50,
-    "tags": ["security", "sql-injection", "password-hashing", "md5", "boss"]
+    "tags": [
+      "security",
+      "sql-injection",
+      "password-hashing",
+      "md5",
+      "boss"
+    ]
   },
   {
     "id": "php-boss-3",
     "trackId": "php",
     "level": "boss",
     "type": "code-output",
-    "prompt": { "en": "BOSS CHALLENGE: What is the output of this tricky object cloning and reference code?", "ar": "تحدي BOSS: ما هو ناتج هذا الكود المراوغ لاستنساخ الكائنات والمراجع؟" },
+    "prompt": {
+      "en": "BOSS CHALLENGE: What is the output of this tricky object cloning and reference code?",
+      "ar": "تحدي BOSS: ما هو ناتج هذا الكود المراوغ لاستنساخ الكائنات والمراجع؟"
+    },
     "code": "<?php\nclass Box {\n    public array $items;\n    public function __construct(array $items) {\n        $this->items = $items;\n    }\n}\n$a = new Box([1, 2, 3]);\n$b = $a;\n$c = clone $a;\n$b->items[] = 4;\n$c->items[] = 99;\necho count($a->items) . \" \";\necho count($b->items) . \" \";\necho count($c->items);",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "4 4 4", "ar": "4 4 4" } },
-      { "id": "b", "text": { "en": "3 4 4", "ar": "3 4 4" } },
-      { "id": "c", "text": { "en": "4 4 4", "ar": "4 4 4" } },
-      { "id": "d", "text": { "en": "3 3 4", "ar": "3 3 4" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "4 4 4",
+          "ar": "4 4 4"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "3 4 4",
+          "ar": "3 4 4"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "4 4 4",
+          "ar": "4 4 4"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "3 3 4",
+          "ar": "3 3 4"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "In PHP, assigning an object creates a reference to the same object. clone creates a shallow copy.", "ar": "في PHP، تعيين كائن ينشئ مرجعًا للكائن نفسه. clone ينشئ نسخة سطحية (shallow copy)." },
-    "explanation": { "en": "$b = $a does NOT copy the object — $a and $b point to the same Box instance. $b->items[] = 4 modifies $a->items too. $c = clone $a creates a new Box with a shallow copy of items (PHP arrays are copy-on-write, but the clone gets its own array). So $c->items[] = 99 does NOT affect $a. Final counts: $a and $b both have 4 items, $c has 4 items (3 original + 99). Output: 4 4 4.", "ar": "$b = $a لا تنسخ الكائن — $a و$b يُشيران إلى نفس نسخة Box. تُعدّل $b->items[] = 4 مصفوفة $a->items أيضًا. ينشئ $c = clone $a نسخة Box جديدة مع نسخة سطحية من items (مصفوفات PHP تستخدم copy-on-write، لكن الكلون يحصل على مصفوفته الخاصة). لذا $c->items[] = 99 لا تؤثر على $a. الأعداد النهائية: $a و$b كلاهما يحتوي 4 عناصر، و$c يحتوي 4 عناصر (3 أصلية + 99). الناتج: 4 4 4." },
+    "hint": {
+      "en": "In PHP, assigning an object creates a reference to the same object. clone creates a shallow copy.",
+      "ar": "في PHP، تعيين كائن ينشئ مرجعًا للكائن نفسه. clone ينشئ نسخة سطحية (shallow copy)."
+    },
+    "explanation": {
+      "en": "$b = $a does NOT copy the object — $a and $b point to the same Box instance. $b->items[] = 4 modifies $a->items too. $c = clone $a creates a new Box with a shallow copy of items (PHP arrays are copy-on-write, but the clone gets its own array). So $c->items[] = 99 does NOT affect $a. Final counts: $a and $b both have 4 items, $c has 4 items (3 original + 99). Output: 4 4 4.",
+      "ar": "$b = $a لا تنسخ الكائن — $a و$b يُشيران إلى نفس نسخة Box. تُعدّل $b->items[] = 4 مصفوفة $a->items أيضًا. ينشئ $c = clone $a نسخة Box جديدة مع نسخة سطحية من items (مصفوفات PHP تستخدم copy-on-write، لكن الكلون يحصل على مصفوفته الخاصة). لذا $c->items[] = 99 لا تؤثر على $a. الأعداد النهائية: $a و$b كلاهما يحتوي 4 عناصر، و$c يحتوي 4 عناصر (3 أصلية + 99). الناتج: 4 4 4."
+    },
     "xp": 50,
-    "tags": ["objects", "clone", "references", "boss", "oop"]
+    "tags": [
+      "objects",
+      "clone",
+      "references",
+      "boss",
+      "oop"
+    ]
   },
   {
     "id": "php-boss-4",
     "trackId": "php",
     "level": "boss",
     "type": "scenario",
-    "prompt": { "en": "BOSS CHALLENGE: A Laravel-style container resolves dependencies via Reflection. What pattern is this, and what is the PHP feature it relies on?", "ar": "تحدي BOSS: حاوية بأسلوب Laravel تُحلّ التبعيات عبر الـ Reflection. ما هو النمط المُستخدم، وما ميزة PHP التي يعتمد عليها؟" },
+    "prompt": {
+      "en": "BOSS CHALLENGE: A Laravel-style container resolves dependencies via Reflection. What pattern is this, and what is the PHP feature it relies on?",
+      "ar": "تحدي BOSS: حاوية بأسلوب Laravel تُحلّ التبعيات عبر الـ Reflection. ما هو النمط المُستخدم، وما ميزة PHP التي يعتمد عليها؟"
+    },
     "code": "<?php\nclass Container {\n    public function make(string $class): object {\n        $ref = new ReflectionClass($class);\n        $constructor = $ref->getConstructor();\n        if (!$constructor) return $ref->newInstance();\n        $params = [];\n        foreach ($constructor->getParameters() as $param) {\n            $type = $param->getType();\n            $params[] = $this->make($type->getName());\n        }\n        return $ref->newInstanceArgs($params);\n    }\n}",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "Dependency Injection container using PHP's Reflection API for autowiring", "ar": "حاوية حقن التبعيات (Dependency Injection) باستخدام Reflection API في PHP للتوصيل التلقائي (autowiring)" } },
-      { "id": "b", "text": { "en": "Factory pattern using dynamic class instantiation", "ar": "نمط المصنع (Factory pattern) باستخدام إنشاء الأصناف الديناميكي" } },
-      { "id": "c", "text": { "en": "Observer pattern with lazy loading", "ar": "نمط المراقب (Observer pattern) مع التحميل الكسول" } },
-      { "id": "d", "text": { "en": "Strategy pattern using interface resolution", "ar": "نمط الاستراتيجية (Strategy pattern) باستخدام تحليل الواجهات" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Dependency Injection container using PHP's Reflection API for autowiring",
+          "ar": "حاوية حقن التبعيات (Dependency Injection) باستخدام Reflection API في PHP للتوصيل التلقائي (autowiring)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Factory pattern using dynamic class instantiation",
+          "ar": "نمط المصنع (Factory pattern) باستخدام إنشاء الأصناف الديناميكي"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Observer pattern with lazy loading",
+          "ar": "نمط المراقب (Observer pattern) مع التحميل الكسول"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Strategy pattern using interface resolution",
+          "ar": "نمط الاستراتيجية (Strategy pattern) باستخدام تحليل الواجهات"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This is how Laravel's service container automatically resolves class dependencies.", "ar": "هذه هي الطريقة التي يُحلّ بها service container في Laravel تبعيات الأصناف تلقائيًا." },
-    "explanation": { "en": "This is an IoC (Inversion of Control) / Dependency Injection container with autowiring. It uses PHP's ReflectionClass to inspect a class's constructor parameters, recursively resolving each dependency. This is the foundation of frameworks like Laravel and Symfony. The key PHP feature is the Reflection API (ReflectionClass, ReflectionParameter, ReflectionNamedType).", "ar": "هذه حاوية IoC (انعكاس التحكم) / حقن التبعيات مع التوصيل التلقائي. تستخدم ReflectionClass في PHP لفحص معاملات constructor الصنف، وتُحلّ كل تبعية بشكل تكراري. هذا هو أساس أطر العمل مثل Laravel وSymfony. الميزة الرئيسية في PHP هي Reflection API (ReflectionClass وReflectionParameter وReflectionNamedType)." },
+    "hint": {
+      "en": "This is how Laravel's service container automatically resolves class dependencies.",
+      "ar": "هذه هي الطريقة التي يُحلّ بها service container في Laravel تبعيات الأصناف تلقائيًا."
+    },
+    "explanation": {
+      "en": "This is an IoC (Inversion of Control) / Dependency Injection container with autowiring. It uses PHP's ReflectionClass to inspect a class's constructor parameters, recursively resolving each dependency. This is the foundation of frameworks like Laravel and Symfony. The key PHP feature is the Reflection API (ReflectionClass, ReflectionParameter, ReflectionNamedType).",
+      "ar": "هذه حاوية IoC (انعكاس التحكم) / حقن التبعيات مع التوصيل التلقائي. تستخدم ReflectionClass في PHP لفحص معاملات constructor الصنف، وتُحلّ كل تبعية بشكل تكراري. هذا هو أساس أطر العمل مثل Laravel وSymfony. الميزة الرئيسية في PHP هي Reflection API (ReflectionClass وReflectionParameter وReflectionNamedType)."
+    },
     "xp": 50,
-    "tags": ["design-patterns", "dependency-injection", "reflection", "ioc", "boss"]
+    "tags": [
+      "design-patterns",
+      "dependency-injection",
+      "reflection",
+      "ioc",
+      "boss"
+    ]
   },
   {
     "id": "php-boss-5",
     "trackId": "php",
     "level": "boss",
     "type": "code-output",
-    "prompt": { "en": "BOSS CHALLENGE: What is the output of this fiendish combination of generators, closures, and references?", "ar": "تحدي BOSS: ما هو ناتج هذا الكود الشيطاني الذي يجمع generators وclosures والمراجع؟" },
+    "prompt": {
+      "en": "BOSS CHALLENGE: What is the output of this fiendish combination of generators, closures, and references?",
+      "ar": "تحدي BOSS: ما هو ناتج هذا الكود الشيطاني الذي يجمع generators وclosures والمراجع؟"
+    },
     "code": "<?php\nfunction counter(int $start = 0): Closure {\n    $count = $start;\n    return function() use (&$count): int {\n        return $count++;\n    };\n}\n$c1 = counter(1);\n$c2 = counter(10);\necho $c1() . \" \";\necho $c1() . \" \";\necho $c2() . \" \";\necho $c1() . \" \";\necho $c2();",
     "codeLang": "php",
     "options": [
-      { "id": "a", "text": { "en": "1 2 10 3 11", "ar": "1 2 10 3 11" } },
-      { "id": "b", "text": { "en": "1 1 10 1 10", "ar": "1 1 10 1 10" } },
-      { "id": "c", "text": { "en": "0 1 10 2 11", "ar": "0 1 10 2 11" } },
-      { "id": "d", "text": { "en": "1 2 10 3 10", "ar": "1 2 10 3 10" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "1 2 10 3 11",
+          "ar": "1 2 10 3 11"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "1 1 10 1 10",
+          "ar": "1 1 10 1 10"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "0 1 10 2 11",
+          "ar": "0 1 10 2 11"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "1 2 10 3 10",
+          "ar": "1 2 10 3 10"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The closure captures $count by reference (&$count). Each call to counter() creates an independent closure with its own $count variable.", "ar": "تلتقط الـ closure المتغير $count بالمرجع (&$count). كل استدعاء لـ counter() ينشئ closure مستقلة مع متغير $count خاص بها." },
-    "explanation": { "en": "counter() returns a closure that captures $count by reference. Each call to counter() creates a new scope with its own $count. $c1 starts at 1, $c2 at 10. $c1() returns 1 (then $count becomes 2), $c1() returns 2 (then 3), $c2() returns 10 (then 11), $c1() returns 3 (then 4), $c2() returns 11. Output: 1 2 10 3 11. Note: $count++ returns the value before incrementing (post-increment).", "ar": "تُعيد counter() closure تلتقط $count بالمرجع. كل استدعاء لـ counter() ينشئ نطاقًا جديدًا مع $count خاص به. $c1 تبدأ من 1، $c2 من 10. $c1() تُعيد 1 (ثم يصبح $count = 2)، $c1() تُعيد 2 (ثم 3)، $c2() تُعيد 10 (ثم 11)، $c1() تُعيد 3 (ثم 4)، $c2() تُعيد 11. الناتج: 1 2 10 3 11. ملاحظة: $count++ تُعيد القيمة قبل الزيادة (post-increment)." },
+    "hint": {
+      "en": "The closure captures $count by reference (&$count). Each call to counter() creates an independent closure with its own $count variable.",
+      "ar": "تلتقط الـ closure المتغير $count بالمرجع (&$count). كل استدعاء لـ counter() ينشئ closure مستقلة مع متغير $count خاص بها."
+    },
+    "explanation": {
+      "en": "counter() returns a closure that captures $count by reference. Each call to counter() creates a new scope with its own $count. $c1 starts at 1, $c2 at 10. $c1() returns 1 (then $count becomes 2), $c1() returns 2 (then 3), $c2() returns 10 (then 11), $c1() returns 3 (then 4), $c2() returns 11. Output: 1 2 10 3 11. Note: $count++ returns the value before incrementing (post-increment).",
+      "ar": "تُعيد counter() closure تلتقط $count بالمرجع. كل استدعاء لـ counter() ينشئ نطاقًا جديدًا مع $count خاص به. $c1 تبدأ من 1، $c2 من 10. $c1() تُعيد 1 (ثم يصبح $count = 2)، $c1() تُعيد 2 (ثم 3)، $c2() تُعيد 10 (ثم 11)، $c1() تُعيد 3 (ثم 4)، $c2() تُعيد 11. الناتج: 1 2 10 3 11. ملاحظة: $count++ تُعيد القيمة قبل الزيادة (post-increment)."
+    },
     "xp": 50,
-    "tags": ["closures", "generators", "references", "use", "boss", "advanced-functions"]
+    "tags": [
+      "closures",
+      "generators",
+      "references",
+      "use",
+      "boss",
+      "advanced-functions"
+    ]
   }
 ]

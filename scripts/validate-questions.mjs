@@ -79,7 +79,9 @@ for (const [file, trackId] of Object.entries(TRACKS)) {
     if (!localized(q.explanation)) errors.push(`${at}: explanation not bilingual`);
     if (q.hint !== undefined && !localized(q.hint)) errors.push(`${at}: hint present but not bilingual`);
     if (typeof q.xp !== "number" || q.xp <= 0) errors.push(`${at}: bad xp`);
-    if (q.code !== undefined && typeof q.code !== "string") errors.push(`${at}: code not string`);
+    if (q.code !== undefined && typeof q.code !== "string") errors.push(`${at}: code must be a string or omitted (got ${q.code === null ? "null" : typeof q.code})`);
+    if (q.codeLang !== undefined && typeof q.codeLang !== "string") errors.push(`${at}: codeLang must be a string or omitted`);
+    if (q.codeLang !== undefined && q.code === undefined) errors.push(`${at}: codeLang set without code`);
 
     if (!Array.isArray(q.options)) {
       errors.push(`${at}: options missing`);

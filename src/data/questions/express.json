@@ -4,778 +4,2218 @@
     "trackId": "express",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which method is used to start an Express server listening on a port?", "ar": "أي دالة تُستخدم لتشغيل خادم Express والاستماع على منفذ معين؟" },
+    "prompt": {
+      "en": "Which method is used to start an Express server listening on a port?",
+      "ar": "أي دالة تُستخدم لتشغيل خادم Express والاستماع على منفذ معين؟"
+    },
     "code": "const express = require('express');\nconst app = express();\napp.___( 3000, () => console.log('Running') );",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "app.listen()", "ar": "app.listen()" } },
-      { "id": "b", "text": { "en": "app.start()", "ar": "app.start()" } },
-      { "id": "c", "text": { "en": "app.connect()", "ar": "app.connect()" } },
-      { "id": "d", "text": { "en": "app.run()", "ar": "app.run()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "app.listen()",
+          "ar": "app.listen()"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "app.start()",
+          "ar": "app.start()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "app.connect()",
+          "ar": "app.connect()"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "app.run()",
+          "ar": "app.run()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "It binds the server to a network port.", "ar": "تقوم هذه الدالة بربط الخادم بمنفذ شبكي." },
-    "explanation": { "en": "app.listen(port, callback) starts the HTTP server and begins accepting connections on the specified port. The callback runs once the server is ready.", "ar": "تبدأ app.listen(port, callback) تشغيل خادم HTTP وتقبل الاتصالات على المنفذ المحدد. يُستدعى الـ callback عندما يصبح الخادم جاهزاً." },
+    "hint": {
+      "en": "It binds the server to a network port.",
+      "ar": "تقوم هذه الدالة بربط الخادم بمنفذ شبكي."
+    },
+    "explanation": {
+      "en": "app.listen(port, callback) starts the HTTP server and begins accepting connections on the specified port. The callback runs once the server is ready.",
+      "ar": "تبدأ app.listen(port, callback) تشغيل خادم HTTP وتقبل الاتصالات على المنفذ المحدد. يُستدعى الـ callback عندما يصبح الخادم جاهزاً."
+    },
     "xp": 10,
-    "tags": ["setup", "server"]
+    "tags": [
+      "setup",
+      "server"
+    ]
   },
   {
     "id": "express-b-2",
     "trackId": "express",
     "level": "beginner",
     "type": "true-false",
-    "prompt": { "en": "In Express, app.use() can only accept a path string as its first argument, not a middleware function directly.", "ar": "في Express، يمكن لـ app.use() قبول سلسلة مسار فقط كأول مدخل، وليس دالة middleware مباشرة." },
-    "codeLang": "js",
+    "prompt": {
+      "en": "In Express, app.use() can only accept a path string as its first argument, not a middleware function directly.",
+      "ar": "في Express، يمكن لـ app.use() قبول سلسلة مسار فقط كأول مدخل، وليس دالة middleware مباشرة."
+    },
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "b",
-    "hint": { "en": "Check the Express docs for app.use() signatures.", "ar": "راجع توثيق Express لتوقيعات app.use()." },
-    "explanation": { "en": "app.use() accepts either app.use(fn) or app.use('/path', fn). Passing a middleware function directly without a path is perfectly valid; it matches all incoming requests.", "ar": "يقبل app.use() إما app.use(fn) أو app.use('/path', fn). تمرير دالة middleware مباشرة دون مسار صحيح تماماً؛ إذ تطابق جميع الطلبات الواردة." },
+    "hint": {
+      "en": "Check the Express docs for app.use() signatures.",
+      "ar": "راجع توثيق Express لتوقيعات app.use()."
+    },
+    "explanation": {
+      "en": "app.use() accepts either app.use(fn) or app.use('/path', fn). Passing a middleware function directly without a path is perfectly valid; it matches all incoming requests.",
+      "ar": "يقبل app.use() إما app.use(fn) أو app.use('/path', fn). تمرير دالة middleware مباشرة دون مسار صحيح تماماً؛ إذ تطابق جميع الطلبات الواردة."
+    },
     "xp": 10,
-    "tags": ["middleware", "app.use"]
+    "tags": [
+      "middleware",
+      "app.use"
+    ]
   },
   {
     "id": "express-b-3",
     "trackId": "express",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "What does res.json() do compared to res.send()?", "ar": "ما الفرق بين res.json() و res.send()؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "What does res.json() do compared to res.send()?",
+      "ar": "ما الفرق بين res.json() و res.send()؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "res.json() sets Content-Type to application/json and serializes the object; res.send() does not set JSON headers automatically.", "ar": "تضبط res.json() الـ Content-Type إلى application/json وتحوّل الكائن إلى نص؛ بينما res.send() لا تضبط ترويسات JSON تلقائياً." } },
-      { "id": "b", "text": { "en": "They are identical and can always be used interchangeably.", "ar": "هما متطابقتان ويمكن استخدامهما بالتبادل دائماً." } },
-      { "id": "c", "text": { "en": "res.json() streams the data while res.send() buffers it.", "ar": "ترسل res.json() البيانات بالبث بينما res.send() تخزّنها مؤقتاً." } },
-      { "id": "d", "text": { "en": "res.send() is deprecated in Express 4.", "ar": "أصبحت res.send() مهجورة في Express 4." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "res.json() sets Content-Type to application/json and serializes the object; res.send() does not set JSON headers automatically.",
+          "ar": "تضبط res.json() الـ Content-Type إلى application/json وتحوّل الكائن إلى نص؛ بينما res.send() لا تضبط ترويسات JSON تلقائياً."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They are identical and can always be used interchangeably.",
+          "ar": "هما متطابقتان ويمكن استخدامهما بالتبادل دائماً."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "res.json() streams the data while res.send() buffers it.",
+          "ar": "ترسل res.json() البيانات بالبث بينما res.send() تخزّنها مؤقتاً."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "res.send() is deprecated in Express 4.",
+          "ar": "أصبحت res.send() مهجورة في Express 4."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about what Content-Type header each method sets.", "ar": "فكّر في ترويسة Content-Type التي تضبطها كل دالة." },
-    "explanation": { "en": "res.json() automatically sets the Content-Type header to 'application/json' and calls JSON.stringify() on the argument. res.send() infers the content type from the argument type and does not guarantee JSON serialization.", "ar": "تضبط res.json() تلقائياً ترويسة Content-Type إلى 'application/json' وتستدعي JSON.stringify() على المدخل. بينما تستنتج res.send() نوع المحتوى من نوع المدخل ولا تضمن تسلسل JSON." },
+    "hint": {
+      "en": "Think about what Content-Type header each method sets.",
+      "ar": "فكّر في ترويسة Content-Type التي تضبطها كل دالة."
+    },
+    "explanation": {
+      "en": "res.json() automatically sets the Content-Type header to 'application/json' and calls JSON.stringify() on the argument. res.send() infers the content type from the argument type and does not guarantee JSON serialization.",
+      "ar": "تضبط res.json() تلقائياً ترويسة Content-Type إلى 'application/json' وتستدعي JSON.stringify() على المدخل. بينما تستنتج res.send() نوع المحتوى من نوع المدخل ولا تضمن تسلسل JSON."
+    },
     "xp": 10,
-    "tags": ["response", "res.json", "res.send"]
+    "tags": [
+      "response",
+      "res.json",
+      "res.send"
+    ]
   },
   {
     "id": "express-b-4",
     "trackId": "express",
     "level": "beginner",
     "type": "code-output",
-    "prompt": { "en": "What is logged when GET /user/42 is requested?", "ar": "ما الذي يُطبع عند طلب GET /user/42؟" },
+    "prompt": {
+      "en": "What is logged when GET /user/42 is requested?",
+      "ar": "ما الذي يُطبع عند طلب GET /user/42؟"
+    },
     "code": "app.get('/user/:id', (req, res) => {\n  console.log(req.params.id);\n  res.send('ok');\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "\"42\"", "ar": "\"42\"" } },
-      { "id": "b", "text": { "en": "42 (number)", "ar": "42 (رقم)" } },
-      { "id": "c", "text": { "en": "undefined", "ar": "undefined" } },
-      { "id": "d", "text": { "en": "{ id: '42' }", "ar": "{ id: '42' }" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "\"42\"",
+          "ar": "\"42\""
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "42 (number)",
+          "ar": "42 (رقم)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "undefined",
+          "ar": "undefined"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "{ id: '42' }",
+          "ar": "{ id: '42' }"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Route parameters are always parsed as strings in Express.", "ar": "معاملات المسار تُعالَج دائماً كسلاسل نصية في Express." },
-    "explanation": { "en": "req.params values are always strings, even when the segment looks numeric. So req.params.id is the string '42', not the number 42.", "ar": "قيم req.params هي دائماً سلاسل نصية، حتى عندما يبدو الجزء رقمياً. لذا فإن req.params.id هي السلسلة '42' وليس الرقم 42." },
+    "hint": {
+      "en": "Route parameters are always parsed as strings in Express.",
+      "ar": "معاملات المسار تُعالَج دائماً كسلاسل نصية في Express."
+    },
+    "explanation": {
+      "en": "req.params values are always strings, even when the segment looks numeric. So req.params.id is the string '42', not the number 42.",
+      "ar": "قيم req.params هي دائماً سلاسل نصية، حتى عندما يبدو الجزء رقمياً. لذا فإن req.params.id هي السلسلة '42' وليس الرقم 42."
+    },
     "xp": 10,
-    "tags": ["routing", "params"]
+    "tags": [
+      "routing",
+      "params"
+    ]
   },
   {
     "id": "express-b-5",
     "trackId": "express",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which built-in middleware parses incoming JSON request bodies?", "ar": "أي middleware مدمج يُحلّل أجسام الطلبات الواردة بصيغة JSON؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "Which built-in middleware parses incoming JSON request bodies?",
+      "ar": "أي middleware مدمج يُحلّل أجسام الطلبات الواردة بصيغة JSON؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "express.json()", "ar": "express.json()" } },
-      { "id": "b", "text": { "en": "express.bodyParser()", "ar": "express.bodyParser()" } },
-      { "id": "c", "text": { "en": "express.text()", "ar": "express.text()" } },
-      { "id": "d", "text": { "en": "express.parse()", "ar": "express.parse()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "express.json()",
+          "ar": "express.json()"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "express.bodyParser()",
+          "ar": "express.bodyParser()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "express.text()",
+          "ar": "express.text()"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "express.parse()",
+          "ar": "express.parse()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This middleware was added as a built-in wrapper around the body-parser package in Express 4.16+.", "ar": "أُضيف هذا الـ middleware كغلاف مدمج حول حزمة body-parser في Express 4.16+." },
-    "explanation": { "en": "express.json() is built-in since Express 4.16 and parses requests with Content-Type: application/json, populating req.body. express.bodyParser() does not exist as a built-in.", "ar": "express.json() مدمج منذ Express 4.16 ويُحلّل الطلبات ذات Content-Type: application/json ويملأ req.body. لا يوجد express.bodyParser() كمدمج." },
+    "hint": {
+      "en": "This middleware was added as a built-in wrapper around the body-parser package in Express 4.16+.",
+      "ar": "أُضيف هذا الـ middleware كغلاف مدمج حول حزمة body-parser في Express 4.16+."
+    },
+    "explanation": {
+      "en": "express.json() is built-in since Express 4.16 and parses requests with Content-Type: application/json, populating req.body. express.bodyParser() does not exist as a built-in.",
+      "ar": "express.json() مدمج منذ Express 4.16 ويُحلّل الطلبات ذات Content-Type: application/json ويملأ req.body. لا يوجد express.bodyParser() كمدمج."
+    },
     "xp": 10,
-    "tags": ["middleware", "body-parser", "express.json"]
+    "tags": [
+      "middleware",
+      "body-parser",
+      "express.json"
+    ]
   },
   {
     "id": "express-b-6",
     "trackId": "express",
     "level": "beginner",
     "type": "debugging",
-    "prompt": { "en": "A developer registers the middleware after the route handler. Why doesn't it run for that route?", "ar": "يُسجّل المطور الـ middleware بعد معالج المسار. لماذا لا يعمل لذلك المسار؟" },
+    "prompt": {
+      "en": "A developer registers the middleware after the route handler. Why doesn't it run for that route?",
+      "ar": "يُسجّل المطور الـ middleware بعد معالج المسار. لماذا لا يعمل لذلك المسار؟"
+    },
     "code": "app.get('/hello', (req, res) => res.send('hi'));\n\napp.use((req, res, next) => {\n  console.log('middleware');\n  next();\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Express processes middleware and routes in registration order; once res.send() is called the request is finished.", "ar": "يعالج Express الـ middleware والمسارات بترتيب تسجيلها؛ وبمجرد استدعاء res.send() ينتهي الطلب." } },
-      { "id": "b", "text": { "en": "app.use() never runs after app.get().", "ar": "لا يعمل app.use() أبداً بعد app.get()." } },
-      { "id": "c", "text": { "en": "The middleware needs a path argument to work.", "ar": "يحتاج الـ middleware إلى مدخل مسار كي يعمل." } },
-      { "id": "d", "text": { "en": "console.log is asynchronous so it may be skipped.", "ar": "console.log غير متزامن لذلك قد يُتخطى." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Express processes middleware and routes in registration order; once res.send() is called the request is finished.",
+          "ar": "يعالج Express الـ middleware والمسارات بترتيب تسجيلها؛ وبمجرد استدعاء res.send() ينتهي الطلب."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "app.use() never runs after app.get().",
+          "ar": "لا يعمل app.use() أبداً بعد app.get()."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The middleware needs a path argument to work.",
+          "ar": "يحتاج الـ middleware إلى مدخل مسار كي يعمل."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "console.log is asynchronous so it may be skipped.",
+          "ar": "console.log غير متزامن لذلك قد يُتخطى."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about what happens to the response lifecycle after res.send() is called.", "ar": "فكّر فيما يحدث لدورة حياة الاستجابة بعد استدعاء res.send()." },
-    "explanation": { "en": "Express executes handlers in the order they are registered. The route handler sends a response and the request cycle ends before the later middleware ever gets a chance to run.", "ar": "يُنفّذ Express المعالجات بترتيب تسجيلها. يُرسل معالج المسار استجابة وتنتهي دورة الطلب قبل أن يحصل الـ middleware اللاحق على فرصة التشغيل." },
+    "hint": {
+      "en": "Think about what happens to the response lifecycle after res.send() is called.",
+      "ar": "فكّر فيما يحدث لدورة حياة الاستجابة بعد استدعاء res.send()."
+    },
+    "explanation": {
+      "en": "Express executes handlers in the order they are registered. The route handler sends a response and the request cycle ends before the later middleware ever gets a chance to run.",
+      "ar": "يُنفّذ Express المعالجات بترتيب تسجيلها. يُرسل معالج المسار استجابة وتنتهي دورة الطلب قبل أن يحصل الـ middleware اللاحق على فرصة التشغيل."
+    },
     "xp": 10,
-    "tags": ["middleware", "order", "debugging"]
+    "tags": [
+      "middleware",
+      "order",
+      "debugging"
+    ]
   },
   {
     "id": "express-b-7",
     "trackId": "express",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "How do you read query parameters from the URL /search?q=express&limit=10?", "ar": "كيف تقرأ معاملات الاستعلام من URL /search?q=express&limit=10؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "How do you read query parameters from the URL /search?q=express&limit=10?",
+      "ar": "كيف تقرأ معاملات الاستعلام من URL /search?q=express&limit=10؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "req.query.q and req.query.limit", "ar": "req.query.q و req.query.limit" } },
-      { "id": "b", "text": { "en": "req.params.q and req.params.limit", "ar": "req.params.q و req.params.limit" } },
-      { "id": "c", "text": { "en": "req.body.q and req.body.limit", "ar": "req.body.q و req.body.limit" } },
-      { "id": "d", "text": { "en": "req.search.q and req.search.limit", "ar": "req.search.q و req.search.limit" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "req.query.q and req.query.limit",
+          "ar": "req.query.q و req.query.limit"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "req.params.q and req.params.limit",
+          "ar": "req.params.q و req.params.limit"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "req.body.q and req.body.limit",
+          "ar": "req.body.q و req.body.limit"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "req.search.q and req.search.limit",
+          "ar": "req.search.q و req.search.limit"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express parses the query string automatically into a specific property of the request object.", "ar": "يُحلّل Express سلسلة الاستعلام تلقائياً في خاصية محددة من كائن الطلب." },
-    "explanation": { "en": "Query string parameters (everything after '?') are available on req.query as an object. req.params is for route path segments like :id, and req.body is for the request body.", "ar": "تتوفر معاملات سلسلة الاستعلام (كل شيء بعد '?') على req.query ككائن. أما req.params فهو لأجزاء مسار المسار مثل :id، و req.body للجسم." },
+    "hint": {
+      "en": "Express parses the query string automatically into a specific property of the request object.",
+      "ar": "يُحلّل Express سلسلة الاستعلام تلقائياً في خاصية محددة من كائن الطلب."
+    },
+    "explanation": {
+      "en": "Query string parameters (everything after '?') are available on req.query as an object. req.params is for route path segments like :id, and req.body is for the request body.",
+      "ar": "تتوفر معاملات سلسلة الاستعلام (كل شيء بعد '?') على req.query ككائن. أما req.params فهو لأجزاء مسار المسار مثل :id، و req.body للجسم."
+    },
     "xp": 10,
-    "tags": ["routing", "query", "request"]
+    "tags": [
+      "routing",
+      "query",
+      "request"
+    ]
   },
   {
     "id": "express-b-8",
     "trackId": "express",
     "level": "beginner",
     "type": "fill-blank",
-    "prompt": { "en": "Complete the code so the server responds with HTTP status 404 and a JSON message.", "ar": "أكمل الكود ليستجيب الخادم بحالة HTTP 404 ورسالة JSON." },
+    "prompt": {
+      "en": "Complete the code so the server responds with HTTP status 404 and a JSON message.",
+      "ar": "أكمل الكود ليستجيب الخادم بحالة HTTP 404 ورسالة JSON."
+    },
     "code": "app.get('/missing', (req, res) => {\n  res.___( 404 ).json({ error: 'Not found' });\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "status", "ar": "status" } },
-      { "id": "b", "text": { "en": "code", "ar": "code" } },
-      { "id": "c", "text": { "en": "setStatus", "ar": "setStatus" } },
-      { "id": "d", "text": { "en": "statusCode", "ar": "statusCode" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "status",
+          "ar": "status"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "code",
+          "ar": "code"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "setStatus",
+          "ar": "setStatus"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "statusCode",
+          "ar": "statusCode"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This res method is chainable and sets the HTTP response status code.", "ar": "هذه الدالة قابلة للتسلسل وتضبط كود حالة استجابة HTTP." },
-    "explanation": { "en": "res.status(code) sets the HTTP status code and returns the response object for chaining. res.statusCode is a property (not a method) and is not chainable.", "ar": "تضبط res.status(code) كود حالة HTTP وتعيد كائن الاستجابة للتسلسل. أما res.statusCode فهو خاصية (وليس دالة) وغير قابلة للتسلسل." },
+    "hint": {
+      "en": "This res method is chainable and sets the HTTP response status code.",
+      "ar": "هذه الدالة قابلة للتسلسل وتضبط كود حالة استجابة HTTP."
+    },
+    "explanation": {
+      "en": "res.status(code) sets the HTTP status code and returns the response object for chaining. res.statusCode is a property (not a method) and is not chainable.",
+      "ar": "تضبط res.status(code) كود حالة HTTP وتعيد كائن الاستجابة للتسلسل. أما res.statusCode فهو خاصية (وليس دالة) وغير قابلة للتسلسل."
+    },
     "xp": 10,
-    "tags": ["response", "status-codes"]
+    "tags": [
+      "response",
+      "status-codes"
+    ]
   },
   {
     "id": "express-b-9",
     "trackId": "express",
     "level": "beginner",
     "type": "multiple-choice",
-    "prompt": { "en": "Which middleware serves static files such as HTML, CSS, and images?", "ar": "أي middleware يُقدّم الملفات الثابتة مثل HTML وCSS والصور؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "Which middleware serves static files such as HTML, CSS, and images?",
+      "ar": "أي middleware يُقدّم الملفات الثابتة مثل HTML وCSS والصور؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "express.static()", "ar": "express.static()" } },
-      { "id": "b", "text": { "en": "express.files()", "ar": "express.files()" } },
-      { "id": "c", "text": { "en": "express.serve()", "ar": "express.serve()" } },
-      { "id": "d", "text": { "en": "express.assets()", "ar": "express.assets()" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "express.static()",
+          "ar": "express.static()"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "express.files()",
+          "ar": "express.files()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "express.serve()",
+          "ar": "express.serve()"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "express.assets()",
+          "ar": "express.assets()"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "This is a built-in Express middleware for serving static assets.", "ar": "هذا middleware مدمج في Express لتقديم الأصول الثابتة." },
-    "explanation": { "en": "express.static('public') serves files from the 'public' directory. For example, a file at public/style.css is served at /style.css.", "ar": "يُقدّم express.static('public') الملفات من مجلد 'public'. مثلاً، ملف في public/style.css يُقدَّم على /style.css." },
+    "hint": {
+      "en": "This is a built-in Express middleware for serving static assets.",
+      "ar": "هذا middleware مدمج في Express لتقديم الأصول الثابتة."
+    },
+    "explanation": {
+      "en": "express.static('public') serves files from the 'public' directory. For example, a file at public/style.css is served at /style.css.",
+      "ar": "يُقدّم express.static('public') الملفات من مجلد 'public'. مثلاً، ملف في public/style.css يُقدَّم على /style.css."
+    },
     "xp": 10,
-    "tags": ["static-files", "middleware"]
+    "tags": [
+      "static-files",
+      "middleware"
+    ]
   },
   {
     "id": "express-b-10",
     "trackId": "express",
     "level": "beginner",
     "type": "true-false",
-    "prompt": { "en": "res.redirect('/home') sends a 302 status code by default.", "ar": "ترسل res.redirect('/home') كود حالة 302 بشكل افتراضي." },
-    "codeLang": "js",
+    "prompt": {
+      "en": "res.redirect('/home') sends a 302 status code by default.",
+      "ar": "ترسل res.redirect('/home') كود حالة 302 بشكل افتراضي."
+    },
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about the default redirect status in HTTP.", "ar": "فكّر في حالة إعادة التوجيه الافتراضية في HTTP." },
-    "explanation": { "en": "When called without an explicit status code, res.redirect() sends a 302 Found response, which indicates a temporary redirect. You can override it with res.redirect(301, '/home') for a permanent redirect.", "ar": "عند استدعائها بدون كود حالة صريح، ترسل res.redirect() استجابة 302 Found تشير إلى إعادة توجيه مؤقتة. يمكنك تجاوزها بـ res.redirect(301, '/home') لإعادة توجيه دائمة." },
+    "hint": {
+      "en": "Think about the default redirect status in HTTP.",
+      "ar": "فكّر في حالة إعادة التوجيه الافتراضية في HTTP."
+    },
+    "explanation": {
+      "en": "When called without an explicit status code, res.redirect() sends a 302 Found response, which indicates a temporary redirect. You can override it with res.redirect(301, '/home') for a permanent redirect.",
+      "ar": "عند استدعائها بدون كود حالة صريح، ترسل res.redirect() استجابة 302 Found تشير إلى إعادة توجيه مؤقتة. يمكنك تجاوزها بـ res.redirect(301, '/home') لإعادة توجيه دائمة."
+    },
     "xp": 10,
-    "tags": ["response", "redirect", "status-codes"]
+    "tags": [
+      "response",
+      "redirect",
+      "status-codes"
+    ]
   },
   {
     "id": "express-i-1",
     "trackId": "express",
     "level": "intermediate",
     "type": "debugging",
-    "prompt": { "en": "The request hangs and never completes. What is the bug?", "ar": "الطلب يتوقف ولا يكتمل أبداً. ما هو الخطأ؟" },
+    "prompt": {
+      "en": "The request hangs and never completes. What is the bug?",
+      "ar": "الطلب يتوقف ولا يكتمل أبداً. ما هو الخطأ؟"
+    },
     "code": "app.use((req, res, next) => {\n  if (req.headers['x-api-key'] === 'secret') {\n    next();\n  }\n  // else: do nothing\n});\n\napp.get('/data', (req, res) => res.json({ ok: true }));",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "When the API key is missing or wrong, neither next() nor a response is called, so the request hangs.", "ar": "عندما تكون مفتاح API مفقوداً أو خاطئاً، لا يُستدعى next() ولا يُرسل رد، فيتوقف الطلب." } },
-      { "id": "b", "text": { "en": "next() should be called with an argument like next('route').", "ar": "يجب استدعاء next() مع مدخل مثل next('route')." } },
-      { "id": "c", "text": { "en": "app.use() cannot perform authentication checks.", "ar": "لا يمكن لـ app.use() إجراء فحوصات مصادقة." } },
-      { "id": "d", "text": { "en": "The route /data must be declared before app.use().", "ar": "يجب إعلان المسار /data قبل app.use()." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "When the API key is missing or wrong, neither next() nor a response is called, so the request hangs.",
+          "ar": "عندما تكون مفتاح API مفقوداً أو خاطئاً، لا يُستدعى next() ولا يُرسل رد، فيتوقف الطلب."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "next() should be called with an argument like next('route').",
+          "ar": "يجب استدعاء next() مع مدخل مثل next('route')."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "app.use() cannot perform authentication checks.",
+          "ar": "لا يمكن لـ app.use() إجراء فحوصات مصادقة."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The route /data must be declared before app.use().",
+          "ar": "يجب إعلان المسار /data قبل app.use()."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Every code path inside a middleware must either call next() or send a response.", "ar": "يجب أن تستدعي كل مسار كود داخل الـ middleware إما next() أو ترسل رداً." },
-    "explanation": { "en": "Middleware must always either call next() or terminate the request with a response. When the API key check fails and neither path is taken, the request is left open indefinitely. Fix: add an else branch that calls res.status(401).json({ error: 'Unauthorized' }).", "ar": "يجب أن يستدعي الـ middleware دائماً إما next() أو ينهي الطلب برد. عندما يفشل فحص مفتاح API ولا يُتخذ أي مسار، يبقى الطلب مفتوحاً إلى الأبد. الحل: أضف فرع else يستدعي res.status(401).json({ error: 'Unauthorized' })." },
+    "hint": {
+      "en": "Every code path inside a middleware must either call next() or send a response.",
+      "ar": "يجب أن تستدعي كل مسار كود داخل الـ middleware إما next() أو ترسل رداً."
+    },
+    "explanation": {
+      "en": "Middleware must always either call next() or terminate the request with a response. When the API key check fails and neither path is taken, the request is left open indefinitely. Fix: add an else branch that calls res.status(401).json({ error: 'Unauthorized' }).",
+      "ar": "يجب أن يستدعي الـ middleware دائماً إما next() أو ينهي الطلب برد. عندما يفشل فحص مفتاح API ولا يُتخذ أي مسار، يبقى الطلب مفتوحاً إلى الأبد. الحل: أضف فرع else يستدعي res.status(401).json({ error: 'Unauthorized' })."
+    },
     "xp": 15,
-    "tags": ["middleware", "debugging", "authentication"]
+    "tags": [
+      "middleware",
+      "debugging",
+      "authentication"
+    ]
   },
   {
     "id": "express-i-2",
     "trackId": "express",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "What is the correct signature for an Express error-handling middleware?", "ar": "ما التوقيع الصحيح لـ middleware معالجة الأخطاء في Express؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "What is the correct signature for an Express error-handling middleware?",
+      "ar": "ما التوقيع الصحيح لـ middleware معالجة الأخطاء في Express؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "(err, req, res, next)", "ar": "(err, req, res, next)" } },
-      { "id": "b", "text": { "en": "(req, res, next, err)", "ar": "(req, res, next, err)" } },
-      { "id": "c", "text": { "en": "(err, req, res)", "ar": "(err, req, res)" } },
-      { "id": "d", "text": { "en": "(req, err, res, next)", "ar": "(req, err, res, next)" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "(err, req, res, next)",
+          "ar": "(err, req, res, next)"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "(req, res, next, err)",
+          "ar": "(req, res, next, err)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "(err, req, res)",
+          "ar": "(err, req, res)"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "(req, err, res, next)",
+          "ar": "(req, err, res, next)"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express identifies error-handling middleware by the number of arguments in the function signature.", "ar": "يُعرّف Express على middleware معالجة الأخطاء من خلال عدد المدخلات في توقيع الدالة." },
-    "explanation": { "en": "Error-handling middleware MUST have exactly 4 parameters: (err, req, res, next). Express detects the 4-argument signature and only invokes this middleware when next(err) is called upstream. Omitting any parameter means Express won't treat it as an error handler.", "ar": "يجب أن يحتوي middleware معالجة الأخطاء على 4 معاملات بالضبط: (err, req, res, next). يكتشف Express توقيع 4 مدخلات ويستدعي هذا الـ middleware فقط عند استدعاء next(err) في مكان سابق. إغفال أي معامل يعني أن Express لن يعتبره معالج أخطاء." },
+    "hint": {
+      "en": "Express identifies error-handling middleware by the number of arguments in the function signature.",
+      "ar": "يُعرّف Express على middleware معالجة الأخطاء من خلال عدد المدخلات في توقيع الدالة."
+    },
+    "explanation": {
+      "en": "Error-handling middleware MUST have exactly 4 parameters: (err, req, res, next). Express detects the 4-argument signature and only invokes this middleware when next(err) is called upstream. Omitting any parameter means Express won't treat it as an error handler.",
+      "ar": "يجب أن يحتوي middleware معالجة الأخطاء على 4 معاملات بالضبط: (err, req, res, next). يكتشف Express توقيع 4 مدخلات ويستدعي هذا الـ middleware فقط عند استدعاء next(err) في مكان سابق. إغفال أي معامل يعني أن Express لن يعتبره معالج أخطاء."
+    },
     "xp": 15,
-    "tags": ["error-handling", "middleware"]
+    "tags": [
+      "error-handling",
+      "middleware"
+    ]
   },
   {
     "id": "express-i-3",
     "trackId": "express",
     "level": "intermediate",
     "type": "scenario",
-    "prompt": { "en": "You have two routers mounted at /api/v1 and /api/v2. A request to /api/v1/users should ONLY be handled by the v1 router. Which mounting approach is correct?", "ar": "لديك موجّهان مُركَّبان على /api/v1 و /api/v2. يجب أن يُعالج الطلب إلى /api/v1/users فقط من قِبَل موجّه v1. أي نهج تركيب صحيح؟" },
+    "prompt": {
+      "en": "You have two routers mounted at /api/v1 and /api/v2. A request to /api/v1/users should ONLY be handled by the v1 router. Which mounting approach is correct?",
+      "ar": "لديك موجّهان مُركَّبان على /api/v1 و /api/v2. يجب أن يُعالج الطلب إلى /api/v1/users فقط من قِبَل موجّه v1. أي نهج تركيب صحيح؟"
+    },
     "code": "const v1 = require('./routes/v1');\nconst v2 = require('./routes/v2');\n// Option A\napp.use('/api/v1', v1);\napp.use('/api/v2', v2);",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Option A shown above — mount each router on its own prefix path.", "ar": "الخيار A المعروض أعلاه — ركّب كل موجّه على مسار بادئته الخاص." } },
-      { "id": "b", "text": { "en": "Use app.get('/api/v1/*', v1) and app.get('/api/v2/*', v2).", "ar": "استخدم app.get('/api/v1/*', v1) و app.get('/api/v2/*', v2)." } },
-      { "id": "c", "text": { "en": "Mount both on '/' and use route-level checks inside each router.", "ar": "ركّب كليهما على '/' واستخدم فحوصات على مستوى المسار داخل كل موجّه." } },
-      { "id": "d", "text": { "en": "Express routers cannot be mounted on sub-paths.", "ar": "لا يمكن تركيب موجّهات Express على مسارات فرعية." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Option A shown above — mount each router on its own prefix path.",
+          "ar": "الخيار A المعروض أعلاه — ركّب كل موجّه على مسار بادئته الخاص."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Use app.get('/api/v1/*', v1) and app.get('/api/v2/*', v2).",
+          "ar": "استخدم app.get('/api/v1/*', v1) و app.get('/api/v2/*', v2)."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Mount both on '/' and use route-level checks inside each router.",
+          "ar": "ركّب كليهما على '/' واستخدم فحوصات على مستوى المسار داخل كل موجّه."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Express routers cannot be mounted on sub-paths.",
+          "ar": "لا يمكن تركيب موجّهات Express على مسارات فرعية."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "app.use(path, router) strips the prefix before passing control to the router.", "ar": "يُزيل app.use(path, router) البادئة قبل نقل التحكم إلى الموجّه." },
-    "explanation": { "en": "app.use('/api/v1', v1) mounts the v1 router so that it handles requests starting with /api/v1. Express strips the mount path prefix before the router sees the URL, so a route defined as router.get('/users') inside v1 will match /api/v1/users.", "ar": "يُركّب app.use('/api/v1', v1) موجّه v1 ليعالج الطلبات التي تبدأ بـ /api/v1. يُزيل Express بادئة مسار التركيب قبل أن يرى الموجّه URL، لذا فإن المسار المُعرَّف كـ router.get('/users') داخل v1 سيطابق /api/v1/users." },
+    "hint": {
+      "en": "app.use(path, router) strips the prefix before passing control to the router.",
+      "ar": "يُزيل app.use(path, router) البادئة قبل نقل التحكم إلى الموجّه."
+    },
+    "explanation": {
+      "en": "app.use('/api/v1', v1) mounts the v1 router so that it handles requests starting with /api/v1. Express strips the mount path prefix before the router sees the URL, so a route defined as router.get('/users') inside v1 will match /api/v1/users.",
+      "ar": "يُركّب app.use('/api/v1', v1) موجّه v1 ليعالج الطلبات التي تبدأ بـ /api/v1. يُزيل Express بادئة مسار التركيب قبل أن يرى الموجّه URL، لذا فإن المسار المُعرَّف كـ router.get('/users') داخل v1 سيطابق /api/v1/users."
+    },
     "xp": 15,
-    "tags": ["router", "mounting", "modular-routes"]
+    "tags": [
+      "router",
+      "mounting",
+      "modular-routes"
+    ]
   },
   {
     "id": "express-i-4",
     "trackId": "express",
     "level": "intermediate",
     "type": "code-output",
-    "prompt": { "en": "What happens when this code handles GET /api/data?", "ar": "ماذا يحدث عندما يعالج هذا الكود GET /api/data؟" },
+    "prompt": {
+      "en": "What happens when this code handles GET /api/data?",
+      "ar": "ماذا يحدث عندما يعالج هذا الكود GET /api/data؟"
+    },
     "code": "app.use((req, res, next) => {\n  req.requestTime = Date.now();\n  next();\n});\n\napp.get('/api/data', (req, res) => {\n  res.json({ time: req.requestTime });\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Returns JSON with a numeric timestamp in the 'time' field.", "ar": "يُعيد JSON مع طابع زمني رقمي في حقل 'time'." } },
-      { "id": "b", "text": { "en": "Throws a ReferenceError because req.requestTime is not defined.", "ar": "يُطلق ReferenceError لأن req.requestTime غير معرَّف." } },
-      { "id": "c", "text": { "en": "Returns undefined for the 'time' field.", "ar": "يُعيد undefined لحقل 'time'." } },
-      { "id": "d", "text": { "en": "Crashes because you cannot add properties to req.", "ar": "يتعطل لأنك لا تستطيع إضافة خصائص إلى req." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Returns JSON with a numeric timestamp in the 'time' field.",
+          "ar": "يُعيد JSON مع طابع زمني رقمي في حقل 'time'."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Throws a ReferenceError because req.requestTime is not defined.",
+          "ar": "يُطلق ReferenceError لأن req.requestTime غير معرَّف."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Returns undefined for the 'time' field.",
+          "ar": "يُعيد undefined لحقل 'time'."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Crashes because you cannot add properties to req.",
+          "ar": "يتعطل لأنك لا تستطيع إضافة خصائص إلى req."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Middleware can attach custom properties to the req object before passing control forward.", "ar": "يمكن للـ middleware إرفاق خصائص مخصصة بكائن req قبل نقل التحكم للأمام." },
-    "explanation": { "en": "The middleware attaches req.requestTime before calling next(). Because middleware runs before route handlers, req.requestTime is set when the route handler runs, so res.json returns a valid timestamp.", "ar": "يُرفق الـ middleware قيمة req.requestTime قبل استدعاء next(). بما أن الـ middleware يعمل قبل معالجات المسار، تكون قيمة req.requestTime محددة عند تشغيل معالج المسار، وبالتالي يُعيد res.json طابعاً زمنياً صحيحاً." },
+    "hint": {
+      "en": "Middleware can attach custom properties to the req object before passing control forward.",
+      "ar": "يمكن للـ middleware إرفاق خصائص مخصصة بكائن req قبل نقل التحكم للأمام."
+    },
+    "explanation": {
+      "en": "The middleware attaches req.requestTime before calling next(). Because middleware runs before route handlers, req.requestTime is set when the route handler runs, so res.json returns a valid timestamp.",
+      "ar": "يُرفق الـ middleware قيمة req.requestTime قبل استدعاء next(). بما أن الـ middleware يعمل قبل معالجات المسار، تكون قيمة req.requestTime محددة عند تشغيل معالج المسار، وبالتالي يُعيد res.json طابعاً زمنياً صحيحاً."
+    },
     "xp": 15,
-    "tags": ["middleware", "request-lifecycle"]
+    "tags": [
+      "middleware",
+      "request-lifecycle"
+    ]
   },
   {
     "id": "express-i-5",
     "trackId": "express",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "What is the correct way to enable CORS for all origins in Express?", "ar": "ما الطريقة الصحيحة لتمكين CORS لجميع الأصول في Express؟" },
+    "prompt": {
+      "en": "What is the correct way to enable CORS for all origins in Express?",
+      "ar": "ما الطريقة الصحيحة لتمكين CORS لجميع الأصول في Express؟"
+    },
     "code": "const cors = require('cors');\n// How to apply it?",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "app.use(cors()) — mount the cors middleware before route definitions.", "ar": "app.use(cors()) — ركّب middleware cors قبل تعريفات المسار." } },
-      { "id": "b", "text": { "en": "app.enable('cors') — enable the built-in CORS flag.", "ar": "app.enable('cors') — فعّل علامة CORS المدمجة." } },
-      { "id": "c", "text": { "en": "res.setHeader('Access-Control-Allow-Origin', '*') inside every route handler.", "ar": "res.setHeader('Access-Control-Allow-Origin', '*') داخل كل معالج مسار." } },
-      { "id": "d", "text": { "en": "app.use(cors) — pass the function reference without calling it.", "ar": "app.use(cors) — مرّر مرجع الدالة دون استدعائها." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "app.use(cors()) — mount the cors middleware before route definitions.",
+          "ar": "app.use(cors()) — ركّب middleware cors قبل تعريفات المسار."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "app.enable('cors') — enable the built-in CORS flag.",
+          "ar": "app.enable('cors') — فعّل علامة CORS المدمجة."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "res.setHeader('Access-Control-Allow-Origin', '*') inside every route handler.",
+          "ar": "res.setHeader('Access-Control-Allow-Origin', '*') داخل كل معالج مسار."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "app.use(cors) — pass the function reference without calling it.",
+          "ar": "app.use(cors) — مرّر مرجع الدالة دون استدعائها."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Third-party middleware packages are typically invoked to return a configured middleware function.", "ar": "عادةً ما تُستدعى حزم middleware الخارجية لإعادة دالة middleware مُهيّأة." } ,
-    "explanation": { "en": "cors() returns a middleware function when called. Passing it to app.use() applies CORS headers to every request. app.enable('cors') is not a real Express API, and manually setting headers in every route is error-prone.", "ar": "تُعيد cors() دالة middleware عند استدعائها. تمريرها إلى app.use() يُطبّق ترويسات CORS على كل طلب. app.enable('cors') ليست واجهة Express حقيقية، والإعداد اليدوي للترويسات في كل مسار عرضة للأخطاء." },
+    "hint": {
+      "en": "Third-party middleware packages are typically invoked to return a configured middleware function.",
+      "ar": "عادةً ما تُستدعى حزم middleware الخارجية لإعادة دالة middleware مُهيّأة."
+    },
+    "explanation": {
+      "en": "cors() returns a middleware function when called. Passing it to app.use() applies CORS headers to every request. app.enable('cors') is not a real Express API, and manually setting headers in every route is error-prone.",
+      "ar": "تُعيد cors() دالة middleware عند استدعائها. تمريرها إلى app.use() يُطبّق ترويسات CORS على كل طلب. app.enable('cors') ليست واجهة Express حقيقية، والإعداد اليدوي للترويسات في كل مسار عرضة للأخطاء."
+    },
     "xp": 15,
-    "tags": ["cors", "third-party-middleware", "security"]
+    "tags": [
+      "cors",
+      "third-party-middleware",
+      "security"
+    ]
   },
   {
     "id": "express-i-6",
     "trackId": "express",
     "level": "intermediate",
     "type": "scenario",
-    "prompt": { "en": "A catch-all 404 handler is not triggering. What is most likely wrong?", "ar": "معالج 404 الشامل لا يُطلَق. ما السبب الأرجح؟" },
+    "prompt": {
+      "en": "A catch-all 404 handler is not triggering. What is most likely wrong?",
+      "ar": "معالج 404 الشامل لا يُطلَق. ما السبب الأرجح؟"
+    },
     "code": "app.use((req, res) => {\n  res.status(404).json({ error: 'Not found' });\n});\n\napp.get('/products', (req, res) => res.json([]));\napp.get('/users', (req, res) => res.json([]));",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "The 404 handler is registered before the actual routes, so it catches every request and the routes below it never run.", "ar": "معالج 404 مُسجَّل قبل المسارات الفعلية، لذا يلتقط كل طلب والمسارات تحته لا تعمل أبداً." } },
-      { "id": "b", "text": { "en": "The 404 handler requires a path argument like app.use('*', ...).", "ar": "يتطلب معالج 404 مدخل مسار مثل app.use('*', ...)." } },
-      { "id": "c", "text": { "en": "app.use() cannot be used as a 404 handler.", "ar": "لا يمكن استخدام app.use() كمعالج 404." } },
-      { "id": "d", "text": { "en": "next() must be called inside the 404 handler.", "ar": "يجب استدعاء next() داخل معالج 404." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The 404 handler is registered before the actual routes, so it catches every request and the routes below it never run.",
+          "ar": "معالج 404 مُسجَّل قبل المسارات الفعلية، لذا يلتقط كل طلب والمسارات تحته لا تعمل أبداً."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The 404 handler requires a path argument like app.use('*', ...).",
+          "ar": "يتطلب معالج 404 مدخل مسار مثل app.use('*', ...)."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "app.use() cannot be used as a 404 handler.",
+          "ar": "لا يمكن استخدام app.use() كمعالج 404."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "next() must be called inside the 404 handler.",
+          "ar": "يجب استدعاء next() داخل معالج 404."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Order of registration is everything in Express.", "ar": "ترتيب التسجيل هو كل شيء في Express." },
-    "explanation": { "en": "The 404 handler must be placed AFTER all other routes so it only triggers when no route matched. Registered before the routes, app.use() matches every request, making /products and /users unreachable.", "ar": "يجب وضع معالج 404 بعد جميع المسارات الأخرى ليُطلَق فقط عندما لا يطابق أي مسار. عند تسجيله قبل المسارات، يطابق app.use() كل طلب مما يجعل /products و /users غير قابلَين للوصول." },
+    "hint": {
+      "en": "Order of registration is everything in Express.",
+      "ar": "ترتيب التسجيل هو كل شيء في Express."
+    },
+    "explanation": {
+      "en": "The 404 handler must be placed AFTER all other routes so it only triggers when no route matched. Registered before the routes, app.use() matches every request, making /products and /users unreachable.",
+      "ar": "يجب وضع معالج 404 بعد جميع المسارات الأخرى ليُطلَق فقط عندما لا يطابق أي مسار. عند تسجيله قبل المسارات، يطابق app.use() كل طلب مما يجعل /products و /users غير قابلَين للوصول."
+    },
     "xp": 15,
-    "tags": ["routing", "404", "order", "debugging"]
+    "tags": [
+      "routing",
+      "404",
+      "order",
+      "debugging"
+    ]
   },
   {
     "id": "express-i-7",
     "trackId": "express",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "What does calling next('route') do inside a route handler?", "ar": "ماذا يفعل استدعاء next('route') داخل معالج مسار؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "What does calling next('route') do inside a route handler?",
+      "ar": "ماذا يفعل استدعاء next('route') داخل معالج مسار؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "Skips remaining handlers for the current route and passes control to the next matching route.", "ar": "يتخطى المعالجات المتبقية للمسار الحالي وينقل التحكم إلى المسار المطابق التالي." } },
-      { "id": "b", "text": { "en": "Triggers the error-handling middleware.", "ar": "يُطلق middleware معالجة الأخطاء." } },
-      { "id": "c", "text": { "en": "Redirects to the named route.", "ar": "يُعيد التوجيه إلى المسار المُسمّى." } },
-      { "id": "d", "text": { "en": "It is the same as calling next() with no argument.", "ar": "هو نفس استدعاء next() بدون مدخل." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Skips remaining handlers for the current route and passes control to the next matching route.",
+          "ar": "يتخطى المعالجات المتبقية للمسار الحالي وينقل التحكم إلى المسار المطابق التالي."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Triggers the error-handling middleware.",
+          "ar": "يُطلق middleware معالجة الأخطاء."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Redirects to the named route.",
+          "ar": "يُعيد التوجيه إلى المسار المُسمّى."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It is the same as calling next() with no argument.",
+          "ar": "هو نفس استدعاء next() بدون مدخل."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "There is a special string argument that changes next()'s behavior for routing.", "ar": "هناك مدخل سلسلة نصية خاص يُغيّر سلوك next() للتوجيه." },
-    "explanation": { "en": "next('route') bypasses all remaining middleware/handlers registered on the current route and jumps to the next app.get/post/etc that matches. It only works inside middleware attached directly to a router or app method, not in app.use().", "ar": "يتجاوز next('route') جميع الـ middleware/معالجات المتبقية المُسجَّلة على المسار الحالي وينتقل إلى app.get/post/إلخ التالي المطابق. يعمل فقط داخل الـ middleware المُرفق مباشرةً بطريقة موجّه أو تطبيق، وليس في app.use()." },
+    "hint": {
+      "en": "There is a special string argument that changes next()'s behavior for routing.",
+      "ar": "هناك مدخل سلسلة نصية خاص يُغيّر سلوك next() للتوجيه."
+    },
+    "explanation": {
+      "en": "next('route') bypasses all remaining middleware/handlers registered on the current route and jumps to the next app.get/post/etc that matches. It only works inside middleware attached directly to a router or app method, not in app.use().",
+      "ar": "يتجاوز next('route') جميع الـ middleware/معالجات المتبقية المُسجَّلة على المسار الحالي وينتقل إلى app.get/post/إلخ التالي المطابق. يعمل فقط داخل الـ middleware المُرفق مباشرةً بطريقة موجّه أو تطبيق، وليس في app.use()."
+    },
     "xp": 15,
-    "tags": ["routing", "next", "middleware"]
+    "tags": [
+      "routing",
+      "next",
+      "middleware"
+    ]
   },
   {
     "id": "express-i-8",
     "trackId": "express",
     "level": "intermediate",
     "type": "debugging",
-    "prompt": { "en": "The morgan logger logs nothing. What is wrong?", "ar": "مُسجّل morgan لا يُسجّل شيئاً. ما المشكلة؟" },
+    "prompt": {
+      "en": "The morgan logger logs nothing. What is wrong?",
+      "ar": "مُسجّل morgan لا يُسجّل شيئاً. ما المشكلة؟"
+    },
     "code": "const morgan = require('morgan');\n\napp.get('/api', (req, res) => res.json({ ok: true }));\n\napp.use(morgan('dev'));",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "morgan is registered after the route, so it never intercepts requests that are already handled.", "ar": "مُسجَّل morgan بعد المسار، لذا لا يعترض الطلبات التي عولجت بالفعل." } },
-      { "id": "b", "text": { "en": "morgan('dev') is not a valid configuration.", "ar": "morgan('dev') ليست إعداداً صحيحاً." } },
-      { "id": "c", "text": { "en": "morgan must be required before express.", "ar": "يجب استدعاء morgan قبل express." } },
-      { "id": "d", "text": { "en": "morgan only works in production mode.", "ar": "يعمل morgan فقط في وضع الإنتاج." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "morgan is registered after the route, so it never intercepts requests that are already handled.",
+          "ar": "مُسجَّل morgan بعد المسار، لذا لا يعترض الطلبات التي عولجت بالفعل."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "morgan('dev') is not a valid configuration.",
+          "ar": "morgan('dev') ليست إعداداً صحيحاً."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "morgan must be required before express.",
+          "ar": "يجب استدعاء morgan قبل express."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "morgan only works in production mode.",
+          "ar": "يعمل morgan فقط في وضع الإنتاج."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Logging middleware must be registered before routes to intercept all requests.", "ar": "يجب تسجيل middleware التسجيل قبل المسارات لاعتراض جميع الطلبات." },
-    "explanation": { "en": "Because Express executes middleware in registration order, morgan is registered after the /api route. Requests to /api are fully handled before reaching morgan, so nothing is logged. Move app.use(morgan('dev')) to the top.", "ar": "بما أن Express ينفّذ الـ middleware بترتيب التسجيل، فإن morgan مُسجَّل بعد مسار /api. تُعالَج الطلبات إلى /api بالكامل قبل الوصول إلى morgan، لذا لا يُسجَّل شيء. انقل app.use(morgan('dev')) إلى الأعلى." },
+    "hint": {
+      "en": "Logging middleware must be registered before routes to intercept all requests.",
+      "ar": "يجب تسجيل middleware التسجيل قبل المسارات لاعتراض جميع الطلبات."
+    },
+    "explanation": {
+      "en": "Because Express executes middleware in registration order, morgan is registered after the /api route. Requests to /api are fully handled before reaching morgan, so nothing is logged. Move app.use(morgan('dev')) to the top.",
+      "ar": "بما أن Express ينفّذ الـ middleware بترتيب التسجيل، فإن morgan مُسجَّل بعد مسار /api. تُعالَج الطلبات إلى /api بالكامل قبل الوصول إلى morgan، لذا لا يُسجَّل شيء. انقل app.use(morgan('dev')) إلى الأعلى."
+    },
     "xp": 15,
-    "tags": ["morgan", "middleware", "order", "debugging"]
+    "tags": [
+      "morgan",
+      "middleware",
+      "order",
+      "debugging"
+    ]
   },
   {
     "id": "express-i-9",
     "trackId": "express",
     "level": "intermediate",
     "type": "multiple-choice",
-    "prompt": { "en": "How do you parse URL-encoded form data (application/x-www-form-urlencoded) in Express 4.16+?", "ar": "كيف تُحلّل بيانات النماذج المُشفَّرة بـ URL (application/x-www-form-urlencoded) في Express 4.16+؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "How do you parse URL-encoded form data (application/x-www-form-urlencoded) in Express 4.16+?",
+      "ar": "كيف تُحلّل بيانات النماذج المُشفَّرة بـ URL (application/x-www-form-urlencoded) في Express 4.16+؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "app.use(express.urlencoded({ extended: true }))", "ar": "app.use(express.urlencoded({ extended: true }))" } },
-      { "id": "b", "text": { "en": "app.use(express.formData())", "ar": "app.use(express.formData())" } },
-      { "id": "c", "text": { "en": "app.use(express.text({ type: 'form' }))", "ar": "app.use(express.text({ type: 'form' }))" } },
-      { "id": "d", "text": { "en": "app.use(express.query())", "ar": "app.use(express.query())" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "app.use(express.urlencoded({ extended: true }))",
+          "ar": "app.use(express.urlencoded({ extended: true }))"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "app.use(express.formData())",
+          "ar": "app.use(express.formData())"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "app.use(express.text({ type: 'form' }))",
+          "ar": "app.use(express.text({ type: 'form' }))"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "app.use(express.query())",
+          "ar": "app.use(express.query())"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express 4.16 added built-in wrappers for common body-parser functionality.", "ar": "أضاف Express 4.16 غلافات مدمجة لوظيفة body-parser الشائعة." },
-    "explanation": { "en": "express.urlencoded({ extended: true }) parses URL-encoded bodies. The extended option uses the qs library (true) for rich objects or the built-in querystring module (false) for simple parsing.", "ar": "يُحلّل express.urlencoded({ extended: true }) الأجسام المُشفَّرة بـ URL. يستخدم خيار extended مكتبة qs (true) للكائنات الغنية أو وحدة querystring المدمجة (false) للتحليل البسيط." },
+    "hint": {
+      "en": "Express 4.16 added built-in wrappers for common body-parser functionality.",
+      "ar": "أضاف Express 4.16 غلافات مدمجة لوظيفة body-parser الشائعة."
+    },
+    "explanation": {
+      "en": "express.urlencoded({ extended: true }) parses URL-encoded bodies. The extended option uses the qs library (true) for rich objects or the built-in querystring module (false) for simple parsing.",
+      "ar": "يُحلّل express.urlencoded({ extended: true }) الأجسام المُشفَّرة بـ URL. يستخدم خيار extended مكتبة qs (true) للكائنات الغنية أو وحدة querystring المدمجة (false) للتحليل البسيط."
+    },
     "xp": 15,
-    "tags": ["middleware", "urlencoded", "body-parser"]
+    "tags": [
+      "middleware",
+      "urlencoded",
+      "body-parser"
+    ]
   },
   {
     "id": "express-i-10",
     "trackId": "express",
     "level": "intermediate",
     "type": "scenario",
-    "prompt": { "en": "You need to chain three middleware functions on a single route: authenticate, validate, then handle. What is the cleanest approach?", "ar": "تحتاج إلى تسلسل ثلاث دوال middleware على مسار واحد: authenticate ثم validate ثم handle. ما النهج الأنظف؟" },
+    "prompt": {
+      "en": "You need to chain three middleware functions on a single route: authenticate, validate, then handle. What is the cleanest approach?",
+      "ar": "تحتاج إلى تسلسل ثلاث دوال middleware على مسار واحد: authenticate ثم validate ثم handle. ما النهج الأنظف؟"
+    },
     "code": "// Which is correct?\n// A:\napp.post('/order', authenticate, validate, handleOrder);\n// B:\napp.post('/order', [authenticate, validate, handleOrder]);\n// C: Both A and B\n// D: Neither; use app.use() for each",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Both A and B are valid — Express accepts multiple handler arguments or an array.", "ar": "كلاهما A و B صحيحان — يقبل Express مدخلات معالج متعددة أو مصفوفة." } },
-      { "id": "b", "text": { "en": "Only A is valid.", "ar": "A فقط صحيح." } },
-      { "id": "c", "text": { "en": "Only B is valid.", "ar": "B فقط صحيح." } },
-      { "id": "d", "text": { "en": "Neither; use app.use() for each middleware separately.", "ar": "لا شيء منهما؛ استخدم app.use() لكل middleware بشكل منفصل." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Both A and B are valid — Express accepts multiple handler arguments or an array.",
+          "ar": "كلاهما A و B صحيحان — يقبل Express مدخلات معالج متعددة أو مصفوفة."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only A is valid.",
+          "ar": "A فقط صحيح."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only B is valid.",
+          "ar": "B فقط صحيح."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Neither; use app.use() for each middleware separately.",
+          "ar": "لا شيء منهما؛ استخدم app.use() لكل middleware بشكل منفصل."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express route methods accept variadic arguments and arrays of handlers.", "ar": "تقبل دوال مسار Express مدخلات متغيرة ومصفوفات من المعالجات." },
-    "explanation": { "en": "Express route methods (get, post, put, etc.) accept either multiple handler arguments separated by commas or an array of handlers (or a mix). Both forms produce identical behavior, running handlers in order and passing control with next().", "ar": "تقبل دوال مسار Express (get, post, put, إلخ) إما مدخلات معالج متعددة مفصولة بفواصل أو مصفوفة من المعالجات (أو مزيج منهما). كلا الشكلين ينتجان سلوكاً متطابقاً، إذ يُشغّلان المعالجات بالترتيب وينقلان التحكم عبر next()." },
+    "hint": {
+      "en": "Express route methods accept variadic arguments and arrays of handlers.",
+      "ar": "تقبل دوال مسار Express مدخلات متغيرة ومصفوفات من المعالجات."
+    },
+    "explanation": {
+      "en": "Express route methods (get, post, put, etc.) accept either multiple handler arguments separated by commas or an array of handlers (or a mix). Both forms produce identical behavior, running handlers in order and passing control with next().",
+      "ar": "تقبل دوال مسار Express (get, post, put, إلخ) إما مدخلات معالج متعددة مفصولة بفواصل أو مصفوفة من المعالجات (أو مزيج منهما). كلا الشكلين ينتجان سلوكاً متطابقاً، إذ يُشغّلان المعالجات بالترتيب وينقلان التحكم عبر next()."
+    },
     "xp": 15,
-    "tags": ["middleware", "chaining", "routing"]
+    "tags": [
+      "middleware",
+      "chaining",
+      "routing"
+    ]
   },
   {
     "id": "express-a-1",
     "trackId": "express",
     "level": "advanced",
     "type": "debugging",
-    "prompt": { "en": "An async route handler throws but the error is never caught by the error-handling middleware. What is the classic bug?", "ar": "يُطلق معالج مسار غير متزامن خطأً لكن middleware معالجة الأخطاء لا يلتقطه أبداً. ما الخطأ الكلاسيكي؟" },
+    "prompt": {
+      "en": "An async route handler throws but the error is never caught by the error-handling middleware. What is the classic bug?",
+      "ar": "يُطلق معالج مسار غير متزامن خطأً لكن middleware معالجة الأخطاء لا يلتقطه أبداً. ما الخطأ الكلاسيكي؟"
+    },
     "code": "app.get('/data', async (req, res) => {\n  const result = await fetchFromDB(); // throws\n  res.json(result);\n});\n\napp.use((err, req, res, next) => {\n  res.status(500).json({ error: err.message });\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Async errors are not automatically forwarded to Express error handlers; you must wrap with try/catch and call next(err), or use a wrapper like express-async-errors.", "ar": "لا تُعاد توجيه أخطاء async تلقائياً إلى معالجات أخطاء Express؛ يجب تغليفها بـ try/catch واستدعاء next(err)، أو استخدام غلاف مثل express-async-errors." } },
-      { "id": "b", "text": { "en": "The error handler is missing a path argument.", "ar": "معالج الأخطاء يفتقر إلى مدخل مسار." } },
-      { "id": "c", "text": { "en": "async route handlers are not supported in Express 4.", "ar": "معالجات المسار async غير مدعومة في Express 4." } },
-      { "id": "d", "text": { "en": "fetchFromDB must return a Promise, not throw.", "ar": "يجب أن تُعيد fetchFromDB Promise ولا تُطلق خطأً." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Async errors are not automatically forwarded to Express error handlers; you must wrap with try/catch and call next(err), or use a wrapper like express-async-errors.",
+          "ar": "لا تُعاد توجيه أخطاء async تلقائياً إلى معالجات أخطاء Express؛ يجب تغليفها بـ try/catch واستدعاء next(err)، أو استخدام غلاف مثل express-async-errors."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The error handler is missing a path argument.",
+          "ar": "معالج الأخطاء يفتقر إلى مدخل مسار."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "async route handlers are not supported in Express 4.",
+          "ar": "معالجات المسار async غير مدعومة في Express 4."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "fetchFromDB must return a Promise, not throw.",
+          "ar": "يجب أن تُعيد fetchFromDB Promise ولا تُطلق خطأً."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express 4 does not handle Promise rejections from async route handlers automatically.", "ar": "لا يعالج Express 4 رفض Promise من معالجات المسار async تلقائياً." },
-    "explanation": { "en": "In Express 4, unhandled rejections in async route handlers crash the process (Node <15) or are silently swallowed (depending on version). The fix is to wrap the body in try/catch and call next(err) in the catch, or install express-async-errors which monkey-patches Express to forward rejections automatically. Express 5 fixes this natively.", "ar": "في Express 4، تُعطّل الرفوض غير المعالجة في معالجات مسار async العملية (Node <15) أو تُبتلع بصمت (بحسب الإصدار). الحل هو تغليف الجسم بـ try/catch واستدعاء next(err) في catch، أو تثبيت express-async-errors الذي يُصحح Express لإعادة توجيه الرفوض تلقائياً. يُصلح Express 5 هذا بشكل أصلي." },
+    "hint": {
+      "en": "Express 4 does not handle Promise rejections from async route handlers automatically.",
+      "ar": "لا يعالج Express 4 رفض Promise من معالجات المسار async تلقائياً."
+    },
+    "explanation": {
+      "en": "In Express 4, unhandled rejections in async route handlers crash the process (Node <15) or are silently swallowed (depending on version). The fix is to wrap the body in try/catch and call next(err) in the catch, or install express-async-errors which monkey-patches Express to forward rejections automatically. Express 5 fixes this natively.",
+      "ar": "في Express 4، تُعطّل الرفوض غير المعالجة في معالجات مسار async العملية (Node <15) أو تُبتلع بصمت (بحسب الإصدار). الحل هو تغليف الجسم بـ try/catch واستدعاء next(err) في catch، أو تثبيت express-async-errors الذي يُصحح Express لإعادة توجيه الرفوض تلقائياً. يُصلح Express 5 هذا بشكل أصلي."
+    },
     "xp": 25,
-    "tags": ["async", "error-handling", "debugging", "promises"]
+    "tags": [
+      "async",
+      "error-handling",
+      "debugging",
+      "promises"
+    ]
   },
   {
     "id": "express-a-2",
     "trackId": "express",
     "level": "advanced",
     "type": "debugging",
-    "prompt": { "en": "What is wrong with this code, and what error will appear in the logs?", "ar": "ما الخطأ في هذا الكود، وما الخطأ الذي سيظهر في السجلات؟" },
+    "prompt": {
+      "en": "What is wrong with this code, and what error will appear in the logs?",
+      "ar": "ما الخطأ في هذا الكود، وما الخطأ الذي سيظهر في السجلات؟"
+    },
     "code": "app.get('/item/:id', (req, res) => {\n  res.json({ id: req.params.id });\n  res.json({ status: 'done' }); // second send\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "\"Cannot set headers after they are sent to the client\" — the response is already finished after the first res.json().", "ar": "\"Cannot set headers after they are sent to the client\" — الاستجابة منتهية بالفعل بعد أول res.json()." } },
-      { "id": "b", "text": { "en": "The second res.json() overwrites the first silently.", "ar": "تُكتب res.json() الثانية فوق الأولى بصمت." } },
-      { "id": "c", "text": { "en": "Express queues both responses and sends them sequentially.", "ar": "يُصفّف Express كلا الاستجابتين ويُرسلهما تسلسلياً." } },
-      { "id": "d", "text": { "en": "The route crashes with a TypeError.", "ar": "يتعطل المسار مع TypeError." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "\"Cannot set headers after they are sent to the client\" — the response is already finished after the first res.json().",
+          "ar": "\"Cannot set headers after they are sent to the client\" — الاستجابة منتهية بالفعل بعد أول res.json()."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The second res.json() overwrites the first silently.",
+          "ar": "تُكتب res.json() الثانية فوق الأولى بصمت."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Express queues both responses and sends them sequentially.",
+          "ar": "يُصفّف Express كلا الاستجابتين ويُرسلهما تسلسلياً."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The route crashes with a TypeError.",
+          "ar": "يتعطل المسار مع TypeError."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "HTTP responses can only be sent once per request.", "ar": "يمكن إرسال استجابات HTTP مرة واحدة فقط لكل طلب." } ,
-    "explanation": { "en": "Calling res.json() (or any send method) twice causes the infamous 'Cannot set headers after they are sent to the client' error (ERR_HTTP_HEADERS_SENT). The first call commits the response; the second call tries to modify already-sent headers.", "ar": "استدعاء res.json() (أو أي دالة إرسال) مرتين يُسبب الخطأ الشهير 'Cannot set headers after they are sent to the client' (ERR_HTTP_HEADERS_SENT). الاستدعاء الأول يُلزم الاستجابة؛ الاستدعاء الثاني يحاول تعديل ترويسات أُرسلت بالفعل." },
+    "hint": {
+      "en": "HTTP responses can only be sent once per request.",
+      "ar": "يمكن إرسال استجابات HTTP مرة واحدة فقط لكل طلب."
+    },
+    "explanation": {
+      "en": "Calling res.json() (or any send method) twice causes the infamous 'Cannot set headers after they are sent to the client' error (ERR_HTTP_HEADERS_SENT). The first call commits the response; the second call tries to modify already-sent headers.",
+      "ar": "استدعاء res.json() (أو أي دالة إرسال) مرتين يُسبب الخطأ الشهير 'Cannot set headers after they are sent to the client' (ERR_HTTP_HEADERS_SENT). الاستدعاء الأول يُلزم الاستجابة؛ الاستدعاء الثاني يحاول تعديل ترويسات أُرسلت بالفعل."
+    },
     "xp": 25,
-    "tags": ["response", "debugging", "headers-sent"]
+    "tags": [
+      "response",
+      "debugging",
+      "headers-sent"
+    ]
   },
   {
     "id": "express-a-3",
     "trackId": "express",
     "level": "advanced",
     "type": "scenario",
-    "prompt": { "en": "You want to add rate limiting (100 req/15 min) to all /api routes only. Which implementation is correct?", "ar": "تريد إضافة تحديد معدل (100 طلب/15 دقيقة) لجميع مسارات /api فقط. أي تطبيق صحيح؟" },
+    "prompt": {
+      "en": "You want to add rate limiting (100 req/15 min) to all /api routes only. Which implementation is correct?",
+      "ar": "تريد إضافة تحديد معدل (100 طلب/15 دقيقة) لجميع مسارات /api فقط. أي تطبيق صحيح؟"
+    },
     "code": "const rateLimit = require('express-rate-limit');\n\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000,\n  max: 100\n});\n\n// How to apply?",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "app.use('/api', limiter) — mount the limiter on the /api prefix.", "ar": "app.use('/api', limiter) — ركّب المحدِّد على البادئة /api." } },
-      { "id": "b", "text": { "en": "app.use(limiter) — apply globally then exclude non-API routes manually.", "ar": "app.use(limiter) — طبّق عالمياً ثم استثنِ المسارات غير الـ API يدوياً." } },
-      { "id": "c", "text": { "en": "Add limiter as the first argument to every individual /api route handler.", "ar": "أضف limiter كأول مدخل لكل معالج مسار /api فردي." } },
-      { "id": "d", "text": { "en": "Rate limiting must be done at the load balancer level, not in Express.", "ar": "يجب إجراء تحديد المعدل على مستوى موازن الحمل وليس في Express." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "app.use('/api', limiter) — mount the limiter on the /api prefix.",
+          "ar": "app.use('/api', limiter) — ركّب المحدِّد على البادئة /api."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "app.use(limiter) — apply globally then exclude non-API routes manually.",
+          "ar": "app.use(limiter) — طبّق عالمياً ثم استثنِ المسارات غير الـ API يدوياً."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Add limiter as the first argument to every individual /api route handler.",
+          "ar": "أضف limiter كأول مدخل لكل معالج مسار /api فردي."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Rate limiting must be done at the load balancer level, not in Express.",
+          "ar": "يجب إجراء تحديد المعدل على مستوى موازن الحمل وليس في Express."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "app.use() can target a prefix path, applying middleware only to matching routes.", "ar": "يمكن لـ app.use() استهداف مسار بادئة، وتطبيق الـ middleware فقط على المسارات المطابقة." },
-    "explanation": { "en": "app.use('/api', limiter) applies the rate limiter to any request whose path starts with /api, leaving other paths unaffected. This is cleaner than applying it globally or repeating it on every route.", "ar": "يُطبّق app.use('/api', limiter) محدِّد المعدل على أي طلب يبدأ مساره بـ /api، تاركاً المسارات الأخرى غير متأثرة. هذا أنظف من تطبيقه عالمياً أو تكراره على كل مسار." },
+    "hint": {
+      "en": "app.use() can target a prefix path, applying middleware only to matching routes.",
+      "ar": "يمكن لـ app.use() استهداف مسار بادئة، وتطبيق الـ middleware فقط على المسارات المطابقة."
+    },
+    "explanation": {
+      "en": "app.use('/api', limiter) applies the rate limiter to any request whose path starts with /api, leaving other paths unaffected. This is cleaner than applying it globally or repeating it on every route.",
+      "ar": "يُطبّق app.use('/api', limiter) محدِّد المعدل على أي طلب يبدأ مساره بـ /api، تاركاً المسارات الأخرى غير متأثرة. هذا أنظف من تطبيقه عالمياً أو تكراره على كل مسار."
+    },
     "xp": 25,
-    "tags": ["rate-limiting", "middleware", "security"]
+    "tags": [
+      "rate-limiting",
+      "middleware",
+      "security"
+    ]
   },
   {
     "id": "express-a-4",
     "trackId": "express",
     "level": "advanced",
     "type": "multiple-choice",
-    "prompt": { "en": "Which of the following correctly implements a custom error-handling middleware that distinguishes operational errors from programmer errors?", "ar": "أي مما يلي يُنفّذ بشكل صحيح middleware مخصص لمعالجة الأخطاء يُميّز بين الأخطاء التشغيلية وأخطاء المبرمج؟" },
+    "prompt": {
+      "en": "Which of the following correctly implements a custom error-handling middleware that distinguishes operational errors from programmer errors?",
+      "ar": "أي مما يلي يُنفّذ بشكل صحيح middleware مخصص لمعالجة الأخطاء يُميّز بين الأخطاء التشغيلية وأخطاء المبرمج؟"
+    },
     "code": "app.use((err, req, res, next) => {\n  // implementation here\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Check err.isOperational; send 4xx for operational errors and log + send 500 for programmer errors.", "ar": "افحص err.isOperational؛ أرسل 4xx للأخطاء التشغيلية وسجّل وأرسل 500 لأخطاء المبرمج." } },
-      { "id": "b", "text": { "en": "Always send 500 regardless of error type.", "ar": "أرسل دائماً 500 بغض النظر عن نوع الخطأ." } },
-      { "id": "c", "text": { "en": "Re-throw the error to let Node.js handle it globally.", "ar": "أعد إطلاق الخطأ ليتعامل معه Node.js عالمياً." } },
-      { "id": "d", "text": { "en": "Call next(err) to pass it to the next error handler automatically.", "ar": "استدعِ next(err) لتمريره إلى معالج الأخطاء التالي تلقائياً." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Check err.isOperational; send 4xx for operational errors and log + send 500 for programmer errors.",
+          "ar": "افحص err.isOperational؛ أرسل 4xx للأخطاء التشغيلية وسجّل وأرسل 500 لأخطاء المبرمج."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Always send 500 regardless of error type.",
+          "ar": "أرسل دائماً 500 بغض النظر عن نوع الخطأ."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Re-throw the error to let Node.js handle it globally.",
+          "ar": "أعد إطلاق الخطأ ليتعامل معه Node.js عالمياً."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Call next(err) to pass it to the next error handler automatically.",
+          "ar": "استدعِ next(err) لتمريره إلى معالج الأخطاء التالي تلقائياً."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "A common pattern is to mark errors as 'operational' (expected) vs unexpected bugs.", "ar": "النمط الشائع هو تصنيف الأخطاء كـ 'تشغيلية' (متوقعة) مقابل أخطاء غير متوقعة." },
-    "explanation": { "en": "The Node.js error-handling best practice distinguishes operational errors (e.g., validation failure, not found) marked with err.isOperational = true, which get a meaningful HTTP response, from programmer errors (bugs) which should log the full stack and return a generic 500.", "ar": "أفضل ممارسات معالجة الأخطاء في Node.js تُميّز بين الأخطاء التشغيلية (مثل فشل التحقق، غير موجود) المُحدَّدة بـ err.isOperational = true والتي تحصل على استجابة HTTP ذات معنى، وأخطاء المبرمج (الأخطاء) التي يجب تسجيل المكدس الكامل وإعادة 500 عام." },
+    "hint": {
+      "en": "A common pattern is to mark errors as 'operational' (expected) vs unexpected bugs.",
+      "ar": "النمط الشائع هو تصنيف الأخطاء كـ 'تشغيلية' (متوقعة) مقابل أخطاء غير متوقعة."
+    },
+    "explanation": {
+      "en": "The Node.js error-handling best practice distinguishes operational errors (e.g., validation failure, not found) marked with err.isOperational = true, which get a meaningful HTTP response, from programmer errors (bugs) which should log the full stack and return a generic 500.",
+      "ar": "أفضل ممارسات معالجة الأخطاء في Node.js تُميّز بين الأخطاء التشغيلية (مثل فشل التحقق، غير موجود) المُحدَّدة بـ err.isOperational = true والتي تحصل على استجابة HTTP ذات معنى، وأخطاء المبرمج (الأخطاء) التي يجب تسجيل المكدس الكامل وإعادة 500 عام."
+    },
     "xp": 25,
-    "tags": ["error-handling", "production", "best-practices"]
+    "tags": [
+      "error-handling",
+      "production",
+      "best-practices"
+    ]
   },
   {
     "id": "express-a-5",
     "trackId": "express",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What is the response body when GET /test is called?", "ar": "ما جسم الاستجابة عند استدعاء GET /test؟" },
+    "prompt": {
+      "en": "What is the response body when GET /test is called?",
+      "ar": "ما جسم الاستجابة عند استدعاء GET /test؟"
+    },
     "code": "app.get('/test', (req, res, next) => {\n  next(new Error('oops'));\n}, (req, res) => {\n  res.json({ step: 'second' });\n});\n\napp.use((err, req, res, next) => {\n  res.status(500).json({ error: err.message });\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "{ \"error\": \"oops\" } with status 500", "ar": "{ \"error\": \"oops\" } مع حالة 500" } },
-      { "id": "b", "text": { "en": "{ \"step\": \"second\" } — the second handler in the chain runs.", "ar": "{ \"step\": \"second\" } — يعمل المعالج الثاني في السلسلة." } },
-      { "id": "c", "text": { "en": "Empty response — both handlers are skipped.", "ar": "استجابة فارغة — يُتخطى كلا المعالجَين." } },
-      { "id": "d", "text": { "en": "The process crashes with an unhandled error.", "ar": "تتعطل العملية مع خطأ غير معالج." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "{ \"error\": \"oops\" } with status 500",
+          "ar": "{ \"error\": \"oops\" } مع حالة 500"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "{ \"step\": \"second\" } — the second handler in the chain runs.",
+          "ar": "{ \"step\": \"second\" } — يعمل المعالج الثاني في السلسلة."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Empty response — both handlers are skipped.",
+          "ar": "استجابة فارغة — يُتخطى كلا المعالجَين."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The process crashes with an unhandled error.",
+          "ar": "تتعطل العملية مع خطأ غير معالج."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Calling next(err) skips all non-error handlers and jumps directly to error-handling middleware.", "ar": "استدعاء next(err) يتخطى جميع المعالجات غير المعنية بالأخطاء ويقفز مباشرة إلى middleware معالجة الأخطاء." },
-    "explanation": { "en": "When next(Error) is called, Express skips all remaining regular middleware and route handlers, jumping straight to the first error-handling middleware (4-argument). The second route handler is never reached.", "ar": "عند استدعاء next(Error)، يتخطى Express جميع الـ middleware العادية ومعالجات المسار المتبقية، ويقفز مباشرة إلى أول middleware لمعالجة الأخطاء (4 مدخلات). لا يُصل أبداً إلى معالج المسار الثاني." },
+    "hint": {
+      "en": "Calling next(err) skips all non-error handlers and jumps directly to error-handling middleware.",
+      "ar": "استدعاء next(err) يتخطى جميع المعالجات غير المعنية بالأخطاء ويقفز مباشرة إلى middleware معالجة الأخطاء."
+    },
+    "explanation": {
+      "en": "When next(Error) is called, Express skips all remaining regular middleware and route handlers, jumping straight to the first error-handling middleware (4-argument). The second route handler is never reached.",
+      "ar": "عند استدعاء next(Error)، يتخطى Express جميع الـ middleware العادية ومعالجات المسار المتبقية، ويقفز مباشرة إلى أول middleware لمعالجة الأخطاء (4 مدخلات). لا يُصل أبداً إلى معالج المسار الثاني."
+    },
     "xp": 25,
-    "tags": ["error-handling", "next", "middleware"]
+    "tags": [
+      "error-handling",
+      "next",
+      "middleware"
+    ]
   },
   {
     "id": "express-a-6",
     "trackId": "express",
     "level": "advanced",
     "type": "scenario",
-    "prompt": { "en": "Your app uses express-session. After deploying behind an Nginx reverse proxy, sessions break — req.session.userId is always undefined. What is the most likely cause?", "ar": "يستخدم تطبيقك express-session. بعد النشر خلف وكيل عكسي Nginx، تتعطل الجلسات — req.session.userId دائماً undefined. ما السبب الأرجح؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "Your app uses express-session. After deploying behind an Nginx reverse proxy, sessions break — req.session.userId is always undefined. What is the most likely cause?",
+      "ar": "يستخدم تطبيقك express-session. بعد النشر خلف وكيل عكسي Nginx، تتعطل الجلسات — req.session.userId دائماً undefined. ما السبب الأرجح؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "The session cookie's Secure flag requires HTTPS but trust proxy is not set, so cookies are dropped on the browser side.", "ar": "يتطلب علم Secure لكوكي الجلسة HTTPS لكن trust proxy غير مضبوط، لذا تُسقط الكوكيز على جانب المتصفح." } },
-      { "id": "b", "text": { "en": "express-session does not work behind reverse proxies.", "ar": "لا يعمل express-session خلف وكلاء عكسيين." } },
-      { "id": "c", "text": { "en": "Sessions require a Redis store in production.", "ar": "تتطلب الجلسات مخزن Redis في الإنتاج." } },
-      { "id": "d", "text": { "en": "Nginx strips all Set-Cookie headers by default.", "ar": "يُزيل Nginx جميع ترويسات Set-Cookie بشكل افتراضي." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The session cookie's Secure flag requires HTTPS but trust proxy is not set, so cookies are dropped on the browser side.",
+          "ar": "يتطلب علم Secure لكوكي الجلسة HTTPS لكن trust proxy غير مضبوط، لذا تُسقط الكوكيز على جانب المتصفح."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "express-session does not work behind reverse proxies.",
+          "ar": "لا يعمل express-session خلف وكلاء عكسيين."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Sessions require a Redis store in production.",
+          "ar": "تتطلب الجلسات مخزن Redis في الإنتاج."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Nginx strips all Set-Cookie headers by default.",
+          "ar": "يُزيل Nginx جميع ترويسات Set-Cookie بشكل افتراضي."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about how cookies with the Secure flag behave when Express doesn't know the connection was originally HTTPS.", "ar": "فكّر في كيفية تصرف الكوكيز ذات علم Secure عندما لا يعلم Express أن الاتصال كان في الأصل HTTPS." },
-    "explanation": { "en": "When behind a proxy, Express sees plain HTTP connections. If the session cookie has secure: true, the browser won't send it over apparent HTTP. Setting app.set('trust proxy', 1) tells Express to trust the X-Forwarded-Proto header from Nginx so it correctly identifies the connection as HTTPS.", "ar": "خلف وكيل، يرى Express اتصالات HTTP عادية. إذا كان لكوكي الجلسة secure: true، لن يرسلها المتصفح عبر HTTP الظاهر. يُخبر ضبط app.set('trust proxy', 1) Express بالثقة في ترويسة X-Forwarded-Proto من Nginx ليُعرّف الاتصال بشكل صحيح على أنه HTTPS." },
+    "hint": {
+      "en": "Think about how cookies with the Secure flag behave when Express doesn't know the connection was originally HTTPS.",
+      "ar": "فكّر في كيفية تصرف الكوكيز ذات علم Secure عندما لا يعلم Express أن الاتصال كان في الأصل HTTPS."
+    },
+    "explanation": {
+      "en": "When behind a proxy, Express sees plain HTTP connections. If the session cookie has secure: true, the browser won't send it over apparent HTTP. Setting app.set('trust proxy', 1) tells Express to trust the X-Forwarded-Proto header from Nginx so it correctly identifies the connection as HTTPS.",
+      "ar": "خلف وكيل، يرى Express اتصالات HTTP عادية. إذا كان لكوكي الجلسة secure: true، لن يرسلها المتصفح عبر HTTP الظاهر. يُخبر ضبط app.set('trust proxy', 1) Express بالثقة في ترويسة X-Forwarded-Proto من Nginx ليُعرّف الاتصال بشكل صحيح على أنه HTTPS."
+    },
     "xp": 25,
-    "tags": ["sessions", "cookies", "proxy", "production"]
+    "tags": [
+      "sessions",
+      "cookies",
+      "proxy",
+      "production"
+    ]
   },
   {
     "id": "express-a-7",
     "trackId": "express",
     "level": "advanced",
     "type": "multiple-choice",
-    "prompt": { "en": "What security headers does helmet() add by default that Express does NOT add on its own?", "ar": "ما ترويسات الأمان التي يُضيفها helmet() افتراضياً والتي لا يُضيفها Express بمفرده؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "What security headers does helmet() add by default that Express does NOT add on its own?",
+      "ar": "ما ترويسات الأمان التي يُضيفها helmet() افتراضياً والتي لا يُضيفها Express بمفرده؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "Content-Security-Policy, X-Frame-Options, X-XSS-Protection, HSTS, and others.", "ar": "Content-Security-Policy و X-Frame-Options و X-XSS-Protection و HSTS وغيرها." } },
-      { "id": "b", "text": { "en": "Authorization and Cookie headers only.", "ar": "ترويسات Authorization و Cookie فقط." } },
-      { "id": "c", "text": { "en": "CORS headers for cross-origin requests.", "ar": "ترويسات CORS لطلبات المصدر المختلف." } },
-      { "id": "d", "text": { "en": "helmet() only removes the X-Powered-By header.", "ar": "helmet() يُزيل فقط ترويسة X-Powered-By." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Content-Security-Policy, X-Frame-Options, X-XSS-Protection, HSTS, and others.",
+          "ar": "Content-Security-Policy و X-Frame-Options و X-XSS-Protection و HSTS وغيرها."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Authorization and Cookie headers only.",
+          "ar": "ترويسات Authorization و Cookie فقط."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "CORS headers for cross-origin requests.",
+          "ar": "ترويسات CORS لطلبات المصدر المختلف."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "helmet() only removes the X-Powered-By header.",
+          "ar": "helmet() يُزيل فقط ترويسة X-Powered-By."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "helmet is a collection of middlewares, each setting a security-related HTTP header.", "ar": "helmet مجموعة من الـ middleware، تضبط كل منها ترويسة HTTP متعلقة بالأمان." },
-    "explanation": { "en": "helmet() applies around 14 security middleware by default including: Content-Security-Policy (CSP), X-Content-Type-Options, X-Frame-Options (clickjacking), Strict-Transport-Security (HSTS), and removes X-Powered-By. None of these are set by Express itself.", "ar": "يُطبّق helmet() حوالي 14 middleware للأمان افتراضياً تشمل: Content-Security-Policy (CSP) و X-Content-Type-Options و X-Frame-Options (اختطاف النقر) و Strict-Transport-Security (HSTS) ويُزيل X-Powered-By. لا تُضبط أي من هذه من قِبَل Express نفسه." },
+    "hint": {
+      "en": "helmet is a collection of middlewares, each setting a security-related HTTP header.",
+      "ar": "helmet مجموعة من الـ middleware، تضبط كل منها ترويسة HTTP متعلقة بالأمان."
+    },
+    "explanation": {
+      "en": "helmet() applies around 14 security middleware by default including: Content-Security-Policy (CSP), X-Content-Type-Options, X-Frame-Options (clickjacking), Strict-Transport-Security (HSTS), and removes X-Powered-By. None of these are set by Express itself.",
+      "ar": "يُطبّق helmet() حوالي 14 middleware للأمان افتراضياً تشمل: Content-Security-Policy (CSP) و X-Content-Type-Options و X-Frame-Options (اختطاف النقر) و Strict-Transport-Security (HSTS) ويُزيل X-Powered-By. لا تُضبط أي من هذه من قِبَل Express نفسه."
+    },
     "xp": 25,
-    "tags": ["security", "helmet", "headers"]
+    "tags": [
+      "security",
+      "helmet",
+      "headers"
+    ]
   },
   {
     "id": "express-a-8",
     "trackId": "express",
     "level": "advanced",
     "type": "true-false",
-    "prompt": { "en": "express.Router() creates a mini-application that has its own middleware and routing, and can be mounted on a path in the main app.", "ar": "ينشئ express.Router() تطبيقاً مصغراً له middleware وتوجيه خاص به، ويمكن تركيبه على مسار في التطبيق الرئيسي." },
-    "codeLang": "js",
+    "prompt": {
+      "en": "express.Router() creates a mini-application that has its own middleware and routing, and can be mounted on a path in the main app.",
+      "ar": "ينشئ express.Router() تطبيقاً مصغراً له middleware وتوجيه خاص به، ويمكن تركيبه على مسار في التطبيق الرئيسي."
+    },
     "options": [
-      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
-      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+      {
+        "id": "a",
+        "text": {
+          "en": "True",
+          "ar": "صحيح"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "False",
+          "ar": "خطأ"
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "The Express docs describe Router as a 'mini-application'.", "ar": "تصف وثائق Express الـ Router بأنه 'تطبيق مصغر'." },
-    "explanation": { "en": "express.Router() is indeed a mini-application. It supports its own use(), get(), post(), etc. and can be mounted with app.use('/prefix', router). This enables modular route files and scoped middleware.", "ar": "express.Router() هو في الواقع تطبيق مصغر. يدعم use() و get() و post() الخاصة به وما إلى ذلك، ويمكن تركيبه بـ app.use('/prefix', router). هذا يُتيح ملفات مسار معيارية و middleware محدود النطاق." },
+    "hint": {
+      "en": "The Express docs describe Router as a 'mini-application'.",
+      "ar": "تصف وثائق Express الـ Router بأنه 'تطبيق مصغر'."
+    },
+    "explanation": {
+      "en": "express.Router() is indeed a mini-application. It supports its own use(), get(), post(), etc. and can be mounted with app.use('/prefix', router). This enables modular route files and scoped middleware.",
+      "ar": "express.Router() هو في الواقع تطبيق مصغر. يدعم use() و get() و post() الخاصة به وما إلى ذلك، ويمكن تركيبه بـ app.use('/prefix', router). هذا يُتيح ملفات مسار معيارية و middleware محدود النطاق."
+    },
     "xp": 25,
-    "tags": ["router", "modular-routes"]
+    "tags": [
+      "router",
+      "modular-routes"
+    ]
   },
   {
     "id": "express-a-9",
     "trackId": "express",
     "level": "advanced",
     "type": "code-output",
-    "prompt": { "en": "What is the output when GET /stream is requested?", "ar": "ما الناتج عند طلب GET /stream؟" },
+    "prompt": {
+      "en": "What is the output when GET /stream is requested?",
+      "ar": "ما الناتج عند طلب GET /stream؟"
+    },
     "code": "const { Readable } = require('stream');\n\napp.get('/stream', (req, res) => {\n  res.setHeader('Content-Type', 'text/plain');\n  const readable = Readable.from(['Hello', ' ', 'World']);\n  readable.pipe(res);\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "The client receives \"Hello World\" streamed as text/plain.", "ar": "يتلقى العميل \"Hello World\" مُدفوقاً بصيغة text/plain." } },
-      { "id": "b", "text": { "en": "Error: res is not a writable stream.", "ar": "خطأ: res ليس مجرى قابل للكتابة." } },
-      { "id": "c", "text": { "en": "Only \"Hello\" is sent; pipe stops after the first chunk.", "ar": "يُرسل \"Hello\" فقط؛ يتوقف pipe بعد الجزء الأول." } },
-      { "id": "d", "text": { "en": "The response hangs because pipe requires an end event listener.", "ar": "الاستجابة تتوقف لأن pipe يتطلب مستمع حدث end." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The client receives \"Hello World\" streamed as text/plain.",
+          "ar": "يتلقى العميل \"Hello World\" مُدفوقاً بصيغة text/plain."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Error: res is not a writable stream.",
+          "ar": "خطأ: res ليس مجرى قابل للكتابة."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only \"Hello\" is sent; pipe stops after the first chunk.",
+          "ar": "يُرسل \"Hello\" فقط؛ يتوقف pipe بعد الجزء الأول."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The response hangs because pipe requires an end event listener.",
+          "ar": "الاستجابة تتوقف لأن pipe يتطلب مستمع حدث end."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express response objects are Node.js writable streams.", "ar": "كائنات استجابة Express هي مجاري قابلة للكتابة في Node.js." },
-    "explanation": { "en": "The Express res object extends Node's http.ServerResponse which is a Writable stream. Readable.from() creates a readable stream from an iterable and pipe() forwards chunks to res, closing it when done. The client receives 'Hello World'.", "ar": "يُوسّع كائن Express res الكلاس http.ServerResponse الخاص بـ Node وهو مجرى Writable. تنشئ Readable.from() مجرى قابل للقراءة من iterable وتُعيد pipe() الأجزاء إلى res وتُغلقه عند الانتهاء. يتلقى العميل 'Hello World'." },
+    "hint": {
+      "en": "Express response objects are Node.js writable streams.",
+      "ar": "كائنات استجابة Express هي مجاري قابلة للكتابة في Node.js."
+    },
+    "explanation": {
+      "en": "The Express res object extends Node's http.ServerResponse which is a Writable stream. Readable.from() creates a readable stream from an iterable and pipe() forwards chunks to res, closing it when done. The client receives 'Hello World'.",
+      "ar": "يُوسّع كائن Express res الكلاس http.ServerResponse الخاص بـ Node وهو مجرى Writable. تنشئ Readable.from() مجرى قابل للقراءة من iterable وتُعيد pipe() الأجزاء إلى res وتُغلقه عند الانتهاء. يتلقى العميل 'Hello World'."
+    },
     "xp": 25,
-    "tags": ["streaming", "response", "streams"]
+    "tags": [
+      "streaming",
+      "response",
+      "streams"
+    ]
   },
   {
     "id": "express-a-10",
     "trackId": "express",
     "level": "advanced",
     "type": "scenario",
-    "prompt": { "en": "You need param middleware to auto-load a User from the DB whenever :userId appears in any route in a router. Which API should you use?", "ar": "تحتاج إلى middleware param لتحميل User تلقائياً من قاعدة البيانات عندما يظهر :userId في أي مسار في موجّه. أي API يجب استخدامه؟" },
+    "prompt": {
+      "en": "You need param middleware to auto-load a User from the DB whenever :userId appears in any route in a router. Which API should you use?",
+      "ar": "تحتاج إلى middleware param لتحميل User تلقائياً من قاعدة البيانات عندما يظهر :userId في أي مسار في موجّه. أي API يجب استخدامه؟"
+    },
     "code": "const router = express.Router();\n\n// What goes here?",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "router.param('userId', async (req, res, next, id) => { req.user = await User.findById(id); next(); })", "ar": "router.param('userId', async (req, res, next, id) => { req.user = await User.findById(id); next(); })" } },
-      { "id": "b", "text": { "en": "router.use(':userId', async (req, res, next) => { req.user = await User.findById(req.params.userId); next(); })", "ar": "router.use(':userId', async (req, res, next) => { req.user = await User.findById(req.params.userId); next(); })" } },
-      { "id": "c", "text": { "en": "Add the loading logic inside every individual route that uses :userId.", "ar": "أضف منطق التحميل داخل كل مسار فردي يستخدم :userId." } },
-      { "id": "d", "text": { "en": "router.params() is not a real API; use app.use() instead.", "ar": "router.params() ليست واجهة برمجية حقيقية؛ استخدم app.use() بدلاً منها." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "router.param('userId', async (req, res, next, id) => { req.user = await User.findById(id); next(); })",
+          "ar": "router.param('userId', async (req, res, next, id) => { req.user = await User.findById(id); next(); })"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "router.use(':userId', async (req, res, next) => { req.user = await User.findById(req.params.userId); next(); })",
+          "ar": "router.use(':userId', async (req, res, next) => { req.user = await User.findById(req.params.userId); next(); })"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Add the loading logic inside every individual route that uses :userId.",
+          "ar": "أضف منطق التحميل داخل كل مسار فردي يستخدم :userId."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "router.params() is not a real API; use app.use() instead.",
+          "ar": "router.params() ليست واجهة برمجية حقيقية؛ استخدم app.use() بدلاً منها."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Express has a dedicated API for reacting to route parameter appearance.", "ar": "يمتلك Express واجهة برمجية مخصصة للتفاعل مع ظهور معاملات المسار." },
-    "explanation": { "en": "router.param(name, callback) registers a callback triggered whenever the named parameter appears in a route path. The callback receives (req, res, next, paramValue). This avoids repeating the lookup in every handler.", "ar": "يُسجّل router.param(name, callback) رد نداء يُطلَق عندما يظهر المعامل المُسمّى في مسار مسار. يتلقى رد النداء (req, res, next, paramValue). هذا يتجنب تكرار البحث في كل معالج." },
+    "hint": {
+      "en": "Express has a dedicated API for reacting to route parameter appearance.",
+      "ar": "يمتلك Express واجهة برمجية مخصصة للتفاعل مع ظهور معاملات المسار."
+    },
+    "explanation": {
+      "en": "router.param(name, callback) registers a callback triggered whenever the named parameter appears in a route path. The callback receives (req, res, next, paramValue). This avoids repeating the lookup in every handler.",
+      "ar": "يُسجّل router.param(name, callback) رد نداء يُطلَق عندما يظهر المعامل المُسمّى في مسار مسار. يتلقى رد النداء (req, res, next, paramValue). هذا يتجنب تكرار البحث في كل معالج."
+    },
     "xp": 25,
-    "tags": ["router.param", "middleware", "routing"]
+    "tags": [
+      "router.param",
+      "middleware",
+      "routing"
+    ]
   },
   {
     "id": "express-e-1",
     "trackId": "express",
     "level": "expert",
     "type": "debugging",
-    "prompt": { "en": "This async middleware appears to propagate errors but doesn't. Why does the error handler never run?", "ar": "يبدو أن هذا middleware غير المتزامن ينشر الأخطاء لكنه لا يفعل. لماذا لا يعمل معالج الأخطاء أبداً؟" },
+    "prompt": {
+      "en": "This async middleware appears to propagate errors but doesn't. Why does the error handler never run?",
+      "ar": "يبدو أن هذا middleware غير المتزامن ينشر الأخطاء لكنه لا يفعل. لماذا لا يعمل معالج الأخطاء أبداً؟"
+    },
     "code": "app.use(async (req, res, next) => {\n  try {\n    await riskyOperation();\n    next();\n  } catch (err) {\n    next(err);\n  }\n});\n\napp.use(async (req, res, next) => {\n  await anotherRiskyOperation(); // throws — no try/catch\n  next();\n});\n\napp.use((err, req, res, next) => {\n  res.status(500).json({ error: err.message });\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "The second middleware has no try/catch; its rejected Promise is unhandled and bypasses Express's error handler in Express 4.", "ar": "الـ middleware الثاني لا يحتوي على try/catch؛ Promise المرفوض غير معالج ويتجاوز معالج أخطاء Express في Express 4." } },
-      { "id": "b", "text": { "en": "next(err) in the first middleware short-circuits everything, so the second middleware never runs.", "ar": "next(err) في الـ middleware الأول يُقصّر دائرة كل شيء، لذا لا يعمل الـ middleware الثاني أبداً." } },
-      { "id": "c", "text": { "en": "async middleware is not allowed in app.use().", "ar": "الـ middleware غير المتزامن غير مسموح به في app.use()." } },
-      { "id": "d", "text": { "en": "The error handler signature is wrong; it needs only (err, res).", "ar": "توقيع معالج الأخطاء خاطئ؛ يحتاج فقط إلى (err, res)." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The second middleware has no try/catch; its rejected Promise is unhandled and bypasses Express's error handler in Express 4.",
+          "ar": "الـ middleware الثاني لا يحتوي على try/catch؛ Promise المرفوض غير معالج ويتجاوز معالج أخطاء Express في Express 4."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "next(err) in the first middleware short-circuits everything, so the second middleware never runs.",
+          "ar": "next(err) في الـ middleware الأول يُقصّر دائرة كل شيء، لذا لا يعمل الـ middleware الثاني أبداً."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "async middleware is not allowed in app.use().",
+          "ar": "الـ middleware غير المتزامن غير مسموح به في app.use()."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The error handler signature is wrong; it needs only (err, res).",
+          "ar": "توقيع معالج الأخطاء خاطئ؛ يحتاج فقط إلى (err, res)."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "In Express 4, every async middleware must wrap its awaits in try/catch and call next(err).", "ar": "في Express 4، يجب أن يُغلّف كل middleware غير متزامن انتظاراته بـ try/catch ويستدعي next(err)." },
-    "explanation": { "en": "Express 4 cannot catch Promise rejections from async middleware automatically. The second middleware's unhandled rejection becomes an unhandledRejection event, skipping the Express error handler entirely. Every async middleware in Express 4 must have try/catch with next(err). Express 5 resolves this by natively awaiting async handlers.", "ar": "لا يمكن لـ Express 4 التقاط رفوض Promise من middleware غير المتزامن تلقائياً. يصبح الرفض غير المعالج للـ middleware الثاني حدث unhandledRejection، متجاوزاً معالج أخطاء Express بالكامل. يجب أن يحتوي كل middleware غير متزامن في Express 4 على try/catch مع next(err). يحل Express 5 هذا بانتظار المعالجات غير المتزامنة بشكل أصلي." },
+    "hint": {
+      "en": "In Express 4, every async middleware must wrap its awaits in try/catch and call next(err).",
+      "ar": "في Express 4، يجب أن يُغلّف كل middleware غير متزامن انتظاراته بـ try/catch ويستدعي next(err)."
+    },
+    "explanation": {
+      "en": "Express 4 cannot catch Promise rejections from async middleware automatically. The second middleware's unhandled rejection becomes an unhandledRejection event, skipping the Express error handler entirely. Every async middleware in Express 4 must have try/catch with next(err). Express 5 resolves this by natively awaiting async handlers.",
+      "ar": "لا يمكن لـ Express 4 التقاط رفوض Promise من middleware غير المتزامن تلقائياً. يصبح الرفض غير المعالج للـ middleware الثاني حدث unhandledRejection، متجاوزاً معالج أخطاء Express بالكامل. يجب أن يحتوي كل middleware غير متزامن في Express 4 على try/catch مع next(err). يحل Express 5 هذا بانتظار المعالجات غير المتزامنة بشكل أصلي."
+    },
     "xp": 30,
-    "tags": ["async", "error-handling", "debugging", "expert"]
+    "tags": [
+      "async",
+      "error-handling",
+      "debugging",
+      "expert"
+    ]
   },
   {
     "id": "express-e-2",
     "trackId": "express",
     "level": "expert",
     "type": "scenario",
-    "prompt": { "en": "In production, your Express app leaks memory over hours. The most suspicious pattern in your code is shown below. What is the likely cause?", "ar": "في الإنتاج، يُسرّب تطبيق Express ذاكرة على مدى ساعات. النمط الأكثر اشتباهاً في كودك موضح أدناه. ما السبب المحتمل؟" },
+    "prompt": {
+      "en": "In production, your Express app leaks memory over hours. The most suspicious pattern in your code is shown below. What is the likely cause?",
+      "ar": "في الإنتاج، يُسرّب تطبيق Express ذاكرة على مدى ساعات. النمط الأكثر اشتباهاً في كودك موضح أدناه. ما السبب المحتمل؟"
+    },
     "code": "app.get('/events', (req, res) => {\n  res.setHeader('Content-Type', 'text/event-stream');\n  res.setHeader('Cache-Control', 'no-cache');\n\n  const interval = setInterval(() => {\n    res.write(`data: ${Date.now()}\\n\\n`);\n  }, 1000);\n\n  // No cleanup on disconnect\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "The interval is never cleared when the client disconnects, causing a setInterval reference and the res object to leak in memory.", "ar": "لا يُمسح الـ interval عند قطع اتصال العميل، مما يُسبب تسرب مرجع setInterval وكائن res في الذاكرة." } },
-      { "id": "b", "text": { "en": "res.write() buffers all data in memory before sending.", "ar": "تُخزّن res.write() جميع البيانات في الذاكرة قبل الإرسال." } },
-      { "id": "c", "text": { "en": "text/event-stream responses are not supported by Node's http module.", "ar": "استجابات text/event-stream غير مدعومة من وحدة http الخاصة بـ Node." } },
-      { "id": "d", "text": { "en": "Cache-Control: no-cache causes the response to be duplicated in memory.", "ar": "يُسبب Cache-Control: no-cache تضاعف الاستجابة في الذاكرة." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "The interval is never cleared when the client disconnects, causing a setInterval reference and the res object to leak in memory.",
+          "ar": "لا يُمسح الـ interval عند قطع اتصال العميل، مما يُسبب تسرب مرجع setInterval وكائن res في الذاكرة."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "res.write() buffers all data in memory before sending.",
+          "ar": "تُخزّن res.write() جميع البيانات في الذاكرة قبل الإرسال."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "text/event-stream responses are not supported by Node's http module.",
+          "ar": "استجابات text/event-stream غير مدعومة من وحدة http الخاصة بـ Node."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Cache-Control: no-cache causes the response to be duplicated in memory.",
+          "ar": "يُسبب Cache-Control: no-cache تضاعف الاستجابة في الذاكرة."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "SSE routes must listen for the client 'close' event and clean up timers.", "ar": "يجب أن تستمع مسارات SSE لحدث 'close' الخاص بالعميل وتُنظّف المؤقتات." },
-    "explanation": { "en": "When a client disconnects, the SSE connection closes but setInterval keeps running, holding a reference to res and preventing GC. Fix: req.on('close', () => clearInterval(interval)). This is a classic production memory leak pattern.", "ar": "عند قطع اتصال العميل، يُغلق اتصال SSE لكن setInterval يستمر في العمل، حاملاً مرجعاً إلى res ومانعاً GC. الحل: req.on('close', () => clearInterval(interval)). هذا نمط تسرب ذاكرة إنتاج كلاسيكي." },
+    "hint": {
+      "en": "SSE routes must listen for the client 'close' event and clean up timers.",
+      "ar": "يجب أن تستمع مسارات SSE لحدث 'close' الخاص بالعميل وتُنظّف المؤقتات."
+    },
+    "explanation": {
+      "en": "When a client disconnects, the SSE connection closes but setInterval keeps running, holding a reference to res and preventing GC. Fix: req.on('close', () => clearInterval(interval)). This is a classic production memory leak pattern.",
+      "ar": "عند قطع اتصال العميل، يُغلق اتصال SSE لكن setInterval يستمر في العمل، حاملاً مرجعاً إلى res ومانعاً GC. الحل: req.on('close', () => clearInterval(interval)). هذا نمط تسرب ذاكرة إنتاج كلاسيكي."
+    },
     "xp": 30,
-    "tags": ["memory-leak", "sse", "production", "expert"]
+    "tags": [
+      "memory-leak",
+      "sse",
+      "production",
+      "expert"
+    ]
   },
   {
     "id": "express-e-3",
     "trackId": "express",
     "level": "expert",
     "type": "multiple-choice",
-    "prompt": { "en": "What is the difference between app.param() and router.param() regarding scope?", "ar": "ما الفرق بين app.param() و router.param() من حيث النطاق؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "What is the difference between app.param() and router.param() regarding scope?",
+      "ar": "ما الفرق بين app.param() و router.param() من حيث النطاق؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "app.param() applies globally across the entire application; router.param() applies only to the routes defined on that specific router.", "ar": "ينطبق app.param() عالمياً عبر التطبيق بأكمله؛ بينما ينطبق router.param() فقط على المسارات المُعرَّفة على ذلك الموجّه المحدد." } },
-      { "id": "b", "text": { "en": "They are identical; both apply globally.", "ar": "هما متطابقان؛ كلاهما ينطبق عالمياً." } },
-      { "id": "c", "text": { "en": "app.param() is deprecated; always use router.param().", "ar": "app.param() مهجور؛ استخدم دائماً router.param()." } },
-      { "id": "d", "text": { "en": "router.param() only works for GET routes.", "ar": "router.param() يعمل فقط لمسارات GET." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "app.param() applies globally across the entire application; router.param() applies only to the routes defined on that specific router.",
+          "ar": "ينطبق app.param() عالمياً عبر التطبيق بأكمله؛ بينما ينطبق router.param() فقط على المسارات المُعرَّفة على ذلك الموجّه المحدد."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They are identical; both apply globally.",
+          "ar": "هما متطابقان؛ كلاهما ينطبق عالمياً."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "app.param() is deprecated; always use router.param().",
+          "ar": "app.param() مهجور؛ استخدم دائماً router.param()."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "router.param() only works for GET routes.",
+          "ar": "router.param() يعمل فقط لمسارات GET."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Routers have isolated scope from the main app.", "ar": "للموجّهات نطاق معزول عن التطبيق الرئيسي." },
-    "explanation": { "en": "app.param() affects all routes registered on the application instance. router.param() is scoped: it only fires for routes on that particular Router instance. This matters in modular apps where different routers may have different :id semantics.", "ar": "يؤثر app.param() على جميع المسارات المُسجَّلة على نسخة التطبيق. router.param() محدود النطاق: يُطلق فقط للمسارات على تلك النسخة المحددة من Router. هذا مهم في التطبيقات المعيارية حيث قد يكون لموجّهات مختلفة دلالات :id مختلفة." },
+    "hint": {
+      "en": "Routers have isolated scope from the main app.",
+      "ar": "للموجّهات نطاق معزول عن التطبيق الرئيسي."
+    },
+    "explanation": {
+      "en": "app.param() affects all routes registered on the application instance. router.param() is scoped: it only fires for routes on that particular Router instance. This matters in modular apps where different routers may have different :id semantics.",
+      "ar": "يؤثر app.param() على جميع المسارات المُسجَّلة على نسخة التطبيق. router.param() محدود النطاق: يُطلق فقط للمسارات على تلك النسخة المحددة من Router. هذا مهم في التطبيقات المعيارية حيث قد يكون لموجّهات مختلفة دلالات :id مختلفة."
+    },
     "xp": 30,
-    "tags": ["router.param", "app.param", "scope", "expert"]
+    "tags": [
+      "router.param",
+      "app.param",
+      "scope",
+      "expert"
+    ]
   },
   {
     "id": "express-e-4",
     "trackId": "express",
     "level": "expert",
     "type": "debugging",
-    "prompt": { "en": "The validation middleware short-circuits correctly by calling res.status(400).json(...), but after deployment, you see 'Cannot set headers after they are sent' errors in logs. What is the hidden bug?", "ar": "يُقصّر middleware التحقق الدائرة بشكل صحيح باستدعاء res.status(400).json(...)، لكن بعد النشر، تظهر أخطاء 'Cannot set headers after they are sent' في السجلات. ما الخطأ الخفي؟" },
+    "prompt": {
+      "en": "The validation middleware short-circuits correctly by calling res.status(400).json(...), but after deployment, you see 'Cannot set headers after they are sent' errors in logs. What is the hidden bug?",
+      "ar": "يُقصّر middleware التحقق الدائرة بشكل صحيح باستدعاء res.status(400).json(...)، لكن بعد النشر، تظهر أخطاء 'Cannot set headers after they are sent' في السجلات. ما الخطأ الخفي؟"
+    },
     "code": "function validate(req, res, next) {\n  if (!req.body.name) {\n    res.status(400).json({ error: 'name required' });\n    // Missing return!\n  }\n  next(); // Always called\n}",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "next() is called after res.json() because there is no return statement, so the route handler also tries to send a response.", "ar": "يُستدعى next() بعد res.json() لأنه لا يوجد تعليمة return، لذا يحاول معالج المسار أيضاً إرسال استجابة." } },
-      { "id": "b", "text": { "en": "res.json() is asynchronous, so next() runs before the response is sent.", "ar": "res.json() غير متزامنة، لذا يعمل next() قبل إرسال الاستجابة." } },
-      { "id": "c", "text": { "en": "The middleware needs to call res.end() instead of res.json().", "ar": "يحتاج الـ middleware إلى استدعاء res.end() بدلاً من res.json()." } },
-      { "id": "d", "text": { "en": "Calling res.status() before res.json() is the bug.", "ar": "استدعاء res.status() قبل res.json() هو الخطأ." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "next() is called after res.json() because there is no return statement, so the route handler also tries to send a response.",
+          "ar": "يُستدعى next() بعد res.json() لأنه لا يوجد تعليمة return، لذا يحاول معالج المسار أيضاً إرسال استجابة."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "res.json() is asynchronous, so next() runs before the response is sent.",
+          "ar": "res.json() غير متزامنة، لذا يعمل next() قبل إرسال الاستجابة."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The middleware needs to call res.end() instead of res.json().",
+          "ar": "يحتاج الـ middleware إلى استدعاء res.end() بدلاً من res.json()."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Calling res.status() before res.json() is the bug.",
+          "ar": "استدعاء res.status() قبل res.json() هو الخطأ."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "After sending a response, code execution continues unless you explicitly return.", "ar": "بعد إرسال الاستجابة، يستمر تنفيذ الكود ما لم تُعيد بشكل صريح." },
-    "explanation": { "en": "Without 'return res.status(400).json(...)', execution falls through to next(), which hands control to the route handler. That handler then calls res.json() or res.send() on an already-committed response, triggering ERR_HTTP_HEADERS_SENT. Always use return to guard early exits.", "ar": "بدون 'return res.status(400).json(...)'، ينتهي التنفيذ إلى next()، الذي ينقل التحكم إلى معالج المسار. ثم يستدعي ذلك المعالج res.json() أو res.send() على استجابة مُلزَمة بالفعل، مُطلِقاً ERR_HTTP_HEADERS_SENT. استخدم دائماً return لحماية الخروج المبكر." },
+    "hint": {
+      "en": "After sending a response, code execution continues unless you explicitly return.",
+      "ar": "بعد إرسال الاستجابة، يستمر تنفيذ الكود ما لم تُعيد بشكل صريح."
+    },
+    "explanation": {
+      "en": "Without 'return res.status(400).json(...)', execution falls through to next(), which hands control to the route handler. That handler then calls res.json() or res.send() on an already-committed response, triggering ERR_HTTP_HEADERS_SENT. Always use return to guard early exits.",
+      "ar": "بدون 'return res.status(400).json(...)'، ينتهي التنفيذ إلى next()، الذي ينقل التحكم إلى معالج المسار. ثم يستدعي ذلك المعالج res.json() أو res.send() على استجابة مُلزَمة بالفعل، مُطلِقاً ERR_HTTP_HEADERS_SENT. استخدم دائماً return لحماية الخروج المبكر."
+    },
     "xp": 30,
-    "tags": ["middleware", "debugging", "headers-sent", "return"]
+    "tags": [
+      "middleware",
+      "debugging",
+      "headers-sent",
+      "return"
+    ]
   },
   {
     "id": "express-e-5",
     "trackId": "express",
     "level": "expert",
     "type": "scenario",
-    "prompt": { "en": "You must implement middleware-level caching: if a response for a URL is cached, serve it; otherwise call next() and cache the response before sending. What is the correct pattern?", "ar": "يجب تطبيق تخزين مؤقت على مستوى الـ middleware: إذا كانت الاستجابة لـ URL مُخزَّنة، فقدّمها؛ وإلا استدعِ next() وخزّن الاستجابة قبل إرسالها. ما النمط الصحيح؟" },
+    "prompt": {
+      "en": "You must implement middleware-level caching: if a response for a URL is cached, serve it; otherwise call next() and cache the response before sending. What is the correct pattern?",
+      "ar": "يجب تطبيق تخزين مؤقت على مستوى الـ middleware: إذا كانت الاستجابة لـ URL مُخزَّنة، فقدّمها؛ وإلا استدعِ next() وخزّن الاستجابة قبل إرسالها. ما النمط الصحيح؟"
+    },
     "code": "const cache = new Map();\n\nfunction cacheMiddleware(req, res, next) {\n  const key = req.url;\n  if (cache.has(key)) {\n    return res.json(cache.get(key));\n  }\n  // Intercept res.json to cache before sending\n  const originalJson = res.json.bind(res);\n  res.json = (data) => {\n    cache.set(key, data);\n    originalJson(data);\n  };\n  next();\n}",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "This pattern is correct — monkey-patching res.json is a valid interception technique for caching.", "ar": "هذا النمط صحيح — تصحيح res.json هو تقنية اعتراض صالحة للتخزين المؤقت." } },
-      { "id": "b", "text": { "en": "You cannot override res.json in Express; it is frozen.", "ar": "لا يمكنك تجاوز res.json في Express؛ فهو مُجمَّد." } },
-      { "id": "c", "text": { "en": "next() should not be called after overriding res.json.", "ar": "لا يجب استدعاء next() بعد تجاوز res.json." } },
-      { "id": "d", "text": { "en": "cache.has(key) should use req.path, not req.url, to avoid caching query strings.", "ar": "يجب أن يستخدم cache.has(key) قيمة req.path وليس req.url لتجنب تخزين سلاسل الاستعلام." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "This pattern is correct — monkey-patching res.json is a valid interception technique for caching.",
+          "ar": "هذا النمط صحيح — تصحيح res.json هو تقنية اعتراض صالحة للتخزين المؤقت."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "You cannot override res.json in Express; it is frozen.",
+          "ar": "لا يمكنك تجاوز res.json في Express؛ فهو مُجمَّد."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "next() should not be called after overriding res.json.",
+          "ar": "لا يجب استدعاء next() بعد تجاوز res.json."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "cache.has(key) should use req.path, not req.url, to avoid caching query strings.",
+          "ar": "يجب أن يستخدم cache.has(key) قيمة req.path وليس req.url لتجنب تخزين سلاسل الاستعلام."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Monkey-patching response methods is a common pattern for response interception in Express middleware.", "ar": "تصحيح دوال الاستجابة هو نمط شائع لاعتراض الاستجابة في middleware Express." },
-    "explanation": { "en": "Overriding res.json (or res.send) with a wrapper is a legitimate and widely-used pattern in Express for response interception (caching, logging, transformation). Saving the original with .bind(res) ensures the correct 'this' context. The library 'apicache' uses a similar approach.", "ar": "تجاوز res.json (أو res.send) بغلاف هو نمط مشروع وشائع الاستخدام في Express لاعتراض الاستجابة (التخزين المؤقت، التسجيل، التحويل). حفظ الأصل بـ .bind(res) يضمن سياق 'this' الصحيح. تستخدم مكتبة 'apicache' نهجاً مماثلاً." },
+    "hint": {
+      "en": "Monkey-patching response methods is a common pattern for response interception in Express middleware.",
+      "ar": "تصحيح دوال الاستجابة هو نمط شائع لاعتراض الاستجابة في middleware Express."
+    },
+    "explanation": {
+      "en": "Overriding res.json (or res.send) with a wrapper is a legitimate and widely-used pattern in Express for response interception (caching, logging, transformation). Saving the original with .bind(res) ensures the correct 'this' context. The library 'apicache' uses a similar approach.",
+      "ar": "تجاوز res.json (أو res.send) بغلاف هو نمط مشروع وشائع الاستخدام في Express لاعتراض الاستجابة (التخزين المؤقت، التسجيل، التحويل). حفظ الأصل بـ .bind(res) يضمن سياق 'this' الصحيح. تستخدم مكتبة 'apicache' نهجاً مماثلاً."
+    },
     "xp": 30,
-    "tags": ["caching", "middleware", "monkey-patching", "expert"]
+    "tags": [
+      "caching",
+      "middleware",
+      "monkey-patching",
+      "expert"
+    ]
   },
   {
     "id": "express-boss-1",
     "trackId": "express",
     "level": "boss",
     "type": "scenario",
-    "prompt": { "en": "A production Express app crashes under high traffic with 'ECONNRESET' and 'socket hang up' errors. The code uses the pattern below. Identify ALL issues and the production-safe fix.", "ar": "يتعطل تطبيق Express في الإنتاج تحت حركة مرور عالية مع أخطاء 'ECONNRESET' و 'socket hang up'. يستخدم الكود النمط أدناه. حدّد جميع المشاكل والإصلاح الآمن للإنتاج." },
+    "prompt": {
+      "en": "A production Express app crashes under high traffic with 'ECONNRESET' and 'socket hang up' errors. The code uses the pattern below. Identify ALL issues and the production-safe fix.",
+      "ar": "يتعطل تطبيق Express في الإنتاج تحت حركة مرور عالية مع أخطاء 'ECONNRESET' و 'socket hang up'. يستخدم الكود النمط أدناه. حدّد جميع المشاكل والإصلاح الآمن للإنتاج."
+    },
     "code": "app.get('/heavy', async (req, res) => {\n  const data = await heavyDBQuery(); // takes 30s\n  res.json(data);\n});\n\n// No timeout, no abort handling, no connection limit",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "Issues: no request timeout (sockets stay open 30s+), no AbortController to cancel the DB query when client disconnects, no concurrency limit. Fix: add server.setTimeout(), listen for req 'close' event to abort, and add a queue/semaphore.", "ar": "المشاكل: لا مهلة زمنية للطلب (تبقى المقابس مفتوحة 30 ثانية+)، لا AbortController لإلغاء استعلام قاعدة البيانات عند قطع اتصال العميل، لا حد للتزامن. الإصلاح: أضف server.setTimeout()، استمع لحدث 'close' في req للإلغاء، وأضف قائمة انتظار/إشارة." } },
-      { "id": "b", "text": { "en": "Only issue is the missing try/catch; wrap in try/catch and call next(err).", "ar": "المشكلة الوحيدة هي غياب try/catch؛ غلّف بـ try/catch واستدعِ next(err)." } },
-      { "id": "c", "text": { "en": "The route should use app.post() instead of app.get() for heavy operations.", "ar": "يجب أن يستخدم المسار app.post() بدلاً من app.get() للعمليات الثقيلة." } },
-      { "id": "d", "text": { "en": "Add res.setTimeout(5000) to fix all the issues.", "ar": "أضف res.setTimeout(5000) لإصلاح جميع المشاكل." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Issues: no request timeout (sockets stay open 30s+), no AbortController to cancel the DB query when client disconnects, no concurrency limit. Fix: add server.setTimeout(), listen for req 'close' event to abort, and add a queue/semaphore.",
+          "ar": "المشاكل: لا مهلة زمنية للطلب (تبقى المقابس مفتوحة 30 ثانية+)، لا AbortController لإلغاء استعلام قاعدة البيانات عند قطع اتصال العميل، لا حد للتزامن. الإصلاح: أضف server.setTimeout()، استمع لحدث 'close' في req للإلغاء، وأضف قائمة انتظار/إشارة."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only issue is the missing try/catch; wrap in try/catch and call next(err).",
+          "ar": "المشكلة الوحيدة هي غياب try/catch؛ غلّف بـ try/catch واستدعِ next(err)."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The route should use app.post() instead of app.get() for heavy operations.",
+          "ar": "يجب أن يستخدم المسار app.post() بدلاً من app.get() للعمليات الثقيلة."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Add res.setTimeout(5000) to fix all the issues.",
+          "ar": "أضف res.setTimeout(5000) لإصلاح جميع المشاكل."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Think about what happens to the server's open connections when slow queries pile up and clients give up waiting.", "ar": "فكّر فيما يحدث لاتصالات الخادم المفتوحة عندما تتراكم الاستعلامات البطيئة ويتخلى العملاء عن الانتظار." },
-    "explanation": { "en": "Three compounding issues: (1) No timeout — connections remain open for the full query duration, exhausting the OS connection table under load. (2) No abort signal — the DB query continues running even after the client disconnects, wasting DB resources. (3) No concurrency control — unlimited parallel 30s queries quickly exhaust the DB connection pool. Production fixes: server.setTimeout(10000), req.on('close') with AbortController.abort(), and p-queue or similar for concurrency control.", "ar": "ثلاث مشاكل متراكمة: (1) لا مهلة — تبقى الاتصالات مفتوحة طوال مدة الاستعلام، مما يُستنفذ جدول اتصالات نظام التشغيل تحت الحمل. (2) لا إشارة إلغاء — يستمر استعلام قاعدة البيانات في التشغيل حتى بعد قطع اتصال العميل، مما يُهدر موارد قاعدة البيانات. (3) لا تحكم في التزامن — تستنفذ الاستعلامات المتوازية غير المحدودة لمدة 30 ثانية مجمع اتصالات قاعدة البيانات بسرعة. إصلاحات الإنتاج: server.setTimeout(10000) و req.on('close') مع AbortController.abort() و p-queue أو مماثل للتحكم في التزامن." },
+    "hint": {
+      "en": "Think about what happens to the server's open connections when slow queries pile up and clients give up waiting.",
+      "ar": "فكّر فيما يحدث لاتصالات الخادم المفتوحة عندما تتراكم الاستعلامات البطيئة ويتخلى العملاء عن الانتظار."
+    },
+    "explanation": {
+      "en": "Three compounding issues: (1) No timeout — connections remain open for the full query duration, exhausting the OS connection table under load. (2) No abort signal — the DB query continues running even after the client disconnects, wasting DB resources. (3) No concurrency control — unlimited parallel 30s queries quickly exhaust the DB connection pool. Production fixes: server.setTimeout(10000), req.on('close') with AbortController.abort(), and p-queue or similar for concurrency control.",
+      "ar": "ثلاث مشاكل متراكمة: (1) لا مهلة — تبقى الاتصالات مفتوحة طوال مدة الاستعلام، مما يُستنفذ جدول اتصالات نظام التشغيل تحت الحمل. (2) لا إشارة إلغاء — يستمر استعلام قاعدة البيانات في التشغيل حتى بعد قطع اتصال العميل، مما يُهدر موارد قاعدة البيانات. (3) لا تحكم في التزامن — تستنفذ الاستعلامات المتوازية غير المحدودة لمدة 30 ثانية مجمع اتصالات قاعدة البيانات بسرعة. إصلاحات الإنتاج: server.setTimeout(10000) و req.on('close') مع AbortController.abort() و p-queue أو مماثل للتحكم في التزامن."
+    },
     "xp": 50,
-    "tags": ["production", "performance", "timeout", "abort", "boss"]
+    "tags": [
+      "production",
+      "performance",
+      "timeout",
+      "abort",
+      "boss"
+    ]
   },
   {
     "id": "express-boss-2",
     "trackId": "express",
     "level": "boss",
     "type": "debugging",
-    "prompt": { "en": "A middleware stack processes payments. Find ALL bugs that could cause financial data corruption or double-charges in production.", "ar": "يعالج مكدس middleware المدفوعات. اعثر على جميع الأخطاء التي يمكن أن تُسبب فساد البيانات المالية أو الرسوم المزدوجة في الإنتاج." },
+    "prompt": {
+      "en": "A middleware stack processes payments. Find ALL bugs that could cause financial data corruption or double-charges in production.",
+      "ar": "يعالج مكدس middleware المدفوعات. اعثر على جميع الأخطاء التي يمكن أن تُسبب فساد البيانات المالية أو الرسوم المزدوجة في الإنتاج."
+    },
     "code": "app.post('/charge', express.json(), async (req, res) => {\n  const { amount, cardToken } = req.body;\n\n  const charge = await stripe.charge(cardToken, amount);\n  res.json({ chargeId: charge.id });\n\n  await db.save({ chargeId: charge.id, amount }); // After response!\n});",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "DB save happens after res.json() — if it fails, charge is unrecorded (data loss). No idempotency key — retry of the request causes a double charge. No try/catch — unhandled rejection in Express 4.", "ar": "حفظ قاعدة البيانات يحدث بعد res.json() — إذا فشل، لا يُسجَّل الرسم (فقدان بيانات). لا مفتاح idempotency — إعادة محاولة الطلب تُسبب رسماً مزدوجاً. لا try/catch — رفض غير معالج في Express 4." } },
-      { "id": "b", "text": { "en": "Only issue: missing try/catch around the stripe call.", "ar": "المشكلة الوحيدة: غياب try/catch حول استدعاء stripe." } },
-      { "id": "c", "text": { "en": "The route should use app.put() for payment mutations.", "ar": "يجب أن يستخدم المسار app.put() لتعديلات الدفع." } },
-      { "id": "d", "text": { "en": "express.json() must be mounted globally, not inline.", "ar": "يجب تركيب express.json() عالمياً وليس مضمّناً." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "DB save happens after res.json() — if it fails, charge is unrecorded (data loss). No idempotency key — retry of the request causes a double charge. No try/catch — unhandled rejection in Express 4.",
+          "ar": "حفظ قاعدة البيانات يحدث بعد res.json() — إذا فشل، لا يُسجَّل الرسم (فقدان بيانات). لا مفتاح idempotency — إعادة محاولة الطلب تُسبب رسماً مزدوجاً. لا try/catch — رفض غير معالج في Express 4."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only issue: missing try/catch around the stripe call.",
+          "ar": "المشكلة الوحيدة: غياب try/catch حول استدعاء stripe."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The route should use app.put() for payment mutations.",
+          "ar": "يجب أن يستخدم المسار app.put() لتعديلات الدفع."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "express.json() must be mounted globally, not inline.",
+          "ar": "يجب تركيب express.json() عالمياً وليس مضمّناً."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "In payment flows, the order of operations and idempotency are critical for correctness.", "ar": "في تدفقات الدفع، ترتيب العمليات والـ idempotency حاسمان للصحة." },
-    "explanation": { "en": "Three critical bugs: (1) db.save() after res.json() — if the DB write fails, the charge went through but is not recorded; (2) No idempotency key — client timeouts cause retries and double-charges; (3) No try/catch — async throws are unhandled in Express 4. Fix: save to DB first, then respond; use Stripe idempotency keys; wrap everything in try/catch with next(err).", "ar": "ثلاثة أخطاء حرجة: (1) db.save() بعد res.json() — إذا فشلت كتابة قاعدة البيانات، تم الرسم لكنه غير مُسجَّل؛ (2) لا مفتاح idempotency — مهل العميل تُسبب إعادة محاولات ورسوماً مزدوجة؛ (3) لا try/catch — رمي async غير معالج في Express 4. الإصلاح: احفظ في قاعدة البيانات أولاً ثم استجب؛ استخدم مفاتيح idempotency الخاصة بـ Stripe؛ غلّف كل شيء بـ try/catch مع next(err)." },
+    "hint": {
+      "en": "In payment flows, the order of operations and idempotency are critical for correctness.",
+      "ar": "في تدفقات الدفع، ترتيب العمليات والـ idempotency حاسمان للصحة."
+    },
+    "explanation": {
+      "en": "Three critical bugs: (1) db.save() after res.json() — if the DB write fails, the charge went through but is not recorded; (2) No idempotency key — client timeouts cause retries and double-charges; (3) No try/catch — async throws are unhandled in Express 4. Fix: save to DB first, then respond; use Stripe idempotency keys; wrap everything in try/catch with next(err).",
+      "ar": "ثلاثة أخطاء حرجة: (1) db.save() بعد res.json() — إذا فشلت كتابة قاعدة البيانات، تم الرسم لكنه غير مُسجَّل؛ (2) لا مفتاح idempotency — مهل العميل تُسبب إعادة محاولات ورسوماً مزدوجة؛ (3) لا try/catch — رمي async غير معالج في Express 4. الإصلاح: احفظ في قاعدة البيانات أولاً ثم استجب؛ استخدم مفاتيح idempotency الخاصة بـ Stripe؛ غلّف كل شيء بـ try/catch مع next(err)."
+    },
     "xp": 50,
-    "tags": ["production", "payments", "idempotency", "data-integrity", "boss"]
+    "tags": [
+      "production",
+      "payments",
+      "idempotency",
+      "data-integrity",
+      "boss"
+    ]
   },
   {
     "id": "express-boss-3",
     "trackId": "express",
     "level": "boss",
     "type": "scenario",
-    "prompt": { "en": "You are designing an Express API that must handle 50,000 concurrent SSE (Server-Sent Events) connections. What architectural considerations must you address?", "ar": "تصمم API Express يجب أن يعالج 50,000 اتصال متزامن بـ SSE (Server-Sent Events). ما الاعتبارات المعمارية التي يجب معالجتها؟" },
-    "codeLang": "js",
+    "prompt": {
+      "en": "You are designing an Express API that must handle 50,000 concurrent SSE (Server-Sent Events) connections. What architectural considerations must you address?",
+      "ar": "تصمم API Express يجب أن يعالج 50,000 اتصال متزامن بـ SSE (Server-Sent Events). ما الاعتبارات المعمارية التي يجب معالجتها؟"
+    },
     "options": [
-      { "id": "a", "text": { "en": "Use cluster/worker_threads for multi-core, set --max-connections, use a reverse proxy (Nginx) for load balancing, store SSE client references in a shared pub/sub (Redis), and clean up on client 'close' event.", "ar": "استخدم cluster/worker_threads لمتعدد النواة، اضبط --max-connections، استخدم وكيل عكسي (Nginx) لتوازن الحمل، خزّن مراجع عملاء SSE في pub/sub مشترك (Redis)، ونظّف عند حدث 'close' الخاص بالعميل." } },
-      { "id": "b", "text": { "en": "Just increase the Node.js heap size with --max-old-space-size.", "ar": "فقط زد حجم heap في Node.js بـ --max-old-space-size." } },
-      { "id": "c", "text": { "en": "Use WebSockets instead; SSE cannot handle more than 1,000 connections.", "ar": "استخدم WebSockets بدلاً من ذلك؛ SSE لا يمكنه التعامل مع أكثر من 1000 اتصال." } },
-      { "id": "d", "text": { "en": "Use synchronous response writing to avoid event loop blocking.", "ar": "استخدم كتابة الاستجابة المتزامنة لتجنب حجب حلقة الأحداث." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "Use cluster/worker_threads for multi-core, set --max-connections, use a reverse proxy (Nginx) for load balancing, store SSE client references in a shared pub/sub (Redis), and clean up on client 'close' event.",
+          "ar": "استخدم cluster/worker_threads لمتعدد النواة، اضبط --max-connections، استخدم وكيل عكسي (Nginx) لتوازن الحمل، خزّن مراجع عملاء SSE في pub/sub مشترك (Redis)، ونظّف عند حدث 'close' الخاص بالعميل."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Just increase the Node.js heap size with --max-old-space-size.",
+          "ar": "فقط زد حجم heap في Node.js بـ --max-old-space-size."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Use WebSockets instead; SSE cannot handle more than 1,000 connections.",
+          "ar": "استخدم WebSockets بدلاً من ذلك؛ SSE لا يمكنه التعامل مع أكثر من 1000 اتصال."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Use synchronous response writing to avoid event loop blocking.",
+          "ar": "استخدم كتابة الاستجابة المتزامنة لتجنب حجب حلقة الأحداث."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "50K connections across multiple servers requires state sharing and horizontal scaling.", "ar": "تتطلب 50K اتصال عبر خوادم متعددة مشاركة الحالة وتوسعاً أفقياً." } ,
-    "explanation": { "en": "50K SSE connections require: (1) Node.js cluster to use all CPU cores; (2) OS-level connection limits tuned (ulimit); (3) Nginx as reverse proxy for load balancing and buffering; (4) Redis pub/sub for broadcasting events across cluster workers (local Map won't work across processes); (5) req.on('close') cleanup to prevent memory leaks. Browser limit of 6 HTTP/1.1 SSE connections per domain means HTTP/2 is preferred.", "ar": "تتطلب 50K اتصال SSE: (1) Node.js cluster لاستخدام جميع نوى المعالج؛ (2) ضبط حدود الاتصال على مستوى نظام التشغيل (ulimit)؛ (3) Nginx كوكيل عكسي لتوازن الحمل والتخزين المؤقت؛ (4) Redis pub/sub لبث الأحداث عبر عمال الـ cluster (Map المحلية لن تعمل عبر العمليات)؛ (5) تنظيف req.on('close') لمنع تسرب الذاكرة. حد المتصفح من 6 اتصالات SSE لـ HTTP/1.1 لكل نطاق يعني تفضيل HTTP/2." },
+    "hint": {
+      "en": "50K connections across multiple servers requires state sharing and horizontal scaling.",
+      "ar": "تتطلب 50K اتصال عبر خوادم متعددة مشاركة الحالة وتوسعاً أفقياً."
+    },
+    "explanation": {
+      "en": "50K SSE connections require: (1) Node.js cluster to use all CPU cores; (2) OS-level connection limits tuned (ulimit); (3) Nginx as reverse proxy for load balancing and buffering; (4) Redis pub/sub for broadcasting events across cluster workers (local Map won't work across processes); (5) req.on('close') cleanup to prevent memory leaks. Browser limit of 6 HTTP/1.1 SSE connections per domain means HTTP/2 is preferred.",
+      "ar": "تتطلب 50K اتصال SSE: (1) Node.js cluster لاستخدام جميع نوى المعالج؛ (2) ضبط حدود الاتصال على مستوى نظام التشغيل (ulimit)؛ (3) Nginx كوكيل عكسي لتوازن الحمل والتخزين المؤقت؛ (4) Redis pub/sub لبث الأحداث عبر عمال الـ cluster (Map المحلية لن تعمل عبر العمليات)؛ (5) تنظيف req.on('close') لمنع تسرب الذاكرة. حد المتصفح من 6 اتصالات SSE لـ HTTP/1.1 لكل نطاق يعني تفضيل HTTP/2."
+    },
     "xp": 50,
-    "tags": ["sse", "scaling", "architecture", "production", "boss"]
+    "tags": [
+      "sse",
+      "scaling",
+      "architecture",
+      "production",
+      "boss"
+    ]
   },
   {
     "id": "express-boss-4",
     "trackId": "express",
     "level": "boss",
     "type": "debugging",
-    "prompt": { "en": "This middleware chain is supposed to apply to ALL routes, but /health endpoint bypasses authentication. Trace the execution and explain why.", "ar": "من المفترض أن تنطبق سلسلة الـ middleware على جميع المسارات، لكن نقطة نهاية /health تتجاوز المصادقة. تتبع التنفيذ واشرح لماذا." },
+    "prompt": {
+      "en": "This middleware chain is supposed to apply to ALL routes, but /health endpoint bypasses authentication. Trace the execution and explain why.",
+      "ar": "من المفترض أن تنطبق سلسلة الـ middleware على جميع المسارات، لكن نقطة نهاية /health تتجاوز المصادقة. تتبع التنفيذ واشرح لماذا."
+    },
     "code": "app.use(authenticate); // checks JWT\n\napp.get('/health', (req, res) => {\n  res.json({ status: 'ok' });\n});\n\nrouter.get('/users', (req, res) => {\n  res.json(req.user);\n});\n\napp.use('/api', router);",
     "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "/health does NOT bypass authenticate — it runs authenticate first. The real issue is if authenticate calls next() even for invalid tokens, or if someone assumed app.use(auth) after app.get('/health') skips auth for that route.", "ar": "لا تتجاوز /health المصادقة — تُشغّل authenticate أولاً. المشكلة الحقيقية هي إذا استدعت authenticate next() حتى للرموز غير الصالحة، أو إذا افترض شخص أن app.use(auth) بعد app.get('/health') يتخطى المصادقة لذلك المسار." } },
-      { "id": "b", "text": { "en": "/health bypasses auth because app.get() has higher priority than app.use().", "ar": "تتجاوز /health المصادقة لأن app.get() له أولوية أعلى من app.use()." } },
-      { "id": "c", "text": { "en": "/health bypasses auth because it is defined before the router mount.", "ar": "تتجاوز /health المصادقة لأنها مُعرَّفة قبل تركيب الموجّه." } },
-      { "id": "d", "text": { "en": "authenticate middleware only applies to app.use() mounted routes, not to app.get().", "ar": "ينطبق middleware المصادقة فقط على المسارات المُركَّبة بـ app.use()، وليس على app.get()." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "/health does NOT bypass authenticate — it runs authenticate first. The real issue is if authenticate calls next() even for invalid tokens, or if someone assumed app.use(auth) after app.get('/health') skips auth for that route.",
+          "ar": "لا تتجاوز /health المصادقة — تُشغّل authenticate أولاً. المشكلة الحقيقية هي إذا استدعت authenticate next() حتى للرموز غير الصالحة، أو إذا افترض شخص أن app.use(auth) بعد app.get('/health') يتخطى المصادقة لذلك المسار."
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "/health bypasses auth because app.get() has higher priority than app.use().",
+          "ar": "تتجاوز /health المصادقة لأن app.get() له أولوية أعلى من app.use()."
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "/health bypasses auth because it is defined before the router mount.",
+          "ar": "تتجاوز /health المصادقة لأنها مُعرَّفة قبل تركيب الموجّه."
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "authenticate middleware only applies to app.use() mounted routes, not to app.get().",
+          "ar": "ينطبق middleware المصادقة فقط على المسارات المُركَّبة بـ app.use()، وليس على app.get()."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "app.use(fn) without a path matches ALL requests in registration order — /health is after it.", "ar": "app.use(fn) بدون مسار يطابق جميع الطلبات بترتيب التسجيل — /health بعده." },
-    "explanation": { "en": "app.use(authenticate) is registered first and runs for every request including GET /health. The claim that /health bypasses auth is wrong in this code layout. However, if the developer registers app.use(authenticate) AFTER app.get('/health'), then /health would bypass it. The confusion often comes from misreading registration order. If you intentionally want /health to skip auth, use a conditional inside authenticate checking req.path === '/health'.", "ar": "يُسجَّل app.use(authenticate) أولاً ويعمل لكل طلب بما في ذلك GET /health. الادعاء بأن /health تتجاوز المصادقة خاطئ في هذا التخطيط للكود. ومع ذلك، إذا سجّل المطور app.use(authenticate) بعد app.get('/health')، ستتجاوزها /health. الخلط يأتي في الغالب من قراءة خاطئة لترتيب التسجيل. إذا أردت بشكل متعمد أن تتخطى /health المصادقة، استخدم شرطاً داخل authenticate يفحص req.path === '/health'." },
+    "hint": {
+      "en": "app.use(fn) without a path matches ALL requests in registration order — /health is after it.",
+      "ar": "app.use(fn) بدون مسار يطابق جميع الطلبات بترتيب التسجيل — /health بعده."
+    },
+    "explanation": {
+      "en": "app.use(authenticate) is registered first and runs for every request including GET /health. The claim that /health bypasses auth is wrong in this code layout. However, if the developer registers app.use(authenticate) AFTER app.get('/health'), then /health would bypass it. The confusion often comes from misreading registration order. If you intentionally want /health to skip auth, use a conditional inside authenticate checking req.path === '/health'.",
+      "ar": "يُسجَّل app.use(authenticate) أولاً ويعمل لكل طلب بما في ذلك GET /health. الادعاء بأن /health تتجاوز المصادقة خاطئ في هذا التخطيط للكود. ومع ذلك، إذا سجّل المطور app.use(authenticate) بعد app.get('/health')، ستتجاوزها /health. الخلط يأتي في الغالب من قراءة خاطئة لترتيب التسجيل. إذا أردت بشكل متعمد أن تتخطى /health المصادقة، استخدم شرطاً داخل authenticate يفحص req.path === '/health'."
+    },
     "xp": 50,
-    "tags": ["middleware", "order", "authentication", "debugging", "boss"]
+    "tags": [
+      "middleware",
+      "order",
+      "authentication",
+      "debugging",
+      "boss"
+    ]
   },
   {
     "id": "express-boss-5",
     "trackId": "express",
     "level": "boss",
     "type": "scenario",
-    "prompt": { "en": "Design a production-grade Express middleware stack (list in correct order) for a public REST API handling sensitive user data.", "ar": "صمّم مكدس middleware Express على مستوى الإنتاج (قائمة بالترتيب الصحيح) لـ REST API عام يتعامل مع بيانات المستخدمين الحساسة." },
-    "codeLang": "js",
+    "prompt": {
+      "en": "Design a production-grade Express middleware stack (list in correct order) for a public REST API handling sensitive user data.",
+      "ar": "صمّم مكدس middleware Express على مستوى الإنتاج (قائمة بالترتيب الصحيح) لـ REST API عام يتعامل مع بيانات المستخدمين الحساسة."
+    },
     "options": [
-      { "id": "a", "text": { "en": "1. helmet() 2. cors() 3. morgan() 4. express.json() + urlencoded() 5. rateLimiter 6. authenticate 7. validate 8. routes 9. 404 handler 10. error handler", "ar": "1. helmet() 2. cors() 3. morgan() 4. express.json() + urlencoded() 5. rateLimiter 6. authenticate 7. validate 8. routes 9. معالج 404 10. معالج الأخطاء" } },
-      { "id": "b", "text": { "en": "1. routes 2. authenticate 3. helmet() 4. error handler 5. cors()", "ar": "1. routes 2. authenticate 3. helmet() 4. معالج الأخطاء 5. cors()" } },
-      { "id": "c", "text": { "en": "1. authenticate 2. routes 3. cors() 4. helmet() 5. rateLimiter", "ar": "1. authenticate 2. routes 3. cors() 4. helmet() 5. rateLimiter" } },
-      { "id": "d", "text": { "en": "Order does not matter as long as all middleware is registered.", "ar": "الترتيب لا يهم طالما تم تسجيل جميع الـ middleware." } }
+      {
+        "id": "a",
+        "text": {
+          "en": "1. helmet() 2. cors() 3. morgan() 4. express.json() + urlencoded() 5. rateLimiter 6. authenticate 7. validate 8. routes 9. 404 handler 10. error handler",
+          "ar": "1. helmet() 2. cors() 3. morgan() 4. express.json() + urlencoded() 5. rateLimiter 6. authenticate 7. validate 8. routes 9. معالج 404 10. معالج الأخطاء"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "1. routes 2. authenticate 3. helmet() 4. error handler 5. cors()",
+          "ar": "1. routes 2. authenticate 3. helmet() 4. معالج الأخطاء 5. cors()"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "1. authenticate 2. routes 3. cors() 4. helmet() 5. rateLimiter",
+          "ar": "1. authenticate 2. routes 3. cors() 4. helmet() 5. rateLimiter"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Order does not matter as long as all middleware is registered.",
+          "ar": "الترتيب لا يهم طالما تم تسجيل جميع الـ middleware."
+        }
+      }
     ],
     "correctOptionId": "a",
-    "hint": { "en": "Security headers and CORS must be set before any response can be sent; rate limiting must happen before authentication to prevent brute-force.", "ar": "يجب ضبط ترويسات الأمان و CORS قبل إرسال أي استجابة؛ يجب أن يحدث تحديد المعدل قبل المصادقة لمنع هجمات القوة العمياء." },
-    "explanation": { "en": "The correct production order: (1) helmet — set security headers on every response first; (2) cors — allow/deny origins before processing; (3) morgan — log all requests for debugging; (4) body parsers — must run before any code reads req.body; (5) rate limiter — throttle before costly auth checks prevent DDoS; (6) authenticate — verify identity; (7) validate — validate input on authenticated requests; (8) routes — business logic; (9) 404 — catch unmatched routes; (10) error handler — must be last, catches errors from all above. Morgan before body parsers ensures accurate logging of all requests including malformed ones.", "ar": "الترتيب الصحيح للإنتاج: (1) helmet — اضبط ترويسات الأمان على كل استجابة أولاً؛ (2) cors — سمح/أرفض الأصول قبل المعالجة؛ (3) morgan — سجّل جميع الطلبات للتصحيح؛ (4) محللي الجسم — يجب تشغيلهم قبل أي كود يقرأ req.body؛ (5) محدِّد المعدل — خفّف قبل فحوصات المصادقة المكلفة لمنع DDoS؛ (6) authenticate — تحقق من الهوية؛ (7) validate — تحقق من المدخلات على الطلبات المصادق عليها؛ (8) routes — منطق الأعمال؛ (9) 404 — التقط المسارات غير المطابقة؛ (10) معالج الأخطاء — يجب أن يكون الأخير، يلتقط الأخطاء من جميع ما سبق. Morgan قبل محللي الجسم يضمن تسجيلاً دقيقاً لجميع الطلبات بما فيها المُشوَّهة." },
+    "hint": {
+      "en": "Security headers and CORS must be set before any response can be sent; rate limiting must happen before authentication to prevent brute-force.",
+      "ar": "يجب ضبط ترويسات الأمان و CORS قبل إرسال أي استجابة؛ يجب أن يحدث تحديد المعدل قبل المصادقة لمنع هجمات القوة العمياء."
+    },
+    "explanation": {
+      "en": "The correct production order: (1) helmet — set security headers on every response first; (2) cors — allow/deny origins before processing; (3) morgan — log all requests for debugging; (4) body parsers — must run before any code reads req.body; (5) rate limiter — throttle before costly auth checks prevent DDoS; (6) authenticate — verify identity; (7) validate — validate input on authenticated requests; (8) routes — business logic; (9) 404 — catch unmatched routes; (10) error handler — must be last, catches errors from all above. Morgan before body parsers ensures accurate logging of all requests including malformed ones.",
+      "ar": "الترتيب الصحيح للإنتاج: (1) helmet — اضبط ترويسات الأمان على كل استجابة أولاً؛ (2) cors — سمح/أرفض الأصول قبل المعالجة؛ (3) morgan — سجّل جميع الطلبات للتصحيح؛ (4) محللي الجسم — يجب تشغيلهم قبل أي كود يقرأ req.body؛ (5) محدِّد المعدل — خفّف قبل فحوصات المصادقة المكلفة لمنع DDoS؛ (6) authenticate — تحقق من الهوية؛ (7) validate — تحقق من المدخلات على الطلبات المصادق عليها؛ (8) routes — منطق الأعمال؛ (9) 404 — التقط المسارات غير المطابقة؛ (10) معالج الأخطاء — يجب أن يكون الأخير، يلتقط الأخطاء من جميع ما سبق. Morgan قبل محللي الجسم يضمن تسجيلاً دقيقاً لجميع الطلبات بما فيها المُشوَّهة."
+    },
     "xp": 50,
-    "tags": ["architecture", "middleware", "security", "production", "boss"]
+    "tags": [
+      "architecture",
+      "middleware",
+      "security",
+      "production",
+      "boss"
+    ]
   }
 ]
