@@ -4,6 +4,7 @@ import { QuizEngine } from "@/components/features/QuizEngine";
 import { getCategory } from "@/data/categories";
 import { TRACKS, getTrack } from "@/data/tracks";
 import { LEVELS } from "@/data/levels";
+import { SITE_URL } from "@/lib/seo";
 
 interface PageProps {
   params: { track: string; language: string; level: string };
@@ -29,9 +30,15 @@ export function generateMetadata({ params }: PageProps): Metadata {
   if (!track || !level || track.category !== params.track) {
     return { title: "Quiz not found" };
   }
+  // The interactive play screen is app state, not a landing page: keep it out
+  // of the index and point the canonical at the track's roadmap instead.
   return {
     title: `${track.title.en} · ${level.title.en}`,
     description: `Play the ${level.title.en} level of the ${track.title.en} quiz. Answer questions, earn XP, and build your streak.`,
+    alternates: {
+      canonical: `${SITE_URL}/quiz/${track.category}/${track.id}`,
+    },
+    robots: { index: false, follow: true },
   };
 }
 

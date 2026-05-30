@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { RoadmapExperience } from "@/components/features/RoadmapExperience";
 import { getCategory } from "@/data/categories";
 import { TRACKS, getTrack } from "@/data/tracks";
+import { buildMetadata } from "@/lib/seo";
+import { BreadcrumbJsonLd, CourseJsonLd } from "@/components/seo/JsonLd";
 
 interface PageProps {
   params: { track: string; language: string };
@@ -27,10 +29,13 @@ export function generateMetadata({ params }: PageProps): Metadata {
   if (!track || track.category !== params.track) {
     return { title: "Roadmap not found" };
   }
-  return {
-    title: `${track.title.en} Roadmap`,
-    description: `Climb the ${track.title.en} level roadmap — from Beginner to the Boss Challenge. ${track.description.en}`,
-  };
+  const name = track.title.en;
+  return buildMetadata({
+    title: `${name} Quiz`,
+    description: `Climb the ${name} level roadmap on CodeQuest — Beginner, Intermediate, Advanced, Expert, and the Boss Challenge. ${track.description.en} Bilingual questions, hints, XP, and badges.`,
+    path: `/quiz/${track.category}/${track.id}`,
+    keywords: [`${name} quiz`, `learn ${name}`, `${name} interview questions`],
+  });
 }
 
 export default function RoadmapPage({ params }: PageProps) {
@@ -42,7 +47,27 @@ export default function RoadmapPage({ params }: PageProps) {
     notFound();
   }
 
-  return <RoadmapExperience track={track} category={category} />;
+  const label = category.id === "frontend" ? "Frontend" : "Backend";
+  const path = `/quiz/${category.slug}/${track.id}`;
+
+  return (
+    <>
+      <CourseJsonLd
+        name={`${track.title.en} — CodeQuest`}
+        description={track.description.en}
+        path={path}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Tracks", path: "/tracks" },
+          { name: label, path: `/tracks/${category.slug}` },
+          { name: track.title.en, path },
+        ]}
+      />
+      <RoadmapExperience track={track} category={category} />
+    </>
+  );
 }
 
 export const dynamicParams = false;

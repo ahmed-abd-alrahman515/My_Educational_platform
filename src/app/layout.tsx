@@ -5,6 +5,13 @@ import { AppProviders } from "@/components/providers/AppProviders";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LanguageTransition } from "@/components/layout/LanguageTransition";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+} from "@/lib/seo";
+import { SiteJsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,30 +32,45 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://codequest.example"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "CodeQuest — Gamified Programming Quizzes",
-    template: "%s · CodeQuest",
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "A bilingual (Arabic/English) gamified programming quiz platform. Master frontend and backend tracks, earn XP, and unlock badges.",
-  keywords: [
-    "programming quiz",
-    "learn to code",
-    "frontend",
-    "backend",
-    "JavaScript",
-    "React",
-    "Laravel",
-    "Arabic programming",
-  ],
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "education",
+  alternates: { canonical: "/" },
+  formatDetection: { telephone: false, email: false, address: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "CodeQuest — Gamified Programming Quizzes",
-    description:
-      "Master programming by playing. Bilingual quizzes across 13 tracks.",
     type: "website",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    locale: "en_US",
+    alternateLocale: "ar_AR",
+    title: "CodeQuest — Gamified Programming Quizzes",
+    description: SITE_DESCRIPTION,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "CodeQuest — Gamified Programming Quizzes",
+    description: SITE_DESCRIPTION,
+  },
   icons: { icon: "/favicon.ico" },
 };
 
@@ -90,15 +112,24 @@ export default function RootLayout({
     <html lang="en" dir="ltr" className="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <SiteJsonLd />
       </head>
       <body
         className={`${inter.variable} ${mono.variable} ${cairo.variable} font-sans antialiased`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          Skip to content
+        </a>
         <AppProviders>
           <LanguageTransition>
             <div className="flex min-h-screen flex-col">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
               <Footer />
             </div>
           </LanguageTransition>

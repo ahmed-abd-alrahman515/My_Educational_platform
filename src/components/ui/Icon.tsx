@@ -1,5 +1,3 @@
-"use client";
-
 import { icons, type LucideProps } from "lucide-react";
 import { HelpCircle } from "lucide-react";
 

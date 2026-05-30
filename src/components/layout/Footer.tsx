@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         {/* Explore */}
-        <div>
+        <nav aria-label={t("footer.explore")}>
           <h3 className="text-sm font-semibold">{t("footer.explore")}</h3>
           <ul className="mt-4 space-y-2.5">
             {EXPLORE_LINKS.map((link) => (
@@ -60,7 +60,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
         {/* Connect */}
         <div>

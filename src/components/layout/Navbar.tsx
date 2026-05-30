@@ -28,15 +28,19 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/70 glass">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
+        <Link
+          href="/"
+          aria-label={t("brand.name")}
+          className="flex items-center gap-2 font-semibold"
+        >
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-glow">
-            <Gamepad2 className="h-5 w-5" />
+            <Gamepad2 className="h-5 w-5" aria-hidden />
           </span>
           <span className="text-gradient text-lg">{t("brand.name")}</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -46,6 +50,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                   active
@@ -70,26 +75,43 @@ export function Navbar() {
             className="grid h-10 w-10 place-items-center rounded-xl border border-line md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={t("a11y.menu")}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? (
+              <X className="h-5 w-5" aria-hidden />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden />
+            )}
           </button>
         </div>
       </Container>
 
       {/* Mobile menu */}
       {open && (
-        <nav className="border-t border-line md:hidden">
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile"
+          className="border-t border-line md:hidden"
+        >
           <Container className="flex flex-col gap-1 py-3">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:bg-surface-2 hover:text-foreground"
-              >
-                {t(link.key)}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:bg-surface-2 hover:text-foreground"
+                >
+                  {t(link.key)}
+                </Link>
+              );
+            })}
           </Container>
         </nav>
       )}
