@@ -24,7 +24,7 @@
       "ar": "تعلن const ارتباطًا ذا نطاق كتلي لا يمكن إعادة تعيينه (مع إمكانية تغيّر الكائنات التي يشير إليها)."
     },
     "xp": 10,
-    "tags": ["variables"]
+    "tags": ["variables", "scope"]
   },
   {
     "id": "js-b-2",
@@ -49,11 +49,11 @@
       "ar": "المصفوفات ليست نوعًا بدائيًا في جافاسكريبت."
     },
     "explanation": {
-      "en": "Arrays are objects in JavaScript, so typeof [] returns \"object\". Use Array.isArray() to detect arrays.",
-      "ar": "المصفوفات كائنات في جافاسكريبت، لذا يُرجع typeof [] القيمة \"object\". استخدم Array.isArray() للكشف عن المصفوفات."
+      "en": "Arrays are objects in JavaScript, so typeof [] returns \"object\". Use Array.isArray() to reliably detect arrays.",
+      "ar": "المصفوفات كائنات في جافاسكريبت، لذا يُرجع typeof [] القيمة \"object\". استخدم Array.isArray() للكشف الموثوق عن المصفوفات."
     },
     "xp": 10,
-    "tags": ["types"]
+    "tags": ["types", "typeof"]
   },
   {
     "id": "js-b-3",
@@ -62,19 +62,23 @@
     "type": "true-false",
     "prompt": {
       "en": "In JavaScript, === compares both value and type without coercion.",
-      "ar": "في جافاسكريبت، يقارن === القيمة والنوع معًا دون تحويل."
+      "ar": "في جافاسكريبت، يقارن === القيمة والنوع معًا دون تحويل تلقائي للأنواع."
     },
     "options": [
       { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
       { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
     ],
     "correctOptionId": "a",
+    "hint": {
+      "en": "Think about what makes === different from ==.",
+      "ar": "فكّر في ما يجعل === مختلفًا عن ==."
+    },
     "explanation": {
-      "en": "The strict equality operator === checks value and type and does not perform type coercion, unlike ==.",
-      "ar": "يتحقق عامل المساواة الصارمة === من القيمة والنوع ولا يجري تحويلًا للنوع، بخلاف ==."
+      "en": "The strict equality operator === checks value and type without type coercion. Unlike ==, it will never convert 0 to false or \"\" to false before comparing.",
+      "ar": "يتحقق عامل المساواة الصارمة === من القيمة والنوع دون تحويل تلقائي للأنواع. بخلاف ==، لن يحوّل 0 إلى false أو \"\" إلى false قبل المقارنة."
     },
     "xp": 10,
-    "tags": ["operators"]
+    "tags": ["operators", "coercion"]
   },
   {
     "id": "js-b-4",
@@ -95,15 +99,181 @@
     ],
     "correctOptionId": "a",
     "hint": {
-      "en": "Think of pushing onto a stack.",
-      "ar": "فكّر في الدفع إلى مكدّس."
+      "en": "Think of pushing onto a stack — you add to the top (end).",
+      "ar": "فكّر في الدفع إلى مكدّس — تُضيف إلى الأعلى (النهاية)."
     },
     "explanation": {
-      "en": "push() appends one or more elements to the end of an array and returns the new length.",
-      "ar": "تضيف push() عنصرًا أو أكثر إلى نهاية المصفوفة وتُرجع الطول الجديد."
+      "en": "push() appends one or more elements to the end of an array and returns the new length. pop() removes from the end, unshift() adds to the start, shift() removes from the start.",
+      "ar": "تضيف push() عنصرًا أو أكثر إلى نهاية المصفوفة وتُرجع الطول الجديد. تحذف pop() من النهاية، وتضيف unshift() إلى البداية، وتحذف shift() من البداية."
     },
     "xp": 10,
     "tags": ["arrays"]
+  },
+  {
+    "id": "js-b-5",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this snippet print?",
+      "ar": "ما الذي يطبعه هذا المقطع؟"
+    },
+    "code": "console.log(0.1 + 0.2 === 0.3);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "true", "ar": "true" } },
+      { "id": "b", "text": { "en": "false", "ar": "false" } },
+      { "id": "c", "text": { "en": "NaN", "ar": "NaN" } },
+      { "id": "d", "text": { "en": "undefined", "ar": "undefined" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Floating-point arithmetic is not always exact in computers.",
+      "ar": "الحساب ذو الفاصلة العائمة ليس دقيقًا دائمًا في أجهزة الحاسوب."
+    },
+    "explanation": {
+      "en": "0.1 + 0.2 evaluates to 0.30000000000000004 due to IEEE 754 floating-point precision. To compare, use Math.abs(a - b) < Number.EPSILON.",
+      "ar": "تُقيَّم 0.1 + 0.2 إلى 0.30000000000000004 بسبب دقة الفاصلة العائمة وفق معيار IEEE 754. للمقارنة استخدم Math.abs(a - b) < Number.EPSILON."
+    },
+    "xp": 10,
+    "tags": ["types", "numbers"]
+  },
+  {
+    "id": "js-b-6",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which of the following is a falsy value in JavaScript?",
+      "ar": "أيٌّ من القيم التالية تُعدّ قيمة زائفة (falsy) في جافاسكريبت؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "\"0\" (string zero)", "ar": "\"0\" (الصفر كنص)" } },
+      { "id": "b", "text": { "en": "[] (empty array)", "ar": "[] (مصفوفة فارغة)" } },
+      { "id": "c", "text": { "en": "{} (empty object)", "ar": "{} (كائن فارغ)" } },
+      { "id": "d", "text": { "en": "0 (number zero)", "ar": "0 (الصفر رقمًا)" } }
+    ],
+    "correctOptionId": "d",
+    "hint": {
+      "en": "Only a handful of values are falsy — the number 0 is one of them.",
+      "ar": "عدد قليل من القيم تُعدّ زائفة — والصفر الرقمي أحدها."
+    },
+    "explanation": {
+      "en": "The falsy values in JavaScript are: false, 0, -0, 0n, \"\", null, undefined, and NaN. \"0\" is a non-empty string (truthy), and [] and {} are objects (truthy).",
+      "ar": "القيم الزائفة في جافاسكريبت هي: false, 0, -0, 0n, \"\", null, undefined, و NaN. أما \"0\" فنص غير فارغ (صادق)، و[] و{} كائنات (صادقة)."
+    },
+    "xp": 10,
+    "tags": ["truthy-falsy", "coercion"]
+  },
+  {
+    "id": "js-b-7",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the output?",
+      "ar": "ما الناتج؟"
+    },
+    "code": "var x = 1;\nfunction test() {\n  console.log(x);\n  var x = 2;\n}\ntest();",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "1", "ar": "1" } },
+      { "id": "b", "text": { "en": "2", "ar": "2" } },
+      { "id": "c", "text": { "en": "undefined", "ar": "undefined" } },
+      { "id": "d", "text": { "en": "ReferenceError", "ar": "ReferenceError" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "var declarations are hoisted to the top of their function scope.",
+      "ar": "تُرفع تعريفات var إلى أعلى نطاق الدالة."
+    },
+    "explanation": {
+      "en": "var x inside test() is hoisted to the top of the function, so the local x exists but is undefined at the time of the console.log. The outer x is shadowed.",
+      "ar": "يُرفع var x داخل test() إلى أعلى الدالة، فالمتغير المحلي x موجود لكنه undefined وقت console.log. ويُغطي المتغير المحلي الخارجي."
+    },
+    "xp": 10,
+    "tags": ["hoisting", "scope"]
+  },
+  {
+    "id": "js-b-8",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does the template literal `Hello, ${name}!` do?",
+      "ar": "ماذا يفعل قالب النص `Hello, ${name}!`؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Concatenates strings using +", "ar": "يربط النصوص باستخدام +" } },
+      { "id": "b", "text": { "en": "Embeds an expression inside a string using backticks", "ar": "يُضمّن تعبيرًا داخل نص باستخدام العلامات المائلة" } },
+      { "id": "c", "text": { "en": "Creates a new variable called name", "ar": "ينشئ متغيرًا جديدًا يسمى name" } },
+      { "id": "d", "text": { "en": "Throws a SyntaxError if name is undefined", "ar": "يُلقي SyntaxError إذا كان name غير محدد" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Backticks enable a special syntax for embedding values directly in strings.",
+      "ar": "تُتيح العلامات المائلة بنية خاصة لتضمين القيم مباشرة في النصوص."
+    },
+    "explanation": {
+      "en": "Template literals use backticks and ${} to embed any JavaScript expression inside a string. If name is undefined, it inserts the string \"undefined\" — no error thrown.",
+      "ar": "تستخدم قوالب النصوص العلامات المائلة و${} لتضمين أي تعبير جافاسكريبت داخل نص. إذا كان name غير محدد تُدرج النص \"undefined\" — دون إلقاء خطأ."
+    },
+    "xp": 10,
+    "tags": ["template-literals", "strings"]
+  },
+  {
+    "id": "js-b-9",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "null == undefined evaluates to true in JavaScript.",
+      "ar": "يُقيَّم null == undefined إلى true في جافاسكريبت."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The loose equality operator == has special rules for null and undefined.",
+      "ar": "لعامل المساواة الفضفاضة == قواعد خاصة لـ null و undefined."
+    },
+    "explanation": {
+      "en": "By spec, null == undefined is true, and both are only == to each other, not to 0, false, or any other value. null === undefined is false.",
+      "ar": "وفق المعيار، null == undefined صحيحة، وكلاهما يساوي == الآخر فقط، لا 0 ولا false ولا غيرها. أما null === undefined فهي false."
+    },
+    "xp": 10,
+    "tags": ["coercion", "operators"]
+  },
+  {
+    "id": "js-b-10",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is logged?",
+      "ar": "ما الذي سيُطبع؟"
+    },
+    "code": "const obj = { a: 1, b: 2 };\nconst { a, b } = obj;\nconsole.log(a, b);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "{ a: 1 } { b: 2 }", "ar": "{ a: 1 } { b: 2 }" } },
+      { "id": "b", "text": { "en": "1 2", "ar": "1 2" } },
+      { "id": "c", "text": { "en": "undefined undefined", "ar": "undefined undefined" } },
+      { "id": "d", "text": { "en": "a b", "ar": "a b" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Destructuring extracts values from objects into variables.",
+      "ar": "التفكيك يستخرج القيم من الكائنات إلى متغيرات."
+    },
+    "explanation": {
+      "en": "Object destructuring { a, b } = obj creates two variables named a and b with values 1 and 2 respectively, matching the keys in obj.",
+      "ar": "يُنشئ تفكيك الكائن { a, b } = obj متغيّرَين باسم a و b بالقيمتين 1 و 2 على التوالي، مطابقَين للمفاتيح في obj."
+    },
+    "xp": 10,
+    "tags": ["destructuring", "objects"]
   },
   {
     "id": "js-i-1",
@@ -123,12 +293,16 @@
       { "id": "d", "text": { "en": "undefined", "ar": "undefined" } }
     ],
     "correctOptionId": "b",
+    "hint": {
+      "en": "map() transforms each element with the given function.",
+      "ar": "تحوّل map() كل عنصر باستخدام الدالة المُعطاة."
+    },
     "explanation": {
-      "en": "map() returns a new array with each element transformed; here each value is doubled.",
-      "ar": "تُرجع map() مصفوفة جديدة بكل عنصر محوّل؛ هنا تُضاعَف كل قيمة."
+      "en": "map() returns a new array with each element transformed; here each value is doubled: 1*2=2, 2*2=4, 3*2=6. The original array a is unchanged.",
+      "ar": "تُرجع map() مصفوفة جديدة بكل عنصر محوّل؛ هنا تُضاعَف كل قيمة: 1*2=2, 2*2=4, 3*2=6. تبقى المصفوفة الأصلية a دون تغيير."
     },
     "xp": 15,
-    "tags": ["arrays"]
+    "tags": ["arrays", "map"]
   },
   {
     "id": "js-i-2",
@@ -143,7 +317,7 @@
     "codeLang": "js",
     "options": [
       { "id": "a", "text": { "en": "Automatic semicolon insertion after return", "ar": "إدراج فاصلة منقوطة تلقائيًا بعد return" } },
-      { "id": "b", "text": { "en": "a and b are strings", "ar": "a و b نصوص" } },
+      { "id": "b", "text": { "en": "a and b are implicitly strings", "ar": "a و b نصوص ضمنيًا" } },
       { "id": "c", "text": { "en": "add is called before it's defined", "ar": "يُستدعى add قبل تعريفه" } },
       { "id": "d", "text": { "en": "Missing parentheses around a + b", "ar": "أقواس مفقودة حول a + b" } }
     ],
@@ -153,11 +327,11 @@
       "ar": "انظر إلى ما يوجد في نفس سطر `return`."
     },
     "explanation": {
-      "en": "JavaScript inserts a semicolon right after `return`, so the function returns undefined and `a + b` is never reached. Keep the expression on the same line as return.",
-      "ar": "تُدرج جافاسكريبت فاصلة منقوطة بعد `return` مباشرة، فتُرجع الدالة undefined ولا يُنفّذ `a + b`. ضع التعبير في نفس سطر return."
+      "en": "JavaScript's ASI inserts a semicolon right after the bare `return`, so the function returns undefined and `a + b` is dead code. Always start the return value on the same line: `return a + b;`.",
+      "ar": "تُدرج آلية ASI في جافاسكريبت فاصلة منقوطة بعد `return` المجرّد مباشرة، فتُرجع الدالة undefined ويصبح `a + b` كودًا ميتًا. ضع قيمة الإرجاع دومًا في نفس سطر return."
     },
-    "xp": 18,
-    "tags": ["functions", "asi"]
+    "xp": 15,
+    "tags": ["functions", "asi", "debugging"]
   },
   {
     "id": "js-i-3",
@@ -177,12 +351,211 @@
       { "id": "d", "text": { "en": "ReferenceError", "ar": "ReferenceError" } }
     ],
     "correctOptionId": "b",
-    "explanation": {
-      "en": "Closures capture variables by reference, not by value. By the time f() runs, x is 10.",
-      "ar": "تلتقط الإغلاقات المتغيّرات بالمرجع لا بالقيمة. وعند تنفيذ f() تكون x تساوي 10."
+    "hint": {
+      "en": "Closures capture variables by reference, not by value.",
+      "ar": "تلتقط الإغلاقات المتغيّرات بالمرجع لا بالقيمة."
     },
-    "xp": 18,
-    "tags": ["closures"]
+    "explanation": {
+      "en": "The arrow function f closes over the variable x, not its value. By the time f() is called, x has been updated to 10, so 10 is returned and logged.",
+      "ar": "تغلق الدالة السهمية f على المتغير x لا على قيمته. وعند استدعاء f() تكون x قد تحدّثت إلى 10، فتُرجع 10 وتُطبعها."
+    },
+    "xp": 15,
+    "tags": ["closures", "scope"]
+  },
+  {
+    "id": "js-i-4",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this log?",
+      "ar": "ما الذي يطبعه هذا؟"
+    },
+    "code": "const arr = [1, 2, 3, 4, 5];\nconst result = arr.filter(n => n % 2 === 0).reduce((acc, n) => acc + n, 0);\nconsole.log(result);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "6", "ar": "6" } },
+      { "id": "b", "text": { "en": "9", "ar": "9" } },
+      { "id": "c", "text": { "en": "15", "ar": "15" } },
+      { "id": "d", "text": { "en": "2", "ar": "2" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "First find even numbers, then sum them.",
+      "ar": "أوجد الأعداد الزوجية أولًا ثم اجمعها."
+    },
+    "explanation": {
+      "en": "filter(n => n % 2 === 0) keeps [2, 4]. Then reduce sums them: 0 + 2 + 4 = 6.",
+      "ar": "تحتفظ filter بـ [2, 4]. ثم تجمعها reduce: 0 + 2 + 4 = 6."
+    },
+    "xp": 15,
+    "tags": ["arrays", "filter", "reduce"]
+  },
+  {
+    "id": "js-i-5",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "The code intends to copy the array and add 4, but both arrays are modified. What is the bug?",
+      "ar": "يُقصد بالكود نسخ المصفوفة وإضافة 4، لكن كلتا المصفوفتين تتعدّلان. ما الخطأ؟"
+    },
+    "code": "const original = [1, 2, 3];\nconst copy = original;\ncopy.push(4);\nconsole.log(original); // [1, 2, 3, 4]",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "push() modifies both arrays always", "ar": "تعدّل push() كلتا المصفوفتين دائمًا" } },
+      { "id": "b", "text": { "en": "copy is a reference to the same array, not a copy", "ar": "copy مرجع للمصفوفة ذاتها وليس نسخة" } },
+      { "id": "c", "text": { "en": "const prevents correct assignment", "ar": "تمنع const التعيين الصحيح" } },
+      { "id": "d", "text": { "en": "Arrays cannot be copied in JavaScript", "ar": "لا يمكن نسخ المصفوفات في جافاسكريبت" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "= with objects/arrays copies the reference, not the data.",
+      "ar": "يُنسخ المرجع لا البيانات عند استخدام = مع الكائنات/المصفوفات."
+    },
+    "explanation": {
+      "en": "Arrays are reference types. `const copy = original` makes copy point to the same memory location. To actually copy, use `[...original]` or `original.slice()` or `Array.from(original)`.",
+      "ar": "المصفوفات أنواع مرجعية. يجعل `const copy = original` كلًا منهما يشير إلى نفس موقع الذاكرة. للنسخ الفعلي استخدم `[...original]` أو `original.slice()` أو `Array.from(original)`."
+    },
+    "xp": 15,
+    "tags": ["arrays", "references", "mutation"]
+  },
+  {
+    "id": "js-i-6",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does the spread operator do when used with objects: `const c = { ...a, ...b }`?",
+      "ar": "ماذا يفعل عامل النشر عند استخدامه مع الكائنات: `const c = { ...a, ...b }`؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Creates a deep clone of both a and b", "ar": "ينشئ نسخة عميقة من a و b معًا" } },
+      { "id": "b", "text": { "en": "Merges own enumerable properties; b's props overwrite a's on conflict", "ar": "يدمج الخصائص القابلة للتعداد المملوكة؛ تُطغى خصائص b على خصائص a عند التعارض" } },
+      { "id": "c", "text": { "en": "Throws an error if a and b have the same key", "ar": "يُلقي خطأ إذا كان لـ a و b المفتاح ذاته" } },
+      { "id": "d", "text": { "en": "Mutates object a directly", "ar": "يُعدّل الكائن a مباشرة" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Later spread properties win when keys collide.",
+      "ar": "تفوز خصائص النشر اللاحقة عند تصادم المفاتيح."
+    },
+    "explanation": {
+      "en": "Object spread copies own enumerable properties from each source into a new object. If a and b share a key, b's value wins because it comes later. It's a shallow merge, not a deep clone.",
+      "ar": "ينسخ نشر الكائن الخصائص القابلة للتعداد المملوكة من كل مصدر إلى كائن جديد. إذا اشترك a و b في مفتاح فتفوز قيمة b لأنها تأتي لاحقًا. إنه دمج سطحي لا نسخة عميقة."
+    },
+    "xp": 15,
+    "tags": ["spread", "objects"]
+  },
+  {
+    "id": "js-i-7",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the output?",
+      "ar": "ما الناتج؟"
+    },
+    "code": "function greet() {\n  console.log(this.name);\n}\nconst user = { name: 'Alice', greet };\nconst fn = user.greet;\nfn();",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "\"Alice\"", "ar": "\"Alice\"" } },
+      { "id": "b", "text": { "en": "undefined", "ar": "undefined" } },
+      { "id": "c", "text": { "en": "TypeError", "ar": "TypeError" } },
+      { "id": "d", "text": { "en": "null", "ar": "null" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "What does `this` refer to when a function is called without an object?",
+      "ar": "إلى ماذا يشير `this` عند استدعاء دالة بدون كائن؟"
+    },
+    "explanation": {
+      "en": "When greet is extracted into fn and called as a plain function (not as user.greet()), `this` is the global object (or undefined in strict mode). Either way, this.name is undefined.",
+      "ar": "عند استخراج greet إلى fn واستدعائها كدالة عادية (لا كـ user.greet())، يشير `this` إلى الكائن العام (أو undefined في الوضع الصارم). في كلتا الحالتين this.name هي undefined."
+    },
+    "xp": 15,
+    "tags": ["this", "functions"]
+  },
+  {
+    "id": "js-i-8",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which array method returns the first element that satisfies a condition?",
+      "ar": "أي توابع المصفوفة تُرجع أول عنصر يستوفي شرطًا؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "filter()", "ar": "filter()" } },
+      { "id": "b", "text": { "en": "some()", "ar": "some()" } },
+      { "id": "c", "text": { "en": "find()", "ar": "find()" } },
+      { "id": "d", "text": { "en": "indexOf()", "ar": "indexOf()" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "You want one item, not all matching items.",
+      "ar": "تريد عنصرًا واحدًا لا كل العناصر المطابقة."
+    },
+    "explanation": {
+      "en": "find() returns the first element for which the callback returns true (or undefined if none). filter() returns all matches as an array. some() returns a boolean. indexOf() works on values, not predicates.",
+      "ar": "تُرجع find() أول عنصر تُرجع فيه دالة الاستجابة true (أو undefined إن لم يوجد). تُرجع filter() كل التطابقات كمصفوفة. تُرجع some() قيمة منطقية. تعمل indexOf() على القيم لا على الشروط."
+    },
+    "xp": 15,
+    "tags": ["arrays"]
+  },
+  {
+    "id": "js-i-9",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is logged?",
+      "ar": "ما الذي سيُطبع؟"
+    },
+    "code": "const double = x => x * 2;\nconst add1 = x => x + 1;\nconst compose = (f, g) => x => f(g(x));\nconst transform = compose(double, add1);\nconsole.log(transform(3));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "7", "ar": "7" } },
+      { "id": "b", "text": { "en": "8", "ar": "8" } },
+      { "id": "c", "text": { "en": "6", "ar": "6" } },
+      { "id": "d", "text": { "en": "9", "ar": "9" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "compose(f, g)(x) means f(g(x)) — right to left.",
+      "ar": "compose(f, g)(x) تعني f(g(x)) — من اليمين إلى اليسار."
+    },
+    "explanation": {
+      "en": "compose(double, add1)(3) computes double(add1(3)) = double(4) = 8. g (add1) runs first, then f (double).",
+      "ar": "تحسب compose(double, add1)(3) القيمة double(add1(3)) = double(4) = 8. تعمل g (add1) أولًا ثم f (double)."
+    },
+    "xp": 15,
+    "tags": ["functions", "closures", "functional"]
+  },
+  {
+    "id": "js-i-10",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "Arrow functions have their own `this` binding.",
+      "ar": "للدوال السهمية ارتباطها الخاص بـ `this`."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Arrow functions inherit `this` from their surrounding context.",
+      "ar": "ترث الدوال السهمية `this` من السياق المحيط بها."
+    },
+    "explanation": {
+      "en": "Arrow functions do NOT have their own `this`. They lexically inherit `this` from the enclosing scope at definition time. This makes them unsuitable as object methods when you need `this` to refer to the object.",
+      "ar": "لا تمتلك الدوال السهمية `this` خاصًا بها. ترث `this` لغويًا من النطاق المحيط وقت التعريف. وهذا يجعلها غير مناسبة كتوابع للكائن عندما تحتاج `this` للإشارة إلى الكائن."
+    },
+    "xp": 15,
+    "tags": ["this", "arrow-functions"]
   },
   {
     "id": "js-a-1",
@@ -203,15 +576,15 @@
     ],
     "correctOptionId": "a",
     "hint": {
-      "en": "Microtasks beat macrotasks after the sync code.",
-      "ar": "المهام الدقيقة تسبق المهام الكبيرة بعد الكود المتزامن."
+      "en": "Microtasks (Promise callbacks) run before macrotasks (setTimeout) after the call stack clears.",
+      "ar": "تُنفّذ المهام الدقيقة (ردود نداء Promise) قبل المهام الكبيرة (setTimeout) بعد إفراغ مكدّس الاستدعاء."
     },
     "explanation": {
-      "en": "Sync code runs first (1, 4). Microtasks (Promise) run before macrotasks (setTimeout), so 3 then 2.",
-      "ar": "يُنفّذ الكود المتزامن أولاً (1، 4). تُنفّذ المهام الدقيقة (الوعود) قبل المهام الكبيرة (setTimeout)، فتظهر 3 ثم 2."
+      "en": "Synchronous code runs first: 1, then 4. When the call stack empties, microtasks run: Promise callback logs 3. Then the macrotask queue processes: setTimeout logs 2. Order: 1 4 3 2.",
+      "ar": "يُنفّذ الكود المتزامن أولًا: 1 ثم 4. عند إفراغ مكدّس الاستدعاء تُنفّذ المهام الدقيقة: ردود Promise تطبع 3. ثم تُعالج طابور المهام الكبيرة: setTimeout تطبع 2. الترتيب: 1 4 3 2."
     },
     "xp": 25,
-    "tags": ["event-loop", "async"]
+    "tags": ["event-loop", "async", "promises"]
   },
   {
     "id": "js-a-2",
@@ -234,11 +607,241 @@
       "ar": "تريد الانتظار حتى يتوقّف النشاط ثم التنفيذ مرة واحدة."
     },
     "explanation": {
-      "en": "Debouncing delays the call until a quiet period has elapsed, firing once after the user stops typing. Throttling instead limits calls to a fixed rate.",
-      "ar": "تؤجّل إزالة الارتداد الاستدعاء حتى انقضاء فترة هدوء، فيُنفّذ مرة واحدة بعد توقّف المستخدم. أما التقييد فيحدّ من الاستدعاءات بمعدّل ثابت."
+      "en": "Debouncing delays the call until a quiet period has elapsed, firing once after the user stops typing. Throttling limits calls to a fixed rate — useful for scroll events, not keystroke-then-wait patterns.",
+      "ar": "تؤجّل إزالة الارتداد الاستدعاء حتى انقضاء فترة هدوء، فيُنفّذ مرة واحدة بعد توقّف المستخدم. أما التقييد فيحدّ من الاستدعاءات بمعدّل ثابت — مفيد لأحداث التمرير لا لنمط الضغط-ثم-الانتظار."
     },
     "xp": 25,
-    "tags": ["patterns", "performance"]
+    "tags": ["patterns", "performance", "debounce"]
+  },
+  {
+    "id": "js-a-3",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this output?",
+      "ar": "ما الناتج؟"
+    },
+    "code": "const obj = { x: 1, y: { z: 2 } };\nconst clone = { ...obj };\nclone.y.z = 99;\nconsole.log(obj.y.z);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "2", "ar": "2" } },
+      { "id": "b", "text": { "en": "99", "ar": "99" } },
+      { "id": "c", "text": { "en": "undefined", "ar": "undefined" } },
+      { "id": "d", "text": { "en": "TypeError", "ar": "TypeError" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Spread creates a shallow copy — nested objects are still shared.",
+      "ar": "ينشئ النشر نسخة سطحية — تظل الكائنات المتداخلة مشتركة."
+    },
+    "explanation": {
+      "en": "Spread copies only the top-level properties by reference. clone.y and obj.y point to the same object, so mutating clone.y.z also changes obj.y.z. For deep cloning, use structuredClone() or JSON.parse(JSON.stringify()).",
+      "ar": "ينسخ النشر الخصائص من المستوى الأعلى فقط بالمرجع. كل من clone.y و obj.y يشيران إلى الكائن ذاته، فتعديل clone.y.z يُغيّر obj.y.z أيضًا. للاستنساخ العميق استخدم structuredClone() أو JSON.parse(JSON.stringify())."
+    },
+    "xp": 25,
+    "tags": ["spread", "shallow-copy", "objects"]
+  },
+  {
+    "id": "js-a-4",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "The async function should fetch users sequentially but runs them in parallel accidentally. What's the bug?",
+      "ar": "يُفترض أن تجلب الدالة غير المتزامنة المستخدمين بالتسلسل، لكنها تشغّلهم بالتوازي. ما الخطأ؟"
+    },
+    "code": "async function fetchAll(ids) {\n  const results = [];\n  ids.forEach(async id => {\n    const data = await fetch(`/api/${id}`);\n    results.push(await data.json());\n  });\n  return results;\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "forEach doesn't await async callbacks; use for...of instead", "ar": "لا تنتظر forEach ردود النداء غير المتزامنة؛ استخدم for...of بدلًا منها" } },
+      { "id": "b", "text": { "en": "fetch() is deprecated, use axios", "ar": "fetch() مهمل، استخدم axios" } },
+      { "id": "c", "text": { "en": "results.push must be called with await", "ar": "يجب استدعاء results.push مع await" } },
+      { "id": "d", "text": { "en": "The function is missing a try/catch", "ar": "الدالة تفتقر إلى try/catch" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "forEach ignores the Promise returned by its async callback.",
+      "ar": "تتجاهل forEach الـ Promise التي تُرجعها دالة الاستجابة غير المتزامنة."
+    },
+    "explanation": {
+      "en": "forEach fires all async callbacks simultaneously and doesn't await them. The function returns an empty results array. Fix: use `for (const id of ids) { ... await ... }` or `Promise.all(ids.map(...))` for true parallelism.",
+      "ar": "تُطلق forEach جميع ردود النداء غير المتزامنة في آنٍ واحد ولا تنتظرها. تُرجع الدالة مصفوفة results فارغة. الحل: استخدم `for (const id of ids) { ... await ... }` أو `Promise.all(ids.map(...))` للتوازي الفعلي."
+    },
+    "xp": 25,
+    "tags": ["async", "promises", "debugging"]
+  },
+  {
+    "id": "js-a-5",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the output?",
+      "ar": "ما الناتج؟"
+    },
+    "code": "console.log(typeof null);\nconsole.log(null instanceof Object);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "\"null\" / false", "ar": "\"null\" / false" } },
+      { "id": "b", "text": { "en": "\"object\" / true", "ar": "\"object\" / true" } },
+      { "id": "c", "text": { "en": "\"object\" / false", "ar": "\"object\" / false" } },
+      { "id": "d", "text": { "en": "\"undefined\" / false", "ar": "\"undefined\" / false" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "typeof null is a historic JavaScript bug, but instanceof tells the real story.",
+      "ar": "typeof null خطأ تاريخي في جافاسكريبت، لكن instanceof يروي القصة الحقيقية."
+    },
+    "explanation": {
+      "en": "typeof null === \"object\" is a famous bug from JavaScript's first days that was kept for backward compatibility. But null instanceof Object is false because null has no prototype chain — it is not an object.",
+      "ar": "typeof null === \"object\" خطأ شهير من أيام جافاسكريبت الأولى أُبقي للتوافق مع الإصدارات القديمة. لكن null instanceof Object هي false لأن null لا تملك سلسلة نموذج أولي — إنها ليست كائنًا."
+    },
+    "xp": 25,
+    "tags": ["typeof", "null", "types"]
+  },
+  {
+    "id": "js-a-6",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this snippet output?",
+      "ar": "ما الذي يُخرجه هذا المقطع؟"
+    },
+    "code": "const user = { profile: { name: 'Bob' } };\nconsole.log(user?.profile?.age ?? 'unknown');\nconsole.log(user?.address?.city ?? 'unknown');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "undefined / undefined", "ar": "undefined / undefined" } },
+      { "id": "b", "text": { "en": "\"unknown\" / \"unknown\"", "ar": "\"unknown\" / \"unknown\"" } },
+      { "id": "c", "text": { "en": "TypeError / TypeError", "ar": "TypeError / TypeError" } },
+      { "id": "d", "text": { "en": "null / \"unknown\"", "ar": "null / \"unknown\"" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Optional chaining returns undefined when a property doesn't exist, and ?? treats undefined as the left side being nullish.",
+      "ar": "يُرجع التسلسل الاختياري undefined عند غياب خاصية، و?? يعامل undefined على أنه nullish."
+    },
+    "explanation": {
+      "en": "user?.profile?.age is undefined (age doesn't exist), and ?? 'unknown' returns 'unknown'. user?.address is undefined so ?.city short-circuits to undefined, then ?? 'unknown' returns 'unknown'. Both log 'unknown'.",
+      "ar": "user?.profile?.age هي undefined (age غير موجودة)، و?? 'unknown' تُرجع 'unknown'. user?.address هي undefined فيختصر ?.city إلى undefined، ثم يُرجع ?? 'unknown' القيمة 'unknown'. كلاهما يطبع 'unknown'."
+    },
+    "xp": 25,
+    "tags": ["optional-chaining", "nullish-coalescing"]
+  },
+  {
+    "id": "js-a-7",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the Temporal Dead Zone (TDZ)?",
+      "ar": "ما هي المنطقة الزمنية الميتة (TDZ)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "The time a Promise is pending", "ar": "الوقت الذي يكون فيه Promise معلقًا" } },
+      { "id": "b", "text": { "en": "The period between entering a scope and the let/const declaration being initialised", "ar": "الفترة بين دخول النطاق وتهيئة تعريف let/const" } },
+      { "id": "c", "text": { "en": "A garbage-collected zone in memory", "ar": "منطقة محررة من الذاكرة عبر جامع القمامة" } },
+      { "id": "d", "text": { "en": "A setTimeout with 0ms delay", "ar": "setTimeout بتأخير 0 ملي ثانية" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Accessing a let or const variable before its declaration throws a specific error.",
+      "ar": "الوصول إلى متغير let أو const قبل تعريفه يُلقي خطأً محددًا."
+    },
+    "explanation": {
+      "en": "let and const are hoisted but not initialised. Accessing them before the declaration line throws ReferenceError: Cannot access '...' before initialization. This gap is the TDZ.",
+      "ar": "يُرفع كلٌّ من let و const لكنهما لا يُهيَّآن. الوصول إليهما قبل سطر التعريف يُلقي ReferenceError: لا يمكن الوصول إلى '...' قبل التهيئة. هذه الفجوة هي TDZ."
+    },
+    "xp": 25,
+    "tags": ["hoisting", "tdz", "scope"]
+  },
+  {
+    "id": "js-a-8",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "Why does this JSON.stringify call lose data?",
+      "ar": "لماذا تفقد هذه الاستدعاء لـ JSON.stringify بيانات؟"
+    },
+    "code": "const data = {\n  name: 'Alice',\n  greet: () => 'Hello',\n  age: undefined,\n  score: NaN,\n  created: new Date()\n};\nconsole.log(JSON.stringify(data));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "JSON.stringify only keeps numbers and strings", "ar": "يحتفظ JSON.stringify بالأرقام والنصوص فقط" } },
+      { "id": "b", "text": { "en": "Functions and undefined are omitted; NaN becomes null; Date becomes ISO string", "ar": "تُحذف الدوال و undefined؛ يصبح NaN هو null؛ يصبح Date نصًا ISO" } },
+      { "id": "c", "text": { "en": "It throws a TypeError for arrow functions", "ar": "يُلقي TypeError لوجود دوال سهمية" } },
+      { "id": "d", "text": { "en": "undefined becomes false", "ar": "يصبح undefined هو false" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "JSON has no concept of functions, undefined, or NaN.",
+      "ar": "لا يتعامل JSON مع مفهوم الدوال أو undefined أو NaN."
+    },
+    "explanation": {
+      "en": "JSON.stringify: omits function-valued and undefined-valued properties, converts NaN/Infinity to null, and converts Date objects to ISO string format. These are common JSON serialisation traps in real code.",
+      "ar": "يحذف JSON.stringify: الخصائص ذات القيم الدالية أو undefined، ويحوّل NaN/Infinity إلى null، ويحوّل كائنات Date إلى صيغة نص ISO. هذه مصائد تسلسل JSON الشائعة في الكود الفعلي."
+    },
+    "xp": 25,
+    "tags": ["json", "serialization", "pitfalls"]
+  },
+  {
+    "id": "js-a-9",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this generator function produce?",
+      "ar": "ما الذي تُنتجه دالة المولّد هذه؟"
+    },
+    "code": "function* counter(start = 0) {\n  while (true) {\n    yield start++;\n  }\n}\nconst gen = counter(5);\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "5, 5, 5", "ar": "5, 5, 5" } },
+      { "id": "b", "text": { "en": "5, 6, 7", "ar": "5, 6, 7" } },
+      { "id": "c", "text": { "en": "0, 1, 2", "ar": "0, 1, 2" } },
+      { "id": "d", "text": { "en": "6, 7, 8", "ar": "6, 7, 8" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "start++ yields the current value, then increments.",
+      "ar": "تُنتج start++ القيمة الحالية ثم تزيدها."
+    },
+    "explanation": {
+      "en": "Each call to gen.next() resumes from the last yield. start++ returns the current value of start before incrementing. So the sequence is 5, 6, 7.",
+      "ar": "كل استدعاء لـ gen.next() يستأنف من آخر yield. تُرجع start++ القيمة الحالية قبل الزيادة. فالتسلسل هو 5، 6، 7."
+    },
+    "xp": 25,
+    "tags": ["generators", "iterators"]
+  },
+  {
+    "id": "js-a-10",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A closure inside a loop creates a memory leak. Which pattern avoids it?",
+      "ar": "يتسبب إغلاق داخل حلقة في تسرب للذاكرة. أي نمط يتجنب ذلك؟"
+    },
+    "code": "// Problematic:\nconst handlers = [];\nfor (var i = 0; i < 1000; i++) {\n  handlers.push(() => heavyData);\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Use let instead of var so each closure has its own scope", "ar": "استخدم let بدلًا من var لكي يكون لكل إغلاق نطاقه الخاص" } },
+      { "id": "b", "text": { "en": "Move heavyData outside the loop and nullify it when no longer needed", "ar": "أخرج heavyData خارج الحلقة وأعيّنها null عندما لا تعود مطلوبة" } },
+      { "id": "c", "text": { "en": "Use a WeakRef or store a reference in a WeakMap so GC can collect it", "ar": "استخدم WeakRef أو خزّن المرجع في WeakMap ليتمكن GC من تحريره" } },
+      { "id": "d", "text": { "en": "Replace the closure with an IIFE", "ar": "استبدل الإغلاق بـ IIFE" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "Think about what the garbage collector can and cannot collect.",
+      "ar": "فكّر في ما يمكن لجامع القمامة تحريره وما لا يمكنه."
+    },
+    "explanation": {
+      "en": "Closures keep their referenced variables alive as long as the closure exists. If handlers is never cleaned up, heavyData lives forever. Using WeakRef or WeakMap lets GC collect heavyData when there are no more strong references, preventing the leak.",
+      "ar": "تُبقي الإغلاقات المتغيّرات المشار إليها حية طالما الإغلاق موجود. إذا لم يُنظَّف handlers أبدًا، يعيش heavyData للأبد. استخدام WeakRef أو WeakMap يتيح لجامع القمامة تحرير heavyData حين لا توجد مراجع قوية، مانعًا التسرب."
+    },
+    "xp": 25,
+    "tags": ["memory", "closures", "performance"]
   },
   {
     "id": "js-e-1",
@@ -259,15 +862,15 @@
     ],
     "correctOptionId": "a",
     "hint": {
-      "en": "The spread makes a shallow copy of the top level.",
-      "ar": "ينشئ النشر نسخة سطحية للمستوى الأعلى."
+      "en": "The spread makes a shallow copy of the top level — primitives are copied by value.",
+      "ar": "ينشئ النشر نسخة سطحية للمستوى الأعلى — تُنسخ القيم البدائية بالقيمة."
     },
     "explanation": {
-      "en": "Spread creates a shallow copy, so copy.a is independent of obj.a for primitive values. obj.a stays 1, copy.a becomes 2.",
-      "ar": "ينشئ النشر نسخة سطحية، لذا تكون copy.a مستقلة عن obj.a للقيم البدائية. تبقى obj.a تساوي 1 وتصبح copy.a تساوي 2."
+      "en": "Spread creates a shallow copy. For primitive values like numbers, the value itself is copied, so copy.a is independent of obj.a. obj.a stays 1, copy.a becomes 2.",
+      "ar": "ينشئ النشر نسخة سطحية. بالنسبة للقيم البدائية كالأرقام، تُنسخ القيمة ذاتها، فتكون copy.a مستقلة عن obj.a. تبقى obj.a تساوي 1 وتصبح copy.a تساوي 2."
     },
     "xp": 30,
-    "tags": ["objects", "immutability"]
+    "tags": ["objects", "spread", "shallow-copy"]
   },
   {
     "id": "js-e-2",
@@ -284,7 +887,7 @@
       { "id": "a", "text": { "en": "Replace var with let", "ar": "استبدل var بـ let" } },
       { "id": "b", "text": { "en": "Remove the setTimeout", "ar": "احذف setTimeout" } },
       { "id": "c", "text": { "en": "Use i-- instead", "ar": "استخدم i-- بدلًا منها" } },
-      { "id": "d", "text": { "en": "Change 0 to 100", "ar": "غيّر 0 إلى 100" } }
+      { "id": "d", "text": { "en": "Change delay from 0 to 100", "ar": "غيّر التأخير من 0 إلى 100" } }
     ],
     "correctOptionId": "a",
     "hint": {
@@ -292,11 +895,96 @@
       "ar": "المشكلة هي ارتباط واحد مشترك عبر كل التكرارات."
     },
     "explanation": {
-      "en": "var has function scope, so all callbacks share one i (3 after the loop). let is block-scoped, giving each iteration its own binding: 0,1,2.",
-      "ar": "لـ var نطاق دالي، فتتشارك كل ردود النداء قيمة i واحدة (3 بعد الحلقة). أما let فذات نطاق كتلي، فتمنح كل تكرار ارتباطه الخاص: 0,1,2."
+      "en": "var has function scope, so all three callbacks share the same i, which is 3 after the loop ends. let is block-scoped, creating a new binding per iteration (0, 1, 2). IIFE was the classic pre-ES6 workaround.",
+      "ar": "لـ var نطاق دالي، فتتشارك ردود النداء الثلاثة نفس i التي تساوي 3 بعد انتهاء الحلقة. أما let فذات نطاق كتلي تُنشئ ارتباطًا جديدًا لكل تكرار (0، 1، 2). كان IIFE الحل الكلاسيكي قبل ES6."
     },
     "xp": 30,
-    "tags": ["scope", "closures"]
+    "tags": ["scope", "closures", "var-let"]
+  },
+  {
+    "id": "js-e-3",
+    "trackId": "javascript",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is printed?",
+      "ar": "ما الذي يُطبع؟"
+    },
+    "code": "class Animal {\n  speak() { return 'generic'; }\n}\nclass Dog extends Animal {\n  speak() { return super.speak() + ' woof'; }\n}\nconst d = new Dog();\nconsole.log(d.speak());\nconsole.log(d instanceof Animal);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "\"generic woof\" / true", "ar": "\"generic woof\" / true" } },
+      { "id": "b", "text": { "en": "\"woof\" / false", "ar": "\"woof\" / false" } },
+      { "id": "c", "text": { "en": "\"generic\" / true", "ar": "\"generic\" / true" } },
+      { "id": "d", "text": { "en": "TypeError / true", "ar": "TypeError / true" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "super.speak() calls the parent's implementation.",
+      "ar": "تستدعي super.speak() تنفيذ الأصل."
+    },
+    "explanation": {
+      "en": "super.speak() in Dog calls Animal's speak(), returning 'generic'. Dog's speak() appends ' woof' giving 'generic woof'. d instanceof Animal is true because Dog's prototype chain includes Animal.prototype.",
+      "ar": "تستدعي super.speak() في Dog التابع speak() في Animal فتُرجع 'generic'. يُلحق speak() في Dog ' woof' ليُعطي 'generic woof'. d instanceof Animal صحيحة لأن سلسلة النموذج الأولي لـ Dog تتضمن Animal.prototype."
+    },
+    "xp": 30,
+    "tags": ["prototypes", "inheritance", "classes"]
+  },
+  {
+    "id": "js-e-4",
+    "trackId": "javascript",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the full output in order?",
+      "ar": "ما الناتج الكامل بالترتيب؟"
+    },
+    "code": "async function a() {\n  console.log('a1');\n  await b();\n  console.log('a2');\n}\nasync function b() {\n  console.log('b');\n}\nconsole.log('start');\na();\nconsole.log('end');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "start, a1, b, end, a2", "ar": "start, a1, b, end, a2" } },
+      { "id": "b", "text": { "en": "start, a1, b, a2, end", "ar": "start, a1, b, a2, end" } },
+      { "id": "c", "text": { "en": "start, end, a1, b, a2", "ar": "start, end, a1, b, a2" } },
+      { "id": "d", "text": { "en": "start, a1, end, b, a2", "ar": "start, a1, end, b, a2" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Everything before the first await in each async function runs synchronously.",
+      "ar": "كل شيء قبل أول await في كل دالة غير متزامنة يُنفّذ بشكل متزامن."
+    },
+    "explanation": {
+      "en": "'start' logs first. a() runs synchronously: logs 'a1', calls b() which logs 'b', then hits await which suspends a(). Control returns to the caller: 'end' logs. The microtask queue then resumes a() logging 'a2'.",
+      "ar": "تُطبع 'start' أولًا. تعمل a() بشكل متزامن: تطبع 'a1'، تستدعي b() التي تطبع 'b'، ثم تصطدم بـ await مما يوقف a() مؤقتًا. تعود السيطرة إلى المستدعي: تُطبع 'end'. ثم تستأنف طابور المهام الدقيقة a() لتطبع 'a2'."
+    },
+    "xp": 30,
+    "tags": ["async", "await", "event-loop"]
+  },
+  {
+    "id": "js-e-5",
+    "trackId": "javascript",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the key difference between Map and a plain object {} for storing key-value pairs?",
+      "ar": "ما الفرق الرئيسي بين Map والكائن العادي {} لتخزين الأزواج مفتاح-قيمة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Map is faster in all cases", "ar": "Map أسرع في جميع الحالات" } },
+      { "id": "b", "text": { "en": "Map allows any value as a key and guarantees insertion order; object keys are coerced to strings", "ar": "يسمح Map بأي قيمة كمفتاح ويضمن ترتيب الإدخال؛ تُحوَّل مفاتيح الكائن إلى نصوص" } },
+      { "id": "c", "text": { "en": "Objects support delete(); Map does not", "ar": "تدعم الكائنات delete()؛ بينما لا يدعمها Map" } },
+      { "id": "d", "text": { "en": "Map values can only be primitives", "ar": "يمكن أن تكون قيم Map بدائيات فقط" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Consider what types of keys each structure accepts.",
+      "ar": "فكّر في أنواع المفاتيح التي تقبلها كل بنية."
+    },
+    "explanation": {
+      "en": "Map keys can be any type (objects, functions, primitives) and maintain insertion order. Plain object keys are coerced to strings (so obj[1] and obj['1'] are the same key). Map also has .size property and no prototype pollution risk.",
+      "ar": "يمكن أن تكون مفاتيح Map من أي نوع (كائنات، دوال، بدائيات) وتحافظ على ترتيب الإدخال. تُحوَّل مفاتيح الكائنات العادية إلى نصوص (فـ obj[1] و obj['1'] مفتاح واحد). Map أيضًا لديها خاصية .size ولا خطر من تلوث النموذج الأولي."
+    },
+    "xp": 30,
+    "tags": ["map", "set", "data-structures"]
   },
   {
     "id": "js-boss-1",
@@ -317,12 +1005,12 @@
     ],
     "correctOptionId": "a",
     "hint": {
-      "en": "Everything before the first await runs synchronously.",
-      "ar": "كل ما قبل أول await يُنفّذ بشكل متزامن."
+      "en": "Everything before the first await runs synchronously, then control returns to the call site.",
+      "ar": "كل ما قبل أول await يُنفّذ بشكل متزامن، ثم تعود السيطرة إلى موقع الاستدعاء."
     },
     "explanation": {
-      "en": "'C' logs first. run() runs synchronously up to await, logging 'A'. 'D' logs next (sync). After the microtask resumes, 'B' logs. Order: C A D B.",
-      "ar": "تُطبع 'C' أولًا. تعمل run() بشكل متزامن حتى await فتطبع 'A'. ثم تُطبع 'D' (متزامن). وبعد استئناف المهمة الدقيقة تُطبع 'B'. الترتيب: C A D B."
+      "en": "'C' logs first (sync). run() starts: logs 'A' (sync), hits await null which schedules resumption as a microtask. Control returns: 'D' logs (sync). Call stack empties; microtask resumes run(): 'B' logs. Order: C A D B.",
+      "ar": "تُطبع 'C' أولًا (متزامن). تبدأ run(): تطبع 'A' (متزامن)، تصطدم بـ await null التي تجدول الاستئناف كمهمة دقيقة. تعود السيطرة: تُطبع 'D' (متزامن). يُفرغ مكدّس الاستدعاء؛ تستأنف المهمة الدقيقة run(): تُطبع 'B'. الترتيب: C A D B."
     },
     "xp": 50,
     "tags": ["async", "event-loop", "boss"]
@@ -337,21 +1025,108 @@
       "ar": "الزعيم: قائمة من 10,000 صف تُبطئ الصفحة أثناء التصفية مع كل ضغطة مفتاح. ما أفضل تحسين أولي؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "Debounce the input and virtualize the list", "ar": "أزل ارتداد الإدخال وقسّم القائمة افتراضيًا" } },
-      { "id": "b", "text": { "en": "Add more console.logs", "ar": "أضف المزيد من console.log" } },
+      { "id": "a", "text": { "en": "Debounce the input and virtualize the list", "ar": "أزل ارتداد الإدخال وافترض القائمة" } },
+      { "id": "b", "text": { "en": "Add more console.logs to diagnose the slowdown", "ar": "أضف المزيد من console.log لتشخيص البطء" } },
       { "id": "c", "text": { "en": "Switch var to let everywhere", "ar": "بدّل var إلى let في كل مكان" } },
-      { "id": "d", "text": { "en": "Wrap everything in try/catch", "ar": "غلّف كل شيء بـ try/catch" } }
+      { "id": "d", "text": { "en": "Wrap all state updates in try/catch", "ar": "غلّف كل تحديثات الحالة في try/catch" } }
     ],
     "correctOptionId": "a",
     "hint": {
-      "en": "Reduce how often you filter, and how much you render.",
-      "ar": "قلّل عدد مرات التصفية وكمية ما تعرضه."
+      "en": "Reduce how often you filter, and how much DOM you render at once.",
+      "ar": "قلّل عدد مرات التصفية وكمية DOM التي تعرضها دفعة واحدة."
     },
     "explanation": {
-      "en": "Debouncing cuts redundant filtering work per keystroke, and list virtualization renders only visible rows — together they remove the jank. The other options don't address rendering cost.",
-      "ar": "تقلّل إزالة الارتداد أعمال التصفية الزائدة لكل ضغطة، وتعرض الفرضنة الافتراضية الصفوف المرئية فقط — معًا يزيلان البطء. الخيارات الأخرى لا تعالج تكلفة العرض."
+      "en": "Debouncing cuts redundant filtering work per keystroke (e.g., 300ms quiet period). List virtualisation renders only visible rows (~20-30) instead of 10,000, slashing layout and paint time. Together they eliminate the jank.",
+      "ar": "تقلّل إزالة الارتداد أعمال التصفية الزائدة لكل ضغطة (مثلًا فترة هدوء 300 مللي ثانية). تعرض الفرضنة الصفوف المرئية فقط (~20-30) بدلًا من 10,000، فتقلّص وقت التخطيط والرسم بشكل كبير. معًا يُزيلان البطء."
     },
     "xp": 50,
-    "tags": ["performance", "boss"]
+    "tags": ["performance", "boss", "virtualization", "debounce"]
+  },
+  {
+    "id": "js-boss-3",
+    "trackId": "javascript",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "Boss: what is the exact output of this event-loop puzzle?",
+      "ar": "الزعيم: ما الناتج الدقيق لغز حلقة الأحداث هذا؟"
+    },
+    "code": "console.log('1');\nsetTimeout(() => {\n  console.log('2');\n  Promise.resolve().then(() => console.log('3'));\n}, 0);\nPromise.resolve()\n  .then(() => {\n    console.log('4');\n    setTimeout(() => console.log('5'), 0);\n  })\n  .then(() => console.log('6'));\nconsole.log('7');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "1 7 4 6 2 3 5", "ar": "1 7 4 6 2 3 5" } },
+      { "id": "b", "text": { "en": "1 7 4 2 3 6 5", "ar": "1 7 4 2 3 6 5" } },
+      { "id": "c", "text": { "en": "1 2 3 4 5 6 7", "ar": "1 2 3 4 5 6 7" } },
+      { "id": "d", "text": { "en": "1 7 2 4 3 6 5", "ar": "1 7 2 4 3 6 5" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Drain ALL microtasks after each macrotask before picking the next macrotask.",
+      "ar": "استنزف جميع المهام الدقيقة بعد كل مهمة كبيرة قبل أخذ المهمة الكبيرة التالية."
+    },
+    "explanation": {
+      "en": "Sync: 1, 7. Microtask queue: .then logs 4 and queues setTimeout(5); chained .then logs 6. Macrotask queue now has two: original setTimeout(2) and new setTimeout(5). Pick setTimeout(2): logs 2, queues microtask(3). Drain microtasks: 3. Pick setTimeout(5): logs 5. Final: 1 7 4 6 2 3 5.",
+      "ar": "متزامن: 1، 7. طابور المهام الدقيقة: .then تطبع 4 وتُضيف setTimeout(5) للطابور؛ .then المتسلسلة تطبع 6. طابور المهام الكبيرة الآن يحتوي: setTimeout(2) الأصلي وsetTimeout(5) الجديد. نأخذ setTimeout(2): تطبع 2، نُضيف مهمة دقيقة(3). نستنزف المهام الدقيقة: 3. نأخذ setTimeout(5): تطبع 5. النتيجة النهائية: 1 7 4 6 2 3 5."
+    },
+    "xp": 50,
+    "tags": ["event-loop", "async", "microtasks", "boss"]
+  },
+  {
+    "id": "js-boss-4",
+    "trackId": "javascript",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "Boss: this React-style state update has a stale closure bug. What logs after the button is clicked 3 times quickly?",
+      "ar": "الزعيم: تحديث الحالة بأسلوب React هذا يعاني من خطأ الإغلاق القديم. ما الذي يُطبع بعد النقر على الزر 3 مرات بسرعة؟"
+    },
+    "code": "let count = 0;\nfunction handleClick() {\n  // simulates setState batching bug\n  setTimeout(() => {\n    count = count + 1;\n    console.log(count);\n  }, 0);\n}\n// clicked 3 times synchronously before any setTimeout fires\nhandleClick();\nhandleClick();\nhandleClick();",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "1 2 3", "ar": "1 2 3" } },
+      { "id": "b", "text": { "en": "3 3 3", "ar": "3 3 3" } },
+      { "id": "c", "text": { "en": "0 0 0", "ar": "0 0 0" } },
+      { "id": "d", "text": { "en": "1 1 1", "ar": "1 1 1" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "count here is a module-level variable, not a snapshot. Each callback reads and writes the current count.",
+      "ar": "count هنا متغير على مستوى الوحدة، لا لقطة. كل رد نداء يقرأ count الحالية ويكتب إليها."
+    },
+    "explanation": {
+      "en": "Unlike React's useState (which takes a snapshot), `count` is a plain variable. All three timeouts run in sequence after the sync code: first reads count=0, sets it to 1, logs 1. Second reads 1, sets to 2, logs 2. Third reads 2, sets to 3, logs 3. The real React bug occurs when you use the old snapshot inside a closure — here there's no snapshot, so it works correctly.",
+      "ar": "بخلاف useState في React (الذي يأخذ لقطة)، count متغير عادي. تعمل الـ timeouts الثلاثة بالتسلسل بعد الكود المتزامن: الأول يقرأ count=0 ويجعلها 1 ويطبع 1. الثاني يقرأ 1 ويجعلها 2 ويطبع 2. الثالث يقرأ 2 ويجعلها 3 ويطبع 3. الخطأ الحقيقي في React يحدث حين تستخدم اللقطة القديمة داخل إغلاق — هنا لا توجد لقطة فيعمل بشكل صحيح."
+    },
+    "xp": 50,
+    "tags": ["closures", "state", "async", "boss"]
+  },
+  {
+    "id": "js-boss-5",
+    "trackId": "javascript",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "Boss: what does this output? Think carefully about prototype chains and property shadowing.",
+      "ar": "الزعيم: ما الناتج؟ فكّر بعناية في سلاسل النموذج الأولي وتظليل الخصائص."
+    },
+    "code": "function Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function() {\n  return `Hi, I'm ${this.name}`;\n};\nconst alice = new Person('Alice');\nalice.greet = function() {\n  return `Hey! ` + Person.prototype.greet.call(this);\n};\nconst bob = new Person('Bob');\nconsole.log(alice.greet());\nconsole.log(bob.greet());\nconsole.log(alice.hasOwnProperty('greet'));\nconsole.log(bob.hasOwnProperty('greet'));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "\"Hey! Hi, I'm Alice\" / \"Hi, I'm Bob\" / true / false", "ar": "\"Hey! Hi, I'm Alice\" / \"Hi, I'm Bob\" / true / false" } },
+      { "id": "b", "text": { "en": "\"Hey! Hi, I'm Alice\" / \"Hey! Hi, I'm Bob\" / true / true", "ar": "\"Hey! Hi, I'm Alice\" / \"Hey! Hi, I'm Bob\" / true / true" } },
+      { "id": "c", "text": { "en": "\"Hi, I'm Alice\" / \"Hi, I'm Bob\" / false / false", "ar": "\"Hi, I'm Alice\" / \"Hi, I'm Bob\" / false / false" } },
+      { "id": "d", "text": { "en": "TypeError / \"Hi, I'm Bob\" / true / false", "ar": "TypeError / \"Hi, I'm Bob\" / true / false" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "alice has its own greet that shadows the prototype's. bob does not — it goes up the chain.",
+      "ar": "لـ alice greet خاص بها يُظلل ذلك الخاص بالنموذج الأولي. أما bob فلا — تصعد السلسلة."
+    },
+    "explanation": {
+      "en": "alice.greet is an own property (set directly on the instance), so it shadows Person.prototype.greet and calls through to the prototype via .call(this). bob has no own greet, so it uses Person.prototype.greet directly. hasOwnProperty('greet') confirms alice has it as an own property and bob does not.",
+      "ar": "alice.greet خاصية ذاتية (تُعيَّن مباشرة على المثيل)، فتُظلل Person.prototype.greet وتستدعيها عبر .call(this). أما bob فلا يمتلك greet ذاتيًا، فيستخدم Person.prototype.greet مباشرة. يؤكد hasOwnProperty('greet') أن لـ alice خاصيتها الذاتية وأن bob لا يمتلكها."
+    },
+    "xp": 50,
+    "tags": ["prototypes", "this", "inheritance", "boss"]
   }
 ]
