@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "next-b-1",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In the Next.js App Router, which file name creates the UI for a route segment?",
+      "ar": "في App Router الخاص بـ Next.js، أي اسم ملف يُنشئ واجهة المستخدم لقطعة المسار (route segment)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "page.tsx", "ar": "page.tsx" } },
+      { "id": "b", "text": { "en": "index.tsx", "ar": "index.tsx" } },
+      { "id": "c", "text": { "en": "route.tsx", "ar": "route.tsx" } },
+      { "id": "d", "text": { "en": "view.tsx", "ar": "view.tsx" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "App Router uses specific file-name conventions for each role.",
+      "ar": "يستخدم App Router أسماء ملفات محددة لكل دور."
+    },
+    "explanation": {
+      "en": "`page.tsx` is the reserved file name that makes a route segment publicly accessible and renders its UI. `route.tsx` is for API route handlers, not UI.",
+      "ar": "`page.tsx` هو اسم الملف المحجوز الذي يجعل قطعة المسار قابلة للوصول ويعرض واجهتها. أما `route.tsx` فهو لمعالجات API وليس للواجهة."
+    },
+    "xp": 10,
+    "tags": ["app-router", "file-conventions"]
+  },
+  {
+    "id": "next-b-2",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "By default, every component inside the `app/` directory is a React Server Component.",
+      "ar": "افتراضيًا، كل مكوّن داخل مجلد `app/` هو React Server Component."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about what directive is required to opt into the client side.",
+      "ar": "فكّر في التوجيه المطلوب للانتقال إلى جانب العميل."
+    },
+    "explanation": {
+      "en": "In the App Router, all components default to Server Components. You must add `'use client'` at the top of a file to make it a Client Component.",
+      "ar": "في App Router، تكون جميع المكوّنات Server Components افتراضيًا. يجب إضافة `'use client'` في أعلى الملف لجعله Client Component."
+    },
+    "xp": 10,
+    "tags": ["server-components", "app-router"]
+  },
+  {
+    "id": "next-b-3",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which Next.js component should you use for client-side navigation between pages?",
+      "ar": "أي مكوّن في Next.js يجب استخدامه للتنقل من جانب العميل بين الصفحات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<a href>", "ar": "<a href>" } },
+      { "id": "b", "text": { "en": "<Link> from 'next/link'", "ar": "<Link> من 'next/link'" } },
+      { "id": "c", "text": { "en": "<Navigate> from 'next/router'", "ar": "<Navigate> من 'next/router'" } },
+      { "id": "d", "text": { "en": "<Router> from 'next/navigation'", "ar": "<Router> من 'next/navigation'" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Next.js provides a built-in component that wraps the anchor tag with client-side navigation.",
+      "ar": "يوفر Next.js مكوّنًا مدمجًا يُغلّف وسم الرابط بالتنقل من جانب العميل."
+    },
+    "explanation": {
+      "en": "`<Link>` from `next/link` enables client-side navigation with prefetching. Using a plain `<a>` tag causes a full page reload.",
+      "ar": "`<Link>` من `next/link` يتيح التنقل من جانب العميل مع الجلب المسبق. استخدام وسم `<a>` العادي يُسبب إعادة تحميل كاملة للصفحة."
+    },
+    "xp": 10,
+    "tags": ["navigation", "Link"]
+  },
+  {
+    "id": "next-b-4",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of `layout.tsx` in the App Router?",
+      "ar": "ما الغرض من `layout.tsx` في App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It defines API endpoints for the route segment.", "ar": "يُعرّف نقاط نهاية API لقطعة المسار." } },
+      { "id": "b", "text": { "en": "It wraps child pages and persists across navigation without re-rendering.", "ar": "يُغلّف الصفحات الفرعية ويبقى عبر التنقل دون إعادة تصيير." } },
+      { "id": "c", "text": { "en": "It handles errors thrown in the route segment.", "ar": "يُعالج الأخطاء التي تُرمى في قطعة المسار." } },
+      { "id": "d", "text": { "en": "It pre-generates static paths for dynamic routes.", "ar": "يُولّد مسارات ثابتة مسبقًا للمسارات الديناميكية." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Layouts share UI across multiple pages and preserve state during navigation.",
+      "ar": "تشترك التخطيطات في واجهة المستخدم عبر صفحات متعددة وتحافظ على الحالة أثناء التنقل."
+    },
+    "explanation": {
+      "en": "`layout.tsx` wraps its children and is NOT re-rendered when navigating between sibling routes. This is ideal for navbars, sidebars, and shared shells.",
+      "ar": "`layout.tsx` يُغلّف عناصره الفرعية ولا يُعاد تصييره عند التنقل بين المسارات الشقيقة. هذا مثالي لأشرطة التنقل والأشرطة الجانبية والهياكل المشتركة."
+    },
+    "xp": 10,
+    "tags": ["app-router", "layout", "file-conventions"]
+  },
+  {
+    "id": "next-b-5",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this Next.js `<Image>` usage require that a plain `<img>` tag does not?",
+      "ar": "ما الذي يتطلبه استخدام `<Image>` في Next.js مما لا يتطلبه وسم `<img>` العادي؟"
+    },
+    "code": "import Image from 'next/image';\n\nexport default function Avatar() {\n  return (\n    <Image\n      src=\"/avatar.png\"\n      alt=\"User avatar\"\n      width={64}\n      height={64}\n    />\n  );\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "`width` and `height` props are mandatory.", "ar": "خاصيتا `width` و`height` إلزاميتان." } },
+      { "id": "b", "text": { "en": "A `className` prop is mandatory.", "ar": "خاصية `className` إلزامية." } },
+      { "id": "c", "text": { "en": "The image must be hosted on a CDN.", "ar": "يجب أن تكون الصورة مستضافة على CDN." } },
+      { "id": "d", "text": { "en": "The `loading` prop must be set to `'lazy'`.", "ar": "يجب تعيين خاصية `loading` على `'lazy'`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js Image component needs layout information to prevent Cumulative Layout Shift.",
+      "ar": "يحتاج مكوّن Image في Next.js إلى معلومات التخطيط لمنع إزاحة التخطيط التراكمية."
+    },
+    "explanation": {
+      "en": "The `next/image` component requires explicit `width` and `height` props (or `fill` prop) so it can calculate aspect ratio, prevent layout shift, and serve optimized image sizes.",
+      "ar": "يتطلب مكوّن `next/image` تحديد `width` و`height` بشكل صريح (أو خاصية `fill`) حتى يتمكن من حساب نسبة العرض إلى الارتفاع ومنع إزاحة التخطيط وتقديم أحجام صور محسّنة."
+    },
+    "xp": 10,
+    "tags": ["image-optimization", "next/image"]
+  },
+  {
+    "id": "next-b-6",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which environment variable prefix makes a variable accessible in the browser in Next.js?",
+      "ar": "أي بادئة لمتغير البيئة تجعله متاحًا في المتصفح في Next.js؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "NEXT_PUBLIC_", "ar": "NEXT_PUBLIC_" } },
+      { "id": "b", "text": { "en": "PUBLIC_", "ar": "PUBLIC_" } },
+      { "id": "c", "text": { "en": "BROWSER_", "ar": "BROWSER_" } },
+      { "id": "d", "text": { "en": "CLIENT_", "ar": "CLIENT_" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js has a special prefix that tells the bundler to expose the variable to client-side code.",
+      "ar": "يمتلك Next.js بادئة خاصة تُخبر المجمّع بعرض المتغير لكود جانب العميل."
+    },
+    "explanation": {
+      "en": "Only environment variables prefixed with `NEXT_PUBLIC_` are bundled into the client-side JavaScript. All others are only available server-side and are stripped from the client bundle.",
+      "ar": "فقط متغيرات البيئة التي تبدأ بـ `NEXT_PUBLIC_` تُضمَّن في JavaScript لجانب العميل. جميع الأخرى متاحة فقط على الخادم وتُحذف من حزمة العميل."
+    },
+    "xp": 10,
+    "tags": ["environment-variables", "security"]
+  },
+  {
+    "id": "next-b-7",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Complete the file name for a custom 404 page in the App Router:",
+      "ar": "أكمل اسم الملف لصفحة 404 مخصصة في App Router:"
+    },
+    "code": "app/_______.tsx",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "not-found", "ar": "not-found" } },
+      { "id": "b", "text": { "en": "404", "ar": "404" } },
+      { "id": "c", "text": { "en": "error", "ar": "error" } },
+      { "id": "d", "text": { "en": "missing", "ar": "missing" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "App Router uses a specific file-name convention for handling not-found states.",
+      "ar": "يستخدم App Router اسم ملف محدد للتعامل مع حالات عدم الوجود."
+    },
+    "explanation": {
+      "en": "`not-found.tsx` is the App Router convention for rendering a 404-like UI. You can also call `notFound()` from `next/navigation` to trigger it programmatically.",
+      "ar": "`not-found.tsx` هو الاتفاقية في App Router لعرض واجهة مشابهة لـ 404. يمكنك أيضًا استدعاء `notFound()` من `next/navigation` لتفعيلها برمجيًا."
+    },
+    "xp": 10,
+    "tags": ["file-conventions", "not-found", "app-router"]
+  },
+  {
+    "id": "next-b-8",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "How do you define a dynamic route segment in Next.js App Router?",
+      "ar": "كيف تُعرّف قطعة مسار ديناميكية في Next.js App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Using a folder name like `[slug]`", "ar": "باستخدام اسم مجلد مثل `[slug]`" } },
+      { "id": "b", "text": { "en": "Using a folder name like `:slug`", "ar": "باستخدام اسم مجلد مثل `:slug`" } },
+      { "id": "c", "text": { "en": "Using a folder name like `{slug}`", "ar": "باستخدام اسم مجلد مثل `{slug}`" } },
+      { "id": "d", "text": { "en": "Adding a `dynamic` export to `page.tsx`", "ar": "إضافة export `dynamic` إلى `page.tsx`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js uses filesystem conventions with brackets to denote dynamic segments.",
+      "ar": "يستخدم Next.js اتفاقيات نظام الملفات مع الأقواس للدلالة على القطع الديناميكية."
+    },
+    "explanation": {
+      "en": "A folder named `[slug]` creates a dynamic segment. The value is accessible via `params.slug` in `page.tsx`. For catch-all routes use `[...slug]`, and for optional catch-all use `[[...slug]]`.",
+      "ar": "مجلد باسم `[slug]` يُنشئ قطعة ديناميكية. القيمة متاحة عبر `params.slug` في `page.tsx`. للمسارات الشاملة استخدم `[...slug]`، وللشاملة الاختيارية استخدم `[[...slug]]`."
+    },
+    "xp": 10,
+    "tags": ["dynamic-routes", "app-router"]
+  },
+  {
+    "id": "next-b-9",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "`loading.tsx` in the App Router automatically wraps its sibling `page.tsx` in a React `<Suspense>` boundary.",
+      "ar": "`loading.tsx` في App Router يُغلّف تلقائيًا `page.tsx` الشقيق له في حدود React `<Suspense>`."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is one of the key App Router file conventions that simplifies streaming.",
+      "ar": "هذه إحدى اتفاقيات ملفات App Router الرئيسية التي تُبسّط البث."
+    },
+    "explanation": {
+      "en": "Next.js automatically wraps the `page.tsx` with `<Suspense fallback={<Loading />}>` when a `loading.tsx` file exists in the same folder, enabling instant loading states with streaming.",
+      "ar": "يُغلّف Next.js تلقائيًا `page.tsx` بـ `<Suspense fallback={<Loading />}>` عند وجود ملف `loading.tsx` في نفس المجلد، مما يُتيح حالات التحميل الفورية مع البث."
+    },
+    "xp": 10,
+    "tags": ["loading", "suspense", "streaming", "app-router"]
+  },
+  {
+    "id": "next-b-10",
+    "trackId": "nextjs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which hook do you use to get the current pathname in a Client Component in the App Router?",
+      "ar": "أي hook تستخدم للحصول على المسار الحالي في Client Component في App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "useRouter from 'next/router'", "ar": "useRouter من 'next/router'" } },
+      { "id": "b", "text": { "en": "usePathname from 'next/navigation'", "ar": "usePathname من 'next/navigation'" } },
+      { "id": "c", "text": { "en": "useRoute from 'next/navigation'", "ar": "useRoute من 'next/navigation'" } },
+      { "id": "d", "text": { "en": "useLocation from 'react-router-dom'", "ar": "useLocation من 'react-router-dom'" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The App Router has its own navigation hooks in a different package from the Pages Router.",
+      "ar": "يمتلك App Router hooks تنقل خاصة به في حزمة مختلفة عن Pages Router."
+    },
+    "explanation": {
+      "en": "`usePathname` from `next/navigation` returns the current URL's pathname. In the App Router, you should use `next/navigation` (not `next/router` which is for the Pages Router).",
+      "ar": "`usePathname` من `next/navigation` يُعيد pathname الـ URL الحالي. في App Router، يجب استخدام `next/navigation` (وليس `next/router` المخصص لـ Pages Router)."
+    },
+    "xp": 10,
+    "tags": ["navigation", "hooks", "app-router"]
+  },
+  {
+    "id": "next-i-1",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You fetch data in a Server Component using `fetch`. By default, how does Next.js 14 cache this request?",
+      "ar": "تجلب بيانات في Server Component باستخدام `fetch`. افتراضيًا، كيف يُخزّن Next.js 14 هذا الطلب؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "No caching — every request hits the origin.", "ar": "لا تخزين مؤقت — كل طلب يصل إلى الخادم الأصلي." } },
+      { "id": "b", "text": { "en": "Cached indefinitely in the Data Cache unless opted out.", "ar": "مُخزَّن مؤقتًا إلى أجل غير مسمى في Data Cache ما لم يُلغَ الاشتراك." } },
+      { "id": "c", "text": { "en": "Cached only during the current request (per-request memoization).", "ar": "مُخزَّن مؤقتًا فقط خلال الطلب الحالي (memoization لكل طلب)." } },
+      { "id": "d", "text": { "en": "Cached for 60 seconds by default.", "ar": "مُخزَّن مؤقتًا لمدة 60 ثانية افتراضيًا." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Next.js extends the native `fetch` API with caching behaviour. Think about what `{ cache: 'force-cache' }` means.",
+      "ar": "يُوسّع Next.js واجهة `fetch` الأصلية بسلوك التخزين المؤقت. فكّر في معنى `{ cache: 'force-cache' }`."
+    },
+    "explanation": {
+      "en": "In Next.js 14, `fetch` defaults to `{ cache: 'force-cache' }`, persisting the response in the Data Cache across requests and deployments. Use `{ cache: 'no-store' }` or `{ next: { revalidate: N } }` to change this behaviour.",
+      "ar": "في Next.js 14، يكون `fetch` افتراضيًا مع `{ cache: 'force-cache' }`، مما يُبقي الاستجابة في Data Cache عبر الطلبات والنشرات. استخدم `{ cache: 'no-store' }` أو `{ next: { revalidate: N } }` لتغيير هذا السلوك."
+    },
+    "xp": 15,
+    "tags": ["data-fetching", "caching", "server-components"]
+  },
+  {
+    "id": "next-i-2",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This Server Component throws an error at build time. What is the bug?",
+      "ar": "يُرمي هذا Server Component خطأً في وقت البناء. ما هي المشكلة؟"
+    },
+    "code": "'use client';\n\nexport default async function Dashboard() {\n  const data = await fetch('/api/stats').then(r => r.json());\n  return <div>{data.total}</div>;\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "`'use client'` and `async` cannot be combined; async components must be Server Components.", "ar": "`'use client'` و`async` لا يمكن دمجهما؛ المكوّنات غير المتزامنة يجب أن تكون Server Components." } },
+      { "id": "b", "text": { "en": "`fetch` must be called with an absolute URL in Next.js.", "ar": "يجب استدعاء `fetch` بـ URL مطلق في Next.js." } },
+      { "id": "c", "text": { "en": "The component is missing a `return` statement.", "ar": "المكوّن يفتقر إلى جملة `return`." } },
+      { "id": "d", "text": { "en": "`fetch` cannot be used inside components, only in `getServerSideProps`.", "ar": "لا يمكن استخدام `fetch` داخل المكوّنات، فقط في `getServerSideProps`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Client Components run in the browser. Think about what `async/await` at the component level implies.",
+      "ar": "تعمل Client Components في المتصفح. فكّر في ما تعنيه `async/await` على مستوى المكوّن."
+    },
+    "explanation": {
+      "en": "Client Components cannot be `async` functions. Using `'use client'` and `async` together is invalid. To fetch data async, either remove `'use client'` (make it a Server Component) or use client-side data-fetching patterns (SWR, React Query, `useEffect`).",
+      "ar": "لا يمكن أن تكون Client Components دوالًا `async`. دمج `'use client'` مع `async` غير صالح. لجلب البيانات بشكل غير متزامن، إما أزل `'use client'` (اجعله Server Component) أو استخدم أنماط جلب البيانات من جانب العميل (SWR أو React Query أو `useEffect`)."
+    },
+    "xp": 15,
+    "tags": ["server-components", "client-components", "debugging"]
+  },
+  {
+    "id": "next-i-3",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the correct way to define a Route Handler (API route) in the App Router?",
+      "ar": "ما الطريقة الصحيحة لتعريف Route Handler (مسار API) في App Router؟"
+    },
+    "code": "// File: app/api/users/route.ts",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "Export named functions `GET`, `POST`, etc. from `route.ts`.", "ar": "تصدير دوال مُسمَّاة `GET` و`POST` وغيرها من `route.ts`." } },
+      { "id": "b", "text": { "en": "Export a default function that receives `(req, res)`.", "ar": "تصدير دالة افتراضية تستقبل `(req, res)`." } },
+      { "id": "c", "text": { "en": "Export a default async function named `handler`.", "ar": "تصدير دالة async افتراضية باسم `handler`." } },
+      { "id": "d", "text": { "en": "Create an `api.ts` file next to `page.tsx`.", "ar": "إنشاء ملف `api.ts` بجانب `page.tsx`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "App Router route handlers are in `route.ts` and export HTTP method names as named exports.",
+      "ar": "معالجات مسارات App Router موجودة في `route.ts` وتُصدّر أسماء أساليب HTTP كصادرات مُسمَّاة."
+    },
+    "explanation": {
+      "en": "In the App Router, `route.ts` exports named functions matching HTTP verbs (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`). Each receives a `Request` object and returns a `Response`. The Pages Router pattern of `export default function handler(req, res)` is not used here.",
+      "ar": "في App Router، يُصدّر `route.ts` دوالًا مُسمَّاة تتطابق مع أفعال HTTP (`GET` و`POST` و`PUT` و`DELETE` و`PATCH`). تستقبل كل منها كائن `Request` وتُعيد `Response`. نمط Pages Router المتمثل في `export default function handler(req, res)` لا يُستخدم هنا."
+    },
+    "xp": 15,
+    "tags": ["route-handlers", "api", "app-router"]
+  },
+  {
+    "id": "next-i-4",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "A blog page must show the 100 most-read posts, updated every 10 minutes. Which data-fetching strategy is best?",
+      "ar": "يجب أن تعرض صفحة مدونة أكثر 100 منشور قراءةً، محدّثةً كل 10 دقائق. أي استراتيجية جلب بيانات هي الأفضل؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "`fetch(url, { cache: 'no-store' })` — always dynamic.", "ar": "`fetch(url, { cache: 'no-store' })` — ديناميكي دائمًا." } },
+      { "id": "b", "text": { "en": "`fetch(url, { next: { revalidate: 600 } })` — ISR every 10 min.", "ar": "`fetch(url, { next: { revalidate: 600 } })` — ISR كل 10 دقائق." } },
+      { "id": "c", "text": { "en": "`generateStaticParams` only — fully static, never updates.", "ar": "`generateStaticParams` فقط — ثابت تمامًا، لا يُحدَّث أبدًا." } },
+      { "id": "d", "text": { "en": "Client-side fetch in `useEffect` — fetches on every render.", "ar": "جلب من جانب العميل في `useEffect` — يجلب عند كل تصيير." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Incremental Static Regeneration (ISR) allows you to update static pages after a set time interval.",
+      "ar": "يُتيح لك التجديد التدريجي للصفحات الثابتة (ISR) تحديث الصفحات الثابتة بعد فترة زمنية محددة."
+    },
+    "explanation": {
+      "en": "`{ next: { revalidate: 600 } }` uses ISR: the page is served from cache, but Next.js regenerates it in the background after 600 seconds (10 min). This gives fast response times with fresh-enough data — ideal for this use case.",
+      "ar": "`{ next: { revalidate: 600 } }` يستخدم ISR: تُقدَّم الصفحة من الذاكرة المؤقتة، لكن Next.js يُعيد توليدها في الخلفية بعد 600 ثانية (10 دقائق). يُعطي هذا أوقات استجابة سريعة مع بيانات حديثة بما يكفي — مثالي لهذا الاستخدام."
+    },
+    "xp": 15,
+    "tags": ["caching", "ISR", "revalidate", "data-fetching"]
+  },
+  {
+    "id": "next-i-5",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which directive is required to use `useState` inside a component in the App Router?",
+      "ar": "أي توجيه مطلوب لاستخدام `useState` داخل مكوّن في App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "'use server'", "ar": "'use server'" } },
+      { "id": "b", "text": { "en": "'use client'", "ar": "'use client'" } },
+      { "id": "c", "text": { "en": "'use state'", "ar": "'use state'" } },
+      { "id": "d", "text": { "en": "No directive needed — useState works everywhere.", "ar": "لا توجيه مطلوب — useState يعمل في كل مكان." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "React hooks that depend on browser APIs or interactivity require the component to opt into the client boundary.",
+      "ar": "تتطلب hooks React التي تعتمد على واجهات برمجة المتصفح أو التفاعل أن يشترك المكوّن في حدود العميل."
+    },
+    "explanation": {
+      "en": "`useState`, `useEffect`, and other interactive hooks only work in Client Components. Add `'use client'` at the top of the file to mark the component and its subtree as client-rendered.",
+      "ar": "`useState` و`useEffect` وسائر hooks التفاعلية تعمل فقط في Client Components. أضف `'use client'` في أعلى الملف لتحديد المكوّن وشجرته الفرعية كمُصيَّرة من جانب العميل."
+    },
+    "xp": 15,
+    "tags": ["client-components", "hooks", "use-client"]
+  },
+  {
+    "id": "next-i-6",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this metadata export do in a Next.js `page.tsx`?",
+      "ar": "ماذا يفعل هذا التصدير للـ metadata في `page.tsx` الخاص بـ Next.js؟"
+    },
+    "code": "export const metadata = {\n  title: 'My Blog',\n  description: 'A blog about web dev',\n  openGraph: {\n    images: ['/og-image.png'],\n  },\n};",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "It injects `<title>`, `<meta description>`, and Open Graph `<meta>` tags into the `<head>`.", "ar": "يُدرج وسوم `<title>` و`<meta description>` و Open Graph `<meta>` في `<head>`." } },
+      { "id": "b", "text": { "en": "It sets metadata for the Next.js Data Cache.", "ar": "يُعيّن metadata لـ Data Cache الخاص بـ Next.js." } },
+      { "id": "c", "text": { "en": "It creates a JSON-LD structured data script tag.", "ar": "يُنشئ وسم script لبيانات JSON-LD المنظّمة." } },
+      { "id": "d", "text": { "en": "It configures the route's caching behaviour.", "ar": "يُهيّئ سلوك التخزين المؤقت للمسار." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The Metadata API in Next.js App Router generates HTML `<head>` elements.",
+      "ar": "تُولّد Metadata API في Next.js App Router عناصر HTML `<head>`."
+    },
+    "explanation": {
+      "en": "Exporting a `metadata` object (or `generateMetadata` function) from a `page.tsx` or `layout.tsx` tells Next.js to render the corresponding `<title>`, `<meta>`, and social-graph tags in the HTML `<head>`. It is purely for SEO and social sharing.",
+      "ar": "تصدير كائن `metadata` (أو دالة `generateMetadata`) من `page.tsx` أو `layout.tsx` يُخبر Next.js بتصيير وسوم `<title>` و`<meta>` والرسم البياني الاجتماعي المقابلة في HTML `<head>`. هذا مخصص لتحسين محركات البحث والمشاركة الاجتماعية بحتًا."
+    },
+    "xp": 15,
+    "tags": ["metadata", "SEO", "app-router"]
+  },
+  {
+    "id": "next-i-7",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "Why does this route handler always return stale data in production?",
+      "ar": "لماذا يُعيد هذا route handler دائمًا بيانات قديمة في بيئة الإنتاج؟"
+    },
+    "code": "// app/api/time/route.ts\nexport async function GET() {\n  const time = new Date().toISOString();\n  return Response.json({ time });\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "Route handlers with no dynamic APIs are statically cached by Next.js at build time.", "ar": "يتم تخزين route handlers التي لا تستخدم APIs ديناميكية مؤقتًا بشكل ثابت بواسطة Next.js في وقت البناء." } },
+      { "id": "b", "text": { "en": "`Response.json` is not supported; use `NextResponse.json`.", "ar": "`Response.json` غير مدعوم؛ استخدم `NextResponse.json`." } },
+      { "id": "c", "text": { "en": "`new Date()` is not available in the Edge runtime.", "ar": "`new Date()` غير متاح في Edge runtime." } },
+      { "id": "d", "text": { "en": "The function is missing `export const dynamic = 'force-dynamic'`.", "ar": "الدالة تفتقر إلى `export const dynamic = 'force-dynamic'`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js can cache GET route handlers. Think about what makes a route dynamic.",
+      "ar": "يمكن لـ Next.js تخزين route handlers من نوع GET مؤقتًا. فكّر في ما يجعل المسار ديناميكيًا."
+    },
+    "explanation": {
+      "en": "GET route handlers without dynamic functions (`cookies()`, `headers()`, `searchParams`, etc.) are statically rendered and cached. To always run dynamically, add `export const dynamic = 'force-dynamic'` or use a dynamic function inside the handler.",
+      "ar": "يتم تصيير route handlers من نوع GET بدون دوال ديناميكية (`cookies()` أو `headers()` أو `searchParams` وغيرها) بشكل ثابت وتخزينها مؤقتًا. للتشغيل الديناميكي دائمًا، أضف `export const dynamic = 'force-dynamic'` أو استخدم دالة ديناميكية داخل المعالج."
+    },
+    "xp": 15,
+    "tags": ["route-handlers", "caching", "debugging", "static-dynamic"]
+  },
+  {
+    "id": "next-i-8",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the role of `generateStaticParams` in the App Router?",
+      "ar": "ما دور `generateStaticParams` في App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It runs at build time to pre-render dynamic route segments as static pages.", "ar": "يعمل في وقت البناء لتصيير قطع المسارات الديناميكية مسبقًا كصفحات ثابتة." } },
+      { "id": "b", "text": { "en": "It validates URL parameters at runtime.", "ar": "يتحقق من صحة معاملات URL في وقت التشغيل." } },
+      { "id": "c", "text": { "en": "It generates API query parameters automatically.", "ar": "يُولّد معاملات استعلام API تلقائيًا." } },
+      { "id": "d", "text": { "en": "It creates redirects for old static paths.", "ar": "يُنشئ إعادات توجيه للمسارات الثابتة القديمة." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This function is the App Router equivalent of `getStaticPaths` in the Pages Router.",
+      "ar": "هذه الدالة هي مكافئ App Router لـ `getStaticPaths` في Pages Router."
+    },
+    "explanation": {
+      "en": "`generateStaticParams` is exported from a dynamic route's `page.tsx` and returns an array of param objects. Next.js uses these to statically pre-render each combination at build time, making them fast to serve.",
+      "ar": "يُصدَّر `generateStaticParams` من `page.tsx` الخاص بالمسار الديناميكي ويُعيد مصفوفة من كائنات المعاملات. يستخدم Next.js هذه لتصيير كل تركيبة مسبقًا بشكل ثابت في وقت البناء، مما يجعلها سريعة التقديم."
+    },
+    "xp": 15,
+    "tags": ["generateStaticParams", "static-rendering", "dynamic-routes"]
+  },
+  {
+    "id": "next-i-9",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to show a user-specific dashboard that changes on every request. Which rendering approach should you use?",
+      "ar": "تحتاج إلى عرض لوحة تحكم خاصة بالمستخدم تتغير في كل طلب. أي نهج تصيير يجب استخدامه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Static rendering with ISR revalidation every second.", "ar": "التصيير الثابت مع إعادة التحقق بـ ISR كل ثانية." } },
+      { "id": "b", "text": { "en": "Dynamic rendering using `cookies()` or `headers()` in the Server Component.", "ar": "التصيير الديناميكي باستخدام `cookies()` أو `headers()` في Server Component." } },
+      { "id": "c", "text": { "en": "Client-side rendering only with `useEffect`.", "ar": "التصيير من جانب العميل فقط مع `useEffect`." } },
+      { "id": "d", "text": { "en": "Edge rendering with `generateStaticParams`.", "ar": "التصيير على الحافة مع `generateStaticParams`." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Accessing request-time data like cookies or headers makes a route dynamically rendered.",
+      "ar": "الوصول إلى البيانات في وقت الطلب مثل الكوكيز أو الرؤوس يجعل المسار يُصيَّر ديناميكيًا."
+    },
+    "explanation": {
+      "en": "Calling `cookies()` or `headers()` inside a Server Component opts the route into dynamic rendering — it runs on every request. This is the correct approach for per-user, personalised data that must not be cached.",
+      "ar": "استدعاء `cookies()` أو `headers()` داخل Server Component يجعل المسار يُصيَّر ديناميكيًا — يعمل عند كل طلب. هذا هو النهج الصحيح للبيانات المخصصة لكل مستخدم والتي يجب عدم تخزينها مؤقتًا."
+    },
+    "xp": 15,
+    "tags": ["dynamic-rendering", "cookies", "headers", "server-components"]
+  },
+  {
+    "id": "next-i-10",
+    "trackId": "nextjs",
+    "level": "intermediate",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Complete the Server Action definition so a form can call it directly:",
+      "ar": "أكمل تعريف Server Action حتى تتمكن النموذج من استدعائه مباشرة:"
+    },
+    "code": "// actions.ts\n_______ async function createPost(formData: FormData) {\n  'use server';\n  // ... save to DB\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "export", "ar": "export" } },
+      { "id": "b", "text": { "en": "async", "ar": "async" } },
+      { "id": "c", "text": { "en": "server", "ar": "server" } },
+      { "id": "d", "text": { "en": "action", "ar": "action" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Server Actions must be exported to be used in Client Components or `<form action>`.",
+      "ar": "يجب تصدير Server Actions لاستخدامها في Client Components أو `<form action>`."
+    },
+    "explanation": {
+      "en": "Server Actions are async functions marked with `'use server'`. They must be `export`ed to be importable by Client Components or used as a `<form action={createPost}>`. The `'use server'` directive can be at function level or file level.",
+      "ar": "Server Actions هي دوال async مُعلَّمة بـ `'use server'`. يجب تصديرها (`export`) لتكون قابلة للاستيراد بواسطة Client Components أو استخدامها كـ `<form action={createPost}>`. يمكن وضع توجيه `'use server'` على مستوى الدالة أو الملف."
+    },
+    "xp": 15,
+    "tags": ["server-actions", "forms", "app-router"]
+  },
+  {
+    "id": "next-a-1",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This Server Component fetches user data but the token cookie is always undefined. Why?",
+      "ar": "يجلب هذا Server Component بيانات المستخدم لكن كوكي الرمز المميز يكون دائمًا undefined. لماذا؟"
+    },
+    "code": "import { cookies } from 'next/headers';\n\nexport default async function Profile() {\n  const cookieStore = cookies();\n  const token = cookieStore.get('token')?.value;\n\n  const user = await fetch(`/api/me`, {\n    headers: { Authorization: `Bearer ${token}` },\n  }).then(r => r.json());\n\n  return <div>{user.name}</div>;\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "`fetch` uses a relative URL `/api/me`; Server Components need an absolute URL.", "ar": "يستخدم `fetch` URL نسبيًا `/api/me`؛ تحتاج Server Components إلى URL مطلق." } },
+      { "id": "b", "text": { "en": "`cookies()` must be awaited with `await cookies()`.", "ar": "يجب انتظار `cookies()` باستخدام `await cookies()`." } },
+      { "id": "c", "text": { "en": "`cookies()` is not available in Server Components.", "ar": "`cookies()` غير متاح في Server Components." } },
+      { "id": "d", "text": { "en": "The component needs `'use client'` to access cookies.", "ar": "يحتاج المكوّن إلى `'use client'` للوصول إلى الكوكيز." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Server Components execute on the Node.js server, not in a browser with a known base URL.",
+      "ar": "تعمل Server Components على خادم Node.js، وليس في متصفح بـ URL أساسي معروف."
+    },
+    "explanation": {
+      "en": "In Server Components, `fetch` with a relative URL like `/api/me` fails because there is no browser base URL on the server. You must use an absolute URL (e.g., `http://localhost:3000/api/me` or from an env var). The token issue is a symptom of the failed fetch, not the root cause.",
+      "ar": "في Server Components، يفشل `fetch` بـ URL نسبي مثل `/api/me` لأنه لا يوجد URL أساسي للمتصفح على الخادم. يجب استخدام URL مطلق (مثل `http://localhost:3000/api/me` أو من متغير بيئة). مشكلة الرمز المميز هي أعراض للفشل وليست السبب الجذري."
+    },
+    "xp": 25,
+    "tags": ["server-components", "fetch", "cookies", "debugging"]
+  },
+  {
+    "id": "next-a-2",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You call `revalidatePath('/blog')` inside a Server Action. What exactly does this do?",
+      "ar": "تستدعي `revalidatePath('/blog')` داخل Server Action. ماذا يفعل هذا بالضبط؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It purges the Full Route Cache and Data Cache for `/blog`, causing a fresh render on the next request.", "ar": "يُنظّف Full Route Cache وData Cache لمسار `/blog`، مما يُسبب تصييرًا جديدًا عند الطلب التالي." } },
+      { "id": "b", "text": { "en": "It immediately re-renders `/blog` in the background.", "ar": "يُعيد تصيير `/blog` فورًا في الخلفية." } },
+      { "id": "c", "text": { "en": "It clears the browser cache for `/blog`.", "ar": "يُنظّف ذاكرة المتصفح المؤقتة لـ `/blog`." } },
+      { "id": "d", "text": { "en": "It triggers a full application rebuild.", "ar": "يُشغّل إعادة بناء كاملة للتطبيق." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Revalidation in Next.js works by invalidating cache entries, not by immediately regenerating them.",
+      "ar": "يعمل التحقق من صحة البيانات في Next.js عن طريق إبطال إدخالات الذاكرة المؤقتة، وليس عن طريق إعادة توليدها فورًا."
+    },
+    "explanation": {
+      "en": "`revalidatePath('/blog')` marks the cached HTML and data for that path as stale. On the next incoming request, Next.js re-fetches data and re-renders. It does NOT push changes to currently-connected clients or immediately regenerate.",
+      "ar": "`revalidatePath('/blog')` يُعلّم HTML المُخزَّن مؤقتًا والبيانات الخاصة بذلك المسار على أنها قديمة. عند الطلب الوارد التالي، يُعيد Next.js جلب البيانات وإعادة التصيير. لا يدفع التغييرات إلى العملاء المتصلين حاليًا ولا يُعيد التوليد فورًا."
+    },
+    "xp": 25,
+    "tags": ["caching", "revalidatePath", "server-actions", "ISR"]
+  },
+  {
+    "id": "next-a-3",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You have a Next.js middleware that reads a JWT from cookies and redirects unauthenticated users. Where should this file live and what should it export?",
+      "ar": "لديك middleware في Next.js يقرأ JWT من الكوكيز ويُعيد توجيه المستخدمين غير المصادق عليهم. أين يجب أن يعيش هذا الملف وماذا يجب أن يُصدّر؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "`app/middleware.ts` exporting `export default function middleware(req)`.", "ar": "`app/middleware.ts` يُصدّر `export default function middleware(req)`." } },
+      { "id": "b", "text": { "en": "`middleware.ts` at the project root (next to `package.json`) exporting `export function middleware(request)`.", "ar": "`middleware.ts` في جذر المشروع (بجانب `package.json`) يُصدّر `export function middleware(request)`." } },
+      { "id": "c", "text": { "en": "`pages/_middleware.ts` exporting a default function.", "ar": "`pages/_middleware.ts` يُصدّر دالة افتراضية." } },
+      { "id": "d", "text": { "en": "`app/api/middleware/route.ts` exporting a `GET` function.", "ar": "`app/api/middleware/route.ts` يُصدّر دالة `GET`." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Middleware runs before the router and must live at the root of the project, not inside `app/`.",
+      "ar": "يعمل Middleware قبل الموجّه ويجب أن يكون في جذر المشروع، وليس داخل `app/`."
+    },
+    "explanation": {
+      "en": "`middleware.ts` must be placed at the root of the project (or `src/` if using the `src` directory). It exports a named `middleware` function that receives a `NextRequest` and returns a `NextResponse`. You can also export a `config` object with a `matcher` to limit which routes it runs on.",
+      "ar": "يجب وضع `middleware.ts` في جذر المشروع (أو `src/` عند استخدام مجلد `src`). يُصدّر دالة `middleware` مُسمَّاة تستقبل `NextRequest` وتُعيد `NextResponse`. يمكنك أيضًا تصدير كائن `config` مع `matcher` لتحديد المسارات التي يعمل عليها."
+    },
+    "xp": 25,
+    "tags": ["middleware", "authentication", "app-router"]
+  },
+  {
+    "id": "next-a-4",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What will happen when a user visits `/shop/clothes/shirts` with this route structure?",
+      "ar": "ماذا سيحدث عندما يزور مستخدم `/shop/clothes/shirts` مع هيكل المسار هذا؟"
+    },
+    "code": "app/\n  shop/\n    [...slug]/\n      page.tsx   // receives params.slug",
+    "codeLang": "bash",
+    "options": [
+      { "id": "a", "text": { "en": "`params.slug` equals `['clothes', 'shirts']`.", "ar": "`params.slug` يساوي `['clothes', 'shirts']`." } },
+      { "id": "b", "text": { "en": "`params.slug` equals `'clothes/shirts'`.", "ar": "`params.slug` يساوي `'clothes/shirts'`." } },
+      { "id": "c", "text": { "en": "A 404 is returned because catch-all routes need `[[...slug]]`.", "ar": "يُعاد 404 لأن مسارات الشمول تحتاج إلى `[[...slug]]`." } },
+      { "id": "d", "text": { "en": "`params.slug` equals `'shirts'` (only the last segment).", "ar": "`params.slug` يساوي `'shirts'` (القطعة الأخيرة فقط)." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Catch-all segments capture all remaining path parts as an array.",
+      "ar": "تلتقط قطع الشمول جميع أجزاء المسار المتبقية كمصفوفة."
+    },
+    "explanation": {
+      "en": "`[...slug]` is a catch-all segment that captures all remaining segments as an array. For `/shop/clothes/shirts`, `params.slug` will be `['clothes', 'shirts']`. Use `[[...slug]]` for optional catch-all (also matches `/shop`).",
+      "ar": "`[...slug]` هو قطعة شاملة تلتقط جميع القطع المتبقية كمصفوفة. لـ `/shop/clothes/shirts`، سيكون `params.slug` هو `['clothes', 'shirts']`. استخدم `[[...slug]]` للشمول الاختياري (يتطابق أيضًا مع `/shop`)."
+    },
+    "xp": 25,
+    "tags": ["dynamic-routes", "catch-all", "params"]
+  },
+  {
+    "id": "next-a-5",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You want to stream a slow database query to users progressively. What is the correct App Router pattern?",
+      "ar": "تريد بث استعلام قاعدة بيانات بطيء للمستخدمين بشكل تدريجي. ما هو نمط App Router الصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Wrap the slow component in `<Suspense fallback={<Spinner />}>` inside a Server Component.", "ar": "قم بلفّ المكوّن البطيء في `<Suspense fallback={<Spinner />}>` داخل Server Component." } },
+      { "id": "b", "text": { "en": "Use `useTransition` in a Client Component to defer the query.", "ar": "استخدم `useTransition` في Client Component لتأجيل الاستعلام." } },
+      { "id": "c", "text": { "en": "Add `export const runtime = 'edge'` to enable streaming.", "ar": "أضف `export const runtime = 'edge'` لتمكين البث." } },
+      { "id": "d", "text": { "en": "Use WebSockets to push data when the query completes.", "ar": "استخدم WebSockets لدفع البيانات عند اكتمال الاستعلام." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "React Suspense + Server Components enables HTML streaming without client-side JavaScript.",
+      "ar": "React Suspense مع Server Components يُتيح بث HTML دون JavaScript من جانب العميل."
+    },
+    "explanation": {
+      "en": "Wrapping an async Server Component in `<Suspense>` enables React's streaming SSR: Next.js sends the shell HTML immediately, then streams the resolved content when the promise settles. This improves Time to First Byte without blocking the full page.",
+      "ar": "لفّ Server Component غير المتزامن في `<Suspense>` يُتيح بث SSR الخاص بـ React: يُرسل Next.js HTML الهيكل فورًا، ثم يبث المحتوى المُحلَّل عند استقرار الـ promise. هذا يُحسّن وقت البايت الأول دون حجب الصفحة بالكامل."
+    },
+    "xp": 25,
+    "tags": ["streaming", "suspense", "server-components", "performance"]
+  },
+  {
+    "id": "next-a-6",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "A developer imports a Server Component inside a Client Component. What will happen?",
+      "ar": "يستورد مطوّر Server Component داخل Client Component. ماذا سيحدث؟"
+    },
+    "code": "'use client';\nimport HeavyServerChart from './HeavyServerChart'; // Server Component\n\nexport default function Dashboard() {\n  return <HeavyServerChart />;\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "Build error: Server Components cannot be imported into Client Components.", "ar": "خطأ في البناء: لا يمكن استيراد Server Components إلى Client Components." } },
+      { "id": "b", "text": { "en": "`HeavyServerChart` is automatically converted to a Client Component.", "ar": "يُحوَّل `HeavyServerChart` تلقائيًا إلى Client Component." } },
+      { "id": "c", "text": { "en": "It works fine; the server component renders on the server as a child.", "ar": "يعمل بشكل جيد؛ يُصيَّر المكوّن الخادمي على الخادم كعنصر فرعي." } },
+      { "id": "d", "text": { "en": "It works only if `HeavyServerChart` has no side effects.", "ar": "يعمل فقط إذا لم يكن لـ `HeavyServerChart` آثار جانبية." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The 'use client' boundary affects the entire module graph below it.",
+      "ar": "تؤثر حدود 'use client' على رسم البياني للوحدات بالكامل أدناه."
+    },
+    "explanation": {
+      "en": "When a Server Component is imported directly into a Client Component file, it becomes part of the client bundle and loses its server-only capabilities. To use a Server Component inside a Client Component without converting it, pass it as a `children` prop (the composition pattern).",
+      "ar": "عند استيراد Server Component مباشرةً إلى ملف Client Component، يصبح جزءًا من حزمة العميل ويفقد قدراته المقتصرة على الخادم. لاستخدام Server Component داخل Client Component دون تحويله، مرّره كخاصية `children` (نمط التركيب)."
+    },
+    "xp": 25,
+    "tags": ["server-components", "client-components", "composition", "debugging"]
+  },
+  {
+    "id": "next-a-7",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A multi-tenant SaaS app must serve different homepage content based on the subdomain (e.g., `acme.myapp.com`). Which Next.js feature is best suited?",
+      "ar": "تطبيق SaaS متعدد المستأجرين يجب أن يقدم محتوى الصفحة الرئيسية المختلف بناءً على النطاق الفرعي (مثل `acme.myapp.com`). أي ميزة في Next.js هي الأنسب؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Middleware reading the `host` header and rewriting the URL to a tenant-specific route.", "ar": "Middleware يقرأ header الـ `host` ويُعيد كتابة URL إلى مسار خاص بالمستأجر." } },
+      { "id": "b", "text": { "en": "A single `page.tsx` that reads `searchParams.tenant`.", "ar": "ملف `page.tsx` واحد يقرأ `searchParams.tenant`." } },
+      { "id": "c", "text": { "en": "Parallel routes for each tenant.", "ar": "مسارات متوازية لكل مستأجر." } },
+      { "id": "d", "text": { "en": "A catch-all route `[...tenant]/page.tsx`.", "ar": "مسار شامل `[...tenant]/page.tsx`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Middleware can inspect the request before routing and transparently rewrite the URL.",
+      "ar": "يمكن لـ Middleware فحص الطلب قبل التوجيه وإعادة كتابة URL بشفافية."
+    },
+    "explanation": {
+      "en": "Middleware intercepts requests before they hit the router. By reading `request.headers.get('host')`, you can extract the subdomain and `NextResponse.rewrite()` the URL to serve tenant-specific content from a `/[tenant]` folder without the user seeing the URL change.",
+      "ar": "يعترض Middleware الطلبات قبل وصولها إلى الموجّه. بقراءة `request.headers.get('host')`، يمكنك استخراج النطاق الفرعي واستخدام `NextResponse.rewrite()` لإعادة كتابة URL لتقديم محتوى خاص بالمستأجر من مجلد `/[tenant]` دون أن يرى المستخدم تغيير URL."
+    },
+    "xp": 25,
+    "tags": ["middleware", "multi-tenant", "rewrite", "advanced"]
+  },
+  {
+    "id": "next-a-8",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of the `@folder` convention (parallel routes) in the App Router?",
+      "ar": "ما الغرض من اتفاقية `@folder` (المسارات المتوازية) في App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It renders multiple pages simultaneously in the same layout, each independently navigable.", "ar": "يُصيَّر عدة صفحات في نفس الوقت في نفس التخطيط، وكل منها قابل للتنقل باستقلالية." } },
+      { "id": "b", "text": { "en": "It creates private folders ignored by the router.", "ar": "يُنشئ مجلدات خاصة يتجاهلها الموجّه." } },
+      { "id": "c", "text": { "en": "It marks a route segment as an API-only endpoint.", "ar": "يُحدّد قطعة مسار كنقطة نهاية API فقط." } },
+      { "id": "d", "text": { "en": "It intercepts a route from a different segment.", "ar": "يعترض مسارًا من قطعة مختلفة." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about dashboards with multiple independently-updating panels — like analytics + activity feeds.",
+      "ar": "فكّر في لوحات التحكم ذات اللوحات المتعددة التي تتحدث باستقلالية — مثل التحليلات + تغذيات النشاط."
+    },
+    "explanation": {
+      "en": "Parallel routes (`@analytics`, `@team`) let you render multiple `page.tsx` files simultaneously within the same layout. Each slot is passed as a prop to the layout, enabling complex UIs like dashboards with independently streaming or conditionally rendered panels.",
+      "ar": "المسارات المتوازية (`@analytics` و`@team`) تتيح لك تصيير ملفات `page.tsx` متعددة في نفس الوقت ضمن نفس التخطيط. يُمرَّر كل فتحة كخاصية للتخطيط، مما يُتيح واجهات مستخدم معقدة مثل لوحات التحكم ذات اللوحات المبثوثة باستقلالية أو المُصيَّرة بشروط."
+    },
+    "xp": 25,
+    "tags": ["parallel-routes", "advanced", "app-router", "layout"]
+  },
+  {
+    "id": "next-a-9",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "true-false",
+    "prompt": {
+      "en": "A Server Action can be called directly from a `<form action={}>` attribute without any JavaScript on the client.",
+      "ar": "يمكن استدعاء Server Action مباشرةً من خاصية `<form action={}>` دون أي JavaScript على جانب العميل."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Progressive enhancement is a design goal of Server Actions.",
+      "ar": "التحسين التدريجي هو هدف تصميمي لـ Server Actions."
+    },
+    "explanation": {
+      "en": "Server Actions support progressive enhancement. A `<form action={serverAction}>` works as a native HTML form POST even without JavaScript, because Next.js handles the form submission via a server-side POST request. When JS is available, it upgrades to a smoother AJAX-like interaction.",
+      "ar": "يدعم Server Actions التحسين التدريجي. يعمل `<form action={serverAction}>` كنموذج HTML أصلي من نوع POST حتى بدون JavaScript، لأن Next.js يتعامل مع إرسال النموذج عبر طلب POST من جانب الخادم. عند توفر JS، يترقى إلى تفاعل أكثر سلاسة يشبه AJAX."
+    },
+    "xp": 25,
+    "tags": ["server-actions", "progressive-enhancement", "forms"]
+  },
+  {
+    "id": "next-a-10",
+    "trackId": "nextjs",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "Given this `revalidateTag` call inside a Server Action, what is the effect?",
+      "ar": "بالنظر إلى استدعاء `revalidateTag` هذا داخل Server Action، ما هو التأثير؟"
+    },
+    "code": "import { revalidateTag } from 'next/cache';\n\nexport async function invalidateProducts() {\n  'use server';\n  revalidateTag('products');\n}\n\n// In a Server Component:\nconst data = await fetch('https://api.example.com/products', {\n  next: { tags: ['products'] },\n});",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "All `fetch` calls tagged `'products'` are purged from the Data Cache.", "ar": "جميع استدعاءات `fetch` الموسومة بـ `'products'` تُحذف من Data Cache." } },
+      { "id": "b", "text": { "en": "Only the current page's cache is cleared.", "ar": "يُنظَّف مؤقت الصفحة الحالية فقط." } },
+      { "id": "c", "text": { "en": "The CDN edge cache is purged globally.", "ar": "يُنظَّف مؤقت CDN Edge بشكل عالمي." } },
+      { "id": "d", "text": { "en": "The tag `'products'` is added to the request headers.", "ar": "يُضاف الوسم `'products'` إلى رؤوس الطلب." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Tags allow granular cache invalidation across many pages and fetches at once.",
+      "ar": "تتيح الوسوم إبطال الذاكرة المؤقتة بشكل دقيق عبر عدة صفحات وعمليات جلب دفعةً واحدة."
+    },
+    "explanation": {
+      "en": "`revalidateTag('products')` invalidates every `fetch` response stored in the Data Cache that was tagged with `'products'`. On the next request, those fetches re-execute against the origin. This is more precise than `revalidatePath` when the same data is used across multiple routes.",
+      "ar": "`revalidateTag('products')` يُبطل كل استجابة `fetch` مُخزَّنة في Data Cache والموسومة بـ `'products'`. عند الطلب التالي، تُعاد تنفيذ تلك عمليات الجلب مقابل الخادم الأصلي. هذا أكثر دقةً من `revalidatePath` عند استخدام نفس البيانات عبر مسارات متعددة."
+    },
+    "xp": 25,
+    "tags": ["caching", "revalidateTag", "data-fetching", "server-actions"]
+  },
+  {
+    "id": "next-e-1",
+    "trackId": "nextjs",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is Partial Prerendering (PPR) in Next.js and what problem does it solve?",
+      "ar": "ما هو التصيير المسبق الجزئي (PPR) في Next.js وما المشكلة التي يحلها؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It renders a static shell at build time and streams dynamic holes into it at request time — combining static speed with dynamic freshness in one response.", "ar": "يُصيّر هيكل ثابت في وقت البناء ويبث الثغرات الديناميكية فيه في وقت الطلب — يجمع بين سرعة الثابت وحداثة الديناميكي في استجابة واحدة." } },
+      { "id": "b", "text": { "en": "It preloads only part of the page's JavaScript bundle.", "ar": "يُحمّل مسبقًا جزءًا فقط من حزمة JavaScript للصفحة." } },
+      { "id": "c", "text": { "en": "It pre-renders the first N pages of a paginated list.", "ar": "يُصيّر مسبقًا أول N صفحة من قائمة ذات ترقيم صفحات." } },
+      { "id": "d", "text": { "en": "It partially caches GraphQL queries on the edge.", "ar": "يُخزّن استعلامات GraphQL جزئيًا مؤقتًا على الحافة." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "PPR merges the best of static and dynamic rendering in a single request/response cycle.",
+      "ar": "يدمج PPR أفضل ما في التصيير الثابت والديناميكي في دورة طلب/استجابة واحدة."
+    },
+    "explanation": {
+      "en": "PPR (experimental in v14, stabilizing in v15) generates a static HTML shell at build time. Dynamic `<Suspense>` boundaries are streamed in at request time. This means fast TTFB from CDN for the shell, plus fresh dynamic content streamed immediately — without the traditional either/or tradeoff.",
+      "ar": "PPR (تجريبي في v14، يستقر في v15) يُولّد هيكل HTML ثابتًا في وقت البناء. تُبث حدود `<Suspense>` الديناميكية في وقت الطلب. هذا يعني TTFB سريعًا من CDN للهيكل، بالإضافة إلى محتوى ديناميكي حديث يُبث فورًا — دون المقايضة التقليدية بين هذا أو ذاك."
+    },
+    "xp": 30,
+    "tags": ["PPR", "partial-prerendering", "expert", "performance", "streaming"]
+  },
+  {
+    "id": "next-e-2",
+    "trackId": "nextjs",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "This code causes a hydration mismatch error in production. Why?",
+      "ar": "يُسبب هذا الكود خطأ في عدم تطابق الترطيب في الإنتاج. لماذا؟"
+    },
+    "code": "'use client';\nimport { useState } from 'react';\n\nexport default function Clock() {\n  const [time] = useState(new Date().toLocaleTimeString());\n  return <p>Current time: {time}</p>;\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "The server renders with the build-time timestamp, but the client re-renders with a different timestamp, causing a mismatch.", "ar": "يُصيّر الخادم بطابع زمني وقت البناء، لكن العميل يُعيد التصيير بطابع زمني مختلف، مما يُسبب عدم تطابق." } },
+      { "id": "b", "text": { "en": "`useState` cannot take a non-primitive initial value.", "ar": "لا يمكن لـ `useState` أخذ قيمة أولية غير بدائية." } },
+      { "id": "c", "text": { "en": "`toLocaleTimeString` is not available in the Node.js runtime.", "ar": "`toLocaleTimeString` غير متاح في بيئة تشغيل Node.js." } },
+      { "id": "d", "text": { "en": "Client Components cannot call `new Date()`.", "ar": "لا يمكن لـ Client Components استدعاء `new Date()`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js pre-renders Client Components on the server. Think about the time difference between SSR and client hydration.",
+      "ar": "يُصيّر Next.js مسبقًا Client Components على الخادم. فكّر في فرق الوقت بين SSR والترطيب من جانب العميل."
+    },
+    "explanation": {
+      "en": "Next.js server-renders Client Components. `useState(new Date()...)` runs on the server (say, 12:00:00), and again on the client during hydration (say, 12:00:01). The HTML timestamps differ → hydration mismatch. Fix: use `useEffect` to set the time only on the client, or use `suppressHydrationWarning` for unavoidable dynamic values.",
+      "ar": "يُصيّر Next.js مكوّنات العميل على الخادم. يعمل `useState(new Date()...)` على الخادم (مثلًا 12:00:00)، ثم مرةً أخرى على العميل أثناء الترطيب (مثلًا 12:00:01). تختلف الطوابع الزمنية في HTML → عدم تطابق الترطيب. الحل: استخدم `useEffect` لتعيين الوقت فقط على العميل، أو استخدم `suppressHydrationWarning` للقيم الديناميكية التي لا مفر منها."
+    },
+    "xp": 30,
+    "tags": ["hydration", "debugging", "client-components", "SSR", "expert"]
+  },
+  {
+    "id": "next-e-3",
+    "trackId": "nextjs",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "When should you choose `export const runtime = 'edge'` over the default Node.js runtime?",
+      "ar": "متى يجب اختيار `export const runtime = 'edge'` على بيئة تشغيل Node.js الافتراضية؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "For routes that need global low-latency and can operate within Edge API constraints (no native Node modules, limited CPU time).", "ar": "للمسارات التي تحتاج إلى زمن استجابة منخفض عالميًا ويمكنها العمل ضمن قيود Edge API (لا وحدات Node أصلية، وقت CPU محدود)." } },
+      { "id": "b", "text": { "en": "When you need to run heavy database queries that take several seconds.", "ar": "عند الحاجة إلى تشغيل استعلامات قاعدة بيانات ثقيلة تستغرق عدة ثوانٍ." } },
+      { "id": "c", "text": { "en": "For any route that uses `fs` or `path` modules.", "ar": "لأي مسار يستخدم وحدتَي `fs` أو `path`." } },
+      { "id": "d", "text": { "en": "Whenever you use `cookies()` or `headers()` in a Server Component.", "ar": "كلما استخدمت `cookies()` أو `headers()` في Server Component." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Edge runtime runs at CDN edge locations but has a restricted API surface.",
+      "ar": "تعمل بيئة Edge runtime في مواقع CDN Edge لكنها تمتلك سطح API مقيّد."
+    },
+    "explanation": {
+      "en": "The Edge runtime runs at CDN PoPs worldwide for ultra-low latency. Trade-offs: no native Node.js APIs (`fs`, `crypto`, etc.), limited bundle size, and no long-running processes. It is ideal for: auth checks, A/B testing, geolocation-based redirects, or lightweight personalisation logic. Use Node.js runtime for DB queries, heavy computation, or native modules.",
+      "ar": "تعمل بيئة Edge runtime في نقاط توزيع CDN حول العالم لزمن استجابة منخفض للغاية. المقايضات: لا واجهات برمجة Node.js الأصلية (`fs` و`crypto` وغيرها)، حجم حزمة محدود، ولا عمليات طويلة الأمد. مثالية لـ: فحوصات المصادقة، واختبار A/B، وإعادة التوجيه بناءً على الموقع الجغرافي، أو منطق التخصيص الخفيف. استخدم بيئة تشغيل Node.js لاستعلامات قواعد البيانات والحسابات الثقيلة والوحدات الأصلية."
+    },
+    "xp": 30,
+    "tags": ["edge-runtime", "performance", "expert", "runtime"]
+  },
+  {
+    "id": "next-e-4",
+    "trackId": "nextjs",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does the intercepting route convention `(.)photo` match in Next.js App Router?",
+      "ar": "ما الذي تطابقه اتفاقية المسار المعترض `(.)photo` في Next.js App Router؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A route segment named `photo` at the same level in the route hierarchy.", "ar": "قطعة مسار باسم `photo` على نفس المستوى في تسلسل المسار." } },
+      { "id": "b", "text": { "en": "A route segment named `photo` one level up.", "ar": "قطعة مسار باسم `photo` بمستوى واحد أعلى." } },
+      { "id": "c", "text": { "en": "Any route containing the word `photo`.", "ar": "أي مسار يحتوي على كلمة `photo`." } },
+      { "id": "d", "text": { "en": "The root-level `photo` route regardless of nesting depth.", "ar": "مسار `photo` على مستوى الجذر بصرف النظر عن عمق التداخل." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The dots in intercepting route conventions correspond to directory traversal levels — like relative file paths.",
+      "ar": "تتوافق النقاط في اتفاقيات المسارات المعترضة مع مستويات اجتياز الدليل — مثل مسارات الملفات النسبية."
+    },
+    "explanation": {
+      "en": "Intercepting route conventions: `(.)` = same level, `(..)` = one level up, `(..)(..)` = two levels up, `(...)` = from the app root. `(.)photo` intercepts navigation to `photo` at the same level (e.g., to show a modal instead of a full page).",
+      "ar": "اتفاقيات المسارات المعترضة: `(.)` = نفس المستوى، `(..)` = مستوى واحد أعلى، `(..)(..)` = مستويان أعلى، `(...)` = من جذر التطبيق. `(.)photo` يعترض التنقل إلى `photo` على نفس المستوى (مثلًا لعرض modal بدلًا من صفحة كاملة)."
+    },
+    "xp": 30,
+    "tags": ["intercepting-routes", "parallel-routes", "expert", "app-router"]
+  },
+  {
+    "id": "next-e-5",
+    "trackId": "nextjs",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "In production, this Server Component always fetches fresh data despite the `revalidate` setting. What is the root cause?",
+      "ar": "في الإنتاج، يجلب هذا Server Component دائمًا بيانات حديثة رغم إعداد `revalidate`. ما هو السبب الجذري؟"
+    },
+    "code": "export const revalidate = 3600;\n\nexport default async function Page({\n  searchParams,\n}: {\n  searchParams: { q: string };\n}) {\n  const data = await fetch(\n    `https://api.example.com/search?q=${searchParams.q}`\n  );\n  return <Results data={await data.json()} />;\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "Reading `searchParams` makes the route dynamically rendered; `revalidate` is ignored for dynamic routes.", "ar": "قراءة `searchParams` تجعل المسار يُصيَّر ديناميكيًا؛ يُتجاهل `revalidate` للمسارات الديناميكية." } },
+      { "id": "b", "text": { "en": "`revalidate` must be set inside the `fetch` call, not as a route export.", "ar": "يجب تعيين `revalidate` داخل استدعاء `fetch`، وليس كصادرة مسار." } },
+      { "id": "c", "text": { "en": "The `fetch` URL contains a dynamic query string so caching is skipped.", "ar": "URL الـ `fetch` يحتوي على سلسلة استعلام ديناميكية لذا يُتجاوز التخزين المؤقت." } },
+      { "id": "d", "text": { "en": "The `revalidate` value of 3600 is too high; maximum is 60 seconds.", "ar": "قيمة `revalidate` البالغة 3600 مرتفعة جدًا؛ الحد الأقصى هو 60 ثانية." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Next.js automatically opts a route into dynamic rendering when certain request-time values are accessed.",
+      "ar": "يُدرج Next.js المسار تلقائيًا في التصيير الديناميكي عند الوصول إلى قيم معينة في وقت الطلب."
+    },
+    "explanation": {
+      "en": "Accessing `searchParams` is a dynamic data source (it differs per request). Next.js automatically opts the route into dynamic rendering when `searchParams` is accessed, overriding `revalidate`. The page becomes equivalent to `export const dynamic = 'force-dynamic'`. To cache results, fetch and cache at the data layer with `{ next: { revalidate: 3600, tags: [...] } }` and use `generateStaticParams` or accept dynamic rendering.",
+      "ar": "الوصول إلى `searchParams` هو مصدر بيانات ديناميكي (يختلف لكل طلب). يُدرج Next.js المسار تلقائيًا في التصيير الديناميكي عند الوصول إلى `searchParams`، متجاوزًا `revalidate`. تصبح الصفحة مكافئةً لـ `export const dynamic = 'force-dynamic'`. للتخزين المؤقت للنتائج، اجلب وخزّن مؤقتًا على طبقة البيانات مع `{ next: { revalidate: 3600, tags: [...] } }` واستخدم `generateStaticParams` أو قبل التصيير الديناميكي."
+    },
+    "xp": 30,
+    "tags": ["caching", "dynamic-rendering", "searchParams", "expert", "debugging"]
+  },
+  {
+    "id": "next-boss-1",
+    "trackId": "nextjs",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "An e-commerce product page uses ISR with `revalidate: 60`. After a flash sale starts, prices must update within 5 seconds across all regions. ISR alone is insufficient. What is the correct architectural fix?",
+      "ar": "تستخدم صفحة منتج في موقع تجارة إلكترونية ISR مع `revalidate: 60`. بعد بدء بيع خاطف، يجب تحديث الأسعار في غضون 5 ثوانٍ في جميع المناطق. ISR وحده غير كافٍ. ما هو الإصلاح المعماري الصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Switch the whole page to `cache: 'no-store'` for real-time data.", "ar": "تحويل الصفحة بالكامل إلى `cache: 'no-store'` للبيانات الفورية." } },
+      { "id": "b", "text": { "en": "Use On-Demand Revalidation via `revalidateTag` triggered by a webhook from the backend when a sale starts, combined with CDN purge APIs.", "ar": "استخدام إعادة التحقق عند الطلب عبر `revalidateTag` المُشغَّل بواسطة webhook من الخلفية عند بدء البيع، مع واجهات API لتنظيف CDN." } },
+      { "id": "c", "text": { "en": "Lower `revalidate` to 5 seconds.", "ar": "تخفيض `revalidate` إلى 5 ثوانٍ." } },
+      { "id": "d", "text": { "en": "Use client-side polling with `setInterval` every 5 seconds.", "ar": "استخدام الاستطلاع من جانب العميل مع `setInterval` كل 5 ثوانٍ." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The key insight is that ISR is time-based, but you need event-based invalidation. On-demand revalidation plus CDN purging is the production pattern.",
+      "ar": "الفكرة الرئيسية هي أن ISR يعتمد على الوقت، لكنك تحتاج إلى إبطال يعتمد على الأحداث. إعادة التحقق عند الطلب مع تنظيف CDN هو النمط الإنتاجي."
+    },
+    "explanation": {
+      "en": "Time-based ISR (`revalidate: 5`) still has up to a 5s stale window and hammers the origin under traffic spikes. The production pattern: (1) Tag product fetches with `{ next: { tags: ['product-123'] } }`. (2) A backend webhook calls a Next.js API route that calls `revalidateTag('product-123')`. (3) Pair with CDN cache purge (Vercel's `revalidate` API, Cloudflare purge, etc.) to invalidate edge caches globally within seconds. This gives event-driven freshness with static-page performance.",
+      "ar": "ISR المعتمد على الوقت (`revalidate: 5`) لا يزال لديه نافذة قديمة لمدة 5 ثوانٍ ويُضغط على الخادم الأصلي عند ارتفاع حركة المرور. النمط الإنتاجي: (1) وسم جلبيات المنتج بـ `{ next: { tags: ['product-123'] } }`. (2) webhook الخلفية يستدعي مسار API الخاص بـ Next.js الذي يستدعي `revalidateTag('product-123')`. (3) الإقران مع تنظيف ذاكرة CDN المؤقتة (واجهة `revalidate` API الخاصة بـ Vercel أو تنظيف Cloudflare وغيرها) لإبطال ذاكرات الحافة عالميًا في غضون ثوانٍ. هذا يُعطي حداثةً مدفوعةً بالأحداث مع أداء الصفحة الثابتة."
+    },
+    "xp": 50,
+    "tags": ["caching", "ISR", "on-demand-revalidation", "boss", "production", "CDN"]
+  },
+  {
+    "id": "next-boss-2",
+    "trackId": "nextjs",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "In production, this layout causes all child pages to be fully dynamic even though they have no dynamic data. Identify the exact bug.",
+      "ar": "في الإنتاج، يُسبّب هذا التخطيط أن تكون جميع الصفحات الفرعية ديناميكية بالكامل رغم أنها لا تحتوي على بيانات ديناميكية. حدّد المشكلة بالضبط."
+    },
+    "code": "// app/layout.tsx\nimport { cookies } from 'next/headers';\n\nexport default function RootLayout({ children }) {\n  const theme = cookies().get('theme')?.value ?? 'light';\n  return (\n    <html data-theme={theme}>\n      <body>{children}</body>\n    </html>\n  );\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "Calling `cookies()` in the root layout opts the ENTIRE app into dynamic rendering.", "ar": "استدعاء `cookies()` في التخطيط الجذري يُدرج التطبيق بالكامل في التصيير الديناميكي." } },
+      { "id": "b", "text": { "en": "The `data-theme` attribute is not a valid HTML attribute.", "ar": "السمة `data-theme` ليست سمة HTML صالحة." } },
+      { "id": "c", "text": { "en": "`cookies()` must be called inside a Server Action, not a layout.", "ar": "يجب استدعاء `cookies()` داخل Server Action، وليس داخل layout." } },
+      { "id": "d", "text": { "en": "The layout is missing `'use client'` to read cookies.", "ar": "التخطيط يفتقر إلى `'use client'` لقراءة الكوكيز." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Dynamic rendering is inherited by children. A dynamic root layout means all routes are dynamic.",
+      "ar": "يرث التصيير الديناميكي العناصر الفرعية. التخطيط الجذري الديناميكي يعني أن جميع المسارات ديناميكية."
+    },
+    "explanation": {
+      "en": "Calling `cookies()` in a Server Component makes it dynamic. In the root `layout.tsx`, this propagates downward: every page in the app is now dynamically server-rendered on each request, killing your static/ISR performance. Fix: read the cookie in middleware and pass the theme via a header/cookie that a `<script>` reads on the client, or use a CSS variable approach with a Client Component that reads a cookie client-side via `document.cookie`.",
+      "ar": "استدعاء `cookies()` في Server Component يجعله ديناميكيًا. في `layout.tsx` الجذري، ينتشر هذا للأسفل: كل صفحة في التطبيق تُصيَّر ديناميكيًا على الخادم عند كل طلب، مما يُدمر أداء الصفحات الثابتة/ISR. الحل: قرأة الكوكي في Middleware وتمرير الثيم عبر header/كوكي يقرأه `<script>` على العميل، أو استخدام نهج متغير CSS مع Client Component يقرأ الكوكي من جانب العميل عبر `document.cookie`."
+    },
+    "xp": 50,
+    "tags": ["dynamic-rendering", "layout", "cookies", "boss", "debugging", "performance"]
+  },
+  {
+    "id": "next-boss-3",
+    "trackId": "nextjs",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need a modal that opens when navigating to `/photos/42` but shows the photo fullscreen when the URL is directly visited or refreshed. Which Next.js feature enables this pattern?",
+      "ar": "تحتاج إلى modal يفتح عند التنقل إلى `/photos/42` لكن يعرض الصورة بملء الشاشة عند زيارة URL مباشرةً أو تحديثه. أي ميزة في Next.js تُتيح هذا النمط؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Intercepting Routes combined with Parallel Routes — show modal in parallel slot when soft-navigating, full page on hard navigation.", "ar": "المسارات المعترضة مع المسارات المتوازية — عرض modal في الفتحة المتوازية عند التنقل اللطيف، وصفحة كاملة عند التنقل القسري." } },
+      { "id": "b", "text": { "en": "A Client Component with `useRouter().push` and a local state flag.", "ar": "Client Component مع `useRouter().push` وعلامة حالة محلية." } },
+      { "id": "c", "text": { "en": "`<Link>` with a `shallow` prop to prevent re-rendering.", "ar": "`<Link>` مع خاصية `shallow` لمنع إعادة التصيير." } },
+      { "id": "d", "text": { "en": "Storing modal state in a cookie and reading it in the layout.", "ar": "تخزين حالة modal في كوكي وقراءتها في التخطيط." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Instagram-style photo modals are the canonical example for this App Router pattern.",
+      "ar": "تُعدّ modals الصور بنمط Instagram المثال المعياري لهذا النمط في App Router."
+    },
+    "explanation": {
+      "en": "This is the canonical Intercepting + Parallel Routes pattern. Create `@modal/(.)photos/[id]/page.tsx` (intercepts soft navigation) and `photos/[id]/page.tsx` (full page for hard navigation). The layout receives `@modal` as a slot prop — it's `null` on hard nav (full page renders), and it shows the modal overlay on soft nav. This achieves shareable URLs, back-button dismissal, and full-page fallback.",
+      "ar": "هذا هو النمط المعياري للمسارات المعترضة + المتوازية. أنشئ `@modal/(.)photos/[id]/page.tsx` (يعترض التنقل اللطيف) و`photos/[id]/page.tsx` (صفحة كاملة للتنقل القسري). يستقبل التخطيط `@modal` كخاصية فتحة — تكون `null` عند التنقل القسري (تُصيَّر الصفحة الكاملة)، وتعرض تراكب modal عند التنقل اللطيف. هذا يُحقق URLs قابلة للمشاركة وإغلاق بزر الرجوع وصفحة احتياطية كاملة."
+    },
+    "xp": 50,
+    "tags": ["intercepting-routes", "parallel-routes", "boss", "advanced", "app-router"]
+  },
+  {
+    "id": "next-boss-4",
+    "trackId": "nextjs",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "A Next.js app deployed on Vercel works in development but Server Actions silently fail in production. What is the most likely cause?",
+      "ar": "تطبيق Next.js منشور على Vercel يعمل في التطوير لكن Server Actions تفشل صامتةً في الإنتاج. ما هو السبب الأرجح؟"
+    },
+    "code": "// app/actions.ts\n'use server';\n\nexport async function deleteUser(id: string) {\n  await db.user.delete({ where: { id } });\n  revalidatePath('/users');\n}",
+    "codeLang": "tsx",
+    "options": [
+      { "id": "a", "text": { "en": "Server Actions are POST requests; a middleware or WAF rule may be blocking non-GET requests to the app origin.", "ar": "Server Actions هي طلبات POST؛ قد تحجب قاعدة middleware أو WAF الطلبات غير GET لمصدر التطبيق." } },
+      { "id": "b", "text": { "en": "`revalidatePath` is not supported on Vercel's infrastructure.", "ar": "`revalidatePath` غير مدعوم على بنية Vercel التحتية." } },
+      { "id": "c", "text": { "en": "The `'use server'` directive only works in development mode.", "ar": "توجيه `'use server'` يعمل فقط في وضع التطوير." } },
+      { "id": "d", "text": { "en": "Server Actions require a `NEXTAUTH_SECRET` environment variable.", "ar": "تتطلب Server Actions متغير بيئة `NEXTAUTH_SECRET`." } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about network-level differences between local dev and production deployments — especially security layers.",
+      "ar": "فكّر في الاختلافات على مستوى الشبكة بين التطوير المحلي والنشرات الإنتاجية — خاصةً طبقات الأمان."
+    },
+    "explanation": {
+      "en": "Server Actions are implemented as HTTP POST requests to a special endpoint. In production, WAFs (Cloudflare, AWS WAF), CDN rules, or custom middleware may block non-GET/HEAD requests, strip headers, or enforce CORS policies that work differently locally. Other common production-only Server Action failures: missing env vars for the database, CSRF mismatches, or function timeout limits on serverless platforms. Always check network logs and error boundaries, not just console output.",
+      "ar": "تُنفَّذ Server Actions كطلبات HTTP POST لنقطة نهاية خاصة. في الإنتاج، قد تحجب WAFs (Cloudflare أو AWS WAF) أو قواعد CDN أو middleware مخصص الطلبات غير GET/HEAD، أو تُجرّد رؤوسها، أو تُطبّق سياسات CORS التي تعمل بشكل مختلف محليًا. أسباب الفشل الأخرى الشائعة في الإنتاج فقط لـ Server Actions: متغيرات بيئة قاعدة البيانات المفقودة، أو عدم تطابق CSRF، أو حدود مهلة الدوال على المنصات الخادمية. تحقق دائمًا من سجلات الشبكة وحدود الأخطاء، وليس فقط مخرجات وحدة التحكم."
+    },
+    "xp": 50,
+    "tags": ["server-actions", "production", "debugging", "boss", "WAF", "security"]
+  },
+  {
+    "id": "next-boss-5",
+    "trackId": "nextjs",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are architecting a Next.js 15 app with 50,000 product pages. Products update frequently. You need: fast initial load, SEO-friendly HTML, minimal server load, and near-real-time price updates. Which combination of strategies achieves ALL four goals?",
+      "ar": "تُصمّم معماريًا تطبيق Next.js 15 مع 50,000 صفحة منتج. تتحدث المنتجات بشكل متكرر. تحتاج إلى: تحميل أولي سريع، HTML صديق لمحركات البحث، حمل خادم منخفض، وتحديثات أسعار شبه فورية. أي مجموعة من الاستراتيجيات تُحقق الأهداف الأربعة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "SSG all 50,000 pages at build time + client polling every 5s for price.", "ar": "توليد ثابت لجميع صفحات 50,000 في وقت البناء + استطلاع عميل كل 5 ثوانٍ للسعر." } },
+      { "id": "b", "text": { "en": "PPR: static shell (title, images, description) via `generateStaticParams` for top products + Suspense boundaries for dynamic price/stock + on-demand `revalidateTag` from backend webhooks for cache purging.", "ar": "PPR: هيكل ثابت (العنوان والصور والوصف) عبر `generateStaticParams` للمنتجات الأعلى + حدود Suspense للسعر/المخزون الديناميكي + `revalidateTag` عند الطلب من webhooks الخلفية لتنظيف الذاكرة المؤقتة." } },
+      { "id": "c", "text": { "en": "Full dynamic rendering (`cache: 'no-store'`) for all 50,000 pages.", "ar": "تصيير ديناميكي كامل (`cache: 'no-store'`) لجميع صفحات 50,000." } },
+      { "id": "d", "text": { "en": "ISR with `revalidate: 1` and a Redis cache layer.", "ar": "ISR مع `revalidate: 1` وطبقة ذاكرة Redis مؤقتة." } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The ideal architecture separates the static parts (which can be CDN-cached) from the dynamic parts (price, stock) using Suspense, then invalidates only when data changes.",
+      "ar": "تفصل المعمارية المثالية الأجزاء الثابتة (التي يمكن تخزينها مؤقتًا بـ CDN) عن الأجزاء الديناميكية (السعر والمخزون) باستخدام Suspense، ثم تُبطل فقط عند تغيير البيانات."
+    },
+    "explanation": {
+      "en": "The winning strategy: (A) PPR generates a static HTML shell (images, title, description) served instantly from CDN. (B) `generateStaticParams` pre-renders the top N (e.g., 10,000) products; the rest are rendered on first visit and cached. (C) Price and stock components are wrapped in `<Suspense>` boundaries, fetching with `{ next: { tags: ['price-{id}'] } }`. (D) When prices change, the backend fires a webhook to a Route Handler calling `revalidateTag('price-{id}')` — only affected cache entries are purged, not the whole page. Result: CDN-speed static shells, SEO-ready HTML, server load proportional to price changes not traffic, and sub-second price freshness.",
+      "ar": "الاستراتيجية الفائزة: (أ) PPR يُولّد هيكل HTML ثابتًا (الصور والعنوان والوصف) يُقدَّم فورًا من CDN. (ب) `generateStaticParams` يُصيّر مسبقًا أعلى N منتج (مثلًا 10,000)؛ البقية تُصيَّر عند الزيارة الأولى وتُخزَّن مؤقتًا. (ج) تُلفّ مكوّنات السعر والمخزون في حدود `<Suspense>`، مع الجلب بـ `{ next: { tags: ['price-{id}'] } }`. (د) عند تغيير الأسعار، تُطلق الخلفية webhook لـ Route Handler يستدعي `revalidateTag('price-{id}')` — تُنظَّف فقط إدخالات الذاكرة المؤقتة المتأثرة، وليس الصفحة بالكامل. النتيجة: هياكل ثابتة بسرعة CDN، HTML جاهز لمحركات البحث، حمل خادم متناسب مع تغييرات الأسعار لا حركة المرور، وحداثة أسعار أقل من ثانية."
+    },
+    "xp": 50,
+    "tags": ["PPR", "ISR", "on-demand-revalidation", "boss", "architecture", "performance", "streaming", "generateStaticParams"]
+  }
+]
