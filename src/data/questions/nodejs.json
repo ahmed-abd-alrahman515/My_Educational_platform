@@ -5,67 +5,1100 @@
     "level": "beginner",
     "type": "multiple-choice",
     "prompt": {
-      "en": "What runtime does Node.js use to execute JavaScript?",
-      "ar": "ما البيئة التي يستخدمها Node.js لتنفيذ جافاسكريبت؟"
+      "en": "Which function is used to import a module in CommonJS?",
+      "ar": "أي دالة تُستخدم لاستيراد وحدة في نظام CommonJS؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "SpiderMonkey", "ar": "SpiderMonkey" } },
-      { "id": "b", "text": { "en": "V8", "ar": "V8" } },
-      { "id": "c", "text": { "en": "Chakra", "ar": "Chakra" } },
-      { "id": "d", "text": { "en": "JavaScriptCore", "ar": "JavaScriptCore" } }
+      { "id": "a", "text": { "en": "require()", "ar": "require()" } },
+      { "id": "b", "text": { "en": "import()", "ar": "import()" } },
+      { "id": "c", "text": { "en": "load()", "ar": "load()" } },
+      { "id": "d", "text": { "en": "fetch()", "ar": "fetch()" } }
     ],
-    "correctOptionId": "b",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "CommonJS is the original Node.js module system.",
+      "ar": "CommonJS هو نظام الوحدات الأصلي في Node.js."
+    },
     "explanation": {
-      "en": "Node.js is built on Chrome's V8 JavaScript engine.",
-      "ar": "بُني Node.js على محرّك جافاسكريبت V8 الخاص بكروم."
+      "en": "In CommonJS (the default module system in Node.js), `require()` is used to import modules. `import` is used in ES Modules (ESM). `load()` and `fetch()` are not module-loading functions.",
+      "ar": "في نظام CommonJS (النظام الافتراضي في Node.js)، تُستخدم `require()` لاستيراد الوحدات. أما `import` فتُستخدم في نظام ES Modules. و`load()` و`fetch()` ليستا دوال لتحميل الوحدات."
     },
     "xp": 10,
-    "tags": ["runtime"]
+    "tags": ["modules", "commonjs"]
+  },
+  {
+    "id": "node-b-2",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "Node.js is single-threaded and uses a non-blocking I/O model.",
+      "ar": "Node.js أحادي الخيط ويستخدم نموذج I/O غير متزامن."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about how Node.js handles multiple concurrent connections.",
+      "ar": "فكّر في كيفية تعامل Node.js مع الاتصالات المتزامنة المتعددة."
+    },
+    "explanation": {
+      "en": "Node.js runs JavaScript on a single main thread but uses libuv under the hood to handle I/O operations asynchronously via the event loop. This allows handling many connections without blocking.",
+      "ar": "يعمل Node.js على خيط رئيسي واحد، لكنه يستخدم مكتبة libuv داخليًا لمعالجة عمليات I/O بشكل غير متزامن عبر حلقة الأحداث، مما يتيح التعامل مع اتصالات عديدة دون تعطّل."
+    },
+    "xp": 10,
+    "tags": ["event-loop", "architecture"]
+  },
+  {
+    "id": "node-b-3",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the output of this code?",
+      "ar": "ما هو ناتج هذا الكود؟"
+    },
+    "code": "console.log(typeof __dirname);\nconsole.log(typeof __filename);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "string\nstring", "ar": "string\nstring" } },
+      { "id": "b", "text": { "en": "undefined\nundefined", "ar": "undefined\nundefined" } },
+      { "id": "c", "text": { "en": "object\nobject", "ar": "object\nobject" } },
+      { "id": "d", "text": { "en": "string\nundefined", "ar": "string\nundefined" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`__dirname` and `__filename` are special globals in CommonJS Node.js modules.",
+      "ar": "`__dirname` و`__filename` متغيرات عامة خاصة في وحدات CommonJS لـ Node.js."
+    },
+    "explanation": {
+      "en": "`__dirname` holds the directory path of the current module and `__filename` holds the full file path. Both are strings, automatically injected by Node.js when wrapping CommonJS modules.",
+      "ar": "يحتوي `__dirname` على مسار المجلد للوحدة الحالية، ويحتوي `__filename` على المسار الكامل للملف. كلاهما من نوع string ويُضافان تلقائيًا بواسطة Node.js عند تغليف وحدات CommonJS."
+    },
+    "xp": 10,
+    "tags": ["globals", "commonjs"]
+  },
+  {
+    "id": "node-b-4",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which core module provides utilities for working with file and directory paths?",
+      "ar": "أي وحدة أساسية توفر أدوات للعمل مع مسارات الملفات والمجلدات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "path", "ar": "path" } },
+      { "id": "b", "text": { "en": "fs", "ar": "fs" } },
+      { "id": "c", "text": { "en": "os", "ar": "os" } },
+      { "id": "d", "text": { "en": "url", "ar": "url" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This module has methods like `join()`, `resolve()`, `basename()`, and `extname()`.",
+      "ar": "تحتوي هذه الوحدة على دوال مثل `join()` و`resolve()` و`basename()` و`extname()`."
+    },
+    "explanation": {
+      "en": "The `path` module provides utilities for working with file and directory paths in a cross-platform way. `fs` is for file system I/O, `os` for OS info, and `url` for URL parsing.",
+      "ar": "توفر وحدة `path` أدوات للتعامل مع مسارات الملفات والمجلدات بطريقة متوافقة مع جميع أنظمة التشغيل. أما `fs` فهي للقراءة والكتابة، و`os` لمعلومات نظام التشغيل، و`url` لتحليل الروابط."
+    },
+    "xp": 10,
+    "tags": ["path", "core-modules"]
+  },
+  {
+    "id": "node-b-5",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does `process.env.NODE_ENV` typically contain in a production deployment?",
+      "ar": "ماذا يحتوي `process.env.NODE_ENV` عادةً في بيئة الإنتاج؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "\"production\"", "ar": "\"production\"" } },
+      { "id": "b", "text": { "en": "\"prod\"", "ar": "\"prod\"" } },
+      { "id": "c", "text": { "en": "true", "ar": "true" } },
+      { "id": "d", "text": { "en": "1", "ar": "1" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is a widely adopted convention among Node.js frameworks like Express.",
+      "ar": "هذا اصطلاح شائع تتبعه أُطر العمل مثل Express."
+    },
+    "explanation": {
+      "en": "By convention, `process.env.NODE_ENV` is set to the string `\"production\"` in production environments. Frameworks like Express use this to disable debug logs, enable caching, etc.",
+      "ar": "بالاتفاق، يُضبط `process.env.NODE_ENV` على النص `\"production\"` في بيئات الإنتاج. تستخدم أُطر مثل Express هذه القيمة لتعطيل سجلات التصحيح وتفعيل التخزين المؤقت وغيرها."
+    },
+    "xp": 10,
+    "tags": ["process", "environment"]
+  },
+  {
+    "id": "node-b-6",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Complete the code to read a file asynchronously: `fs.______('file.txt', 'utf8', callback)`",
+      "ar": "أكمل الكود لقراءة ملف بشكل غير متزامن: `fs.______('file.txt', 'utf8', callback)`"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "readFile", "ar": "readFile" } },
+      { "id": "b", "text": { "en": "readFileSync", "ar": "readFileSync" } },
+      { "id": "c", "text": { "en": "read", "ar": "read" } },
+      { "id": "d", "text": { "en": "openFile", "ar": "openFile" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The synchronous version has 'Sync' at the end.",
+      "ar": "النسخة المتزامنة تنتهي بـ 'Sync'."
+    },
+    "explanation": {
+      "en": "`fs.readFile()` reads a file asynchronously and calls the callback when done. `fs.readFileSync()` is the blocking version. Using the async version prevents blocking the event loop.",
+      "ar": "تقرأ `fs.readFile()` الملف بشكل غير متزامن وتستدعي الـ callback عند الانتهاء. أما `fs.readFileSync()` فهي النسخة التي تعطّل التنفيذ. استخدام النسخة غير المتزامنة يمنع تعطّل حلقة الأحداث."
+    },
+    "xp": 10,
+    "tags": ["fs", "async", "core-modules"]
+  },
+  {
+    "id": "node-b-7",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the difference between `dependencies` and `devDependencies` in package.json?",
+      "ar": "ما الفرق بين `dependencies` و`devDependencies` في ملف package.json؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "`dependencies` are needed at runtime; `devDependencies` are only for development", "ar": "`dependencies` ضرورية وقت التشغيل؛ `devDependencies` للتطوير فقط" } },
+      { "id": "b", "text": { "en": "`devDependencies` are installed first", "ar": "تُثبَّت `devDependencies` أولًا" } },
+      { "id": "c", "text": { "en": "There is no difference; it is just a convention", "ar": "لا فرق؛ هو مجرد اتفاق" } },
+      { "id": "d", "text": { "en": "`devDependencies` are faster to install", "ar": "تثبيت `devDependencies` أسرع" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about what you need when running in production vs. what you only need while writing code.",
+      "ar": "فكّر في ما تحتاجه عند التشغيل في الإنتاج مقارنةً بما تحتاجه فقط أثناء كتابة الكود."
+    },
+    "explanation": {
+      "en": "`dependencies` are packages required for the app to run in production (e.g., express). `devDependencies` are only needed during development (e.g., jest, eslint). Running `npm install --omit=dev` skips devDependencies.",
+      "ar": "`dependencies` هي الحزم المطلوبة لتشغيل التطبيق في الإنتاج (مثل express). أما `devDependencies` فهي مطلوبة فقط أثناء التطوير (مثل jest وeslint). يؤدي تشغيل `npm install --omit=dev` إلى تخطي devDependencies."
+    },
+    "xp": 10,
+    "tags": ["npm", "package.json"]
+  },
+  {
+    "id": "node-b-8",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this code print?",
+      "ar": "ماذا يطبع هذا الكود؟"
+    },
+    "code": "const EventEmitter = require('events');\nconst emitter = new EventEmitter();\nemitter.on('greet', (name) => console.log('Hello, ' + name));\nemitter.emit('greet', 'Node');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Hello, Node", "ar": "Hello, Node" } },
+      { "id": "b", "text": { "en": "greet Node", "ar": "greet Node" } },
+      { "id": "c", "text": { "en": "Nothing is printed", "ar": "لا شيء يُطبع" } },
+      { "id": "d", "text": { "en": "Error: event not found", "ar": "Error: event not found" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`emit()` triggers all listeners registered for that event.",
+      "ar": "تُشغّل `emit()` جميع المستمعين المسجّلين لذلك الحدث."
+    },
+    "explanation": {
+      "en": "`emitter.on('greet', fn)` registers a listener. When `emitter.emit('greet', 'Node')` is called, the listener fires and prints `Hello, Node`.",
+      "ar": "تسجّل `emitter.on('greet', fn)` مستمعًا للحدث. عند استدعاء `emitter.emit('greet', 'Node')` يُشغَّل المستمع ويطبع `Hello, Node`."
+    },
+    "xp": 10,
+    "tags": ["events", "EventEmitter"]
+  },
+  {
+    "id": "node-b-9",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "In Node.js, `require()` caches the module after the first load, so subsequent calls return the cached export.",
+      "ar": "في Node.js، تُخزّن `require()` الوحدة مؤقتًا بعد أول تحميل، لذا تُعيد الاستدعاءات اللاحقة النتيجة المخزّنة."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is why singletons work in CommonJS Node.js.",
+      "ar": "هذا هو السبب في عمل النمط الأحادي (singleton) في CommonJS."
+    },
+    "explanation": {
+      "en": "Node.js caches modules in `require.cache` after first load. Subsequent `require()` calls for the same module path return the cached `exports` object without re-executing the module file.",
+      "ar": "يخزّن Node.js الوحدات في `require.cache` بعد أول تحميل. تُعيد استدعاءات `require()` اللاحقة لنفس مسار الوحدة كائن `exports` المخزّن دون إعادة تنفيذ ملف الوحدة."
+    },
+    "xp": 10,
+    "tags": ["modules", "module-caching", "commonjs"]
+  },
+  {
+    "id": "node-b-10",
+    "trackId": "nodejs",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which command installs a package and saves it to `devDependencies` in package.json?",
+      "ar": "أي أمر يثبّت حزمة ويحفظها في `devDependencies` بملف package.json؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "npm install <pkg> --save-dev", "ar": "npm install <pkg> --save-dev" } },
+      { "id": "b", "text": { "en": "npm install <pkg>", "ar": "npm install <pkg>" } },
+      { "id": "c", "text": { "en": "npm install <pkg> --save", "ar": "npm install <pkg> --save" } },
+      { "id": "d", "text": { "en": "npm install <pkg> --dev-only", "ar": "npm install <pkg> --dev-only" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The shorthand is `-D`.",
+      "ar": "الاختصار هو `-D`."
+    },
+    "explanation": {
+      "en": "`npm install <pkg> --save-dev` (or `-D`) installs the package and adds it under `devDependencies`. Plain `npm install <pkg>` adds it to `dependencies` by default in npm v5+.",
+      "ar": "يثبّت `npm install <pkg> --save-dev` (أو `-D`) الحزمة ويضيفها تحت `devDependencies`. أما `npm install <pkg>` العادي فيضيفها إلى `dependencies` تلقائيًا في npm الإصدار 5 فأعلى."
+    },
+    "xp": 10,
+    "tags": ["npm", "package.json"]
   },
   {
     "id": "node-i-1",
     "trackId": "nodejs",
     "level": "intermediate",
-    "type": "multiple-choice",
+    "type": "code-output",
     "prompt": {
-      "en": "Which core module is used to work with file paths?",
-      "ar": "أي وحدة أساسية تُستخدم للتعامل مع مسارات الملفات؟"
+      "en": "What is the output of this code? Consider the event loop phases carefully.",
+      "ar": "ما هو ناتج هذا الكود؟ انتبه جيدًا لمراحل حلقة الأحداث."
     },
+    "code": "console.log('1');\nsetTimeout(() => console.log('2'), 0);\nPromise.resolve().then(() => console.log('3'));\nconsole.log('4');",
+    "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "fs", "ar": "fs" } },
-      { "id": "b", "text": { "en": "path", "ar": "path" } },
-      { "id": "c", "text": { "en": "os", "ar": "os" } },
-      { "id": "d", "text": { "en": "url", "ar": "url" } }
+      { "id": "a", "text": { "en": "1, 4, 3, 2", "ar": "1, 4, 3, 2" } },
+      { "id": "b", "text": { "en": "1, 2, 3, 4", "ar": "1, 2, 3, 4" } },
+      { "id": "c", "text": { "en": "1, 4, 2, 3", "ar": "1, 4, 2, 3" } },
+      { "id": "d", "text": { "en": "1, 3, 4, 2", "ar": "1, 3, 4, 2" } }
     ],
-    "correctOptionId": "b",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Synchronous code runs first, then microtasks (Promises), then macrotasks (setTimeout).",
+      "ar": "يعمل الكود المتزامن أولًا، ثم المهام الدقيقة (Promises)، ثم المهام الكبيرة (setTimeout)."
+    },
     "explanation": {
-      "en": "The `path` module provides utilities for working with file and directory paths.",
-      "ar": "توفّر وحدة `path` أدوات للتعامل مع مسارات الملفات والمجلدات."
+      "en": "Synchronous code runs first: logs 1 then 4. Promise `.then()` callbacks are microtasks and drain before the event loop advances to timers, so 3 prints next. `setTimeout(fn, 0)` is a macrotask deferred to the timers phase, so 2 prints last.",
+      "ar": "يعمل الكود المتزامن أولًا: يطبع 1 ثم 4. استدعاءات `.then()` للـ Promise تُعدّ مهامًا دقيقة (microtasks) وتُستنزف قبل أن تنتقل حلقة الأحداث إلى مرحلة المؤقتات، فيُطبع 3 تاليًا. أما `setTimeout(fn, 0)` فمهمة كبيرة مؤجّلة إلى مرحلة المؤقتات، فيُطبع 2 أخيرًا."
     },
     "xp": 15,
-    "tags": ["modules"]
+    "tags": ["event-loop", "microtasks", "promises"]
+  },
+  {
+    "id": "node-i-2",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This HTTP server has a bug — it crashes on every request. What is wrong?",
+      "ar": "هذا السيرفر HTTP يحتوي على خطأ — يتعطّل عند كل طلب. ما المشكلة؟"
+    },
+    "code": "const http = require('http');\nhttp.createServer((req, res) => {\n  const data = JSON.parse(req.body);\n  res.end(data.name);\n}).listen(3000);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "`req.body` does not exist in Node's http module; the body must be collected from the stream", "ar": "`req.body` غير موجود في وحدة http؛ يجب جمع البيانات من الـ stream" } },
+      { "id": "b", "text": { "en": "`JSON.parse` is not available in Node.js", "ar": "`JSON.parse` غير متاحة في Node.js" } },
+      { "id": "c", "text": { "en": "`http.createServer` requires a port as a first argument", "ar": "تتطلب `http.createServer` رقم المنفذ كأول وسيط" } },
+      { "id": "d", "text": { "en": "`res.end` cannot accept a string argument", "ar": "لا تقبل `res.end` وسيطًا نصيًا" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The raw `http` module exposes `req` as a readable stream.",
+      "ar": "توفر وحدة `http` الخام `req` كـ readable stream."
+    },
+    "explanation": {
+      "en": "Unlike Express (which has body-parser middleware), Node's built-in `http` module does not parse the body automatically. `req.body` is `undefined`. You must listen to `req` data/end events and collect chunks to assemble the body.",
+      "ar": "خلافًا لـ Express التي تمتلك middleware لتحليل الجسم، لا تُحلّل وحدة `http` المدمجة الجسم تلقائيًا. `req.body` تكون `undefined`. يجب الاستماع لأحداث data/end على `req` وتجميع القطع لبناء الجسم."
+    },
+    "xp": 15,
+    "tags": ["http", "streams", "debugging"]
+  },
+  {
+    "id": "node-i-3",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of `process.nextTick()`?",
+      "ar": "ما الغرض من `process.nextTick()`؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Schedule a callback to run before the next event loop iteration, after the current operation completes", "ar": "جدولة callback ليعمل قبل دورة حلقة الأحداث التالية، بعد اكتمال العملية الحالية" } },
+      { "id": "b", "text": { "en": "Schedule a callback to run in the next event loop iteration (same as setImmediate)", "ar": "جدولة callback ليعمل في دورة حلقة الأحداث التالية (مثل setImmediate)" } },
+      { "id": "c", "text": { "en": "Pause execution for one tick", "ar": "إيقاف التنفيذ لدورة واحدة" } },
+      { "id": "d", "text": { "en": "Move a callback to a worker thread", "ar": "نقل callback إلى خيط عمل" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`process.nextTick()` callbacks run before any I/O events, even before Promise microtasks in some Node versions.",
+      "ar": "تعمل callbacks الـ `process.nextTick()` قبل أي أحداث I/O، وحتى قبل microtasks الـ Promise في بعض إصدارات Node."
+    },
+    "explanation": {
+      "en": "`process.nextTick()` queues a callback in the 'nextTick queue', which is processed at the end of the current phase before moving to the next event loop phase. It runs before I/O events, timers, and even Promise microtasks.",
+      "ar": "تضع `process.nextTick()` الـ callback في قائمة 'nextTick queue'، التي تُعالَج في نهاية المرحلة الحالية قبل الانتقال إلى المرحلة التالية من حلقة الأحداث. تعمل قبل أحداث I/O والمؤقتات وحتى microtasks الـ Promise."
+    },
+    "xp": 15,
+    "tags": ["event-loop", "process.nextTick", "microtasks"]
+  },
+  {
+    "id": "node-i-4",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "Your Node.js API becomes unresponsive under load. Profiling shows a synchronous `crypto.pbkdf2Sync()` call in the request handler. What is the best fix?",
+      "ar": "تتوقف واجهة برمجة التطبيقات Node.js عن الاستجابة تحت الضغط. يُظهر التحليل استدعاء `crypto.pbkdf2Sync()` المتزامن في معالج الطلبات. ما هو أفضل حل؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Replace with the async `crypto.pbkdf2()` or run it in a worker thread", "ar": "استبدله بـ `crypto.pbkdf2()` غير المتزامنة أو شغّله في worker thread" } },
+      { "id": "b", "text": { "en": "Add more RAM to the server", "ar": "أضف المزيد من RAM للسيرفر" } },
+      { "id": "c", "text": { "en": "Use a faster hashing algorithm like MD5", "ar": "استخدم خوارزمية تجزئة أسرع مثل MD5" } },
+      { "id": "d", "text": { "en": "Cache the result in a global variable", "ar": "خزّن النتيجة في متغير عام" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "CPU-bound synchronous operations block the event loop for all clients.",
+      "ar": "العمليات المتزامنة المكثّفة على المعالج تعطّل حلقة الأحداث لجميع العملاء."
+    },
+    "explanation": {
+      "en": "`crypto.pbkdf2Sync()` is CPU-intensive and blocks the event loop, preventing Node from handling any other requests. Use the async `crypto.pbkdf2()` (which uses libuv's thread pool) or offload to a `worker_threads` worker for CPU-bound work.",
+      "ar": "`crypto.pbkdf2Sync()` مكثّفة على المعالج وتعطّل حلقة الأحداث، مما يمنع Node من معالجة أي طلبات أخرى. استخدم `crypto.pbkdf2()` غير المتزامنة (التي تستخدم مجموعة خيوط libuv) أو انقل الحمل إلى `worker_threads` للعمليات المكثّفة على المعالج."
+    },
+    "xp": 15,
+    "tags": ["event-loop", "crypto", "blocking", "performance"]
+  },
+  {
+    "id": "node-i-5",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is backpressure in Node.js streams?",
+      "ar": "ما هو الضغط العكسي (backpressure) في streams الخاصة بـ Node.js؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "When a writable stream cannot consume data as fast as the readable stream produces it", "ar": "عندما لا يستطيع الـ writable stream استهلاك البيانات بنفس سرعة إنتاج الـ readable stream لها" } },
+      { "id": "b", "text": { "en": "When a stream throws an error and retries the write", "ar": "عندما يُلقي الـ stream خطأ ويُعيد محاولة الكتابة" } },
+      { "id": "c", "text": { "en": "When the network sends data back to the sender", "ar": "عندما يُرسل الشبكة البيانات مجددًا إلى المرسل" } },
+      { "id": "d", "text": { "en": "Memory pressure caused by large Buffers", "ar": "ضغط الذاكرة الناجم عن Buffers كبيرة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The solution is to pause the readable stream or use `.pipe()` which handles it automatically.",
+      "ar": "الحل هو إيقاف الـ readable stream مؤقتًا أو استخدام `.pipe()` الذي يتعامل معه تلقائيًا."
+    },
+    "explanation": {
+      "en": "Backpressure occurs when a writable stream's internal buffer fills up faster than it is drained. `stream.write()` returns `false` to signal this. Using `.pipe()` automatically handles backpressure by pausing the readable stream.",
+      "ar": "يحدث الضغط العكسي عندما تمتلئ المخزن الداخلي للـ writable stream بسرعة أكبر مما يُستنزف. تُعيد `stream.write()` قيمة `false` للإشارة إلى ذلك. يعالج استخدام `.pipe()` الضغط العكسي تلقائيًا عن طريق إيقاف الـ readable stream مؤقتًا."
+    },
+    "xp": 15,
+    "tags": ["streams", "backpressure"]
+  },
+  {
+    "id": "node-i-6",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This async function swallows errors silently. What is the bug?",
+      "ar": "هذه الدالة غير المتزامنة تبتلع الأخطاء بصمت. ما هو الخطأ؟"
+    },
+    "code": "async function fetchData(url) {\n  try {\n    const res = await fetch(url);\n    return res.json();\n  } catch (e) {}\n}\n\nfetchData('https://api.example.com/data')\n  .then(data => console.log(data));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "The empty catch block swallows the error; errors are never surfaced to the caller", "ar": "الـ catch block الفارغة تبتلع الخطأ؛ لا تصل الأخطاء أبدًا إلى المستدعي" } },
+      { "id": "b", "text": { "en": "`fetch` is not available in Node.js", "ar": "`fetch` غير متاحة في Node.js" } },
+      { "id": "c", "text": { "en": "`res.json()` must be awaited", "ar": "يجب استخدام await مع `res.json()`" } },
+      { "id": "d", "text": { "en": "The `.then()` handler is missing a `.catch()`", "ar": "معالج `.then()` يفتقر إلى `.catch()`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "An empty catch block is one of the most dangerous anti-patterns in async code.",
+      "ar": "الـ catch block الفارغة من أخطر الأنماط المضادة في الكود غير المتزامن."
+    },
+    "explanation": {
+      "en": "The empty `catch (e) {}` silently swallows any network or parsing error. The function returns `undefined` on failure, making debugging nearly impossible. Always log or re-throw errors: `catch (e) { console.error(e); throw e; }`.",
+      "ar": "تبتلع `catch (e) {}` الفارغة بصمت أي خطأ في الشبكة أو التحليل. تُعيد الدالة `undefined` عند الفشل، مما يجعل التصحيح شبه مستحيل. اعمل دائمًا على تسجيل الأخطاء أو إعادة إلقائها: `catch (e) { console.error(e); throw e; }`."
+    },
+    "xp": 15,
+    "tags": ["async-await", "error-handling", "debugging"]
+  },
+  {
+    "id": "node-i-7",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What does the `--inspect` flag do when starting a Node.js process?",
+      "ar": "ماذا يفعل الخيار `--inspect` عند تشغيل عملية Node.js؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Enables the V8 inspector protocol, allowing debugging via Chrome DevTools", "ar": "يُفعّل بروتوكول V8 inspector، مما يسمح بالتصحيح عبر Chrome DevTools" } },
+      { "id": "b", "text": { "en": "Prints all loaded modules to stdout", "ar": "يطبع جميع الوحدات المحمّلة على stdout" } },
+      { "id": "c", "text": { "en": "Runs the application in strict mode", "ar": "يشغّل التطبيق في الوضع الصارم" } },
+      { "id": "d", "text": { "en": "Enables verbose logging for native addons", "ar": "يُفعّل التسجيل التفصيلي للإضافات الأصلية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "After starting with `--inspect`, open `chrome://inspect` in Chrome.",
+      "ar": "بعد التشغيل بـ `--inspect`، افتح `chrome://inspect` في Chrome."
+    },
+    "explanation": {
+      "en": "`node --inspect app.js` starts a WebSocket debugger on port 9229. Chrome DevTools (or VS Code) can attach to this to set breakpoints, inspect memory, and profile CPU usage.",
+      "ar": "يشغّل `node --inspect app.js` مُصحِّح WebSocket على المنفذ 9229. يمكن لـ Chrome DevTools (أو VS Code) الاتصال به لوضع نقاط توقف وفحص الذاكرة وتحليل استخدام المعالج."
+    },
+    "xp": 15,
+    "tags": ["debugging", "devtools"]
+  },
+  {
+    "id": "node-i-8",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to send 10,000 emails sequentially without overwhelming an SMTP server. Which approach is best?",
+      "ar": "تحتاج إلى إرسال 10,000 بريد إلكتروني بشكل متسلسل دون إرهاق خادم SMTP. أي نهج هو الأفضل؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Use a for...of loop with await to send one at a time", "ar": "استخدم حلقة for...of مع await لإرسال بريد واحد في كل مرة" } },
+      { "id": "b", "text": { "en": "Use Promise.all() to send all 10,000 at once", "ar": "استخدم Promise.all() لإرسال الـ 10,000 مرة واحدة" } },
+      { "id": "c", "text": { "en": "Use setInterval with a 1ms delay", "ar": "استخدم setInterval مع تأخير 1ms" } },
+      { "id": "d", "text": { "en": "Spin up 10,000 child processes", "ar": "أنشئ 10,000 عملية فرعية" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`Promise.all()` runs all promises concurrently — this would hammer the SMTP server.",
+      "ar": "تشغّل `Promise.all()` جميع الـ promises بشكل متزامن — وهذا سيُرهق خادم SMTP."
+    },
+    "explanation": {
+      "en": "A `for...of` loop with `await` sends emails one at a time, fully controlling concurrency. `Promise.all()` would fire all 10,000 simultaneously, likely hitting rate limits. For a real solution, a queue with concurrency control (e.g., p-limit) is even better.",
+      "ar": "تُرسل حلقة `for...of` مع `await` رسالة واحدة في كل مرة مع تحكّم كامل في التزامن. ستُطلق `Promise.all()` الـ 10,000 رسالة في آنٍ واحد، مما قد يتجاوز حدود المعدل. للحل الأمثل، استخدام قائمة انتظار مع التحكم في التزامن (مثل p-limit) أفضل من ذلك."
+    },
+    "xp": 15,
+    "tags": ["async-await", "concurrency", "promises"]
+  },
+  {
+    "id": "node-i-9",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the key difference between `setImmediate()` and `setTimeout(fn, 0)` in Node.js?",
+      "ar": "ما الفرق الجوهري بين `setImmediate()` و`setTimeout(fn, 0)` في Node.js؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "`setImmediate()` runs in the check phase after I/O; `setTimeout(fn, 0)` runs in the timers phase", "ar": "تعمل `setImmediate()` في مرحلة check بعد I/O؛ أما `setTimeout(fn, 0)` فتعمل في مرحلة timers" } },
+      { "id": "b", "text": { "en": "They are identical in all cases", "ar": "هما متطابقتان في جميع الحالات" } },
+      { "id": "c", "text": { "en": "`setImmediate()` runs before any microtasks", "ar": "تعمل `setImmediate()` قبل أي microtasks" } },
+      { "id": "d", "text": { "en": "`setTimeout(fn, 0)` always runs before `setImmediate()`", "ar": "تعمل `setTimeout(fn, 0)` دائمًا قبل `setImmediate()`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "When called inside an I/O callback, `setImmediate()` always wins.",
+      "ar": "عند الاستدعاء داخل callback لـ I/O، تفوز `setImmediate()` دائمًا."
+    },
+    "explanation": {
+      "en": "`setImmediate()` is designed to execute in the check phase immediately after the I/O phase. `setTimeout(fn, 0)` runs in the timers phase. Inside an I/O callback, `setImmediate` always runs first. Outside an I/O callback, the order is non-deterministic.",
+      "ar": "صُمِّمت `setImmediate()` للتنفيذ في مرحلة check مباشرة بعد مرحلة I/O. أما `setTimeout(fn, 0)` فتعمل في مرحلة timers. داخل callback لـ I/O، تعمل `setImmediate` دائمًا أولًا. خارج callback لـ I/O، يكون الترتيب غير محدد."
+    },
+    "xp": 15,
+    "tags": ["event-loop", "setImmediate", "setTimeout"]
+  },
+  {
+    "id": "node-i-10",
+    "trackId": "nodejs",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "In ES Modules (ESM) in Node.js, `__dirname` is available by default just like in CommonJS.",
+      "ar": "في ES Modules (ESM) في Node.js، متغير `__dirname` متاح افتراضيًا تمامًا كما في CommonJS."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "ESM does not inject the CommonJS module wrapper variables.",
+      "ar": "لا تُضيف ESM متغيرات غلاف وحدة CommonJS."
+    },
+    "explanation": {
+      "en": "In ESM, `__dirname` and `__filename` are not defined. You can recreate them using `import.meta.url`: `const __dirname = path.dirname(fileURLToPath(import.meta.url))`.",
+      "ar": "في ESM، `__dirname` و`__filename` غير معرّفتين. يمكنك إعادة إنشائهما باستخدام `import.meta.url`: `const __dirname = path.dirname(fileURLToPath(import.meta.url))`."
+    },
+    "xp": 15,
+    "tags": ["esm", "modules", "globals"]
   },
   {
     "id": "node-a-1",
     "trackId": "nodejs",
     "level": "advanced",
-    "type": "multiple-choice",
+    "type": "code-output",
     "prompt": {
-      "en": "Which API offloads CPU-intensive work to separate threads?",
-      "ar": "أي واجهة تنقل العمل المكثّف للمعالج إلى خيوط منفصلة؟"
+      "en": "What is the order of output? This is a classic event loop ordering puzzle.",
+      "ar": "ما هو ترتيب الناتج؟ هذه لغزة كلاسيكية في ترتيب حلقة الأحداث."
     },
+    "code": "process.nextTick(() => console.log('nextTick 1'));\nsetImmediate(() => console.log('setImmediate'));\nPromise.resolve().then(() => console.log('Promise'));\nprocess.nextTick(() => console.log('nextTick 2'));\nconsole.log('sync');",
+    "codeLang": "js",
     "options": [
-      { "id": "a", "text": { "en": "cluster", "ar": "cluster" } },
-      { "id": "b", "text": { "en": "worker_threads", "ar": "worker_threads" } },
-      { "id": "c", "text": { "en": "child_process", "ar": "child_process" } },
-      { "id": "d", "text": { "en": "async_hooks", "ar": "async_hooks" } }
+      { "id": "a", "text": { "en": "sync, nextTick 1, nextTick 2, Promise, setImmediate", "ar": "sync, nextTick 1, nextTick 2, Promise, setImmediate" } },
+      { "id": "b", "text": { "en": "sync, Promise, nextTick 1, nextTick 2, setImmediate", "ar": "sync, Promise, nextTick 1, nextTick 2, setImmediate" } },
+      { "id": "c", "text": { "en": "sync, setImmediate, nextTick 1, nextTick 2, Promise", "ar": "sync, setImmediate, nextTick 1, nextTick 2, Promise" } },
+      { "id": "d", "text": { "en": "sync, nextTick 1, Promise, nextTick 2, setImmediate", "ar": "sync, nextTick 1, Promise, nextTick 2, setImmediate" } }
     ],
-    "correctOptionId": "b",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "nextTick queue drains completely before Promise microtask queue. Both drain before any macrotask.",
+      "ar": "تُستنزف قائمة nextTick بالكامل قبل قائمة microtasks للـ Promise. كلتاهما تُستنزف قبل أي macrotask."
+    },
     "explanation": {
-      "en": "worker_threads runs JavaScript in parallel threads, ideal for CPU-bound tasks while keeping the event loop free.",
-      "ar": "تشغّل worker_threads جافاسكريبت في خيوط متوازية، مثالية للمهام المكثّفة للمعالج مع إبقاء حلقة الأحداث متاحة."
+      "en": "Execution order: 1) Synchronous code ('sync'). 2) nextTick queue (both nextTick 1 and nextTick 2, in registration order). 3) Promise microtask queue ('Promise'). 4) Macrotasks — check phase ('setImmediate'). The nextTick queue always drains before Promise microtasks.",
+      "ar": "ترتيب التنفيذ: 1) الكود المتزامن ('sync'). 2) قائمة nextTick (كلا nextTick 1 وnextTick 2 بترتيب التسجيل). 3) قائمة microtasks للـ Promise ('Promise'). 4) المهام الكبيرة — مرحلة check ('setImmediate'). تُستنزف قائمة nextTick دائمًا قبل microtasks الـ Promise."
     },
     "xp": 25,
-    "tags": ["concurrency"]
+    "tags": ["event-loop", "microtasks", "process.nextTick", "setImmediate"]
+  },
+  {
+    "id": "node-a-2",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A Node.js service processes image uploads. It resizes images synchronously using a pure-JS library. Under 50 concurrent requests, the P99 latency spikes to 30 seconds. What is the root cause and best solution?",
+      "ar": "تعالج خدمة Node.js رفع الصور. تُعيد تحجيم الصور بشكل متزامن باستخدام مكتبة JavaScript خالصة. تحت 50 طلبًا متزامنًا، يرتفع زمن الاستجابة P99 إلى 30 ثانية. ما هو السبب الجذري وأفضل حل؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "CPU-bound synchronous work blocks the event loop; offload to worker_threads or a separate process", "ar": "العمل المتزامن المكثّف على المعالج يعطّل حلقة الأحداث؛ انقله إلى worker_threads أو عملية منفصلة" } },
+      { "id": "b", "text": { "en": "The image files are too large; compress them before resizing", "ar": "ملفات الصور كبيرة جدًا؛ اضغطها قبل تغيير الحجم" } },
+      { "id": "c", "text": { "en": "Use async/await around the resize call", "ar": "استخدم async/await حول استدعاء تغيير الحجم" } },
+      { "id": "d", "text": { "en": "Increase Node.js heap size with --max-old-space-size", "ar": "زِد حجم heap الخاص بـ Node.js باستخدام --max-old-space-size" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Wrapping sync code in a Promise does NOT make it non-blocking.",
+      "ar": "تغليف الكود المتزامن في Promise لا يجعله غير معطّل."
+    },
+    "explanation": {
+      "en": "Pure-JS synchronous image resizing is CPU-bound. Even if wrapped in a Promise, it still runs on the main thread and blocks the event loop during resizing, stalling all other requests. The fix is to offload to `worker_threads` (shared memory) or a separate child process / dedicated microservice.",
+      "ar": "تغيير حجم الصور المتزامن بـ JavaScript خالصة مكثّف على المعالج. حتى لو غُلِّف في Promise، فإنه يعمل على الخيط الرئيسي ويعطّل حلقة الأحداث أثناء تغيير الحجم، مما يوقف جميع الطلبات الأخرى. الحل هو النقل إلى `worker_threads` (ذاكرة مشتركة) أو عملية فرعية منفصلة أو خدمة مصغّرة مخصصة."
+    },
+    "xp": 25,
+    "tags": ["worker_threads", "CPU-bound", "event-loop", "performance"]
+  },
+  {
+    "id": "node-a-3",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This code is meant to pipe a large file to an HTTP response, but it causes an out-of-memory crash. What is the bug?",
+      "ar": "هذا الكود مُخصَّص لتمرير ملف كبير إلى استجابة HTTP، لكنه يتسبب في نفاد الذاكرة. ما هو الخطأ؟"
+    },
+    "code": "const http = require('http');\nconst fs = require('fs');\n\nhttp.createServer((req, res) => {\n  const data = fs.readFileSync('/large-video.mp4');\n  res.end(data);\n}).listen(3000);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "`readFileSync` loads the entire file into memory per request; use `fs.createReadStream().pipe(res)` instead", "ar": "تحمّل `readFileSync` الملف بأكمله في الذاكرة لكل طلب؛ استخدم `fs.createReadStream().pipe(res)` بدلًا من ذلك" } },
+      { "id": "b", "text": { "en": "`res.end()` cannot accept a Buffer; use `res.write()` then `res.end()`", "ar": "لا تقبل `res.end()` Buffer؛ استخدم `res.write()` ثم `res.end()`" } },
+      { "id": "c", "text": { "en": "The server is missing a Content-Type header", "ar": "السيرفر يفتقر إلى هيدر Content-Type" } },
+      { "id": "d", "text": { "en": "The file path must use `path.join(__dirname, 'large-video.mp4')`", "ar": "يجب أن يستخدم مسار الملف `path.join(__dirname, 'large-video.mp4')`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Streams allow processing data chunk by chunk without loading it all into memory.",
+      "ar": "تسمح الـ streams بمعالجة البيانات قطعةً قطعةً دون تحميلها كلها في الذاكرة."
+    },
+    "explanation": {
+      "en": "`fs.readFileSync()` reads the entire file into a Buffer in memory. With concurrent requests each loading a large video, memory exhaustion is inevitable. The correct approach is `fs.createReadStream('/large-video.mp4').pipe(res)`, which streams chunks directly without buffering the whole file.",
+      "ar": "تقرأ `fs.readFileSync()` الملف بأكمله إلى Buffer في الذاكرة. مع الطلبات المتزامنة التي تحمّل كل منها فيديو كبيرًا، يكون نفاد الذاكرة حتميًا. النهج الصحيح هو `fs.createReadStream('/large-video.mp4').pipe(res)`، الذي يبثّ القطع مباشرة دون تخزين الملف بأكمله."
+    },
+    "xp": 25,
+    "tags": ["streams", "fs", "memory", "debugging"]
+  },
+  {
+    "id": "node-a-4",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "How does the `cluster` module help scale a Node.js HTTP server?",
+      "ar": "كيف تساعد وحدة `cluster` في توسيع نطاق سيرفر HTTP الخاص بـ Node.js؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It forks multiple worker processes sharing the same port, utilizing all CPU cores", "ar": "تُشعّب عمليات عمل متعددة تتشارك نفس المنفذ، مستغلةً جميع نوى المعالج" } },
+      { "id": "b", "text": { "en": "It distributes requests across multiple servers via a built-in load balancer", "ar": "توزّع الطلبات عبر سيرفرات متعددة عبر موازن حمل مدمج" } },
+      { "id": "c", "text": { "en": "It enables multi-threading within a single process", "ar": "تُفعّل تعدد الخيوط داخل عملية واحدة" } },
+      { "id": "d", "text": { "en": "It increases the event loop tick rate", "ar": "تزيد من معدل دورة حلقة الأحداث" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The master process forks N workers (typically `os.cpus().length`).",
+      "ar": "تُشعّب العملية الرئيسية N من عمليات العمل (عادةً `os.cpus().length`)."
+    },
+    "explanation": {
+      "en": "The `cluster` module lets you fork child processes that each run their own event loop. They all share the same server port via IPC. The OS (or Node's round-robin scheduler on most platforms) distributes incoming connections across workers, utilizing multiple CPU cores.",
+      "ar": "تتيح وحدة `cluster` تشعيب عمليات فرعية تعمل كل منها بحلقة أحداث خاصة بها. تتشارك جميعها نفس منفذ السيرفر عبر IPC. يوزّع نظام التشغيل (أو جدولة round-robin الخاصة بـ Node على معظم المنصات) الاتصالات الواردة عبر العمال، مستغلًا نوى المعالج المتعددة."
+    },
+    "xp": 25,
+    "tags": ["cluster", "scaling", "multiprocessing"]
+  },
+  {
+    "id": "node-a-5",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What happens when this code runs?",
+      "ar": "ماذا يحدث عند تشغيل هذا الكود؟"
+    },
+    "code": "process.on('uncaughtException', (err) => {\n  console.log('Caught:', err.message);\n});\n\nsetTimeout(() => {\n  throw new Error('async boom');\n}, 100);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Caught: async boom", "ar": "Caught: async boom" } },
+      { "id": "b", "text": { "en": "The process crashes with an unhandled error", "ar": "تتعطّل العملية مع خطأ غير معالج" } },
+      { "id": "c", "text": { "en": "Nothing happens; the error is silently ignored", "ar": "لا شيء يحدث؛ يُتجاهل الخطأ بصمت" } },
+      { "id": "d", "text": { "en": "The setTimeout callback never runs", "ar": "لا يعمل callback الـ setTimeout أبدًا" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`uncaughtException` catches synchronous throws that bubble up to the event loop.",
+      "ar": "يلتقط `uncaughtException` الاستثناءات المتزامنة التي تتصاعد إلى حلقة الأحداث."
+    },
+    "explanation": {
+      "en": "`process.on('uncaughtException')` catches any synchronous exception that propagates to the top of the event loop, including errors thrown inside timer callbacks. The error is caught and 'Caught: async boom' is logged. Note: best practice is to log, then exit — continuing after uncaughtException is dangerous.",
+      "ar": "يلتقط `process.on('uncaughtException')` أي استثناء متزامن يتصاعد إلى أعلى حلقة الأحداث، بما في ذلك الأخطاء المُلقاة داخل callbacks المؤقتات. يُلتقط الخطأ ويُطبع 'Caught: async boom'. ملاحظة: أفضل ممارسة هي التسجيل ثم الخروج — الاستمرار بعد uncaughtException خطر."
+    },
+    "xp": 25,
+    "tags": ["error-handling", "uncaughtException", "event-loop"]
+  },
+  {
+    "id": "node-a-6",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which of these is the correct way to create a Transform stream that converts chunks to uppercase?",
+      "ar": "أي من هذه الطرق صحيحة لإنشاء Transform stream يحوّل القطع إلى أحرف كبيرة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Extend `stream.Transform` and implement `_transform(chunk, encoding, callback)`", "ar": "وسّع `stream.Transform` ونفّذ `_transform(chunk, encoding, callback)`" } },
+      { "id": "b", "text": { "en": "Extend `stream.Readable` and implement `_read()`", "ar": "وسّع `stream.Readable` ونفّذ `_read()`" } },
+      { "id": "c", "text": { "en": "Use `stream.pipeline()` with a map function", "ar": "استخدم `stream.pipeline()` مع دالة map" } },
+      { "id": "d", "text": { "en": "Use `Buffer.from(chunk).toString('uppercase')`", "ar": "استخدم `Buffer.from(chunk).toString('uppercase')`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A Transform stream is both readable and writable.",
+      "ar": "الـ Transform stream قابل للقراءة والكتابة في آنٍ واحد."
+    },
+    "explanation": {
+      "en": "A `Transform` stream sits between a Readable and Writable. You override `_transform(chunk, encoding, callback)` to process data and call `this.push(transformed)` then `callback()`. There is no `uppercase` encoding in `Buffer.toString()`.",
+      "ar": "يقع الـ `Transform` stream بين الـ Readable والـ Writable. تُكتسب الدالة `_transform(chunk, encoding, callback)` لمعالجة البيانات واستدعاء `this.push(transformed)` ثم `callback()`. لا يوجد ترميز `uppercase` في `Buffer.toString()`."
+    },
+    "xp": 25,
+    "tags": ["streams", "transform"]
+  },
+  {
+    "id": "node-a-7",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This EventEmitter-based code has a memory leak in a long-running server. What is the cause?",
+      "ar": "يحتوي هذا الكود القائم على EventEmitter على تسرّب في الذاكرة في سيرفر يعمل لفترة طويلة. ما هو السبب؟"
+    },
+    "code": "const emitter = require('./globalEmitter');\n\nfunction handleRequest(req, res) {\n  emitter.on('data', (chunk) => {\n    res.write(chunk);\n  });\n  res.end();\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "A new 'data' listener is added per request but never removed, growing unboundedly", "ar": "يُضاف مستمع 'data' جديد لكل طلب دون إزالته، مما يؤدي إلى نمو غير محدود" } },
+      { "id": "b", "text": { "en": "`res.end()` is called before all chunks are written", "ar": "تُستدعى `res.end()` قبل كتابة جميع القطع" } },
+      { "id": "c", "text": { "en": "The global emitter holds a strong reference to `res`", "ar": "يحتفظ الـ emitter العام بمرجع قوي لـ `res`" } },
+      { "id": "d", "text": { "en": "Both A and C are causes", "ar": "كلٌّ من A وC هما السبب" } }
+    ],
+    "correctOptionId": "d",
+    "hint": {
+      "en": "Each request adds a closure capturing `res` to the emitter's listener list. Neither is cleaned up.",
+      "ar": "يضيف كل طلب إغلاقًا (closure) يلتقط `res` إلى قائمة مستمعي الـ emitter. لا يُنظَّف أيٌّ منهما."
+    },
+    "explanation": {
+      "en": "Every request registers a new `'data'` listener that holds a closure over `res`. Since the listener is never removed (`emitter.off()` / `emitter.removeListener()`), the emitter's listener array grows with each request, and each closure keeps the response object alive — a classic EventEmitter memory leak.",
+      "ar": "يسجّل كل طلب مستمعًا جديدًا لـ `'data'` يحتفظ بإغلاق (closure) يغلّف `res`. نظرًا لعدم إزالة المستمع أبدًا (`emitter.off()` / `emitter.removeListener()`)، تنمو مصفوفة مستمعي الـ emitter مع كل طلب، ويبقي كل إغلاق كائن الاستجابة حيًّا — وهذا تسرّب ذاكرة كلاسيكي في EventEmitter."
+    },
+    "xp": 25,
+    "tags": ["EventEmitter", "memory-leak", "debugging"]
+  },
+  {
+    "id": "node-a-8",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "Your app spawns a child process to run a shell command. A malicious user controls part of the command string. What security vulnerability is this and how do you fix it?",
+      "ar": "تُنشئ تطبيقك عملية فرعية لتشغيل أمر shell. يتحكم مستخدم خبيث في جزء من نص الأمر. ما هي ثغرة الأمان هذه وكيف تُصلحها؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Command injection; use `execFile()` or `spawn()` with an args array instead of `exec()` with a template string", "ar": "حقن الأوامر؛ استخدم `execFile()` أو `spawn()` مع مصفوفة وسائط بدلًا من `exec()` مع نص قالب" } },
+      { "id": "b", "text": { "en": "SQL injection; sanitize the input with a library", "ar": "حقن SQL؛ نظّف المدخلات بمكتبة" } },
+      { "id": "c", "text": { "en": "XSS; encode the string as base64 before passing it", "ar": "XSS؛ رمّز النص بـ base64 قبل تمريره" } },
+      { "id": "d", "text": { "en": "Wrap the command in a try/catch to prevent the crash", "ar": "غلّف الأمر في try/catch لمنع التعطّل" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`exec()` passes the command to the shell, which interprets shell metacharacters like `;`, `&&`, `|`.",
+      "ar": "تُمرّر `exec()` الأمر إلى الـ shell الذي يفسّر أحرف meta مثل `;` و`&&` و`|`."
+    },
+    "explanation": {
+      "en": "`child_process.exec(userInput)` is vulnerable to command injection because the input is interpreted by the shell. An attacker can append `; rm -rf /`. The fix is to use `execFile(cmd, [arg1, arg2])` or `spawn(cmd, args)` which pass arguments directly without shell interpretation.",
+      "ar": "تكون `child_process.exec(userInput)` عرضةً لحقن الأوامر لأن المدخل يُفسَّر بواسطة الـ shell. يمكن للمهاجم إلحاق `; rm -rf /`. الحل هو استخدام `execFile(cmd, [arg1, arg2])` أو `spawn(cmd, args)` التي تُمرّر الوسائط مباشرةً دون تفسير الـ shell."
+    },
+    "xp": 25,
+    "tags": ["child_process", "security", "command-injection"]
+  },
+  {
+    "id": "node-a-9",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of `stream.pipeline()` over manually calling `.pipe()`?",
+      "ar": "ما فائدة `stream.pipeline()` مقارنةً بالاستدعاء اليدوي لـ `.pipe()`؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "`pipeline()` automatically destroys all streams and handles errors if any stream errors or closes prematurely", "ar": "تُتلف `pipeline()` تلقائيًا جميع الـ streams وتعالج الأخطاء إذا أخطأ أي stream أو أُغلق قبل الأوان" } },
+      { "id": "b", "text": { "en": "`pipeline()` is faster because it uses native C++ bindings", "ar": "`pipeline()` أسرع لأنها تستخدم روابط C++ أصلية" } },
+      { "id": "c", "text": { "en": "`.pipe()` does not handle backpressure, but `pipeline()` does", "ar": "لا تعالج `.pipe()` الضغط العكسي، لكن `pipeline()` تعالجه" } },
+      { "id": "d", "text": { "en": "`pipeline()` buffers the entire stream before writing", "ar": "تخزّن `pipeline()` الـ stream بأكمله قبل الكتابة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A leaked stream that is not properly destroyed can cause memory leaks.",
+      "ar": "الـ stream الذي لم يُتلَف بشكل صحيح قد يتسبب في تسرّب ذاكرة."
+    },
+    "explanation": {
+      "en": "`.pipe()` has a known issue: if a destination stream errors, the source stream is not automatically destroyed, which can cause resource leaks. `stream.pipeline()` (Node 10+) wires up error listeners on all streams and properly destroys them all if any stream fails.",
+      "ar": "`.pipe()` لها مشكلة معروفة: إذا أخطأ الـ stream الوجهة، لا يُتلَف تلقائيًا الـ stream المصدر، مما قد يتسبب في تسرّب موارد. تربط `stream.pipeline()` (Node 10+) مستمعي الأخطاء على جميع الـ streams وتُتلفها جميعًا بشكل صحيح إذا فشل أي منها."
+    },
+    "xp": 25,
+    "tags": ["streams", "pipeline", "error-handling"]
+  },
+  {
+    "id": "node-a-10",
+    "trackId": "nodejs",
+    "level": "advanced",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "To share memory between a main thread and a worker thread, you should use a ______ as the underlying storage.",
+      "ar": "لمشاركة الذاكرة بين الخيط الرئيسي وخيط العمل، يجب استخدام ______ كتخزين أساسي."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "SharedArrayBuffer", "ar": "SharedArrayBuffer" } },
+      { "id": "b", "text": { "en": "Buffer", "ar": "Buffer" } },
+      { "id": "c", "text": { "en": "ArrayBuffer", "ar": "ArrayBuffer" } },
+      { "id": "d", "text": { "en": "MessageChannel", "ar": "MessageChannel" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Its name literally has 'Shared' in it.",
+      "ar": "اسمه يحتوي حرفيًا على كلمة 'Shared'."
+    },
+    "explanation": {
+      "en": "`SharedArrayBuffer` allows the same memory region to be accessed by both the main thread and worker threads without copying. Regular `ArrayBuffer` is transferred (not shared) via `postMessage`. `Buffer` in Node.js is backed by `ArrayBuffer` but not shared. Use `Atomics` for synchronization.",
+      "ar": "يسمح `SharedArrayBuffer` لنفس منطقة الذاكرة بالوصول من الخيط الرئيسي وخيوط العمل دون نسخ. يُنقل `ArrayBuffer` العادي (لا يُشارك) عبر `postMessage`. `Buffer` في Node.js مدعوم بـ `ArrayBuffer` لكنه غير مشترك. استخدم `Atomics` للمزامنة."
+    },
+    "xp": 25,
+    "tags": ["worker_threads", "SharedArrayBuffer", "memory"]
+  },
+  {
+    "id": "node-e-1",
+    "trackId": "nodejs",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the exact output? This tests deep event loop phase knowledge.",
+      "ar": "ما هو الناتج الدقيق؟ يختبر هذا المعرفة العميقة بمراحل حلقة الأحداث."
+    },
+    "code": "const fs = require('fs');\n\nfs.readFile(__filename, () => {\n  setTimeout(() => console.log('timeout'), 0);\n  setImmediate(() => console.log('immediate'));\n});\n\nsetTimeout(() => console.log('outer timeout'), 0);\nsetImmediate(() => console.log('outer immediate'));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "outer immediate or outer timeout (non-deterministic), then immediate, then timeout", "ar": "outer immediate أو outer timeout (غير محدد)، ثم immediate، ثم timeout" } },
+      { "id": "b", "text": { "en": "outer timeout, outer immediate, immediate, timeout", "ar": "outer timeout, outer immediate, immediate, timeout" } },
+      { "id": "c", "text": { "en": "outer immediate, outer timeout, timeout, immediate", "ar": "outer immediate, outer timeout, timeout, immediate" } },
+      { "id": "d", "text": { "en": "timeout, immediate, outer timeout, outer immediate", "ar": "timeout, immediate, outer timeout, outer immediate" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Inside an I/O callback, `setImmediate` always precedes `setTimeout`. Outside I/O, order between them is non-deterministic.",
+      "ar": "داخل callback لـ I/O، تسبق `setImmediate` دائمًا `setTimeout`. خارج I/O، الترتيب بينهما غير محدد."
+    },
+    "explanation": {
+      "en": "Outside I/O: `outer timeout` vs `outer immediate` order is non-deterministic (depends on system timer resolution). Inside the fs.readFile I/O callback: `setImmediate` ('immediate') ALWAYS runs before `setTimeout` ('timeout') because we are already in the I/O phase, and the check phase comes right after.",
+      "ar": "خارج I/O: ترتيب `outer timeout` مقابل `outer immediate` غير محدد (يعتمد على دقة مؤقت النظام). داخل callback لـ fs.readFile I/O: تعمل `setImmediate` ('immediate') دائمًا قبل `setTimeout` ('timeout') لأننا نجد أنفسنا بالفعل في مرحلة I/O، وتأتي مرحلة check مباشرةً بعدها."
+    },
+    "xp": 30,
+    "tags": ["event-loop", "setImmediate", "setTimeout", "I/O"]
+  },
+  {
+    "id": "node-e-2",
+    "trackId": "nodejs",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "A Node.js service has a memory leak that only appears after ~24 hours of traffic. Heap snapshots show a growing array of closures attached to an EventEmitter. Production logging shows each request calls `emitter.on()`. What is the fix and how do you verify it?",
+      "ar": "تعاني خدمة Node.js من تسرّب ذاكرة لا يظهر إلا بعد ~24 ساعة من الحركة. تُظهر لقطات Heap مصفوفةً متناميةً من الإغلاقات المرفقة بـ EventEmitter. يُظهر تسجيل الإنتاج أن كل طلب يستدعي `emitter.on()`. ما هو الحل وكيف تتحقق منه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Use `emitter.once()` or remove the listener after use with `emitter.off()`; verify with heap snapshot comparison before/after fix", "ar": "استخدم `emitter.once()` أو أزل المستمع بعد الاستخدام بـ `emitter.off()`؛ تحقق بمقارنة لقطات Heap قبل الإصلاح وبعده" } },
+      { "id": "b", "text": { "en": "Restart the server every 12 hours with a cron job", "ar": "أعد تشغيل السيرفر كل 12 ساعة باستخدام cron job" } },
+      { "id": "c", "text": { "en": "Increase the `EventEmitter.defaultMaxListeners` limit", "ar": "زِد حد `EventEmitter.defaultMaxListeners`" } },
+      { "id": "d", "text": { "en": "Switch from EventEmitter to a global variable", "ar": "انتقل من EventEmitter إلى متغير عام" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "`emitter.once()` automatically removes the listener after it fires once.",
+      "ar": "تُزيل `emitter.once()` المستمع تلقائيًا بعد تشغيله مرة واحدة."
+    },
+    "explanation": {
+      "en": "Every request that calls `emitter.on()` without cleanup adds a listener permanently. Use `emitter.once()` if you only need one invocation, or store the listener reference and call `emitter.off(eventName, listenerRef)` in a cleanup step (e.g., `res.on('close', cleanup)`). Verify by taking two heap snapshots separated by traffic and comparing allocation growth.",
+      "ar": "كل طلب يستدعي `emitter.on()` دون تنظيف يُضيف مستمعًا دائمًا. استخدم `emitter.once()` إذا احتجت استدعاءً واحدًا فقط، أو خزّن مرجع المستمع واستدعِ `emitter.off(eventName, listenerRef)` في خطوة تنظيف (مثلًا `res.on('close', cleanup)`). تحقق بأخذ لقطتَي Heap بفارق زمني من الحركة ومقارنة نمو التخصيص."
+    },
+    "xp": 30,
+    "tags": ["EventEmitter", "memory-leak", "debugging", "production"]
+  },
+  {
+    "id": "node-e-3",
+    "trackId": "nodejs",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "This code is supposed to run tasks with a concurrency limit of 3, but it runs all tasks simultaneously. What is the bug?",
+      "ar": "من المفترض أن يشغّل هذا الكود المهام بحد تزامن 3، لكنه يشغّل جميع المهام في آنٍ واحد. ما هو الخطأ؟"
+    },
+    "code": "async function runWithLimit(tasks, limit) {\n  const results = [];\n  for (const task of tasks) {\n    results.push(task());\n  }\n  return Promise.all(results);\n}\n\nawait runWithLimit(tasks, 3);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "The `limit` parameter is never used; all tasks are started immediately in the for loop", "ar": "لا يُستخدم المعامل `limit` أبدًا؛ تُشغَّل جميع المهام فورًا في حلقة for" } },
+      { "id": "b", "text": { "en": "`Promise.all` ignores the limit parameter", "ar": "تتجاهل `Promise.all` معامل الحد" } },
+      { "id": "c", "text": { "en": "The for...of loop cannot iterate async functions", "ar": "لا تستطيع حلقة for...of تكرار الدوال غير المتزامنة" } },
+      { "id": "d", "text": { "en": "`task()` must be awaited inside the loop", "ar": "يجب انتظار `task()` داخل الحلقة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Calling `task()` starts the async operation immediately, regardless of what you do with the returned Promise.",
+      "ar": "استدعاء `task()` يبدأ العملية غير المتزامنة فورًا، بغض النظر عما تفعله بالـ Promise المُعادة."
+    },
+    "explanation": {
+      "en": "The `limit` variable is declared but never used. `task()` is called for every task in the loop before any awaiting, starting all async operations at once. A correct implementation uses a semaphore pattern or a library like `p-limit` to control how many tasks run concurrently.",
+      "ar": "المتغير `limit` مُعلَن لكنه لم يُستخدم أبدًا. تُستدعى `task()` لكل مهمة في الحلقة قبل أي انتظار، مما يبدأ جميع العمليات غير المتزامنة دفعةً واحدة. يستخدم التطبيق الصحيح نمط semaphore أو مكتبة مثل `p-limit` للتحكم في عدد المهام المتشغّلة في وقت واحد."
+    },
+    "xp": 30,
+    "tags": ["concurrency", "async-await", "debugging"]
+  },
+  {
+    "id": "node-e-4",
+    "trackId": "nodejs",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In Node.js, `unhandledRejection` warnings became fatal process exits starting from which version?",
+      "ar": "في أي إصدار من Node.js أصبحت تحذيرات `unhandledRejection` تؤدي إلى إنهاء العملية بشكل قاطع؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Node.js 15", "ar": "Node.js 15" } },
+      { "id": "b", "text": { "en": "Node.js 10", "ar": "Node.js 10" } },
+      { "id": "c", "text": { "en": "Node.js 12", "ar": "Node.js 12" } },
+      { "id": "d", "text": { "en": "Node.js 18", "ar": "Node.js 18" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Before this version, unhandled rejections only printed a deprecation warning.",
+      "ar": "قبل هذا الإصدار، طبعت الرفضات غير المعالجة تحذير إهمال فقط."
+    },
+    "explanation": {
+      "en": "Starting in Node.js 15, an unhandled promise rejection causes the process to exit with a non-zero exit code (exit code 1) by default. In earlier versions (v14 and below), it only emitted a deprecation warning. This means missing `.catch()` handlers crash production in Node 15+.",
+      "ar": "بدءًا من Node.js 15، يتسبب الرفض غير المعالج للـ Promise في إنهاء العملية بكود خروج غير صفري (كود الخروج 1) افتراضيًا. في الإصدارات الأقدم (v14 وما دونها)، كان يُصدر تحذير إهمال فقط. هذا يعني أن معالجات `.catch()` المفقودة تُعطّل الإنتاج في Node 15 فأعلى."
+    },
+    "xp": 30,
+    "tags": ["error-handling", "unhandledRejection", "promises"]
+  },
+  {
+    "id": "node-e-5",
+    "trackId": "nodejs",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are designing a high-throughput log ingestion service in Node.js expecting 100k events/second. Which architecture decision is most critical for avoiding event loop starvation?",
+      "ar": "تُصمّم خدمة استيعاب سجلات عالية الإنتاجية في Node.js تتوقع 100 ألف حدث في الثانية. أي قرار معماري هو الأهم لتجنّب تجويع حلقة الأحداث؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Batch-write logs asynchronously to disk/queue; avoid any synchronous serialization on the hot path", "ar": "اكتب السجلات دُفعةً غير متزامنة إلى القرص/قائمة الانتظار؛ تجنّب أي تسلسل متزامن على المسار الحار" } },
+      { "id": "b", "text": { "en": "Use `fs.writeFileSync` for guaranteed ordering", "ar": "استخدم `fs.writeFileSync` لضمان الترتيب" } },
+      { "id": "c", "text": { "en": "Store all logs in a global array and flush every 60 seconds", "ar": "خزّن جميع السجلات في مصفوفة عامة وافرّغها كل 60 ثانية" } },
+      { "id": "d", "text": { "en": "Use synchronous JSON.stringify on each event for simplicity", "ar": "استخدم JSON.stringify المتزامنة على كل حدث لتبسيط الأمر" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "At 100k events/second, even a 10-microsecond synchronous operation per event adds up to 1 full second of blocked time.",
+      "ar": "عند 100 ألف حدث في الثانية، حتى عملية متزامنة مدتها 10 ميكروثانية لكل حدث تتراكم لتصل إلى ثانية كاملة من الوقت المعطّل."
+    },
+    "explanation": {
+      "en": "At 100k/s, synchronous operations on the hot path (like `JSON.stringify`, `fs.writeFileSync`) accumulate and starve the event loop. The pattern is: receive events, enqueue into an in-memory buffer (e.g., a writable stream), and drain the buffer asynchronously in batches to disk or a message queue (Kafka, Redis Streams). This keeps individual event handling time near zero on the main thread.",
+      "ar": "عند 100 ألف حدث في الثانية، تتراكم العمليات المتزامنة على المسار الحار (مثل `JSON.stringify` و`fs.writeFileSync`) وتُجوّع حلقة الأحداث. النمط هو: استقبال الأحداث، وضعها في قائمة انتظار ذاكرية (مثل writable stream)، وإفراغ المخزن بشكل غير متزامن دُفعاتٍ إلى القرص أو قائمة رسائل (Kafka، Redis Streams). هذا يُبقي وقت معالجة كل حدث قريبًا من الصفر على الخيط الرئيسي."
+    },
+    "xp": 30,
+    "tags": ["performance", "event-loop", "streams", "architecture"]
+  },
+  {
+    "id": "node-boss-1",
+    "trackId": "nodejs",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the exact output of this event loop puzzle? Think carefully about all queues.",
+      "ar": "ما هو الناتج الدقيق للغز حلقة الأحداث هذا؟ فكّر بعناية في جميع القوائم."
+    },
+    "code": "Promise.resolve().then(() => {\n  console.log('p1');\n  process.nextTick(() => console.log('nt inside p1'));\n});\n\nprocess.nextTick(() => {\n  console.log('nt1');\n  Promise.resolve().then(() => console.log('p inside nt1'));\n});\n\nconsole.log('sync');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "sync, nt1, p inside nt1, p1, nt inside p1", "ar": "sync, nt1, p inside nt1, p1, nt inside p1" } },
+      { "id": "b", "text": { "en": "sync, nt1, p1, p inside nt1, nt inside p1", "ar": "sync, nt1, p1, p inside nt1, nt inside p1" } },
+      { "id": "c", "text": { "en": "sync, p1, nt1, nt inside p1, p inside nt1", "ar": "sync, p1, nt1, nt inside p1, p inside nt1" } },
+      { "id": "d", "text": { "en": "sync, nt1, nt inside p1, p1, p inside nt1", "ar": "sync, nt1, nt inside p1, p1, p inside nt1" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "After draining the nextTick queue, the Promise microtask queue is drained. Any nextTick enqueued during a microtask runs before the next microtask.",
+      "ar": "بعد استنزاف قائمة nextTick، تُستنزف قائمة microtasks للـ Promise. أي nextTick يُضاف أثناء microtask يعمل قبل الـ microtask التالية."
+    },
+    "explanation": {
+      "en": "1) 'sync' — synchronous. 2) nextTick queue drains: 'nt1', which enqueues a Promise microtask 'p inside nt1'. 3) Promise microtask queue: first 'p inside nt1' (enqueued while processing nt1), then 'p1' (original). Wait — actually nextTick queue is checked after each microtask. After 'nt1' runs, the Promise 'p inside nt1' is queued. Then Promise queue runs: 'p inside nt1'. Inside 'p1' a nextTick 'nt inside p1' is queued. After 'p1', the nextTick queue runs: 'nt inside p1'. Final: sync, nt1, p inside nt1, p1, nt inside p1.",
+      "ar": "1) 'sync' — متزامن. 2) تُستنزف قائمة nextTick: 'nt1'، التي تُضيف Promise microtask 'p inside nt1'. 3) قائمة Promise microtask: أولًا 'p inside nt1' (أُضيفت أثناء معالجة nt1)، ثم 'p1' (الأصلية). بعد 'p1'، يُضاف nextTick 'nt inside p1'. بعد استنزاف microtasks، تُستنزف قائمة nextTick: 'nt inside p1'. النهائي: sync, nt1, p inside nt1, p1, nt inside p1."
+    },
+    "xp": 50,
+    "tags": ["event-loop", "microtasks", "process.nextTick", "expert"]
+  },
+  {
+    "id": "node-boss-2",
+    "trackId": "nodejs",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "A Node.js service crashes in production after exactly 2 hours with 'FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory'. Heap snapshots taken at 30 min intervals show the 'string' type growing by ~50MB every 30 minutes. What is the most likely root cause?",
+      "ar": "تتعطّل خدمة Node.js في الإنتاج بعد ساعتين بالضبط مع 'FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory'. تُظهر لقطات Heap المأخوذة كل 30 دقيقة نموًا بنوع 'string' بمقدار ~50MB كل 30 دقيقة. ما هو السبب الجذري الأرجح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "An in-memory cache or log buffer accumulates strings and is never evicted or rotated", "ar": "ذاكرة تخزين مؤقت أو مخزن سجلات يتراكم فيه strings ولا يُخلى أو يُدار أبدًا" } },
+      { "id": "b", "text": { "en": "The GC is misconfigured and not collecting string literals", "ar": "GC مُعدًّا بشكل خاطئ ولا يجمع literals النصية" } },
+      { "id": "c", "text": { "en": "Node.js has a bug with strings in version being used", "ar": "Node.js يحتوي على خطأ في strings في الإصدار المستخدم" } },
+      { "id": "d", "text": { "en": "The server is receiving too many requests", "ar": "السيرفر يتلقى طلبات كثيرة جدًا" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The steady, predictable growth pattern (50MB/30min) points to an accumulation pattern, not a sudden spike.",
+      "ar": "نمط النمو الثابت والمتوقع (50MB/30 دقيقة) يشير إلى نمط تراكم، لا ارتفاع مفاجئ."
+    },
+    "explanation": {
+      "en": "The steady linear growth of strings strongly indicates an unbounded in-memory store — common examples include: an error logger that appends to a global array, an audit log kept in memory, a cache with no TTL/LRU eviction, or accumulated WebSocket message buffers. The fix: implement LRU eviction, stream logs to disk/external service, and add heap usage monitoring with alerts before OOM.",
+      "ar": "النمو الخطي الثابت للـ strings يدل بشكل قوي على مخزن ذاكري غير محدود — أمثلة شائعة تشمل: مسجّل أخطاء يُلحق بمصفوفة عامة، سجل تدقيق محفوظ في الذاكرة، ذاكرة تخزين مؤقت بلا طرد TTL/LRU، أو مخازن رسائل WebSocket متراكمة. الحل: تطبيق طرد LRU، بثّ السجلات إلى القرص/الخدمة الخارجية، وإضافة مراقبة استخدام الـ heap مع تنبيهات قبل نفاد الذاكرة."
+    },
+    "xp": 50,
+    "tags": ["memory-leak", "GC", "production", "debugging"]
+  },
+  {
+    "id": "node-boss-3",
+    "trackId": "nodejs",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "This streaming pipeline processes 1GB log files but causes memory usage to spike to 1.5GB. The code looks correct — what is the subtle bug?",
+      "ar": "تعالج هذه الـ pipeline الـ streaming ملفات سجلات بحجم 1GB لكنها تتسبب في ارتفاع استخدام الذاكرة إلى 1.5GB. يبدو الكود صحيحًا — ما هو الخطأ الخفي؟"
+    },
+    "code": "const fs = require('fs');\nconst zlib = require('zlib');\nconst { pipeline } = require('stream');\n\npipeline(\n  fs.createReadStream('large.log'),\n  zlib.createGzip(),\n  fs.createWriteStream('large.log.gz'),\n  (err) => { if (err) console.error(err); }\n);\n\n// Elsewhere in the same process:\nconst allLines = [];\nfs.createReadStream('large.log')\n  .on('data', chunk => allLines.push(chunk.toString()))\n  .on('end', () => processLines(allLines));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "The second stream collects all chunks into `allLines` array in memory, buffering the entire 1GB file", "ar": "الـ stream الثاني يجمع جميع القطع في مصفوفة `allLines` في الذاكرة، مما يخزّن الملف البالغ 1GB بأكمله" } },
+      { "id": "b", "text": { "en": "The `pipeline` API does not support gzip compression", "ar": "واجهة `pipeline` لا تدعم ضغط gzip" } },
+      { "id": "c", "text": { "en": "Reading the same file twice causes a race condition", "ar": "قراءة نفس الملف مرتين تُسبّب تعارضًا في الوضع" } },
+      { "id": "d", "text": { "en": "zlib.createGzip() buffers the entire input before compressing", "ar": "تخزّن `zlib.createGzip()` المدخل بأكمله قبل الضغط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Pushing chunks to an array defeats the purpose of streaming.",
+      "ar": "دفع القطع إلى مصفوفة يُبطل الغرض من الـ streaming."
+    },
+    "explanation": {
+      "en": "The first `pipeline` is correct and memory-efficient. The second part is the bug: `allLines.push(chunk.toString())` accumulates every chunk from the 1GB file into an in-memory array, loading the entire file into heap. The fix is to process lines as they stream using `readline.createInterface({ input: readStream })` which processes line-by-line without buffering the whole file.",
+      "ar": "الـ `pipeline` الأول صحيح وكفء في استخدام الذاكرة. الجزء الثاني هو الخطأ: `allLines.push(chunk.toString())` يتراكم كل قطعة من الملف البالغ 1GB في مصفوفة ذاكرية، مما يُحمّل الملف بأكمله إلى الـ heap. الحل هو معالجة الأسطر أثناء البث باستخدام `readline.createInterface({ input: readStream })` الذي يعالج سطرًا سطرًا دون تخزين الملف بأكمله."
+    },
+    "xp": 50,
+    "tags": ["streams", "memory", "debugging", "readline"]
+  },
+  {
+    "id": "node-boss-4",
+    "trackId": "nodejs",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You have a Node.js microservice that must maintain exactly-once delivery of messages to a PostgreSQL database under high concurrency. Multiple instances run in parallel. Which combination of techniques ensures correctness?",
+      "ar": "لديك خدمة مصغّرة في Node.js يجب أن تضمن تسليم الرسائل مرةً واحدةً بالضبط إلى قاعدة بيانات PostgreSQL تحت تزامن عالٍ. تعمل نسخ متعددة بالتوازي. أي مجموعة من التقنيات تضمن الصحة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Database-level unique constraint on a message ID + upsert (INSERT ... ON CONFLICT DO NOTHING) + idempotent processing logic", "ar": "قيد فريد على مستوى قاعدة البيانات على معرّف الرسالة + upsert (INSERT ... ON CONFLICT DO NOTHING) + منطق معالجة idempotent" } },
+      { "id": "b", "text": { "en": "A global Node.js variable to track processed message IDs", "ar": "متغير عام في Node.js لتتبّع معرّفات الرسائل المعالَجة" } },
+      { "id": "c", "text": { "en": "Using `async_hooks` to track message context across async calls", "ar": "استخدام `async_hooks` لتتبّع سياق الرسائل عبر الاستدعاءات غير المتزامنة" } },
+      { "id": "d", "text": { "en": "Locking the message queue with a `Mutex` from the `worker_threads` module", "ar": "قفل قائمة الرسائل بـ `Mutex` من وحدة `worker_threads`" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A global in-memory variable does not work across multiple process instances.",
+      "ar": "المتغير العام في الذاكرة لا يعمل عبر نسخ عمليات متعددة."
+    },
+    "explanation": {
+      "en": "With multiple Node.js instances, in-memory state is not shared. The only reliable exactly-once guarantee in a distributed system is database-level: a UNIQUE constraint on `message_id` + an idempotent upsert (`INSERT ... ON CONFLICT DO NOTHING`). Even if two instances race to process the same message, only one insert will succeed. The processing logic must also be idempotent (safe to call multiple times with same result).",
+      "ar": "مع نسخ متعددة من Node.js، الحالة الذاكرية غير مشتركة. الضمان الموثوق الوحيد للتسليم مرةً واحدةً في النظام الموزّع هو على مستوى قاعدة البيانات: قيد UNIQUE على `message_id` + upsert idempotent (`INSERT ... ON CONFLICT DO NOTHING`). حتى لو تسابقت نسختان لمعالجة نفس الرسالة، لن يتمكن إلا إدراج واحد من النجاح. يجب أيضًا أن يكون منطق المعالجة idempotent (آمن الاستدعاء مرات متعددة بنفس النتيجة)."
+    },
+    "xp": 50,
+    "tags": ["distributed-systems", "database", "idempotency", "architecture"]
+  },
+  {
+    "id": "node-boss-5",
+    "trackId": "nodejs",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "This code is supposed to implement a rate limiter using `async_hooks` to track request context, but it has a critical production bug. What is it?",
+      "ar": "من المفترض أن يُطبّق هذا الكود حدًّا لمعدل الطلبات باستخدام `async_hooks` لتتبّع سياق الطلب، لكنه يحتوي على خطأ إنتاجي حرج. ما هو؟"
+    },
+    "code": "const async_hooks = require('async_hooks');\nconst contexts = {};\n\nconst hook = async_hooks.createHook({\n  init(asyncId, type, triggerAsyncId) {\n    contexts[asyncId] = contexts[triggerAsyncId];\n  },\n  destroy(asyncId) {\n    // cleanup\n  }\n});\nhook.enable();\n\nfunction middleware(req, res, next) {\n  const id = async_hooks.executionAsyncId();\n  contexts[id] = { user: req.user, count: 0 };\n  next();\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "The `destroy` hook does not delete `contexts[asyncId]`, causing unbounded memory growth as async IDs accumulate", "ar": "هوك `destroy` لا يحذف `contexts[asyncId]`، مما يتسبب في نمو غير محدود للذاكرة مع تراكم معرّفات async" } },
+      { "id": "b", "text": { "en": "`async_hooks` cannot track HTTP request context", "ar": "لا تستطيع `async_hooks` تتبّع سياق طلب HTTP" } },
+      { "id": "c", "text": { "en": "`executionAsyncId()` always returns 0 inside middleware", "ar": "تُعيد `executionAsyncId()` دائمًا 0 داخل الـ middleware" } },
+      { "id": "d", "text": { "en": "The `init` hook references `triggerAsyncId` before it is defined", "ar": "يشير هوك `init` إلى `triggerAsyncId` قبل تعريفه" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Node.js creates thousands of async IDs per second for I/O operations, timers, and promises.",
+      "ar": "يُنشئ Node.js آلاف معرّفات async في الثانية لعمليات I/O والمؤقتات والـ promises."
+    },
+    "explanation": {
+      "en": "The `destroy` hook body is empty — it never calls `delete contexts[asyncId]`. Since Node.js creates async resources (and thus async IDs) for every Promise, I/O operation, and timer, the `contexts` object grows without bound. Each entry is a small object, but under load (thousands of requests/second), this causes a severe memory leak. The fix: `destroy(asyncId) { delete contexts[asyncId]; }`. For production, prefer `AsyncLocalStorage` (Node 12+) which handles this correctly.",
+      "ar": "جسم هوك `destroy` فارغ — لا يستدعي أبدًا `delete contexts[asyncId]`. نظرًا لأن Node.js يُنشئ موارد async (وبالتالي معرّفات async) لكل Promise وعملية I/O ومؤقت، يتنامى كائن `contexts` بلا حدود. كل إدخال كائن صغير، لكن تحت الضغط (آلاف الطلبات في الثانية)، يتسبب ذلك في تسرّب ذاكرة حاد. الحل: `destroy(asyncId) { delete contexts[asyncId]; }`. للإنتاج، يُفضَّل `AsyncLocalStorage` (Node 12+) الذي يتعامل مع هذا بشكل صحيح."
+    },
+    "xp": 50,
+    "tags": ["async_hooks", "memory-leak", "AsyncLocalStorage", "production"]
   }
 ]
