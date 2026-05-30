@@ -1,18 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, Map } from "lucide-react";
-import type { LevelId, Track } from "@/types";
+import type { Track } from "@/types";
 import type { CategoryMeta } from "@/data/categories";
 import { Container } from "@/components/layout/Container";
 import { Icon } from "@/components/ui/Icon";
 import { Pill } from "@/components/ui/Pill";
 import { ProgressBar } from "@/components/ui/ProgressBar";
-import { Button } from "@/components/ui/Button";
 import { LevelRoadmap } from "./LevelRoadmap";
-import { QuizRunner } from "./QuizRunner";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useProgress } from "@/components/providers/ProgressProvider";
 import { buildRoadmap, roadmapProgress, type RoadmapNode } from "@/lib/roadmap";
@@ -24,14 +23,15 @@ interface RoadmapExperienceProps {
 }
 
 /**
- * Hosts the level roadmap for a single language and switches into the quiz
- * runner when a level is chosen. Recomputes the roadmap from live progress so
- * unlock state updates immediately after a level is cleared.
+ * Hosts the level roadmap for a single language. Choosing a level navigates to
+ * the dedicated quiz-engine route (/quiz/[track]/[language]/[level]). The
+ * roadmap recomputes from live progress, so unlock state updates the moment the
+ * player returns from clearing a level.
  */
 export function RoadmapExperience({ track, category }: RoadmapExperienceProps) {
   const { t, tc } = useLanguage();
   const { progress } = useProgress();
-  const [activeLevel, setActiveLevel] = useState<LevelId | null>(null);
+  const router = useRouter();
 
   const nodes = useMemo(
     () => buildRoadmap(track, progress.tracks[track.id]),
@@ -40,10 +40,7 @@ export function RoadmapExperience({ track, category }: RoadmapExperienceProps) {
   const overall = roadmapProgress(nodes);
 
   function handlePlay(node: RoadmapNode) {
-    setActiveLevel(node.level.id);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    router.push(`/quiz/${category.slug}/${track.id}/${node.level.id}`);
   }
 
   return (
@@ -103,33 +100,15 @@ export function RoadmapExperience({ track, category }: RoadmapExperienceProps) {
         </div>
       </motion.div>
 
-      {activeLevel === null ? (
-        <>
-          <div className="mb-12 text-center">
-            <h2 className="text-2xl font-bold tracking-tight">
-              {t("roadmap.title")}
-            </h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm text-muted">
-              {t("roadmap.subtitle")}
-            </p>
-          </div>
-          <LevelRoadmap nodes={nodes} onPlay={handlePlay} />
-        </>
-      ) : (
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-6">
-            <Button variant="ghost" size="sm" onClick={() => setActiveLevel(null)}>
-              <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
-              {t("roadmap.title")}
-            </Button>
-          </div>
-          <QuizRunner
-            track={track}
-            level={activeLevel}
-            onExit={() => setActiveLevel(null)}
-          />
-        </div>
-      )}
+      <div className="mb-12 text-center">
+        <h2 className="text-2xl font-bold tracking-tight">
+          {t("roadmap.title")}
+        </h2>
+        <p className="mx-auto mt-2 max-w-xl text-sm text-muted">
+          {t("roadmap.subtitle")}
+        </p>
+      </div>
+      <LevelRoadmap nodes={nodes} onPlay={handlePlay} />
     </Container>
   );
 }

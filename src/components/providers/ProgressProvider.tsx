@@ -6,10 +6,12 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
-import type { QuizResult, UserProgress } from "@/types";
+import type { LevelResult, QuizResult, UserProgress } from "@/types";
 import {
+  applyLevelResult,
   applyQuizResult,
   createInitialProgress,
   loadProgress,
@@ -19,12 +21,22 @@ import {
 import { evaluateBadges } from "@/data/badges";
 import { getTracksByCategory } from "@/data/tracks";
 
+/** Returned after submitting a level so the UI can celebrate appropriately. */
+export interface LevelSubmitOutcome {
+  /** Badge ids unlocked by this submission (not previously held). */
+  newBadgeIds: string[];
+  /** The progress snapshot immediately after applying the result. */
+  progress: UserProgress;
+}
+
 interface ProgressContextValue {
   progress: UserProgress;
   /** True until localStorage has hydrated (avoids SSR mismatch flashes). */
   hydrated: boolean;
   /** Record a finished quiz: updates XP, streak, tracks, and badges. */
   submitQuiz: (result: QuizResult) => string[];
+  /** Record a finished engine level: scoring, solved-ids, badges. */
+  submitLevel: (result: LevelResult) => LevelSubmitOutcome;
   resetProgress: () => void;
 }
 
@@ -45,6 +57,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     createInitialProgress(),
   );
   const [hydrated, setHydrated] = useState(false);
+
+  // Mirror of the latest progress for synchronous reads inside callbacks.
+  const progressRef = useRef(progress);
+  progressRef.current = progress;
 
   useEffect(() => {
     setProgress(loadProgress());
@@ -69,13 +85,28 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     return newlyUnlocked;
   }, []);
 
+  const submitLevel = useCallback((result: LevelResult): LevelSubmitOutcome => {
+    let outcome: LevelSubmitOutcome = { newBadgeIds: [], progress: progressRef.current };
+    setProgress((prev) => {
+      const advanced = applyLevelResult(prev, result);
+      const unlockedIds = evaluateBadges(advanced, TRACK_IDS_BY_CATEGORY);
+      const newBadgeIds = unlockedIds.filter(
+        (id) => !prev.unlockedBadgeIds.includes(id),
+      );
+      const next = { ...advanced, unlockedBadgeIds: unlockedIds };
+      outcome = { newBadgeIds, progress: next };
+      return next;
+    });
+    return outcome;
+  }, []);
+
   const reset = useCallback(() => {
     setProgress(clearProgress());
   }, []);
 
   const value = useMemo<ProgressContextValue>(
-    () => ({ progress, hydrated, submitQuiz, resetProgress: reset }),
-    [progress, hydrated, submitQuiz, reset],
+    () => ({ progress, hydrated, submitQuiz, submitLevel, resetProgress: reset }),
+    [progress, hydrated, submitQuiz, submitLevel, reset],
   );
 
   return (

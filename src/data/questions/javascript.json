@@ -15,6 +15,10 @@
       { "id": "d", "text": { "en": "static", "ar": "static" } }
     ],
     "correctOptionId": "c",
+    "hint": {
+      "en": "It's the one you'd use for a value that never changes.",
+      "ar": "إنها التي تستخدمها لقيمة لا تتغيّر أبدًا."
+    },
     "explanation": {
       "en": "const declares a block-scoped binding that cannot be reassigned (though objects it points to may still mutate).",
       "ar": "تعلن const ارتباطًا ذا نطاق كتلي لا يمكن إعادة تعيينه (مع إمكانية تغيّر الكائنات التي يشير إليها)."
@@ -32,6 +36,7 @@
       "ar": "ما الذي سيُطبع في وحدة التحكم؟"
     },
     "code": "console.log(typeof []);",
+    "codeLang": "js",
     "options": [
       { "id": "a", "text": { "en": "\"array\"", "ar": "\"array\"" } },
       { "id": "b", "text": { "en": "\"object\"", "ar": "\"object\"" } },
@@ -39,12 +44,66 @@
       { "id": "d", "text": { "en": "\"undefined\"", "ar": "\"undefined\"" } }
     ],
     "correctOptionId": "b",
+    "hint": {
+      "en": "Arrays aren't a primitive type in JavaScript.",
+      "ar": "المصفوفات ليست نوعًا بدائيًا في جافاسكريبت."
+    },
     "explanation": {
       "en": "Arrays are objects in JavaScript, so typeof [] returns \"object\". Use Array.isArray() to detect arrays.",
       "ar": "المصفوفات كائنات في جافاسكريبت، لذا يُرجع typeof [] القيمة \"object\". استخدم Array.isArray() للكشف عن المصفوفات."
     },
     "xp": 10,
     "tags": ["types"]
+  },
+  {
+    "id": "js-b-3",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "In JavaScript, === compares both value and type without coercion.",
+      "ar": "في جافاسكريبت، يقارن === القيمة والنوع معًا دون تحويل."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "explanation": {
+      "en": "The strict equality operator === checks value and type and does not perform type coercion, unlike ==.",
+      "ar": "يتحقق عامل المساواة الصارمة === من القيمة والنوع ولا يجري تحويلًا للنوع، بخلاف ==."
+    },
+    "xp": 10,
+    "tags": ["operators"]
+  },
+  {
+    "id": "js-b-4",
+    "trackId": "javascript",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Fill the blank to add an item to the end of an array.",
+      "ar": "أكمل الفراغ لإضافة عنصر إلى نهاية المصفوفة."
+    },
+    "code": "const list = [1, 2];\nlist.____(3);\n// list is now [1, 2, 3]",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "push", "ar": "push" } },
+      { "id": "b", "text": { "en": "pop", "ar": "pop" } },
+      { "id": "c", "text": { "en": "shift", "ar": "shift" } },
+      { "id": "d", "text": { "en": "unshift", "ar": "unshift" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think of pushing onto a stack.",
+      "ar": "فكّر في الدفع إلى مكدّس."
+    },
+    "explanation": {
+      "en": "push() appends one or more elements to the end of an array and returns the new length.",
+      "ar": "تضيف push() عنصرًا أو أكثر إلى نهاية المصفوفة وتُرجع الطول الجديد."
+    },
+    "xp": 10,
+    "tags": ["arrays"]
   },
   {
     "id": "js-i-1",
@@ -56,6 +115,7 @@
       "ar": "ماذا يطبع هذا المقطع؟"
     },
     "code": "const a = [1, 2, 3];\nconst b = a.map(x => x * 2);\nconsole.log(b);",
+    "codeLang": "js",
     "options": [
       { "id": "a", "text": { "en": "[1, 2, 3]", "ar": "[1, 2, 3]" } },
       { "id": "b", "text": { "en": "[2, 4, 6]", "ar": "[2, 4, 6]" } },
@@ -71,6 +131,60 @@
     "tags": ["arrays"]
   },
   {
+    "id": "js-i-2",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This function should return the sum, but it returns undefined. What's the bug?",
+      "ar": "يُفترض أن تُرجع هذه الدالة المجموع، لكنها تُرجع undefined. ما الخطأ؟"
+    },
+    "code": "function add(a, b) {\n  return\n    a + b;\n}\nconsole.log(add(2, 3));",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Automatic semicolon insertion after return", "ar": "إدراج فاصلة منقوطة تلقائيًا بعد return" } },
+      { "id": "b", "text": { "en": "a and b are strings", "ar": "a و b نصوص" } },
+      { "id": "c", "text": { "en": "add is called before it's defined", "ar": "يُستدعى add قبل تعريفه" } },
+      { "id": "d", "text": { "en": "Missing parentheses around a + b", "ar": "أقواس مفقودة حول a + b" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Look at what's on the same line as `return`.",
+      "ar": "انظر إلى ما يوجد في نفس سطر `return`."
+    },
+    "explanation": {
+      "en": "JavaScript inserts a semicolon right after `return`, so the function returns undefined and `a + b` is never reached. Keep the expression on the same line as return.",
+      "ar": "تُدرج جافاسكريبت فاصلة منقوطة بعد `return` مباشرة، فتُرجع الدالة undefined ولا يُنفّذ `a + b`. ضع التعبير في نفس سطر return."
+    },
+    "xp": 18,
+    "tags": ["functions", "asi"]
+  },
+  {
+    "id": "js-i-3",
+    "trackId": "javascript",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is logged?",
+      "ar": "ما الذي سيُطبع؟"
+    },
+    "code": "let x = 5;\nconst f = () => x;\nx = 10;\nconsole.log(f());",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "5", "ar": "5" } },
+      { "id": "b", "text": { "en": "10", "ar": "10" } },
+      { "id": "c", "text": { "en": "undefined", "ar": "undefined" } },
+      { "id": "d", "text": { "en": "ReferenceError", "ar": "ReferenceError" } }
+    ],
+    "correctOptionId": "b",
+    "explanation": {
+      "en": "Closures capture variables by reference, not by value. By the time f() runs, x is 10.",
+      "ar": "تلتقط الإغلاقات المتغيّرات بالمرجع لا بالقيمة. وعند تنفيذ f() تكون x تساوي 10."
+    },
+    "xp": 18,
+    "tags": ["closures"]
+  },
+  {
     "id": "js-a-1",
     "trackId": "javascript",
     "level": "advanced",
@@ -80,6 +194,7 @@
       "ar": "ما الذي سيُطبع، مع مراعاة حلقة الأحداث؟"
     },
     "code": "console.log(1);\nsetTimeout(() => console.log(2), 0);\nPromise.resolve().then(() => console.log(3));\nconsole.log(4);",
+    "codeLang": "js",
     "options": [
       { "id": "a", "text": { "en": "1 4 3 2", "ar": "1 4 3 2" } },
       { "id": "b", "text": { "en": "1 2 3 4", "ar": "1 2 3 4" } },
@@ -87,11 +202,156 @@
       { "id": "d", "text": { "en": "1 3 4 2", "ar": "1 3 4 2" } }
     ],
     "correctOptionId": "a",
+    "hint": {
+      "en": "Microtasks beat macrotasks after the sync code.",
+      "ar": "المهام الدقيقة تسبق المهام الكبيرة بعد الكود المتزامن."
+    },
     "explanation": {
       "en": "Sync code runs first (1, 4). Microtasks (Promise) run before macrotasks (setTimeout), so 3 then 2.",
       "ar": "يُنفّذ الكود المتزامن أولاً (1، 4). تُنفّذ المهام الدقيقة (الوعود) قبل المهام الكبيرة (setTimeout)، فتظهر 3 ثم 2."
     },
     "xp": 25,
     "tags": ["event-loop", "async"]
+  },
+  {
+    "id": "js-a-2",
+    "trackId": "javascript",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to call an expensive API only after the user stops typing for 300ms. Which technique fits best?",
+      "ar": "تحتاج إلى استدعاء واجهة برمجية مكلفة فقط بعد توقّف المستخدم عن الكتابة لمدة 300 مللي ثانية. أي تقنية أنسب؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Throttling", "ar": "التقييد (Throttling)" } },
+      { "id": "b", "text": { "en": "Debouncing", "ar": "إزالة الارتداد (Debouncing)" } },
+      { "id": "c", "text": { "en": "Memoization", "ar": "التخزين المؤقت (Memoization)" } },
+      { "id": "d", "text": { "en": "Polling", "ar": "الاستطلاع (Polling)" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "You want to wait until activity has paused, then fire once.",
+      "ar": "تريد الانتظار حتى يتوقّف النشاط ثم التنفيذ مرة واحدة."
+    },
+    "explanation": {
+      "en": "Debouncing delays the call until a quiet period has elapsed, firing once after the user stops typing. Throttling instead limits calls to a fixed rate.",
+      "ar": "تؤجّل إزالة الارتداد الاستدعاء حتى انقضاء فترة هدوء، فيُنفّذ مرة واحدة بعد توقّف المستخدم. أما التقييد فيحدّ من الاستدعاءات بمعدّل ثابت."
+    },
+    "xp": 25,
+    "tags": ["patterns", "performance"]
+  },
+  {
+    "id": "js-e-1",
+    "trackId": "javascript",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this log?",
+      "ar": "ماذا يطبع هذا؟"
+    },
+    "code": "const obj = { a: 1 };\nconst copy = { ...obj };\ncopy.a = 2;\nconsole.log(obj.a, copy.a);",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "1 2", "ar": "1 2" } },
+      { "id": "b", "text": { "en": "2 2", "ar": "2 2" } },
+      { "id": "c", "text": { "en": "1 1", "ar": "1 1" } },
+      { "id": "d", "text": { "en": "undefined 2", "ar": "undefined 2" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The spread makes a shallow copy of the top level.",
+      "ar": "ينشئ النشر نسخة سطحية للمستوى الأعلى."
+    },
+    "explanation": {
+      "en": "Spread creates a shallow copy, so copy.a is independent of obj.a for primitive values. obj.a stays 1, copy.a becomes 2.",
+      "ar": "ينشئ النشر نسخة سطحية، لذا تكون copy.a مستقلة عن obj.a للقيم البدائية. تبقى obj.a تساوي 1 وتصبح copy.a تساوي 2."
+    },
+    "xp": 30,
+    "tags": ["objects", "immutability"]
+  },
+  {
+    "id": "js-e-2",
+    "trackId": "javascript",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "This loop should log 0,1,2 but logs 3,3,3. What fixes it?",
+      "ar": "يُفترض أن تطبع هذه الحلقة 0,1,2 لكنها تطبع 3,3,3. ما الذي يصلحها؟"
+    },
+    "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "Replace var with let", "ar": "استبدل var بـ let" } },
+      { "id": "b", "text": { "en": "Remove the setTimeout", "ar": "احذف setTimeout" } },
+      { "id": "c", "text": { "en": "Use i-- instead", "ar": "استخدم i-- بدلًا منها" } },
+      { "id": "d", "text": { "en": "Change 0 to 100", "ar": "غيّر 0 إلى 100" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The problem is one shared binding across all iterations.",
+      "ar": "المشكلة هي ارتباط واحد مشترك عبر كل التكرارات."
+    },
+    "explanation": {
+      "en": "var has function scope, so all callbacks share one i (3 after the loop). let is block-scoped, giving each iteration its own binding: 0,1,2.",
+      "ar": "لـ var نطاق دالي، فتتشارك كل ردود النداء قيمة i واحدة (3 بعد الحلقة). أما let فذات نطاق كتلي، فتمنح كل تكرار ارتباطه الخاص: 0,1,2."
+    },
+    "xp": 30,
+    "tags": ["scope", "closures"]
+  },
+  {
+    "id": "js-boss-1",
+    "trackId": "javascript",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "Boss: what is the final output?",
+      "ar": "الزعيم: ما الناتج النهائي؟"
+    },
+    "code": "async function run() {\n  console.log('A');\n  await null;\n  console.log('B');\n}\nconsole.log('C');\nrun();\nconsole.log('D');",
+    "codeLang": "js",
+    "options": [
+      { "id": "a", "text": { "en": "C A D B", "ar": "C A D B" } },
+      { "id": "b", "text": { "en": "C A B D", "ar": "C A B D" } },
+      { "id": "c", "text": { "en": "A C D B", "ar": "A C D B" } },
+      { "id": "d", "text": { "en": "C D A B", "ar": "C D A B" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Everything before the first await runs synchronously.",
+      "ar": "كل ما قبل أول await يُنفّذ بشكل متزامن."
+    },
+    "explanation": {
+      "en": "'C' logs first. run() runs synchronously up to await, logging 'A'. 'D' logs next (sync). After the microtask resumes, 'B' logs. Order: C A D B.",
+      "ar": "تُطبع 'C' أولًا. تعمل run() بشكل متزامن حتى await فتطبع 'A'. ثم تُطبع 'D' (متزامن). وبعد استئناف المهمة الدقيقة تُطبع 'B'. الترتيب: C A D B."
+    },
+    "xp": 50,
+    "tags": ["async", "event-loop", "boss"]
+  },
+  {
+    "id": "js-boss-2",
+    "trackId": "javascript",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "Boss: a 10,000-row list janks the page while filtering on every keystroke. Best first optimization?",
+      "ar": "الزعيم: قائمة من 10,000 صف تُبطئ الصفحة أثناء التصفية مع كل ضغطة مفتاح. ما أفضل تحسين أولي؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Debounce the input and virtualize the list", "ar": "أزل ارتداد الإدخال وقسّم القائمة افتراضيًا" } },
+      { "id": "b", "text": { "en": "Add more console.logs", "ar": "أضف المزيد من console.log" } },
+      { "id": "c", "text": { "en": "Switch var to let everywhere", "ar": "بدّل var إلى let في كل مكان" } },
+      { "id": "d", "text": { "en": "Wrap everything in try/catch", "ar": "غلّف كل شيء بـ try/catch" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Reduce how often you filter, and how much you render.",
+      "ar": "قلّل عدد مرات التصفية وكمية ما تعرضه."
+    },
+    "explanation": {
+      "en": "Debouncing cuts redundant filtering work per keystroke, and list virtualization renders only visible rows — together they remove the jank. The other options don't address rendering cost.",
+      "ar": "تقلّل إزالة الارتداد أعمال التصفية الزائدة لكل ضغطة، وتعرض الفرضنة الافتراضية الصفوف المرئية فقط — معًا يزيلان البطء. الخيارات الأخرى لا تعالج تكلفة العرض."
+    },
+    "xp": 50,
+    "tags": ["performance", "boss"]
   }
 ]

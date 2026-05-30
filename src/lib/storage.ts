@@ -1,5 +1,6 @@
 import type {
   Language,
+  LevelResult,
   QuizResult,
   Theme,
   TrackId,
@@ -13,6 +14,7 @@ import {
 } from "./constants";
 import { daysBetween, todayKey } from "./utils";
 import { LEVEL_ORDER } from "@/data/levels";
+import { mergeSolved } from "./question-selection";
 
 /**
  * localStorage progress system.
@@ -63,11 +65,26 @@ export function loadProgress(): UserProgress {
     if (!raw) return createInitialProgress();
     const parsed = JSON.parse(raw);
     if (!isValidProgress(parsed)) return createInitialProgress();
-    // Future: run migrations here when parsed.version < PROGRESS_SCHEMA_VERSION.
-    return parsed;
+    return migrate(parsed);
   } catch {
     return createInitialProgress();
   }
+}
+
+/**
+ * Forward-migrate stored progress to the current schema. Migrations are
+ * additive and non-destructive: older saves gain new fields with safe
+ * defaults. v1 → v2 introduced per-level solved-question tracking.
+ */
+function migrate(progress: UserProgress): UserProgress {
+  if (progress.version >= PROGRESS_SCHEMA_VERSION) return progress;
+
+  const tracks: UserProgress["tracks"] = {};
+  for (const [id, tp] of Object.entries(progress.tracks)) {
+    tracks[id] = { ...tp, solvedByLevel: tp.solvedByLevel ?? {} };
+  }
+
+  return { ...progress, version: PROGRESS_SCHEMA_VERSION, tracks };
 }
 
 export function saveProgress(progress: UserProgress): void {
@@ -101,6 +118,7 @@ function emptyTrackProgress(trackId: TrackId): TrackProgress {
     totalXp: 0,
     bestScorePercent: 0,
     attempts: 0,
+    solvedByLevel: {},
   };
 }
 
@@ -160,4 +178,66 @@ function highestLevel(
   if (!a) return b;
   if (!b) return a;
   return LEVEL_ORDER.indexOf(a) >= LEVEL_ORDER.indexOf(b) ? a : b;
+}
+
+/**
+ * Apply a finished level from the quiz engine. Unlike `applyQuizResult`, this
+ * also persists the no-repeat solved-question set and clamps the per-track XP
+ * floor at zero (penalties can't push a track negative). `result.xpEarned`
+ * already includes per-question scoring; the level-completion bonus is added
+ * separately by the caller into the same field, so this reducer treats it as a
+ * single net delta.
+ */
+export function applyLevelResult(
+  progress: UserProgress,
+  result: LevelResult,
+): UserProgress {
+  const today = todayKey();
+  const percent = result.total > 0 ? (result.score / result.total) * 100 : 0;
+  const passed = result.passed;
+
+  const existing =
+    progress.tracks[result.trackId] ?? emptyTrackProgress(result.trackId);
+
+  const completedLevels = new Set(existing.completedLevels);
+  if (passed) completedLevels.add(result.level);
+
+  // Merge newly solved ids (wraps to empty once the level pool is exhausted).
+  const solvedByLevel = { ...(existing.solvedByLevel ?? {}) };
+  solvedByLevel[result.level] = mergeSolved(
+    result.trackId,
+    result.level,
+    solvedByLevel[result.level],
+    result.solvedQuestionIds,
+  );
+
+  const updatedTrack: TrackProgress = {
+    ...existing,
+    attempts: existing.attempts + 1,
+    totalXp: Math.max(0, existing.totalXp + result.xpEarned),
+    bestScorePercent: Math.max(existing.bestScorePercent, percent),
+    completedLevels: [...completedLevels],
+    bestLevel: passed
+      ? highestLevel(existing.bestLevel, result.level)
+      : existing.bestLevel,
+    solvedByLevel,
+  };
+
+  const historyEntry: QuizResult = {
+    trackId: result.trackId,
+    level: result.level,
+    score: result.score,
+    total: result.total,
+    xpEarned: result.xpEarned,
+    completedAt: result.completedAt,
+  };
+
+  return {
+    ...progress,
+    totalXp: Math.max(0, progress.totalXp + result.xpEarned),
+    streak: nextStreak(progress),
+    lastActiveDate: today,
+    tracks: { ...progress.tracks, [result.trackId]: updatedTrack },
+    history: [historyEntry, ...progress.history].slice(0, 50),
+  };
 }

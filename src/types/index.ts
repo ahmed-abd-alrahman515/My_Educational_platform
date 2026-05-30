@@ -100,9 +100,24 @@ export interface Level {
 
 export type QuestionType =
   | "multiple-choice"
-  | "true-false"
   | "code-output"
-  | "fill-blank";
+  | "debugging"
+  | "true-false"
+  | "fill-blank"
+  | "scenario";
+
+export type QuestionLanguage =
+  | "html"
+  | "css"
+  | "js"
+  | "ts"
+  | "jsx"
+  | "tsx"
+  | "php"
+  | "sql"
+  | "bash"
+  | "json"
+  | "text";
 
 export interface QuestionOption {
   id: string;
@@ -116,11 +131,15 @@ export interface Question {
   level: LevelId;
   type: QuestionType;
   prompt: LocalizedText;
-  /** Optional code snippet shown with the question (language-agnostic string). */
+  /** Optional code snippet shown with the question. */
   code?: string;
+  /** Language for syntax styling / labeling of the code block. */
+  codeLang?: QuestionLanguage;
   options: QuestionOption[];
   /** id of the correct option in `options`. */
   correctOptionId: string;
+  /** Optional hint revealed via the hint button (reduces XP reward). */
+  hint?: LocalizedText;
   /** Shown after answering to teach the concept. */
   explanation: LocalizedText;
   /** Base XP awarded before level multiplier. */
@@ -133,6 +152,26 @@ export interface Quiz {
   trackId: TrackId;
   level: LevelId;
   questions: Question[];
+}
+
+/**
+ * Result of playing a single level in the quiz engine. Carries the precise
+ * scoring breakdown plus the ids the player solved this session (used by the
+ * no-repeat selection system).
+ */
+export interface LevelResult {
+  trackId: TrackId;
+  level: LevelId;
+  /** Number of questions answered correctly. */
+  score: number;
+  total: number;
+  /** Net XP from per-question scoring (excludes the level-completion bonus). */
+  xpEarned: number;
+  /** Ids answered correctly this session (newly solved). */
+  solvedQuestionIds: string[];
+  /** Whether the score cleared the pass threshold. */
+  passed: boolean;
+  completedAt: string;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -192,6 +231,12 @@ export interface TrackProgress {
   totalXp: number;
   bestScorePercent: number;
   attempts: number;
+  /**
+   * Ids of questions the player has already solved, grouped by level. Drives
+   * the "no-repeat until the level pool is exhausted" selection rule. Reset
+   * for a level once every question in it has been solved.
+   */
+  solvedByLevel?: Partial<Record<LevelId, string[]>>;
 }
 
 /**
