@@ -15,6 +15,8 @@ import { QuizHud } from "./QuizHud";
 import { QuestionCard } from "./QuestionCard";
 import { XpPopup } from "./XpPopup";
 import { LevelComplete } from "./LevelComplete";
+import { AdSlot } from "@/components/monetization/AdSlot";
+import { HireMeCta } from "@/components/monetization/HireMeCta";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useProgress } from "@/components/providers/ProgressProvider";
 import { selectLevelQuestions } from "@/lib/question-selection";
@@ -205,7 +207,7 @@ export function QuizEngine({ track, level, category }: QuizEngineProps) {
 
     return (
       <Container className="py-12">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-2xl space-y-8">
           <LevelComplete
             track={track}
             level={level}
@@ -220,6 +222,11 @@ export function QuizEngine({ track, level, category }: QuizEngineProps) {
             nextLevelId={nextLevelId}
             onRetry={restart}
           />
+
+          {/* Post-completion monetization: lead funnel first, ad second —
+              shown only after the user finishes, never mid-quiz. */}
+          <HireMeCta compact />
+          <AdSlot format="leaderboard" slotId="level-complete" />
         </div>
       </Container>
     );

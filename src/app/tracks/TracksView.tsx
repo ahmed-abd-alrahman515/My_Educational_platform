@@ -3,6 +3,8 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CategoryCard } from "@/components/features/CategoryCard";
+import { HireMeCta } from "@/components/monetization/HireMeCta";
+import { AdSlot } from "@/components/monetization/AdSlot";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { CATEGORIES } from "@/data/categories";
 
@@ -22,6 +24,10 @@ export function TracksView() {
           <CategoryCard key={category.id} category={category} index={i} />
         ))}
       </div>
+
+      {/* Bottom of page: lead funnel first, then an optional ad. */}
+      <HireMeCta className="mt-16" />
+      <AdSlot format="leaderboard" slotId="tracks-bottom" className="mt-8" />
     </Container>
   );
 }

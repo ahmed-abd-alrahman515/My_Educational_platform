@@ -12,6 +12,8 @@ import { Icon } from "@/components/ui/Icon";
 import { Pill } from "@/components/ui/Pill";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { LevelRoadmap } from "./LevelRoadmap";
+import { AdSlot } from "@/components/monetization/AdSlot";
+import { HireMeCta } from "@/components/monetization/HireMeCta";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useProgress } from "@/components/providers/ProgressProvider";
 import { buildRoadmap, roadmapProgress, type RoadmapNode } from "@/lib/roadmap";
@@ -108,7 +110,20 @@ export function RoadmapExperience({ track, category }: RoadmapExperienceProps) {
           {t("roadmap.subtitle")}
         </p>
       </div>
-      <LevelRoadmap nodes={nodes} onPlay={handlePlay} />
+
+      {/* Roadmap + optional desktop sidebar ad (sidebar hidden on smaller
+          screens so the experience is never cramped). */}
+      <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-8">
+        <div className="min-w-0">
+          <LevelRoadmap nodes={nodes} onPlay={handlePlay} />
+        </div>
+        <div className="hidden lg:block">
+          <AdSlot format="sidebar" slotId="quiz-sidebar" sticky />
+        </div>
+      </div>
+
+      {/* Primary monetization funnel */}
+      <HireMeCta className="mt-16" />
     </Container>
   );
 }

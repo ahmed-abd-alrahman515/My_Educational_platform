@@ -240,6 +240,15 @@ export const translations = {
     "a11y.menu": "Menu",
     "a11y.copyCode": "Copy code",
     "a11y.github": "GitHub",
+
+    "ad.label": "Advertisement",
+    "ad.placeholder": "Your ad could be here",
+
+    "hire.eyebrow": "Available for freelance work",
+    "hire.title": "Need a professional website, dashboard, or learning platform?",
+    "hire.subtitle": "I build fast, modern, scalable web apps — from idea to launch.",
+    "hire.portfolio": "View Portfolio",
+    "hire.whatsapp": "Contact Me on WhatsApp",
   },
 
   ar: {
@@ -474,6 +483,15 @@ export const translations = {
     "a11y.menu": "القائمة",
     "a11y.copyCode": "نسخ الكود",
     "a11y.github": "GitHub",
+
+    "ad.label": "إعلان",
+    "ad.placeholder": "يمكن أن يظهر إعلانك هنا",
+
+    "hire.eyebrow": "متاح للعمل الحر",
+    "hire.title": "تحتاج موقعًا احترافيًا أو لوحة تحكم أو منصة تعليمية؟",
+    "hire.subtitle": "أبني تطبيقات ويب سريعة وحديثة وقابلة للتوسّع — من الفكرة إلى الإطلاق.",
+    "hire.portfolio": "عرض الأعمال",
+    "hire.whatsapp": "تواصل معي عبر واتساب",
   },
 } as const;
 
