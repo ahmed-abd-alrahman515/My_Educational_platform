@@ -148,9 +148,10 @@ export function QuestionCard({
               onClick={() => onSelect(opt.id)}
               className={cn(
                 "group flex items-center justify-between gap-3 rounded-xl border p-4 text-start text-sm transition-all duration-200",
+                "enabled:active:scale-[0.99]",
                 isTrueFalse && "justify-center text-base font-semibold",
                 state === "idle" &&
-                  "border-line bg-surface hover:border-primary/50 hover:bg-surface-2",
+                  "border-line bg-surface hover:-translate-y-0.5 hover:border-primary/50 hover:bg-surface-2 hover:shadow-glow-sm",
                 state === "selected" &&
                   "border-primary bg-primary/10 ring-1 ring-primary/40",
                 state === "correct" &&

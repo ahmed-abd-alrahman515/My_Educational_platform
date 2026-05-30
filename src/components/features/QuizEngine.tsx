@@ -3,12 +3,12 @@
 import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, PackageOpen } from "lucide-react";
 import type { Level, LevelResult, Question, Track } from "@/types";
 import type { CategoryMeta } from "@/data/categories";
 import { Container } from "@/components/layout/Container";
 import { Spinner } from "@/components/ui/Spinner";
-import { Card } from "@/components/ui/Card";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Pill } from "@/components/ui/Pill";
