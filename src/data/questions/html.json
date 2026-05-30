@@ -5,88 +5,1092 @@
     "level": "beginner",
     "type": "multiple-choice",
     "prompt": {
-      "en": "What does HTML stand for?",
-      "ar": "ماذا تعني اختصار HTML؟"
+      "en": "Which HTML element should you use for the main navigation links of a website?",
+      "ar": "أي عنصر HTML يجب استخدامه لروابط التنقل الرئيسية في الموقع؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "HyperText Markup Language", "ar": "لغة ترميز النص التشعّبي" } },
-      { "id": "b", "text": { "en": "HighText Machine Language", "ar": "لغة الآلة عالية النص" } },
-      { "id": "c", "text": { "en": "Hyperloop Markup Language", "ar": "لغة ترميز هايبرلوب" } },
-      { "id": "d", "text": { "en": "Home Tool Markup Language", "ar": "لغة ترميز أدوات المنزل" } }
+      { "id": "a", "text": { "en": "<nav>", "ar": "<nav>" } },
+      { "id": "b", "text": { "en": "<menu>", "ar": "<menu>" } },
+      { "id": "c", "text": { "en": "<div class=\"nav\">", "ar": "<div class=\"nav\">" } },
+      { "id": "d", "text": { "en": "<ul>", "ar": "<ul>" } }
     ],
     "correctOptionId": "a",
+    "hint": {
+      "en": "Think about semantic HTML — there's a dedicated element for navigation.",
+      "ar": "فكّر في HTML الدلالي — هناك عنصر مخصص للتنقل."
+    },
     "explanation": {
-      "en": "HTML stands for HyperText Markup Language, the standard markup language for documents in a browser.",
-      "ar": "HTML تعني لغة ترميز النص التشعّبي، وهي لغة الترميز القياسية للمستندات في المتصفح."
+      "en": "<nav> is the semantic HTML5 element for navigation landmark regions. It helps screen readers and search engines understand the structure of your page. Using <div class=\"nav\"> works visually but loses semantic meaning.",
+      "ar": "العنصر <nav> هو عنصر HTML5 الدلالي المخصص لمناطق التنقل. يساعد قارئات الشاشة ومحركات البحث على فهم بنية الصفحة. استخدام <div class=\"nav\"> يعمل بصريًا لكنه يفقد المعنى الدلالي."
     },
     "xp": 10,
-    "tags": ["basics"]
+    "tags": ["semantic", "navigation"]
   },
   {
     "id": "html-b-2",
     "trackId": "html",
     "level": "beginner",
-    "type": "multiple-choice",
-    "prompt": {
-      "en": "Which tag creates the largest heading?",
-      "ar": "أي وسم ينشئ أكبر عنوان؟"
-    },
-    "options": [
-      { "id": "a", "text": { "en": "<h6>", "ar": "<h6>" } },
-      { "id": "b", "text": { "en": "<heading>", "ar": "<heading>" } },
-      { "id": "c", "text": { "en": "<h1>", "ar": "<h1>" } },
-      { "id": "d", "text": { "en": "<head>", "ar": "<head>" } }
-    ],
-    "correctOptionId": "c",
-    "explanation": {
-      "en": "<h1> is the highest-level (largest) heading; headings go from <h1> down to <h6>.",
-      "ar": "الوسم <h1> هو أعلى مستوى (الأكبر)؛ تتدرّج العناوين من <h1> إلى <h6>."
-    },
-    "xp": 10,
-    "tags": ["text"]
-  },
-  {
-    "id": "html-i-1",
-    "trackId": "html",
-    "level": "intermediate",
     "type": "true-false",
     "prompt": {
-      "en": "The <article> element is a semantic element.",
-      "ar": "العنصر <article> هو عنصر دلالي."
+      "en": "An <img> tag without an alt attribute is valid HTML5.",
+      "ar": "الوسم <img> بدون خاصية alt يُعدّ HTML5 صالحًا."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Consider what the HTML5 specification says about the alt attribute requirement.",
+      "ar": "فكّر في ما تقوله مواصفة HTML5 بشأن اشتراطية خاصية alt."
+    },
+    "explanation": {
+      "en": "The HTML5 specification requires the alt attribute on every <img> element. Omitting it makes the markup invalid. If the image is purely decorative, use alt=\"\" (empty string) to tell assistive technologies to ignore it.",
+      "ar": "تشترط مواصفة HTML5 وجود خاصية alt على كل عنصر <img>. حذفها يجعل الترميز غير صالح. إذا كانت الصورة ذات طابع زخرفي بحت، استخدم alt=\"\" (سلسلة فارغة) لإخبار تقنيات المساعدة بتجاهلها."
+    },
+    "xp": 10,
+    "tags": ["accessibility", "images"]
+  },
+  {
+    "id": "html-b-3",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is displayed in the browser tab for this page?",
+      "ar": "ماذا يظهر في تبويب المتصفح لهذه الصفحة؟"
+    },
+    "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>My Portfolio</title>\n  <meta name=\"description\" content=\"Ahmed's portfolio\">\n</head>\n<body>\n  <h1>Welcome</h1>\n</body>\n</html>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "My Portfolio", "ar": "My Portfolio" } },
+      { "id": "b", "text": { "en": "Welcome", "ar": "Welcome" } },
+      { "id": "c", "text": { "en": "Ahmed's portfolio", "ar": "Ahmed's portfolio" } },
+      { "id": "d", "text": { "en": "index.html", "ar": "index.html" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Which element controls what appears in the browser tab?",
+      "ar": "أيّ عنصر يتحكم فيما يظهر في تبويب المتصفح؟"
+    },
+    "explanation": {
+      "en": "The content of the <title> element is what browsers display in the tab, bookmark, and search engine results. The <h1> is the visible heading on the page, and the meta description is invisible but used by search engines.",
+      "ar": "محتوى العنصر <title> هو ما تعرضه المتصفحات في التبويب والإشارات المرجعية ونتائج محركات البحث. أما <h1> فهو العنوان المرئي في الصفحة، والوصف التعريفي (meta description) غير مرئي لكن تستخدمه محركات البحث."
+    },
+    "xp": 10,
+    "tags": ["document-structure", "metadata"]
+  },
+  {
+    "id": "html-b-4",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A developer writes a form without a <label> for each input. What is the main problem?",
+      "ar": "كتب مطوّر نموذجًا بدون <label> لكل حقل إدخال. ما المشكلة الرئيسية؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "The form won't submit", "ar": "لن يُرسَل النموذج" } },
+      { "id": "b", "text": { "en": "Screen reader users won't know the purpose of each field", "ar": "لن يعرف مستخدمو قارئات الشاشة الغرض من كل حقل" } },
+      { "id": "c", "text": { "en": "The inputs won't render in the browser", "ar": "لن تُعرض حقول الإدخال في المتصفح" } },
+      { "id": "d", "text": { "en": "The form data will be encrypted incorrectly", "ar": "سيتم تشفير بيانات النموذج بشكل خاطئ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think about users who rely on assistive technology.",
+      "ar": "فكّر في المستخدمين الذين يعتمدون على تقنيات المساعدة."
+    },
+    "explanation": {
+      "en": "Labels provide the accessible name for form controls. Without them, screen reader users hear something like 'edit text' with no context. Always associate a <label> with its input via the for/id pair, or by wrapping the input inside the label.",
+      "ar": "توفّر التسميات الاسمَ المُيسَّر لعناصر تحكم النماذج. بدونها، يسمع مستخدمو قارئات الشاشة عبارات مثل 'حقل تحرير نص' دون أي سياق. اربط دائمًا <label> بحقل الإدخال الخاص به عبر زوج for/id، أو بتضمين الحقل داخل التسمية."
+    },
+    "xp": 10,
+    "tags": ["forms", "accessibility"]
+  },
+  {
+    "id": "html-b-5",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which input type should you use for a password field so that the browser masks the characters?",
+      "ar": "أي نوع إدخال يجب استخدامه لحقل كلمة المرور حتى يُخفي المتصفح الأحرف؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "type=\"text\"", "ar": "type=\"text\"" } },
+      { "id": "b", "text": { "en": "type=\"hidden\"", "ar": "type=\"hidden\"" } },
+      { "id": "c", "text": { "en": "type=\"password\"", "ar": "type=\"password\"" } },
+      { "id": "d", "text": { "en": "type=\"secret\"", "ar": "type=\"secret\"" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "HTML5 has a specific input type designed exactly for this use case.",
+      "ar": "يوجد في HTML5 نوع إدخال مخصص تمامًا لهذه الحالة."
+    },
+    "explanation": {
+      "en": "type=\"password\" tells the browser to mask characters as the user types, and also prevents the value from being shown in autofill dropdowns. type=\"hidden\" hides the entire field from the page, and type=\"secret\" doesn't exist in HTML.",
+      "ar": "النوع type=\"password\" يُخبر المتصفح بإخفاء الأحرف أثناء الكتابة، ويمنع أيضًا ظهور القيمة في قوائم الملء التلقائي. أما type=\"hidden\" فيُخفي الحقل بالكامل عن الصفحة، وtype=\"secret\" غير موجود في HTML."
+    },
+    "xp": 10,
+    "tags": ["forms", "input-types"]
+  },
+  {
+    "id": "html-b-6",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "debugging",
+    "prompt": {
+      "en": "This link opens in the same tab. How do you make it open in a new tab?",
+      "ar": "هذا الرابط يفتح في نفس التبويب. كيف تجعله يفتح في تبويب جديد؟"
+    },
+    "code": "<a href=\"https://example.com\">Visit Example</a>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "Add target=\"_blank\" to the <a> tag", "ar": "أضف target=\"_blank\" إلى الوسم <a>" } },
+      { "id": "b", "text": { "en": "Add rel=\"noopener\" to the <a> tag", "ar": "أضف rel=\"noopener\" إلى الوسم <a>" } },
+      { "id": "c", "text": { "en": "Wrap the link in a <section> tag", "ar": "ضع الرابط داخل وسم <section>" } },
+      { "id": "d", "text": { "en": "Change href to open=\"new\"", "ar": "غيّر href إلى open=\"new\"" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "There's a specific attribute that controls where the link target opens.",
+      "ar": "هناك خاصية محددة تتحكم في مكان فتح هدف الرابط."
+    },
+    "explanation": {
+      "en": "Adding target=\"_blank\" opens the link in a new browsing context (tab or window). Best practice is to also add rel=\"noopener noreferrer\" for security, preventing the new page from accessing the opener's window object.",
+      "ar": "إضافة target=\"_blank\" تفتح الرابط في سياق تصفح جديد (تبويب أو نافذة). من أفضل الممارسات إضافة rel=\"noopener noreferrer\" أيضًا للأمان، لمنع الصفحة الجديدة من الوصول إلى كائن window الخاص بالصفحة الفاتحة."
+    },
+    "xp": 10,
+    "tags": ["links", "security"]
+  },
+  {
+    "id": "html-b-7",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which element represents a self-contained piece of content that could be distributed independently, like a blog post or news article?",
+      "ar": "أي عنصر يمثّل محتوى مستقلًا يمكن توزيعه بشكل مستقل، كمنشور مدونة أو مقال إخباري؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<section>", "ar": "<section>" } },
+      { "id": "b", "text": { "en": "<article>", "ar": "<article>" } },
+      { "id": "c", "text": { "en": "<aside>", "ar": "<aside>" } },
+      { "id": "d", "text": { "en": "<main>", "ar": "<main>" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think about which element has the word for a piece of journalism in its name.",
+      "ar": "فكّر في أي عنصر يحمل في اسمه كلمة تشير إلى قطعة صحفية."
+    },
+    "explanation": {
+      "en": "<article> represents a self-contained composition that is independently distributable or reusable (a blog post, news story, forum post). <section> is a thematic grouping of content. <aside> is for tangentially related content, and <main> is for the primary content of the page.",
+      "ar": "العنصر <article> يمثّل تأليفًا مستقلًا قابلًا للتوزيع أو إعادة الاستخدام بشكل مستقل (منشور مدونة، قصة إخبارية، منشور منتدى). أما <section> فهو لتجميع المحتوى الموضوعاتي. و<aside> للمحتوى المرتبط بشكل هامشي، و<main> للمحتوى الرئيسي للصفحة."
+    },
+    "xp": 10,
+    "tags": ["semantic", "document-structure"]
+  },
+  {
+    "id": "html-b-8",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "The <!DOCTYPE html> declaration at the top of an HTML file tells the browser to render the page in standards mode.",
+      "ar": "يُخبر إعلان <!DOCTYPE html> في أعلى ملف HTML المتصفحَ بعرض الصفحة في وضع المعايير."
     },
     "options": [
       { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
       { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
     ],
     "correctOptionId": "a",
+    "hint": {
+      "en": "What's the historical reason this declaration exists at all?",
+      "ar": "ما السبب التاريخي لوجود هذا الإعلان أصلًا؟"
+    },
     "explanation": {
-      "en": "<article> is semantic — it describes self-contained, independently distributable content.",
-      "ar": "العنصر <article> دلالي — فهو يصف محتوى مستقلاً قابلاً للتوزيع بذاته."
+      "en": "<!DOCTYPE html> triggers standards mode rendering. Without it, browsers fall back to 'quirks mode', which emulates old IE bugs for backward compatibility. The HTML5 doctype is the shortest valid form and works in all modern browsers.",
+      "ar": "يُفعِّل <!DOCTYPE html> وضع عرض المعايير. بدونه، تعود المتصفحات إلى 'وضع التوافق' (quirks mode)، الذي يحاكي أخطاء IE القديمة للتوافق مع الإصدارات السابقة. نوع المستند HTML5 هو أقصر صيغة صالحة ويعمل في جميع المتصفحات الحديثة."
+    },
+    "xp": 10,
+    "tags": ["document-structure", "browser-rendering"]
+  },
+  {
+    "id": "html-b-9",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "To create a dropdown selection list in a form, you use the ______ element containing ______ child elements.",
+      "ar": "لإنشاء قائمة اختيار منسدلة في نموذج، تستخدم عنصر ______ يحتوي على عناصر فرعية ______."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<select> and <option>", "ar": "<select> و<option>" } },
+      { "id": "b", "text": { "en": "<dropdown> and <item>", "ar": "<dropdown> و<item>" } },
+      { "id": "c", "text": { "en": "<list> and <option>", "ar": "<list> و<option>" } },
+      { "id": "d", "text": { "en": "<input type=\"select\"> and <option>", "ar": "<input type=\"select\"> و<option>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "One element creates the container, the other creates each individual choice.",
+      "ar": "عنصر واحد ينشئ الحاوية، والآخر ينشئ كل خيار على حدة."
+    },
+    "explanation": {
+      "en": "<select> creates the dropdown list container, and each <option> inside it represents one choice. You can also group options with <optgroup>. Neither <dropdown> nor <list> are valid HTML elements.",
+      "ar": "ينشئ <select> حاوية القائمة المنسدلة، وكل <option> بداخله يمثّل خيارًا واحدًا. يمكنك أيضًا تجميع الخيارات باستخدام <optgroup>. لا يُعدّ كلٌّ من <dropdown> و<list> عنصرَي HTML صالحَين."
+    },
+    "xp": 10,
+    "tags": ["forms", "input-types"]
+  },
+  {
+    "id": "html-b-10",
+    "trackId": "html",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the correct way to include an external CSS file in an HTML document?",
+      "ar": "ما الطريقة الصحيحة لتضمين ملف CSS خارجي في مستند HTML؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<link rel=\"stylesheet\" href=\"styles.css\"> inside <head>", "ar": "<link rel=\"stylesheet\" href=\"styles.css\"> داخل <head>" } },
+      { "id": "b", "text": { "en": "<script src=\"styles.css\"> inside <body>", "ar": "<script src=\"styles.css\"> داخل <body>" } },
+      { "id": "c", "text": { "en": "<style src=\"styles.css\"> inside <head>", "ar": "<style src=\"styles.css\"> داخل <head>" } },
+      { "id": "d", "text": { "en": "<import href=\"styles.css\"> inside <head>", "ar": "<import href=\"styles.css\"> داخل <head>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "CSS stylesheets are linked, not scripted or styled from an external source.",
+      "ar": "تُربط أوراق أنماط CSS، ولا تُضاف كـ script أو style من مصدر خارجي."
+    },
+    "explanation": {
+      "en": "The <link> element with rel=\"stylesheet\" and href pointing to the CSS file is the correct method. It goes inside the <head>. The <style> element is for inline CSS only and has no src attribute. <script> is for JavaScript.",
+      "ar": "عنصر <link> مع rel=\"stylesheet\" وhref يشير إلى ملف CSS هو الطريقة الصحيحة. يوضع داخل <head>. أما عنصر <style> فهو للـ CSS المضمّن فقط وليس له خاصية src. و<script> مخصص لـ JavaScript."
+    },
+    "xp": 10,
+    "tags": ["document-structure", "metadata"]
+  },
+  {
+    "id": "html-i-1",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This form's submit button does nothing when clicked. What is the bug?",
+      "ar": "زر الإرسال في هذا النموذج لا يفعل شيئًا عند النقر عليه. ما الخطأ؟"
+    },
+    "code": "<form action=\"/submit\">\n  <input type=\"text\" name=\"username\" placeholder=\"Username\">\n  <input type=\"password\" name=\"password\" placeholder=\"Password\">\n  <button>Login</button>\n</form>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "The button is missing type=\"submit\"", "ar": "الزر مفقود منه type=\"submit\"" } },
+      { "id": "b", "text": { "en": "The form is missing method=\"POST\"", "ar": "النموذج مفقود منه method=\"POST\"" } },
+      { "id": "c", "text": { "en": "The button should be <input type=\"submit\"> not <button>", "ar": "يجب أن يكون الزر <input type=\"submit\"> وليس <button>" } },
+      { "id": "d", "text": { "en": "Nothing — a <button> inside a form submits by default", "ar": "لا شيء — يُرسل <button> داخل النموذج افتراضيًا" } }
+    ],
+    "correctOptionId": "d",
+    "hint": {
+      "en": "What is the default type of a <button> element when it's inside a <form>?",
+      "ar": "ما النوع الافتراضي لعنصر <button> عندما يكون داخل <form>؟"
+    },
+    "explanation": {
+      "en": "A <button> element without a type attribute defaults to type=\"submit\" when inside a <form>. The form will submit. The missing method=\"POST\" means it defaults to GET, but the form still submits. This is actually a trick question — the markup works correctly.",
+      "ar": "عنصر <button> بدون خاصية type يكون افتراضيًا من النوع type=\"submit\" عند وجوده داخل <form>. سيُرسل النموذج. غياب method=\"POST\" يعني أنه يستخدم GET افتراضيًا، لكن النموذج يُرسَل على أي حال. هذا في الواقع سؤال خادع — الترميز يعمل بشكل صحيح."
     },
     "xp": 15,
-    "tags": ["semantics"]
+    "tags": ["forms", "debugging"]
+  },
+  {
+    "id": "html-i-2",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You want users to be able to pick a date from a calendar picker. Which input type should you use?",
+      "ar": "تريد أن يتمكن المستخدمون من اختيار تاريخ من منتقي تقويم. أي نوع إدخال يجب استخدامه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "type=\"text\" with a placeholder \"YYYY-MM-DD\"", "ar": "type=\"text\" مع placeholder \"YYYY-MM-DD\"" } },
+      { "id": "b", "text": { "en": "type=\"date\"", "ar": "type=\"date\"" } },
+      { "id": "c", "text": { "en": "type=\"calendar\"", "ar": "type=\"calendar\"" } },
+      { "id": "d", "text": { "en": "type=\"datetime\"", "ar": "type=\"datetime\"" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "HTML5 introduced several new input types for structured data.",
+      "ar": "قدّم HTML5 أنواع إدخال جديدة عديدة للبيانات المنظَّمة."
+    },
+    "explanation": {
+      "en": "type=\"date\" renders a native date picker in supporting browsers and returns a value in YYYY-MM-DD format. type=\"calendar\" and type=\"datetime\" do not exist. type=\"datetime-local\" exists for date+time without timezone. Using type=\"text\" is a poor fallback — you lose native validation and mobile keyboard optimisation.",
+      "ar": "يعرض النوع type=\"date\" منتقي تاريخ أصليًا في المتصفحات الداعمة ويُرجع قيمة بصيغة YYYY-MM-DD. لا وجود لـ type=\"calendar\" وtype=\"datetime\". يوجد type=\"datetime-local\" للتاريخ والوقت بدون منطقة زمنية. استخدام type=\"text\" بديل سيئ — تفقد التحقق الأصلي وتحسين لوحة مفاتيح الهاتف."
+    },
+    "xp": 15,
+    "tags": ["forms", "input-types"]
+  },
+  {
+    "id": "html-i-3",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You're building an e-commerce product page. The product has a main image and 4 thumbnail images below it. Which HTML structure is most semantically correct for the thumbnails?",
+      "ar": "أنت تبني صفحة منتج لمتجر إلكتروني. المنتج له صورة رئيسية وأربع صور مصغّرة أسفلها. أي هيكل HTML أكثر دلالية للصور المصغّرة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A <figure> containing an <ul> of <li><img></li> items", "ar": "عنصر <figure> يحتوي على <ul> من عناصر <li><img></li>" } },
+      { "id": "b", "text": { "en": "Four <div> tags each wrapping an <img>", "ar": "أربعة وسوم <div> كل منها يُغلّف <img>" } },
+      { "id": "c", "text": { "en": "A <gallery> element with <img> children", "ar": "عنصر <gallery> مع عناصر <img> فرعية" } },
+      { "id": "d", "text": { "en": "An <img> element with multiple src values", "ar": "عنصر <img> بقيم src متعددة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A group of related images is a list. <figure> adds semantic context for media.",
+      "ar": "مجموعة الصور المترابطة هي قائمة. يضيف <figure> سياقًا دلاليًا للوسائط."
+    },
+    "explanation": {
+      "en": "<figure> semantically marks a self-contained media block. An unordered list (<ul>) with <li> items correctly represents the set of thumbnails as a related collection. <div> wrappers work visually but convey no meaning. <gallery> is not an HTML element, and <img> cannot have multiple src values.",
+      "ar": "يُميّز <figure> دلاليًا كتلة وسائط مستقلة. تُمثّل القائمة غير المرتبة (<ul>) مع عناصر <li> مجموعة الصور المصغّرة كمجموعة مترابطة بشكل صحيح. حاويات <div> تعمل بصريًا لكنها لا تنقل أي معنى. و<gallery> ليس عنصر HTML، ولا يمكن لـ <img> أن يمتلك قيم src متعددة."
+    },
+    "xp": 15,
+    "tags": ["semantic", "images"]
+  },
+  {
+    "id": "html-i-4",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What will happen when a user tries to submit this form with an empty email field?",
+      "ar": "ماذا سيحدث عندما يحاول المستخدم إرسال هذا النموذج بحقل البريد الإلكتروني فارغًا؟"
+    },
+    "code": "<form>\n  <input type=\"email\" name=\"email\" required>\n  <button type=\"submit\">Subscribe</button>\n</form>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "The form submits with an empty string for email", "ar": "يُرسَل النموذج بسلسلة فارغة لحقل البريد الإلكتروني" } },
+      { "id": "b", "text": { "en": "The browser shows a native validation error and blocks submission", "ar": "يعرض المتصفح خطأ تحقق أصليًا ويمنع الإرسال" } },
+      { "id": "c", "text": { "en": "JavaScript throws an error", "ar": "يرمي JavaScript خطأً" } },
+      { "id": "d", "text": { "en": "The required attribute only works with type=\"text\"", "ar": "تعمل خاصية required فقط مع type=\"text\"" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Two attributes on this input both play a role in what happens.",
+      "ar": "خاصيتان على هذا الحقل تلعبان دورًا في ما يحدث."
+    },
+    "explanation": {
+      "en": "The required attribute combined with type=\"email\" gives you two levels of built-in validation: the field cannot be empty (required), and if filled it must be a valid email format. The browser handles this natively without any JavaScript, showing a tooltip error and preventing form submission.",
+      "ar": "تمنحك خاصية required مع type=\"email\" مستويَين من التحقق المدمج: لا يمكن أن يكون الحقل فارغًا (required)، وإذا تم ملؤه يجب أن يكون بصيغة بريد إلكتروني صالحة. يتعامل المتصفح مع هذا بشكل أصلي دون أي JavaScript، معرضًا خطأ منبثقًا ومانعًا إرسال النموذج."
+    },
+    "xp": 15,
+    "tags": ["forms", "validation"]
+  },
+  {
+    "id": "html-i-5",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which meta tag tells mobile browsers not to scale down the page to fit the screen?",
+      "ar": "أي وسم meta يُخبر المتصفحات المحمولة بعدم تصغير الصفحة لتناسب الشاشة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<meta name=\"mobile\" content=\"responsive\">", "ar": "<meta name=\"mobile\" content=\"responsive\">" } },
+      { "id": "b", "text": { "en": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">", "ar": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" } },
+      { "id": "c", "text": { "en": "<meta name=\"scale\" content=\"1\">", "ar": "<meta name=\"scale\" content=\"1\">" } },
+      { "id": "d", "text": { "en": "<meta name=\"responsive\" content=\"true\">", "ar": "<meta name=\"responsive\" content=\"true\">" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This is a foundational meta tag required for any responsive design.",
+      "ar": "هذا وسم meta أساسي مطلوب لأي تصميم متجاوب."
+    },
+    "explanation": {
+      "en": "The viewport meta tag with width=device-width tells the browser to use the device's actual width as the viewport width, and initial-scale=1 prevents the default zoom-out behavior on mobile. Without this, mobile browsers render pages at a desktop-like width and scale down.",
+      "ar": "وسم meta للـ viewport مع width=device-width يُخبر المتصفح باستخدام العرض الفعلي للجهاز كعرض لمنطقة العرض، وinitial-scale=1 يمنع سلوك التكبير/التصغير الافتراضي على الهاتف. بدون هذا، تعرض المتصفحات المحمولة الصفحات بعرض يشبه سطح المكتب ثم تصغّرها."
+    },
+    "xp": 15,
+    "tags": ["metadata", "responsive"]
+  },
+  {
+    "id": "html-i-6",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "The defer attribute on a <script> tag makes the script execute after the HTML document has been fully parsed.",
+      "ar": "الخاصية defer على وسم <script> تجعل السكريبت يُنفَّذ بعد اكتمال تحليل مستند HTML."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "How does defer differ from async in terms of when execution happens?",
+      "ar": "كيف يختلف defer عن async من حيث توقيت التنفيذ؟"
+    },
+    "explanation": {
+      "en": "defer downloads the script in parallel while parsing continues, then executes it after the full HTML is parsed but before DOMContentLoaded fires. async also downloads in parallel but executes as soon as it's downloaded, potentially interrupting HTML parsing. defer preserves script execution order; async does not.",
+      "ar": "يُنزّل defer السكريبت بالتوازي أثناء استمرار التحليل، ثم يُنفّذه بعد اكتمال تحليل كامل HTML لكن قبل إطلاق حدث DOMContentLoaded. يُنزّل async أيضًا بالتوازي لكنه يُنفّذ فور الانتهاء من التنزيل، مما قد يُقاطع تحليل HTML. يحافظ defer على ترتيب تنفيذ السكريبتات؛ بينما async لا يفعل ذلك."
+    },
+    "xp": 15,
+    "tags": ["performance", "scripts"]
+  },
+  {
+    "id": "html-i-7",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the purpose of the data-* attribute in HTML?",
+      "ar": "ما الغرض من خاصية data-* في HTML؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "To store private custom data that is not visible in the browser", "ar": "لتخزين بيانات مخصصة خاصة غير مرئية في المتصفح" } },
+      { "id": "b", "text": { "en": "To embed custom key-value data accessible via JavaScript's dataset API", "ar": "لتضمين بيانات مفتاح-قيمة مخصصة يمكن الوصول إليها عبر dataset API في JavaScript" } },
+      { "id": "c", "text": { "en": "To send extra data to the server when a form submits", "ar": "لإرسال بيانات إضافية إلى الخادم عند إرسال النموذج" } },
+      { "id": "d", "text": { "en": "To define database schema for the element", "ar": "لتحديد مخطط قاعدة البيانات للعنصر" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This is commonly used to embed configuration data for JavaScript without resorting to non-standard attributes.",
+      "ar": "يُستخدم هذا عادةً لتضمين بيانات الإعداد لـ JavaScript دون اللجوء إلى خصائص غير قياسية."
+    },
+    "explanation": {
+      "en": "data-* attributes allow you to store custom data on any HTML element. They are accessible in JavaScript via element.dataset, where data-user-id becomes dataset.userId (camelCased). The data is visible in the DOM, not hidden. It doesn't automatically get sent on form submission unless it's also a named input.",
+      "ar": "تتيح خصائص data-* تخزين بيانات مخصصة على أي عنصر HTML. يمكن الوصول إليها في JavaScript عبر element.dataset، حيث يصبح data-user-id هو dataset.userId (بصيغة camelCase). البيانات مرئية في DOM وليست مخفية. لا تُرسَل تلقائيًا عند إرسال النموذج ما لم تكن حقل إدخال مسمّى أيضًا."
+    },
+    "xp": 15,
+    "tags": ["data-attributes", "javascript-interop"]
+  },
+  {
+    "id": "html-i-8",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "Your page has a sidebar with links to related articles. Which element is the most appropriate semantic wrapper for this sidebar?",
+      "ar": "صفحتك تحتوي على شريط جانبي بروابط لمقالات ذات صلة. أي عنصر هو الغلاف الدلالي الأنسب لهذا الشريط؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<aside>", "ar": "<aside>" } },
+      { "id": "b", "text": { "en": "<sidebar>", "ar": "<sidebar>" } },
+      { "id": "c", "text": { "en": "<section>", "ar": "<section>" } },
+      { "id": "d", "text": { "en": "<nav>", "ar": "<nav>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This element is specifically designed for content that is tangentially related to the main content.",
+      "ar": "هذا العنصر مصمم خصيصًا للمحتوى المرتبط بشكل هامشي بالمحتوى الرئيسي."
+    },
+    "explanation": {
+      "en": "<aside> represents content that is tangentially related to the surrounding content — like sidebars, pull quotes, or advertising. <sidebar> is not a valid HTML element. <section> is for thematic grouping of content that belongs to the main flow. <nav> could be used for the links inside but not the sidebar itself.",
+      "ar": "يمثّل <aside> المحتوى المرتبط بشكل هامشي بالمحتوى المحيط — كالأشرطة الجانبية والاقتباسات البارزة والإعلانات. <sidebar> ليس عنصر HTML صالحًا. <section> للتجميع الموضوعي للمحتوى المنتمي للتدفق الرئيسي. يمكن استخدام <nav> للروابط بداخله لكن ليس للشريط الجانبي نفسه."
+    },
+    "xp": 15,
+    "tags": ["semantic", "document-structure"]
+  },
+  {
+    "id": "html-i-9",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "An interviewer asks: what's the difference between <b> and <strong> in HTML5?",
+      "ar": "يسألك في مقابلة: ما الفرق بين <b> و<strong> في HTML5؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "There is no difference; both make text bold", "ar": "لا فرق بينهما؛ كلاهما يُعرض النص بخط عريض" } },
+      { "id": "b", "text": { "en": "<strong> conveys importance/urgency; <b> is stylistic bold with no semantic weight", "ar": "<strong> ينقل الأهمية/الإلحاح؛ <b> هو خط عريض بأسلوبي دون وزن دلالي" } },
+      { "id": "c", "text": { "en": "<b> is deprecated in HTML5 and should never be used", "ar": "<b> مُهمَل في HTML5 ولا ينبغي استخدامه إطلاقًا" } },
+      { "id": "d", "text": { "en": "<strong> only works inside headings", "ar": "<strong> يعمل فقط داخل العناوين" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "One of them carries semantic meaning for assistive technologies; the other is purely presentational.",
+      "ar": "أحدهما يحمل معنى دلاليًا لتقنيات المساعدة؛ والآخر تقديمي بحت."
+    },
+    "explanation": {
+      "en": "<strong> indicates that its contents have strong importance, seriousness, or urgency — screen readers may change their tone. <b> is used to draw attention stylistically without any extra importance, like keywords in a product description. Both are valid in HTML5. Same relationship exists between <em> (semantic emphasis) and <i> (stylistic italics).",
+      "ar": "يُشير <strong> إلى أن محتوياته تتمتع بأهمية عالية أو خطورة أو إلحاح — قد تغيّر قارئات الشاشة نبرتها. يُستخدم <b> لجذب الانتباه بأسلوبي دون أهمية إضافية، كالكلمات المفتاحية في وصف منتج. كلاهما صالح في HTML5. العلاقة ذاتها موجودة بين <em> (تأكيد دلالي) و<i> (مائل أسلوبي)."
+    },
+    "xp": 15,
+    "tags": ["semantic", "text-elements"]
+  },
+  {
+    "id": "html-i-10",
+    "trackId": "html",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This table is missing something important for accessibility. What is it?",
+      "ar": "يفتقر هذا الجدول إلى شيء مهم للإتاحة. ما هو؟"
+    },
+    "code": "<table>\n  <tr>\n    <td>Name</td>\n    <td>Age</td>\n    <td>City</td>\n  </tr>\n  <tr>\n    <td>Alice</td>\n    <td>30</td>\n    <td>Cairo</td>\n  </tr>\n</table>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "The first row should use <th> elements with a scope attribute, not <td>", "ar": "يجب أن تستخدم الصف الأول عناصر <th> مع خاصية scope، وليس <td>" } },
+      { "id": "b", "text": { "en": "The table needs a border attribute", "ar": "يحتاج الجدول إلى خاصية border" } },
+      { "id": "c", "text": { "en": "The table needs a class attribute for CSS styling", "ar": "يحتاج الجدول إلى خاصية class لتنسيق CSS" } },
+      { "id": "d", "text": { "en": "The table needs a colspan attribute", "ar": "يحتاج الجدول إلى خاصية colspan" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Screen readers need to know which cells are headers and which direction they apply.",
+      "ar": "تحتاج قارئات الشاشة إلى معرفة أي الخلايا هي رؤوس وفي أي اتجاه تنطبق."
+    },
+    "explanation": {
+      "en": "Header cells should use <th> instead of <td>, and adding scope=\"col\" (or scope=\"row\") explicitly tells assistive technologies the direction of the header. A <caption> element should also be added to describe the table. The border attribute is presentational and belongs in CSS.",
+      "ar": "يجب أن تستخدم خلايا الرأس <th> بدلًا من <td>، وإضافة scope=\"col\" (أو scope=\"row\") يُخبر تقنيات المساعدة صراحةً باتجاه الرأس. يجب أيضًا إضافة عنصر <caption> لوصف الجدول. خاصية border تقديمية وتنتمي إلى CSS."
+    },
+    "xp": 15,
+    "tags": ["tables", "accessibility"]
   },
   {
     "id": "html-a-1",
     "trackId": "html",
     "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need an image that loads a high-resolution version for retina displays (2x) and a smaller version for regular displays, with a WebP fallback for unsupported browsers. Which approach is correct?",
+      "ar": "تحتاج إلى صورة تُحمَّل بدقة عالية لشاشات الرتينا (2x) ونسخة أصغر للشاشات العادية، مع احتياط WebP للمتصفحات غير الداعمة. أي نهج صحيح؟"
+    },
+    "code": "<!-- Option A -->\n<picture>\n  <source srcset=\"img.webp 1x, img@2x.webp 2x\" type=\"image/webp\">\n  <img src=\"img.jpg\" srcset=\"img.jpg 1x, img@2x.jpg 2x\" alt=\"A scenic view\">\n</picture>\n\n<!-- Option B -->\n<img src=\"img@2x.jpg\" alt=\"A scenic view\">\n\n<!-- Option C -->\n<picture>\n  <img srcset=\"img.webp, img.jpg\" alt=\"A scenic view\">\n</picture>\n\n<!-- Option D -->\n<img src=\"img.jpg\" hires=\"img@2x.jpg\" alt=\"A scenic view\">",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "Option A — using <picture> with <source> for WebP and <img> with srcset for JPEG fallback", "ar": "الخيار أ — استخدام <picture> مع <source> لـ WebP و<img> مع srcset كاحتياط JPEG" } },
+      { "id": "b", "text": { "en": "Option B — just link the high-res image directly", "ar": "الخيار ب — ربط الصورة عالية الدقة مباشرةً" } },
+      { "id": "c", "text": { "en": "Option C — <picture> with multiple types in one srcset", "ar": "الخيار ج — <picture> مع أنواع متعددة في srcset واحد" } },
+      { "id": "d", "text": { "en": "Option D — using a custom hires attribute", "ar": "الخيار د — استخدام خاصية hires مخصصة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The <picture> element is designed for art direction and format switching. The <source> handles format negotiation; the <img> is the fallback.",
+      "ar": "عنصر <picture> مصمم للتوجيه الفني والتبديل بين الصيغ. تتعامل <source> مع التفاوض على الصيغة؛ و<img> هو الاحتياط."
+    },
+    "explanation": {
+      "en": "Option A is correct. The <picture> element with <source type=\"image/webp\"> allows format negotiation — browsers that support WebP use it; others fall through to the <img> fallback. Using srcset with density descriptors (1x, 2x) handles retina. Option B forces all users to download the large file. hires is not a valid HTML attribute.",
+      "ar": "الخيار أ صحيح. عنصر <picture> مع <source type=\"image/webp\"> يتيح التفاوض على الصيغة — المتصفحات التي تدعم WebP تستخدمه؛ وغيرها تنتقل إلى الاحتياط <img>. استخدام srcset مع محددات الكثافة (1x, 2x) يتعامل مع شاشات الرتينا. الخيار ب يجبر جميع المستخدمين على تنزيل الملف الكبير. hires ليست خاصية HTML صالحة."
+    },
+    "xp": 25,
+    "tags": ["images", "performance", "picture-element"]
+  },
+  {
+    "id": "html-a-2",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "A screen reader user reports they cannot tell which navigation link is currently active. The developer has this markup. What's wrong and how should it be fixed?",
+      "ar": "يُفيد مستخدم قارئ شاشة بأنه لا يستطيع تحديد رابط التنقل النشط حاليًا. المطوّر لديه هذا الترميز. ما الخطأ وكيف يُصحَّح؟"
+    },
+    "code": "<nav>\n  <ul>\n    <li><a href=\"/\" class=\"active\">Home</a></li>\n    <li><a href=\"/about\">About</a></li>\n    <li><a href=\"/contact\">Contact</a></li>\n  </ul>\n</nav>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "Add aria-current=\"page\" to the active link", "ar": "أضف aria-current=\"page\" إلى الرابط النشط" } },
+      { "id": "b", "text": { "en": "Add role=\"active\" to the active link", "ar": "أضف role=\"active\" إلى الرابط النشط" } },
+      { "id": "c", "text": { "en": "Add tabindex=\"0\" to the active link", "ar": "أضف tabindex=\"0\" إلى الرابط النشط" } },
+      { "id": "d", "text": { "en": "Wrap the active link in a <strong> tag", "ar": "ضع الرابط النشط داخل وسم <strong>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "CSS classes are invisible to assistive technologies. ARIA has a specific attribute for current page/step state.",
+      "ar": "فئات CSS غير مرئية لتقنيات المساعدة. يمتلك ARIA خاصية محددة لحالة الصفحة/الخطوة الحالية."
+    },
+    "explanation": {
+      "en": "aria-current=\"page\" is the correct ARIA attribute to mark the link representing the current page. Screen readers announce it as 'current' or 'current page'. CSS class=\"active\" only provides visual styling. role=\"active\" is not a valid ARIA role. <strong> adds semantic importance but doesn't communicate navigation state.",
+      "ar": "aria-current=\"page\" هي خاصية ARIA الصحيحة لتمييز الرابط الذي يمثّل الصفحة الحالية. تُعلن قارئات الشاشة عنه بـ 'current' أو 'current page'. class=\"active\" في CSS يوفّر تنسيقًا بصريًا فقط. role=\"active\" ليس دور ARIA صالحًا. <strong> يضيف أهمية دلالية لكنه لا ينقل حالة التنقل."
+    },
+    "xp": 25,
+    "tags": ["accessibility", "aria", "navigation"]
+  },
+  {
+    "id": "html-a-3",
+    "trackId": "html",
+    "level": "advanced",
     "type": "multiple-choice",
     "prompt": {
-      "en": "Which attribute improves image accessibility for screen readers?",
-      "ar": "أي خاصية تحسّن إتاحة الصور لقارئات الشاشة؟"
+      "en": "What is the correct way to embed an Open Graph image tag for social media sharing so that sharing the URL shows a preview image?",
+      "ar": "ما الطريقة الصحيحة لتضمين وسم صورة Open Graph لمشاركة وسائل التواصل الاجتماعي حتى تظهر صورة معاينة عند مشاركة الرابط؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "title", "ar": "title" } },
-      { "id": "b", "text": { "en": "alt", "ar": "alt" } },
-      { "id": "c", "text": { "en": "src", "ar": "src" } },
-      { "id": "d", "text": { "en": "longdesc", "ar": "longdesc" } }
+      { "id": "a", "text": { "en": "<meta property=\"og:image\" content=\"https://example.com/image.jpg\">", "ar": "<meta property=\"og:image\" content=\"https://example.com/image.jpg\">" } },
+      { "id": "b", "text": { "en": "<meta name=\"og:image\" content=\"https://example.com/image.jpg\">", "ar": "<meta name=\"og:image\" content=\"https://example.com/image.jpg\">" } },
+      { "id": "c", "text": { "en": "<link rel=\"og:image\" href=\"https://example.com/image.jpg\">", "ar": "<link rel=\"og:image\" href=\"https://example.com/image.jpg\">" } },
+      { "id": "d", "text": { "en": "<og:image src=\"https://example.com/image.jpg\">", "ar": "<og:image src=\"https://example.com/image.jpg\">" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Open Graph uses the property attribute, not name. This is a common mistake.",
+      "ar": "يستخدم Open Graph الخاصية property وليس name. هذا خطأ شائع."
+    },
+    "explanation": {
+      "en": "Open Graph meta tags use the property attribute (not name), because they extend a different RDFa-based vocabulary. Using name instead of property is one of the most common OG mistakes — Twitter cards partially support both, but Facebook and LinkedIn strictly require property. The value must be an absolute URL.",
+      "ar": "تستخدم وسوم Open Graph الخاصية property (وليس name)، لأنها تمتد إلى مفردات مختلفة مبنية على RDFa. استخدام name بدلًا من property هو أحد أكثر أخطاء OG شيوعًا — بطاقات Twitter تدعم كليهما جزئيًا، لكن Facebook وLinkedIn تشترطان property بصرامة. يجب أن تكون القيمة رابطًا مطلقًا."
+    },
+    "xp": 25,
+    "tags": ["metadata", "seo", "open-graph"]
+  },
+  {
+    "id": "html-a-4",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "When will the browser actually display the images on this page?",
+      "ar": "متى سيعرض المتصفح فعليًا الصور في هذه الصفحة؟"
+    },
+    "code": "<img src=\"hero.jpg\" alt=\"Hero image\">\n<img src=\"product1.jpg\" alt=\"Product 1\" loading=\"lazy\">\n<img src=\"product2.jpg\" alt=\"Product 2\" loading=\"lazy\">\n<img src=\"product3.jpg\" alt=\"Product 3\" loading=\"lazy\">",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "All 4 images download immediately when the page loads", "ar": "تُنزَّل جميع الصور الأربع فور تحميل الصفحة" } },
+      { "id": "b", "text": { "en": "hero.jpg downloads immediately; the others download when they near the viewport", "ar": "تُنزَّل hero.jpg فورًا؛ والأخريات تُنزَّل عندما تقترب من منطقة العرض" } },
+      { "id": "c", "text": { "en": "All images with loading=\"lazy\" are never loaded", "ar": "لا تُحمَّل أبدًا الصور ذات loading=\"lazy\"" } },
+      { "id": "d", "text": { "en": "All 4 images are lazy loaded, including the first one", "ar": "تُحمَّل جميع الصور الأربع بالتحميل الكسول، بما فيها الأولى" } }
     ],
     "correctOptionId": "b",
-    "explanation": {
-      "en": "The alt attribute provides alternative text describing the image for assistive technologies.",
-      "ar": "خاصية alt توفّر نصًا بديلاً يصف الصورة للتقنيات المساعدة."
+    "hint": {
+      "en": "The first image has no loading attribute. What does that mean?",
+      "ar": "الصورة الأولى ليس لها خاصية loading. ماذا يعني ذلك؟"
     },
-    "xp": 20,
-    "tags": ["accessibility"]
+    "explanation": {
+      "en": "loading=\"lazy\" defers loading until the image is near the viewport (the browser determines the threshold). An image without the attribute defaults to loading=\"eager\", which downloads immediately. Hero images above the fold should never be lazy loaded — it hurts LCP (Largest Contentful Paint) scores. The other three will load as the user scrolls toward them.",
+      "ar": "يؤجّل loading=\"lazy\" التحميل حتى تقترب الصورة من منطقة العرض (يحدد المتصفح العتبة). تأخذ الصورة بدون الخاصية افتراضيًا قيمة loading=\"eager\"، وتُنزَّل فورًا. لا ينبغي أبدًا تحميل صور البطل الظاهرة فوق الطيّة بشكل كسول — يضر ذلك بمقاييس LCP (أكبر رسم للمحتوى). ستُحمَّل الصور الثلاث الأخرى بينما يتمرير المستخدم نحوها."
+    },
+    "xp": 25,
+    "tags": ["images", "performance", "lazy-loading"]
+  },
+  {
+    "id": "html-a-5",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which HTML element should be used for a modal dialog that requires a user response before continuing — like a confirmation prompt?",
+      "ar": "أي عنصر HTML يجب استخدامه لمربع حوار يستلزم استجابة المستخدم قبل المتابعة — كمطالبة تأكيد؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<div role=\"dialog\" aria-modal=\"true\">", "ar": "<div role=\"dialog\" aria-modal=\"true\">" } },
+      { "id": "b", "text": { "en": "<dialog> with the open attribute or showModal() method", "ar": "<dialog> مع الخاصية open أو الأسلوب showModal()" } },
+      { "id": "c", "text": { "en": "<modal> element", "ar": "عنصر <modal>" } },
+      { "id": "d", "text": { "en": "<aside role=\"alertdialog\">", "ar": "<aside role=\"alertdialog\">" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "HTML5.2 introduced a native element specifically for this pattern.",
+      "ar": "قدّم HTML5.2 عنصرًا أصليًا خصيصًا لهذا النمط."
+    },
+    "explanation": {
+      "en": "The <dialog> element is the native HTML modal. Using showModal() opens it as a true modal that traps focus and adds a backdrop — the browser handles accessibility for you. The open attribute opens it as a non-modal. A <div> with ARIA attributes can work but requires significant manual accessibility work. <modal> is not a valid HTML element.",
+      "ar": "عنصر <dialog> هو النافذة المنبثقة الأصلية في HTML. استخدام showModal() يفتحها كنافذة منبثقة حقيقية تحجز التركيز وتضيف خلفية معتمة — يتعامل المتصفح مع الإتاحة نيابةً عنك. تفتح خاصية open النافذة كغير منبثقة. يمكن أن يعمل <div> مع خصائص ARIA لكنه يتطلب عمل إتاحة يدويًا مكثفًا. <modal> ليس عنصر HTML صالحًا."
+    },
+    "xp": 25,
+    "tags": ["dialog", "accessibility", "html5"]
+  },
+  {
+    "id": "html-a-6",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A product page has a 3-minute demo video. What HTML structure gives the best user experience and accessibility?",
+      "ar": "صفحة منتج تحتوي على فيديو عرض مدته 3 دقائق. أي هيكل HTML يمنح أفضل تجربة مستخدم وإتاحة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<video src=\"demo.mp4\" autoplay loop muted></video>", "ar": "<video src=\"demo.mp4\" autoplay loop muted></video>" } },
+      { "id": "b", "text": { "en": "<video controls preload=\"metadata\"><source src=\"demo.mp4\" type=\"video/mp4\"><track kind=\"captions\" src=\"captions.vtt\" srclang=\"en\"><p>Your browser doesn't support video.</p></video>", "ar": "<video controls preload=\"metadata\"><source src=\"demo.mp4\" type=\"video/mp4\"><track kind=\"captions\" src=\"captions.vtt\" srclang=\"en\"><p>Your browser doesn't support video.</p></video>" } },
+      { "id": "c", "text": { "en": "<embed src=\"demo.mp4\" type=\"video/mp4\">", "ar": "<embed src=\"demo.mp4\" type=\"video/mp4\">" } },
+      { "id": "d", "text": { "en": "<object data=\"demo.mp4\" type=\"video/mp4\"></object>", "ar": "<object data=\"demo.mp4\" type=\"video/mp4\"></object>" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think: controls, captions, fallback content, and bandwidth considerations.",
+      "ar": "فكّر في: عناصر التحكم والتسميات التوضيحية والمحتوى الاحتياطي واعتبارات النطاق الترددي."
+    },
+    "explanation": {
+      "en": "Option B is best: controls lets users play/pause, preload=\"metadata\" only downloads metadata initially (good for bandwidth), <source> allows format fallbacks, <track kind=\"captions\"> provides accessibility for deaf users, and the fallback paragraph helps browsers that don't support video. Autoplay with a 3-minute video is terrible UX. <embed> and <object> are legacy approaches.",
+      "ar": "الخيار ب هو الأفضل: controls يتيح للمستخدمين التشغيل/الإيقاف، preload=\"metadata\" يُنزّل البيانات الوصفية فقط في البداية (جيد للنطاق الترددي)، <source> يتيح احتياطيات للصيغ، <track kind=\"captions\"> يوفّر إتاحة للصم، والفقرة الاحتياطية تساعد المتصفحات التي لا تدعم الفيديو. التشغيل التلقائي لفيديو مدته 3 دقائق تجربة مستخدم سيئة جدًا. <embed> و<object> مناهج قديمة."
+    },
+    "xp": 25,
+    "tags": ["media", "accessibility", "performance"]
+  },
+  {
+    "id": "html-a-7",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "true-false",
+    "prompt": {
+      "en": "Adding rel=\"noopener noreferrer\" to target=\"_blank\" links is important for security because without it, the opened page can access the opener's window object.",
+      "ar": "إضافة rel=\"noopener noreferrer\" إلى روابط target=\"_blank\" مهمة للأمان لأنه بدونها يمكن للصفحة المفتوحة الوصول إلى كائن window الخاص بالصفحة الفاتحة."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is known as a reverse tabnapping vulnerability.",
+      "ar": "يُعرف هذا بثغرة reverse tabnapping."
+    },
+    "explanation": {
+      "en": "Without noopener, the new page has access to window.opener and can redirect the original page to a phishing site — a reverse tabnapping attack. noopener cuts that reference. noreferrer additionally prevents the Referer header from being sent, protecting user privacy. Modern browsers (Chrome 88+) set noopener by default for target=\"_blank\", but it's still best practice to include it explicitly.",
+      "ar": "بدون noopener، يمكن للصفحة الجديدة الوصول إلى window.opener وإعادة توجيه الصفحة الأصلية إلى موقع تصيد احتيالي — وهو هجوم reverse tabnapping. يقطع noopener تلك المرجعية. يمنع noreferrer أيضًا إرسال رأس Referer، مما يحمي خصوصية المستخدم. تضبط المتصفحات الحديثة (Chrome 88+) noopener افتراضيًا لـ target=\"_blank\"، لكن لا يزال من الأفضل تضمينها صراحةً."
+    },
+    "xp": 25,
+    "tags": ["links", "security"]
+  },
+  {
+    "id": "html-a-8",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You want to tell the browser to preload a critical font file so it's available earlier. Which HTML tag achieves this?",
+      "ar": "تريد إخبار المتصفح بالتحميل المسبق لملف خط حيوي ليكون متاحًا في وقت أبكر. أي وسم HTML يُحقق ذلك؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<link rel=\"preload\" href=\"font.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>", "ar": "<link rel=\"preload\" href=\"font.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>" } },
+      { "id": "b", "text": { "en": "<link rel=\"prefetch\" href=\"font.woff2\">", "ar": "<link rel=\"prefetch\" href=\"font.woff2\">" } },
+      { "id": "c", "text": { "en": "<link rel=\"preconnect\" href=\"font.woff2\">", "ar": "<link rel=\"preconnect\" href=\"font.woff2\">" } },
+      { "id": "d", "text": { "en": "<script async src=\"font.woff2\"></script>", "ar": "<script async src=\"font.woff2\"></script>" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "preload is for current-page critical resources; prefetch is for future-page resources.",
+      "ar": "preload للموارد الحيوية للصفحة الحالية؛ prefetch للموارد التي ستُحتاج في صفحات مستقبلية."
+    },
+    "explanation": {
+      "en": "rel=\"preload\" with as=\"font\" tells the browser to fetch the font at high priority early in the page load cycle. The crossorigin attribute is required even for same-origin fonts because fonts are fetched in CORS mode. prefetch is lower priority and for future navigations. preconnect opens a connection to an origin but doesn't fetch a specific file.",
+      "ar": "rel=\"preload\" مع as=\"font\" يُخبر المتصفح بجلب الخط بأولوية عالية في وقت مبكر من دورة تحميل الصفحة. خاصية crossorigin مطلوبة حتى للخطوط من نفس الأصل لأن الخطوط تُجلب في وضع CORS. prefetch له أولوية أقل وللتنقلات المستقبلية. preconnect يفتح اتصالًا بأصل لكنه لا يجلب ملفًا محددًا."
+    },
+    "xp": 25,
+    "tags": ["performance", "fonts", "preload"]
+  },
+  {
+    "id": "html-a-9",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "A junior developer complains their <iframe> shows a blank page instead of the external site. What is the most likely cause?",
+      "ar": "يشكو مطوّر مبتدئ من أن <iframe> يُظهر صفحة فارغة بدلًا من الموقع الخارجي. ما السبب الأرجح؟"
+    },
+    "code": "<iframe src=\"https://google.com\" width=\"600\" height=\"400\"></iframe>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "The iframe needs a name attribute", "ar": "يحتاج iframe إلى خاصية name" } },
+      { "id": "b", "text": { "en": "Google sends an X-Frame-Options: DENY header blocking iframes", "ar": "يُرسل Google رأس X-Frame-Options: DENY الذي يمنع iframes" } },
+      { "id": "c", "text": { "en": "iframes can only embed same-origin pages", "ar": "لا يمكن لـ iframes إلا تضمين صفحات من نفس الأصل" } },
+      { "id": "d", "text": { "en": "The iframe needs a sandbox attribute to work", "ar": "يحتاج iframe إلى خاصية sandbox لكي يعمل" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Many large websites actively prevent themselves from being framed by other sites.",
+      "ar": "تمنع كثير من المواقع الكبرى بشكل نشط تضمينها في إطارات من مواقع أخرى."
+    },
+    "explanation": {
+      "en": "Sites like Google, Facebook, and most banks send X-Frame-Options: DENY or Content-Security-Policy: frame-ancestors 'none' to prevent clickjacking attacks. This causes the iframe to show blank. The sandbox attribute restricts iframe capabilities but doesn't fix this. iframes can embed cross-origin pages if the target site permits it.",
+      "ar": "مواقع كـ Google وFacebook ومعظم البنوك ترسل X-Frame-Options: DENY أو Content-Security-Policy: frame-ancestors 'none' لمنع هجمات clickjacking. يؤدي ذلك إلى ظهور iframe فارغًا. خاصية sandbox تُقيّد قدرات iframe لكنها لا تُصلح هذا. يمكن لـ iframes تضمين صفحات من أصول مختلفة إذا سمح الموقع المستهدف بذلك."
+    },
+    "xp": 25,
+    "tags": ["iframes", "security"]
+  },
+  {
+    "id": "html-a-10",
+    "trackId": "html",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You're building an FAQ page. Users should be able to expand/collapse individual questions without any JavaScript. Which native HTML pattern achieves this?",
+      "ar": "أنت تبني صفحة أسئلة شائعة. يجب أن يتمكن المستخدمون من توسيع/طيّ الأسئلة الفردية دون أي JavaScript. أي نمط HTML أصلي يُحقق ذلك؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "<details> and <summary> elements", "ar": "عنصرا <details> و<summary>" } },
+      { "id": "b", "text": { "en": "<div> with a CSS :focus trick", "ar": "<div> مع خدعة CSS :focus" } },
+      { "id": "c", "text": { "en": "<accordion> element", "ar": "عنصر <accordion>" } },
+      { "id": "d", "text": { "en": "<collapse> with an open attribute", "ar": "<collapse> مع خاصية open" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "HTML5 added a native disclosure widget — no JavaScript required.",
+      "ar": "أضاف HTML5 عنصر إظهار/إخفاء أصليًا — لا يلزم JavaScript."
+    },
+    "explanation": {
+      "en": "The <details> element creates a native disclosure widget. The <summary> child acts as the clickable toggle label. Everything else inside <details> is hidden until expanded. Adding the open attribute makes it start expanded. Browsers handle the animation and accessibility. No CSS hack or JS is needed. <accordion> and <collapse> are not HTML elements.",
+      "ar": "ينشئ عنصر <details> عنصر إظهار/إخفاء أصليًا. يعمل العنصر الفرعي <summary> كتسمية قابلة للنقر للتبديل. كل شيء آخر داخل <details> مخفي حتى يتم توسيعه. إضافة خاصية open يجعله يبدأ موسَّعًا. تتعامل المتصفحات مع الرسوم المتحركة والإتاحة. لا يلزم أي خدعة CSS أو JS. <accordion> و<collapse> ليسا عنصرَي HTML."
+    },
+    "xp": 25,
+    "tags": ["details", "html5", "forms"]
+  },
+  {
+    "id": "html-e-1",
+    "trackId": "html",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are building a reusable card component using the Web Components spec. Which combination of technologies gives you true encapsulation of styles so that external CSS cannot bleed in or out?",
+      "ar": "أنت تبني مكوّن بطاقة قابلًا لإعادة الاستخدام باستخدام مواصفة Web Components. أي مزيج من التقنيات يمنحك تغليفًا حقيقيًا للأنماط بحيث لا يمكن لـ CSS الخارجية التسرب داخلًا أو خارجًا؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Custom element + Shadow DOM (open or closed mode)", "ar": "عنصر مخصص + Shadow DOM (وضع open أو closed)" } },
+      { "id": "b", "text": { "en": "Custom element + CSS modules", "ar": "عنصر مخصص + وحدات CSS" } },
+      { "id": "c", "text": { "en": "A <template> element with scoped CSS inside a <style scoped> tag", "ar": "عنصر <template> مع CSS محدود النطاق داخل وسم <style scoped>" } },
+      { "id": "d", "text": { "en": "An iframe embedding the component HTML", "ar": "iframe يُضمّن HTML المكوّن" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Only one browser API creates a true style boundary inside the DOM.",
+      "ar": "واجهة برمجة تطبيقات واحدة فقط في المتصفح تنشئ حدود أنماط حقيقية داخل DOM."
+    },
+    "explanation": {
+      "en": "Shadow DOM creates a separate DOM tree attached to a host element that is isolated from the main document's styles. Styles inside Shadow DOM don't leak out, and external styles (except CSS custom properties/parts) don't bleed in. CSS modules are a build-tool concept, not a browser-native style isolation. <style scoped> was removed from the HTML spec. iframes work but are heavyweight and not component-friendly.",
+      "ar": "ينشئ Shadow DOM شجرة DOM منفصلة مرتبطة بعنصر مضيف معزول عن أنماط المستند الرئيسي. الأنماط داخل Shadow DOM لا تتسرب للخارج، والأنماط الخارجية (باستثناء خصائص CSS المخصصة/الأجزاء) لا تتسرب للداخل. وحدات CSS مفهوم لأدوات البناء وليست عزل أنماط أصليًا للمتصفح. تم إزالة <style scoped> من مواصفة HTML. تعمل iframes لكنها ثقيلة وغير ملائمة للمكوّنات."
+    },
+    "xp": 30,
+    "tags": ["web-components", "shadow-dom", "encapsulation"]
+  },
+  {
+    "id": "html-e-2",
+    "trackId": "html",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "In a custom element's lifecycle, which callback fires when the element is inserted into the document DOM?",
+      "ar": "في دورة حياة العنصر المخصص، أي رد نداء يُطلق عند إدراج العنصر في DOM الوثيقة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "constructor()", "ar": "constructor()" } },
+      { "id": "b", "text": { "en": "connectedCallback()", "ar": "connectedCallback()" } },
+      { "id": "c", "text": { "en": "adoptedCallback()", "ar": "adoptedCallback()" } },
+      { "id": "d", "text": { "en": "attributeChangedCallback()", "ar": "attributeChangedCallback()" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The name gives it away — it fires when the element 'connects' to the document.",
+      "ar": "الاسم يوضح الأمر — يُطلق عندما 'يتصل' العنصر بالوثيقة."
+    },
+    "explanation": {
+      "en": "connectedCallback() fires each time the element is appended to a document-connected element. constructor() runs when the element is created (not yet in DOM). adoptedCallback() fires when the element is moved to a new document (e.g., via adoptNode). attributeChangedCallback() fires when observed attributes change. connectedCallback is where you typically fetch data and render initial UI.",
+      "ar": "يُطلق connectedCallback() في كل مرة يُلحق فيها العنصر بعنصر متصل بالوثيقة. يعمل constructor() عند إنشاء العنصر (ليس في DOM بعد). يُطلق adoptedCallback() عند نقل العنصر إلى وثيقة جديدة (مثل عبر adoptNode). يُطلق attributeChangedCallback() عند تغيير الخصائص المُراقَبة. connectedCallback هو المكان المعتاد لجلب البيانات وعرض واجهة المستخدم الأولية."
+    },
+    "xp": 30,
+    "tags": ["web-components", "custom-elements"]
+  },
+  {
+    "id": "html-e-3",
+    "trackId": "html",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this code render to the user? Assume the browser fully supports the <template> element.",
+      "ar": "ماذا يُعرض هذا الكود للمستخدم؟ افترض أن المتصفح يدعم بشكل كامل عنصر <template>."
+    },
+    "code": "<template id=\"card-tmpl\">\n  <div class=\"card\">\n    <h2>Hello from template</h2>\n  </div>\n</template>\n\n<script>\n  const tmpl = document.getElementById('card-tmpl');\n  const clone = tmpl.content.cloneNode(true);\n  document.body.appendChild(clone);\n</script>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "Nothing — <template> content is always hidden from users", "ar": "لا شيء — محتوى <template> مخفي دائمًا عن المستخدمين" } },
+      { "id": "b", "text": { "en": "A card div with the text \"Hello from template\"", "ar": "قسم بطاقة مع النص \"Hello from template\"" } },
+      { "id": "c", "text": { "en": "A JavaScript error — cloneNode is not a method on template content", "ar": "خطأ JavaScript — cloneNode ليست أسلوبًا على محتوى template" } },
+      { "id": "d", "text": { "en": "The template HTML as raw escaped text", "ar": "HTML الـ template كنص مُهرَّب خام" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The template is inert by itself, but the JavaScript explicitly clones and appends it.",
+      "ar": "القالب خامل بذاته، لكن JavaScript يستنسخه ويُلحقه صراحةً."
+    },
+    "explanation": {
+      "en": "The <template> element holds inert HTML that is not rendered or executed. Its content lives in a DocumentFragment accessible via .content. Calling cloneNode(true) makes a deep clone of that fragment, and appendChild inserts it into the live DOM — making it visible. This is the standard pattern for stamping out template instances.",
+      "ar": "عنصر <template> يحمل HTML خاملًا لا يُعرض أو يُنفَّذ. محتواه موجود في DocumentFragment يمكن الوصول إليه عبر .content. استدعاء cloneNode(true) ينشئ نسخة عميقة من ذلك الجزء، وappendChild يُدرجه في DOM الحيّ — مما يجعله مرئيًا. هذا النمط القياسي لبصم نسخ القوالب."
+    },
+    "xp": 30,
+    "tags": ["web-components", "template-element"]
+  },
+  {
+    "id": "html-e-4",
+    "trackId": "html",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A component uses Shadow DOM. External JavaScript does document.querySelector('.card') to find an element inside the shadow root. What happens?",
+      "ar": "يستخدم مكوّن Shadow DOM. يستخدم JavaScript الخارجي document.querySelector('.card') للعثور على عنصر داخل جذر الظل. ماذا يحدث؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It returns the element inside the shadow root", "ar": "يُرجع العنصر الموجود داخل جذر الظل" } },
+      { "id": "b", "text": { "en": "It returns null — the shadow DOM is not accessible via document.querySelector", "ar": "يُرجع null — لا يمكن الوصول إلى shadow DOM عبر document.querySelector" } },
+      { "id": "c", "text": { "en": "It throws a ShadowRootError", "ar": "يرمي خطأ ShadowRootError" } },
+      { "id": "d", "text": { "en": "It returns the host element instead", "ar": "يُرجع العنصر المضيف بدلًا من ذلك" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "One of the key properties of Shadow DOM is style and DOM encapsulation.",
+      "ar": "إحدى الخصائص الرئيسية لـ Shadow DOM هي تغليف الأنماط والـ DOM."
+    },
+    "explanation": {
+      "en": "Shadow DOM creates a boundary that document.querySelector (and most DOM APIs) cannot cross. The query returns null because .card lives inside the shadow root, not the main document tree. To query inside shadow DOM from outside, you must first get the host's shadowRoot property (if in 'open' mode): host.shadowRoot.querySelector('.card'). 'closed' mode blocks even that.",
+      "ar": "ينشئ Shadow DOM حدًا لا يمكن لـ document.querySelector (ومعظم واجهات DOM) تجاوزه. تُرجع الاستعلام null لأن .card تعيش داخل جذر الظل وليس في شجرة المستند الرئيسية. للاستعلام داخل Shadow DOM من الخارج، يجب أولًا الحصول على خاصية shadowRoot الخاصة بالمضيف (إذا كان في وضع 'open'): host.shadowRoot.querySelector('.card'). الوضع 'closed' يمنع حتى ذلك."
+    },
+    "xp": 30,
+    "tags": ["web-components", "shadow-dom"]
+  },
+  {
+    "id": "html-e-5",
+    "trackId": "html",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "Your site has a <slot> element in a Shadow DOM component. A colleague says the slotted content is 'inside the shadow tree'. Are they correct?",
+      "ar": "موقعك يحتوي على عنصر <slot> في مكوّن Shadow DOM. يقول أحد زملائك إن المحتوى المُفتَح (slotted) 'داخل شجرة الظل'. هل هو محق؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Yes — slotted content is moved into the shadow tree", "ar": "نعم — ينتقل المحتوى المُفتَح إلى شجرة الظل" } },
+      { "id": "b", "text": { "en": "No — slotted content stays in the light DOM but is visually rendered in the slot's position", "ar": "لا — يبقى المحتوى المُفتَح في DOM الضوئي لكنه يُعرض بصريًا في موضع الفتحة" } },
+      { "id": "c", "text": { "en": "It depends on whether the shadow root is open or closed", "ar": "يعتمد ذلك على ما إذا كان جذر الظل مفتوحًا أم مغلقًا" } },
+      { "id": "d", "text": { "en": "Slotted content is cloned into both the light DOM and shadow tree", "ar": "يُستنسَخ المحتوى المُفتَح في DOM الضوئي وشجرة الظل معًا" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think about what 'slotting' means — it's a visual projection, not a DOM move.",
+      "ar": "فكّر في معنى 'الفتح' (slotting) — إنه إسقاط بصري وليس نقلًا في DOM."
+    },
+    "explanation": {
+      "en": "Slotted content remains in the light DOM (the host element's children). The <slot> element acts as a projection point — the browser renders the light DOM children visually in the slot's position, but they are still part of the main document tree. This matters for JavaScript queries (document.querySelector finds slotted elements), CSS specificity, and event bubbling paths.",
+      "ar": "يبقى المحتوى المُفتَح في DOM الضوئي (أبناء العنصر المضيف). يعمل عنصر <slot> كنقطة إسقاط — يعرض المتصفح أبناء DOM الضوئي بصريًا في موضع الفتحة، لكنهم لا يزالون جزءًا من شجرة المستند الرئيسية. هذا مهم لاستعلامات JavaScript (يجد document.querySelector العناصر المُفتَحة) وتخصيص CSS ومسارات انتشار الأحداث."
+    },
+    "xp": 30,
+    "tags": ["web-components", "shadow-dom", "slots"]
+  },
+  {
+    "id": "html-boss-1",
+    "trackId": "html",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are doing a performance audit. The page has a critical CSS file, a hero image, and two analytics scripts. Rank these resource hints in order of impact: <link rel=\"preload\"> for the CSS, loading=\"lazy\" on the hero image, defer on analytics scripts, and <link rel=\"preconnect\"> to the analytics domain. Which option correctly prioritizes them?",
+      "ar": "أنت تُجري تدقيق أداء. الصفحة تحتوي على ملف CSS حيوي وصورة بطل وسكريبتَي تحليلات. رتّب تلميحات الموارد هذه حسب التأثير: <link rel=\"preload\"> لـ CSS، وloading=\"lazy\" على صورة البطل، وdefer على سكريبتات التحليلات، و<link rel=\"preconnect\"> لنطاق التحليلات. أي خيار يُقدّمها بالأولوية الصحيحة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "1. Never lazy load hero images (fix this first!) 2. preload critical CSS 3. defer analytics 4. preconnect to analytics domain", "ar": "1. لا تُطبّق التحميل الكسول على صورة البطل (أصلح هذا أولًا!) 2. preload لـ CSS الحيوي 3. defer لسكريبتات التحليلات 4. preconnect لنطاق التحليلات" } },
+      { "id": "b", "text": { "en": "1. preload CSS 2. preconnect to analytics 3. defer analytics 4. lazy hero is fine", "ar": "1. preload لـ CSS 2. preconnect للتحليلات 3. defer للتحليلات 4. التحميل الكسول لصورة البطل مقبول" } },
+      { "id": "c", "text": { "en": "All four are equally impactful for Core Web Vitals", "ar": "الأربعة متساوية في التأثير على Core Web Vitals" } },
+      { "id": "d", "text": { "en": "1. defer analytics 2. preconnect 3. preload CSS 4. lazy hero is fine", "ar": "1. defer للتحليلات 2. preconnect 3. preload لـ CSS 4. التحميل الكسول لصورة البطل مقبول" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about which resource directly affects LCP — the hero image. What's the worst thing you can do to LCP?",
+      "ar": "فكّر في المورد الذي يؤثر مباشرةً على LCP — صورة البطل. ما أسوأ شيء يمكن فعله لـ LCP؟"
+    },
+    "explanation": {
+      "en": "Lazy loading the hero image is a critical mistake — it directly delays LCP (Largest Contentful Paint), a Core Web Vital. Hero images should use fetchpriority=\"high\" instead. Preloading critical CSS eliminates render-blocking. Deferring analytics removes JS parse time from the critical path. Preconnect warms the connection but is lowest priority of the four. The correct audit order: fix lazy hero, then preload CSS, then defer analytics, then add preconnect.",
+      "ar": "تطبيق التحميل الكسول على صورة البطل خطأ فادح — يُؤخر مباشرةً LCP (أكبر رسم للمحتوى)، وهو مقياس Core Web Vital حيوي. يجب أن تستخدم صور البطل fetchpriority=\"high\" بدلًا من ذلك. تحميل CSS الحيوي مسبقًا يُزيل تعطيل العرض. تأجيل التحليلات يُزيل وقت تحليل JS من المسار الحيوي. preconnect يُسخّن الاتصال لكنه الأدنى أولوية من بين الأربعة. ترتيب التدقيق الصحيح: إصلاح التحميل الكسول لصورة البطل ثم preload لـ CSS ثم defer للتحليلات ثم إضافة preconnect."
+    },
+    "xp": 50,
+    "tags": ["performance", "core-web-vitals", "preload", "lazy-loading"]
+  },
+  {
+    "id": "html-boss-2",
+    "trackId": "html",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "A senior dev reviews this form and finds 4 accessibility violations. Identify ALL four issues in this markup.",
+      "ar": "مطوّر أول يراجع هذا النموذج ويجد 4 انتهاكات للإتاحة. حدّد جميع المشكلات الأربع في هذا الترميز."
+    },
+    "code": "<form>\n  <div>\n    <input type=\"text\" placeholder=\"Enter your name\">\n  </div>\n  <div>\n    <input type=\"email\" placeholder=\"Enter your email\">\n  </div>\n  <div>\n    <input type=\"tel\" placeholder=\"Phone number\">\n  </div>\n  <div>\n    <input type=\"submit\" value=\"Register\">\n  </div>\n</form>",
+    "codeLang": "html",
+    "options": [
+      { "id": "a", "text": { "en": "Missing <label> for each input; placeholder is not a label replacement; no autocomplete attributes; form has no accessible name (aria-label or <fieldset>/<legend>)", "ar": "مفقود <label> لكل حقل؛ placeholder ليس بديلًا عن label؛ لا توجد خصائص autocomplete؛ النموذج ليس له اسم يُيسَّر (aria-label أو <fieldset>/<legend>)" } },
+      { "id": "b", "text": { "en": "Missing placeholder text on the submit button; no method attribute; inputs need id attributes; form needs action attribute", "ar": "مفقود نص placeholder على زر الإرسال؛ لا توجد خاصية method؛ الحقول تحتاج خصائص id؛ النموذج يحتاج خاصية action" } },
+      { "id": "c", "text": { "en": "inputs should use name attributes; form needs enctype; submit should be a <button>; missing charset meta", "ar": "الحقول يجب أن تمتلك خصائص name؛ النموذج يحتاج enctype؛ يجب أن يكون submit زر <button>؛ مفقود charset meta" } },
+      { "id": "d", "text": { "en": "The only issue is missing label elements", "ar": "المشكلة الوحيدة هي غياب عناصر label" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Go beyond just labels — think about placeholders as sole descriptions, autocomplete, and whether the form communicates its purpose to a screen reader.",
+      "ar": "تجاوز مجرد التسميات — فكّر في placeholders كأوصاف وحيدة، وautocomplete، وما إذا كان النموذج يُوصّل غرضه لقارئ شاشة."
+    },
+    "explanation": {
+      "en": "All four issues in Option A are real WCAG failures: 1) No <label> elements — screen readers announce inputs with no accessible name. 2) Placeholders disappear when typing and fail contrast requirements — never use them as the sole description. 3) autocomplete attributes (name, email, tel) speed up form filling and are required for WCAG 1.3.5. 4) The form has no accessible name to describe its overall purpose to AT users. Method/action missing are functional issues, not specifically accessibility violations.",
+      "ar": "جميع المشكلات الأربع في الخيار أ هي انتهاكات WCAG حقيقية: 1) لا توجد عناصر <label> — تُعلن قارئات الشاشة عن الحقول بدون اسم يُيسَّر. 2) تختفي placeholders عند الكتابة وتفشل في متطلبات التباين — لا تستخدمها كوصف وحيد أبدًا. 3) خصائص autocomplete (name, email, tel) تُسرّع ملء النماذج وهي مطلوبة لـ WCAG 1.3.5. 4) النموذج ليس له اسم يُيسَّر لوصف غرضه العام لمستخدمي التقنيات المساعدة. غياب method/action مشكلات وظيفية وليست انتهاكات إتاحة تحديدًا."
+    },
+    "xp": 50,
+    "tags": ["forms", "accessibility", "wcag"]
+  },
+  {
+    "id": "html-boss-3",
+    "trackId": "html",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You're architecting a large content site. An SEO consultant flags that your JavaScript-rendered content may not be indexed. You are using a custom element with Shadow DOM to render article text. The consultant is correct because:",
+      "ar": "أنت تُصمّم هيكل موقع محتوى كبير. يُشير استشاري SEO إلى أن محتواك المُعرَض بـ JavaScript قد لا يُفهرَس. أنت تستخدم عنصرًا مخصصًا مع Shadow DOM لعرض نص المقالات. الاستشاري محق لأن:"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Googlebot cannot execute any JavaScript at all", "ar": "لا يمكن لـ Googlebot تنفيذ أي JavaScript على الإطلاق" } },
+      { "id": "b", "text": { "en": "Googlebot can execute JavaScript but Shadow DOM content may not be reliably indexed because crawlers may not wait for deferred rendering or fully traverse shadow roots", "ar": "يمكن لـ Googlebot تنفيذ JavaScript لكن محتوى Shadow DOM قد لا يُفهرَس بشكل موثوق لأن الزاحفين قد لا ينتظرون العرض المؤجَّل أو يجتازون جذور الظل بشكل كامل" } },
+      { "id": "c", "text": { "en": "Custom elements are blocked by robots.txt by default", "ar": "تُحجب العناصر المخصصة بواسطة robots.txt افتراضيًا" } },
+      { "id": "d", "text": { "en": "The consultant is wrong — Shadow DOM is fully indexed by all search engines", "ar": "الاستشاري مخطئ — يُفهرَس Shadow DOM بشكل كامل من قِبل جميع محركات البحث" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Googlebot can run JS, but there are timing and depth-of-traversal constraints.",
+      "ar": "يمكن لـ Googlebot تشغيل JS، لكن هناك قيود على التوقيت وعمق الاجتياز."
+    },
+    "explanation": {
+      "en": "Googlebot does execute JavaScript (using a headless Chromium), but it has a budget — pages that require long render times may be crawled in a degraded state. More importantly, Shadow DOM encapsulation means crawlers may not fully traverse shadow roots. For critical SEO content (article text, headings), use server-side rendering or ensure the content is also present in light DOM. Shadow DOM is suitable for UI components (buttons, tooltips), not for primary indexable content.",
+      "ar": "يُنفّذ Googlebot JavaScript (باستخدام Chromium بلا واجهة)، لكن لديه ميزانية — الصفحات التي تتطلب أوقات عرض طويلة قد تُزحف في حالة متدهورة. والأهم من ذلك، يعني تغليف Shadow DOM أن الزاحفين قد لا يجتازون جذور الظل بشكل كامل. للمحتوى الحيوي لـ SEO (نص المقالات والعناوين)، استخدم العرض من جانب الخادم أو تأكد من وجود المحتوى في DOM الضوئي أيضًا. Shadow DOM مناسب لمكوّنات واجهة المستخدم (الأزرار والتلميحات)، وليس للمحتوى الأساسي القابل للفهرسة."
+    },
+    "xp": 50,
+    "tags": ["web-components", "seo", "shadow-dom", "rendering"]
+  },
+  {
+    "id": "html-boss-4",
+    "trackId": "html",
+    "level": "boss",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "A production site is getting a layout shift (high CLS score) whenever images load. The images have no explicit dimensions set. What is the complete, modern solution?",
+      "ar": "يحصل موقع في الإنتاج على إزاحة تخطيط (نتيجة CLS عالية) في كل مرة تُحمَّل فيها الصور. الصور ليس لها أبعاد صريحة. ما الحل الكامل والحديث؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Add width and height attributes to every <img> and set CSS aspect-ratio to auto to let the browser reserve space before download", "ar": "أضف خصائص width وheight لكل <img> واضبط CSS aspect-ratio على auto ليحجز المتصفح مساحة قبل التنزيل" } },
+      { "id": "b", "text": { "en": "Wrap every image in a fixed-height <div>", "ar": "ضع كل صورة داخل <div> بارتفاع ثابت" } },
+      { "id": "c", "text": { "en": "Add loading=\"lazy\" to all images", "ar": "أضف loading=\"lazy\" لجميع الصور" } },
+      { "id": "d", "text": { "en": "Use CSS object-fit: cover on all images", "ar": "استخدم CSS object-fit: cover على جميع الصور" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Modern browsers can infer aspect ratio from HTML width/height attributes. This is a Cumulative Layout Shift fix.",
+      "ar": "يمكن للمتصفحات الحديثة استنتاج نسبة العرض إلى الارتفاع من خصائص HTML width وheight. هذا إصلاح لـ Cumulative Layout Shift."
+    },
+    "explanation": {
+      "en": "Setting width and height attributes on <img> allows modern browsers to compute the aspect ratio before the image downloads, reserving the correct space in the layout and preventing CLS. This works because browsers now apply the 'aspect-ratio: auto' style by default using the HTML attributes. The CSS doesn't need to set anything special — the browser does it automatically. Wrapping in a fixed div causes different problems with responsiveness. lazy loading reduces requests but doesn't prevent layout shift.",
+      "ar": "ضبط خصائص width وheight على <img> يتيح للمتصفحات الحديثة حساب نسبة العرض إلى الارتفاع قبل تنزيل الصورة، مما يحجز المساحة الصحيحة في التخطيط ويمنع CLS. يعمل هذا لأن المتصفحات تُطبّق الآن أسلوب 'aspect-ratio: auto' افتراضيًا باستخدام خصائص HTML. لا تحتاج CSS إلى ضبط أي شيء خاص — يفعل المتصفح ذلك تلقائيًا. الالتفاف في div ثابت يسبب مشكلات مختلفة مع الاستجابة. التحميل الكسول يُقلّل الطلبات لكنه لا يمنع إزاحة التخطيط."
+    },
+    "xp": 50,
+    "tags": ["performance", "core-web-vitals", "images", "cls"]
+  },
+  {
+    "id": "html-boss-5",
+    "trackId": "html",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are doing a full accessibility audit on a single-page app. A WCAG 2.1 Level AA reviewer finds that when a user navigates between 'pages' (routes), focus is not managed and the screen reader doesn't announce the page change. What is the complete, correct solution?",
+      "ar": "أنت تُجري تدقيقًا شاملًا للإتاحة على تطبيق ذي صفحة واحدة. يجد مراجع WCAG 2.1 Level AA أنه عند تنقل المستخدم بين 'الصفحات' (المسارات)، لا تُدار بؤرة التركيز ولا يُعلن قارئ الشاشة عن تغيير الصفحة. ما الحل الكامل والصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Add an aria-live=\"polite\" region that announces route changes; move focus to the <main> element or page heading on navigation; use a visually-hidden route announcement element", "ar": "أضف منطقة aria-live=\"polite\" تُعلن عن تغييرات المسار؛ انقل التركيز إلى عنصر <main> أو عنوان الصفحة عند التنقل؛ استخدم عنصر إعلان مسار مخفيًا بصريًا" } },
+      { "id": "b", "text": { "en": "Use window.alert() to announce each page change", "ar": "استخدم window.alert() للإعلان عن كل تغيير صفحة" } },
+      { "id": "c", "text": { "en": "Add role=\"log\" to the router outlet element", "ar": "أضف role=\"log\" إلى عنصر منفذ الموجّه" } },
+      { "id": "d", "text": { "en": "This is not required for WCAG 2.1 AA compliance", "ar": "هذا غير مطلوب للامتثال لـ WCAG 2.1 AA" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Two things need to happen: the screen reader must know a change occurred, and keyboard focus must be sent to the right place.",
+      "ar": "يجب أن يحدث شيئان: يجب أن يعرف قارئ الشاشة أن تغييرًا حدث، ويجب أن تُرسَل بؤرة لوحة المفاتيح إلى المكان الصحيح."
+    },
+    "explanation": {
+      "en": "SPAs are a known accessibility challenge because page changes don't trigger the browser's native focus management. The complete solution requires: 1) A visually-hidden live region (aria-live=\"polite\") that is updated with the new page title on navigation — screen readers announce this. 2) Programmatic focus management — move focus to the <main> element, an <h1>, or a skip-navigation target after route change. 3) Update the document <title> so the browser tab reflects the new page. window.alert() is intrusive and blocks interaction. role=\"log\" is for chat-style live regions, not navigation.",
+      "ar": "تُشكّل التطبيقات ذات الصفحة الواحدة تحديًا معروفًا للإتاحة لأن تغييرات الصفحة لا تُشغّل إدارة التركيز الأصلية للمتصفح. يتطلب الحل الكامل: 1) منطقة حية مخفية بصريًا (aria-live=\"polite\") تُحدَّث بعنوان الصفحة الجديد عند التنقل — يُعلن قارئات الشاشة عن هذا. 2) إدارة التركيز برمجيًا — انقل التركيز إلى عنصر <main> أو <h1> أو هدف تجاوز التنقل بعد تغيير المسار. 3) تحديث <title> للوثيقة ليعكس تبويب المتصفح الصفحة الجديدة. window.alert() متطفّل ويعطّل التفاعل. role=\"log\" للمناطق الحية على نمط الدردشة، وليس للتنقل."
+    },
+    "xp": 50,
+    "tags": ["accessibility", "aria", "spa", "focus-management", "wcag"]
   }
 ]
