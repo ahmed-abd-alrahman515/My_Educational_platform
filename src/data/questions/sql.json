@@ -5,22 +5,271 @@
     "level": "beginner",
     "type": "multiple-choice",
     "prompt": {
-      "en": "Which statement retrieves data from a table?",
-      "ar": "أي عبارة تسترجع البيانات من جدول؟"
+      "en": "Which SQL clause is used to filter rows returned by a SELECT statement?",
+      "ar": "أي عبارة SQL تُستخدم لتصفية الصفوف التي تُرجعها جملة SELECT؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "GET", "ar": "GET" } },
-      { "id": "b", "text": { "en": "SELECT", "ar": "SELECT" } },
-      { "id": "c", "text": { "en": "FETCH", "ar": "FETCH" } },
-      { "id": "d", "text": { "en": "OPEN", "ar": "OPEN" } }
+      { "id": "a", "text": { "en": "WHERE", "ar": "WHERE" } },
+      { "id": "b", "text": { "en": "HAVING", "ar": "HAVING" } },
+      { "id": "c", "text": { "en": "ORDER BY", "ar": "ORDER BY" } },
+      { "id": "d", "text": { "en": "GROUP BY", "ar": "GROUP BY" } }
     ],
-    "correctOptionId": "b",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This clause comes right after the FROM clause.",
+      "ar": "تأتي هذه العبارة مباشرةً بعد جملة FROM."
+    },
     "explanation": {
-      "en": "SELECT is the SQL statement used to query and retrieve rows from one or more tables.",
-      "ar": "SELECT هي عبارة SQL المستخدمة للاستعلام واسترجاع الصفوف من جدول أو أكثر."
+      "en": "WHERE filters individual rows before any grouping occurs. HAVING filters groups after GROUP BY. ORDER BY sorts results, and GROUP BY groups rows.",
+      "ar": "تقوم WHERE بتصفية الصفوف الفردية قبل أي تجميع. أما HAVING فتصفّي المجموعات بعد GROUP BY. وORDER BY ترتّب النتائج، وGROUP BY تجمع الصفوف."
     },
     "xp": 10,
-    "tags": ["queries"]
+    "tags": ["SELECT", "WHERE", "filtering"]
+  },
+  {
+    "id": "sql-b-2",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "NULL = NULL evaluates to TRUE in SQL.",
+      "ar": "التعبير NULL = NULL يُعطي TRUE في SQL."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "NULL represents an unknown value. Compare it using a special operator.",
+      "ar": "NULL تمثّل قيمة مجهولة. استخدم عامل مقارنة خاص للتحقق منها."
+    },
+    "explanation": {
+      "en": "NULL = NULL evaluates to NULL (unknown), not TRUE. To check for NULL, use IS NULL or IS NOT NULL.",
+      "ar": "التعبير NULL = NULL يُعطي NULL (مجهول) وليس TRUE. للتحقق من NULL يجب استخدام IS NULL أو IS NOT NULL."
+    },
+    "xp": 10,
+    "tags": ["NULL", "operators"]
+  },
+  {
+    "id": "sql-b-3",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this query return?",
+      "ar": "ماذا تُعيد هذه الاستعلام؟"
+    },
+    "code": "SELECT DISTINCT department\nFROM employees\nORDER BY department ASC;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "All unique department names sorted alphabetically", "ar": "جميع أسماء الأقسام الفريدة مرتّبة أبجدياً" } },
+      { "id": "b", "text": { "en": "All department names including duplicates, sorted alphabetically", "ar": "جميع أسماء الأقسام بما فيها المكررة مرتّبةً أبجدياً" } },
+      { "id": "c", "text": { "en": "The count of unique departments", "ar": "عدد الأقسام الفريدة" } },
+      { "id": "d", "text": { "en": "An error because DISTINCT and ORDER BY cannot be used together", "ar": "خطأ لأن DISTINCT وORDER BY لا يمكن استخدامهما معاً" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "DISTINCT removes duplicate rows; ORDER BY sorts the final result set.",
+      "ar": "DISTINCT تُزيل الصفوف المكررة؛ وORDER BY تُرتّب مجموعة النتائج النهائية."
+    },
+    "explanation": {
+      "en": "DISTINCT eliminates duplicate values in the department column, and ORDER BY ASC sorts the unique values alphabetically (A to Z).",
+      "ar": "تُزيل DISTINCT القيم المكررة في عمود department، وتُرتّب ORDER BY ASC القيم الفريدة أبجدياً (A إلى Z)."
+    },
+    "xp": 10,
+    "tags": ["DISTINCT", "ORDER BY", "SELECT"]
+  },
+  {
+    "id": "sql-b-4",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which statement correctly inserts a new row into the `products` table?",
+      "ar": "أي جملة تُدرج صفاً جديداً بشكل صحيح في جدول products؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "INSERT INTO products (name, price) VALUES ('Widget', 9.99);", "ar": "INSERT INTO products (name, price) VALUES ('Widget', 9.99);" } },
+      { "id": "b", "text": { "en": "INSERT products SET name='Widget', price=9.99;", "ar": "INSERT products SET name='Widget', price=9.99;" } },
+      { "id": "c", "text": { "en": "ADD INTO products VALUES ('Widget', 9.99);", "ar": "ADD INTO products VALUES ('Widget', 9.99);" } },
+      { "id": "d", "text": { "en": "INSERT VALUES ('Widget', 9.99) INTO products;", "ar": "INSERT VALUES ('Widget', 9.99) INTO products;" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Standard SQL INSERT syntax starts with INSERT INTO table_name.",
+      "ar": "صيغة INSERT القياسية تبدأ بـ INSERT INTO اسم_الجدول."
+    },
+    "explanation": {
+      "en": "The correct syntax is INSERT INTO table (col1, col2) VALUES (val1, val2). The other options use non-standard or invalid syntax.",
+      "ar": "الصيغة الصحيحة هي INSERT INTO جدول (عمود1، عمود2) VALUES (قيمة1، قيمة2). الخيارات الأخرى تستخدم صيغاً غير قياسية أو خاطئة."
+    },
+    "xp": 10,
+    "tags": ["INSERT", "DML"]
+  },
+  {
+    "id": "sql-b-5",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which aggregate function returns the number of rows (including NULLs) in a result set?",
+      "ar": "أي دالة تجميع تُعيد عدد الصفوف (بما فيها القيم NULL) في مجموعة النتائج؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "COUNT(*)", "ar": "COUNT(*)" } },
+      { "id": "b", "text": { "en": "COUNT(column_name)", "ar": "COUNT(column_name)" } },
+      { "id": "c", "text": { "en": "SUM(*)", "ar": "SUM(*)" } },
+      { "id": "d", "text": { "en": "TOTAL()", "ar": "TOTAL()" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The asterisk (*) means 'all rows, including those with NULL in any column'.",
+      "ar": "علامة النجمة (*) تعني 'جميع الصفوف بما فيها تلك التي تحتوي على NULL في أي عمود'."
+    },
+    "explanation": {
+      "en": "COUNT(*) counts every row regardless of NULLs. COUNT(column_name) counts only non-NULL values in that column. SUM(*) and TOTAL() are not valid SQL.",
+      "ar": "COUNT(*) تحسب كل صف بصرف النظر عن NULL. أما COUNT(اسم_العمود) فتحسب فقط القيم غير الـ NULL في ذلك العمود. SUM(*) وTOTAL() ليستا صيغتَي SQL صالحتَين."
+    },
+    "xp": 10,
+    "tags": ["COUNT", "aggregates", "NULL"]
+  },
+  {
+    "id": "sql-b-6",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "debugging",
+    "prompt": {
+      "en": "What is wrong with this UPDATE statement?",
+      "ar": "ما الخطأ في جملة UPDATE هذه؟"
+    },
+    "code": "UPDATE employees\nSET salary = 50000;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "It is missing a WHERE clause, so it updates all rows", "ar": "تفتقر إلى جملة WHERE، لذا تُحدّث جميع الصفوف" } },
+      { "id": "b", "text": { "en": "The SET keyword should be VALUES", "ar": "يجب أن تكون الكلمة المفتاحية SET هي VALUES" } },
+      { "id": "c", "text": { "en": "UPDATE requires a primary key column in the SET clause", "ar": "تتطلب UPDATE عمود المفتاح الأساسي في جملة SET" } },
+      { "id": "d", "text": { "en": "The salary value must be quoted as a string", "ar": "يجب أن تكون قيمة salary محاطة بعلامتي اقتباس كنص" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Without a WHERE clause, which rows will be affected?",
+      "ar": "بدون جملة WHERE، أي الصفوف ستتأثر؟"
+    },
+    "explanation": {
+      "en": "The statement is syntactically valid but will set every employee's salary to 50000. This is a common dangerous mistake. Always add a WHERE clause to limit the rows updated.",
+      "ar": "الجملة صحيحة نحوياً لكنها ستضبط راتب كل موظف على 50000. هذا خطأ شائع وخطير. أضف دائماً جملة WHERE لتحديد الصفوف التي تريد تحديثها."
+    },
+    "xp": 10,
+    "tags": ["UPDATE", "WHERE", "DML"]
+  },
+  {
+    "id": "sql-b-7",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "Complete the query to retrieve only the first 5 rows from the `orders` table ordered by `order_date` descending.",
+      "ar": "أكمل الاستعلام لاسترداد أول 5 صفوف فقط من جدول orders مرتّبةً بـ order_date تنازلياً."
+    },
+    "code": "SELECT *\nFROM orders\nORDER BY order_date DESC\n________ 5;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "LIMIT", "ar": "LIMIT" } },
+      { "id": "b", "text": { "en": "TOP", "ar": "TOP" } },
+      { "id": "c", "text": { "en": "FETCH FIRST", "ar": "FETCH FIRST" } },
+      { "id": "d", "text": { "en": "ROWNUM <", "ar": "ROWNUM <" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This keyword is standard in MySQL and PostgreSQL to restrict row count.",
+      "ar": "هذه الكلمة المفتاحية قياسية في MySQL وPostgreSQL لتقييد عدد الصفوف."
+    },
+    "explanation": {
+      "en": "LIMIT is used in MySQL and PostgreSQL. SQL Server uses TOP, Oracle uses ROWNUM or FETCH FIRST. For this platform targeting PostgreSQL/MySQL, LIMIT is correct.",
+      "ar": "LIMIT تُستخدم في MySQL وPostgreSQL. SQL Server يستخدم TOP، وOracle يستخدم ROWNUM أو FETCH FIRST. بالنسبة لـ PostgreSQL/MySQL، LIMIT هي الصحيحة."
+    },
+    "xp": 10,
+    "tags": ["LIMIT", "ORDER BY", "SELECT"]
+  },
+  {
+    "id": "sql-b-8",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which constraint ensures that a column cannot contain NULL values?",
+      "ar": "أي قيد يضمن عدم احتواء عمود على قيم NULL؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "NOT NULL", "ar": "NOT NULL" } },
+      { "id": "b", "text": { "en": "PRIMARY KEY", "ar": "PRIMARY KEY" } },
+      { "id": "c", "text": { "en": "UNIQUE", "ar": "UNIQUE" } },
+      { "id": "d", "text": { "en": "DEFAULT", "ar": "DEFAULT" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "PRIMARY KEY also prevents NULLs, but there's a more specific constraint for this purpose.",
+      "ar": "PRIMARY KEY يمنع NULL أيضاً، لكن هناك قيد أكثر تحديداً لهذا الغرض."
+    },
+    "explanation": {
+      "en": "NOT NULL explicitly prevents NULL values. PRIMARY KEY implicitly applies NOT NULL plus UNIQUE. UNIQUE allows one NULL (in most databases). DEFAULT provides a fallback value but doesn't prevent NULLs.",
+      "ar": "NOT NULL يمنع صراحةً قيم NULL. PRIMARY KEY يطبّق NOT NULL وUNIQUE ضمنياً. UNIQUE يسمح بقيمة NULL واحدة في معظم قواعد البيانات. DEFAULT يوفّر قيمة احتياطية لكنه لا يمنع NULL."
+    },
+    "xp": 10,
+    "tags": ["constraints", "NOT NULL", "DDL"]
+  },
+  {
+    "id": "sql-b-9",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "DELETE FROM table_name; (without WHERE) removes all rows but keeps the table structure.",
+      "ar": "جملة DELETE FROM table_name; (بدون WHERE) تحذف جميع الصفوف لكنها تُبقي هيكل الجدول."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Compare DELETE with DROP TABLE and TRUNCATE.",
+      "ar": "قارن بين DELETE وDROP TABLE وTRUNCATE."
+    },
+    "explanation": {
+      "en": "DELETE without WHERE removes all rows but preserves the table schema. DROP TABLE removes the table entirely. TRUNCATE also removes all rows but is faster and usually not transactional in all databases.",
+      "ar": "DELETE بدون WHERE تحذف جميع الصفوف لكنها تحتفظ ببنية الجدول. DROP TABLE تحذف الجدول بالكامل. TRUNCATE أيضاً تحذف جميع الصفوف لكنها أسرع وغالباً غير معاملاتية في بعض قواعد البيانات."
+    },
+    "xp": 10,
+    "tags": ["DELETE", "DML", "DDL"]
+  },
+  {
+    "id": "sql-b-10",
+    "trackId": "sql",
+    "level": "beginner",
+    "type": "scenario",
+    "prompt": {
+      "en": "A manager wants a list of all employees whose salary is between 30,000 and 60,000 (inclusive). Which query is correct?",
+      "ar": "يريد مدير قائمةً بجميع الموظفين الذين رواتبهم تتراوح بين 30,000 و60,000 (شاملاً الحدَّين). أي استعلام صحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;", "ar": "SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;" } },
+      { "id": "b", "text": { "en": "SELECT * FROM employees WHERE salary > 30000 AND salary < 60000;", "ar": "SELECT * FROM employees WHERE salary > 30000 AND salary < 60000;" } },
+      { "id": "c", "text": { "en": "SELECT * FROM employees WHERE salary IN (30000, 60000);", "ar": "SELECT * FROM employees WHERE salary IN (30000, 60000);" } },
+      { "id": "d", "text": { "en": "SELECT * FROM employees WHERE 30000 < salary < 60000;", "ar": "SELECT * FROM employees WHERE 30000 < salary < 60000;" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The BETWEEN operator is inclusive on both ends.",
+      "ar": "عامل BETWEEN يشمل الحدَّين الأدنى والأعلى."
+    },
+    "explanation": {
+      "en": "BETWEEN 30000 AND 60000 includes both endpoints. Option B excludes both endpoints (strict inequality). Option C returns only rows with salary exactly 30000 or 60000. Option D is not valid SQL syntax.",
+      "ar": "BETWEEN 30000 AND 60000 تشمل الحدَّين. الخيار B يستثني الحدَّين (عدم مساواة صارم). الخيار C يُعيد الصفوف التي راتبها 30000 أو 60000 فقط. الخيار D ليس صيغة SQL صالحة."
+    },
+    "xp": 10,
+    "tags": ["BETWEEN", "WHERE", "operators"]
   },
   {
     "id": "sql-i-1",
@@ -28,22 +277,277 @@
     "level": "intermediate",
     "type": "multiple-choice",
     "prompt": {
-      "en": "Which JOIN returns only rows with matches in both tables?",
-      "ar": "أي JOIN يُرجع فقط الصفوف المتطابقة في كلا الجدولين؟"
+      "en": "What type of JOIN returns all rows from the left table and matching rows from the right table, with NULLs for non-matching right rows?",
+      "ar": "أي نوع من JOIN يُعيد جميع الصفوف من الجدول الأيسر والصفوف المطابقة من الجدول الأيمن، مع NULL للصفوف غير المطابقة من الجدول الأيمن؟"
     },
     "options": [
       { "id": "a", "text": { "en": "LEFT JOIN", "ar": "LEFT JOIN" } },
-      { "id": "b", "text": { "en": "RIGHT JOIN", "ar": "RIGHT JOIN" } },
-      { "id": "c", "text": { "en": "INNER JOIN", "ar": "INNER JOIN" } },
-      { "id": "d", "text": { "en": "FULL OUTER JOIN", "ar": "FULL OUTER JOIN" } }
+      { "id": "b", "text": { "en": "INNER JOIN", "ar": "INNER JOIN" } },
+      { "id": "c", "text": { "en": "RIGHT JOIN", "ar": "RIGHT JOIN" } },
+      { "id": "d", "text": { "en": "CROSS JOIN", "ar": "CROSS JOIN" } }
     ],
-    "correctOptionId": "c",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think of the 'left' table as the primary one that always appears in the result.",
+      "ar": "فكّر في الجدول 'الأيسر' باعتباره الجدول الأساسي الذي يظهر دائماً في النتيجة."
+    },
     "explanation": {
-      "en": "INNER JOIN returns rows only where the join condition matches in both tables.",
-      "ar": "يُرجع INNER JOIN الصفوف فقط عند تطابق شرط الربط في كلا الجدولين."
+      "en": "LEFT JOIN (or LEFT OUTER JOIN) returns all rows from the left table. If there is no match in the right table, columns from the right table will be NULL. INNER JOIN returns only matching rows. RIGHT JOIN is the mirror image. CROSS JOIN returns a Cartesian product.",
+      "ar": "LEFT JOIN (أو LEFT OUTER JOIN) يُعيد جميع الصفوف من الجدول الأيسر. إذا لم يوجد تطابق في الجدول الأيمن، تكون أعمدة الجدول الأيمن NULL. INNER JOIN يُعيد الصفوف المطابقة فقط. RIGHT JOIN هو النقيض. CROSS JOIN يُعيد الضرب الديكارتي."
     },
     "xp": 15,
-    "tags": ["joins"]
+    "tags": ["joins", "LEFT JOIN", "NULL"]
+  },
+  {
+    "id": "sql-i-2",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "Given a `sales` table with columns (id, region, amount), what does this query return?",
+      "ar": "بفرض وجود جدول sales بأعمدة (id, region, amount)، ماذا تُعيد هذه الاستعلام؟"
+    },
+    "code": "SELECT region, SUM(amount) AS total\nFROM sales\nGROUP BY region\nHAVING SUM(amount) > 10000\nORDER BY total DESC;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Regions and their total sales, only where total exceeds 10,000, sorted highest first", "ar": "الأقاليم ومجموع مبيعاتها حيث المجموع يتجاوز 10,000 مرتّبةً تنازلياً" } },
+      { "id": "b", "text": { "en": "All regions with total sales, sorted by total descending", "ar": "جميع الأقاليم مع إجمالي المبيعات مرتّبةً تنازلياً" } },
+      { "id": "c", "text": { "en": "Rows where amount > 10,000 grouped by region", "ar": "الصفوف التي amount > 10,000 مجمّعةً حسب region" } },
+      { "id": "d", "text": { "en": "An error because WHERE should be used instead of HAVING", "ar": "خطأ لأن WHERE يجب استخدامها بدلاً من HAVING" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "HAVING filters after grouping, while WHERE filters before grouping.",
+      "ar": "HAVING تصفّي بعد التجميع، في حين أن WHERE تصفّي قبل التجميع."
+    },
+    "explanation": {
+      "en": "GROUP BY groups rows by region, SUM(amount) aggregates per group, HAVING filters groups where the sum exceeds 10,000, and ORDER BY total DESC sorts the remaining groups highest first.",
+      "ar": "GROUP BY تجمّع الصفوف حسب region، وSUM(amount) تجمع لكل مجموعة، وHAVING تصفّي المجموعات التي يتجاوز مجموعها 10,000، وORDER BY total DESC تُرتّب المجموعات المتبقية تنازلياً."
+    },
+    "xp": 15,
+    "tags": ["GROUP BY", "HAVING", "aggregates", "SUM"]
+  },
+  {
+    "id": "sql-i-3",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "This query is supposed to return customers who have placed at least one order, but it returns an unexpected result. What is the bug?",
+      "ar": "من المفترض أن يُعيد هذا الاستعلام العملاء الذين قدّموا طلباً واحداً على الأقل، لكنه يُعيد نتيجة غير متوقعة. ما الخطأ؟"
+    },
+    "code": "SELECT c.name\nFROM customers c, orders o\nWHERE c.id = o.customer_id;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Customers with multiple orders will appear multiple times (duplicates)", "ar": "العملاء الذين لديهم طلبات متعددة سيظهرون أكثر من مرة (تكرار)" } },
+      { "id": "b", "text": { "en": "The old comma JOIN syntax is not valid SQL", "ar": "صيغة الفاصلة القديمة للـ JOIN ليست SQL صالحة" } },
+      { "id": "c", "text": { "en": "It returns customers with no orders", "ar": "يُعيد العملاء الذين ليس لديهم طلبات" } },
+      { "id": "d", "text": { "en": "c.id and o.customer_id cannot be compared directly", "ar": "لا يمكن مقارنة c.id وo.customer_id مباشرةً" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "How many rows does an INNER JOIN produce when a customer has 3 orders?",
+      "ar": "كم صفاً يُنتج INNER JOIN عندما يكون للعميل 3 طلبات؟"
+    },
+    "explanation": {
+      "en": "The comma syntax is equivalent to INNER JOIN and is valid (old-style). However, if a customer has 3 orders, their name appears 3 times. To fix this, add DISTINCT or use EXISTS.",
+      "ar": "صيغة الفاصلة مكافئة لـ INNER JOIN وهي صالحة (أسلوب قديم). لكن إذا كان للعميل 3 طلبات، يظهر اسمه 3 مرات. لإصلاح ذلك، أضف DISTINCT أو استخدم EXISTS."
+    },
+    "xp": 15,
+    "tags": ["joins", "DISTINCT", "debugging"]
+  },
+  {
+    "id": "sql-i-4",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the difference between UNION and UNION ALL in SQL?",
+      "ar": "ما الفرق بين UNION وUNION ALL في SQL؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "UNION removes duplicate rows; UNION ALL keeps all rows including duplicates", "ar": "UNION تُزيل الصفوف المكررة؛ UNION ALL تحتفظ بجميع الصفوف بما فيها المكررة" } },
+      { "id": "b", "text": { "en": "UNION ALL removes duplicate rows; UNION keeps all rows", "ar": "UNION ALL تُزيل الصفوف المكررة؛ UNION تحتفظ بجميع الصفوف" } },
+      { "id": "c", "text": { "en": "UNION combines columns; UNION ALL combines rows", "ar": "UNION تجمع الأعمدة؛ UNION ALL تجمع الصفوف" } },
+      { "id": "d", "text": { "en": "There is no difference; they produce identical results", "ar": "لا فرق بينهما؛ يُنتجان نتائج متطابقة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "One of them performs an implicit deduplication step, which has a performance cost.",
+      "ar": "إحداهما تُجري خطوة إزالة تكرار ضمنية، وهذا له تكلفة على الأداء."
+    },
+    "explanation": {
+      "en": "UNION deduplicates the combined result set (like DISTINCT), which requires an extra sort/hash step. UNION ALL simply concatenates all rows from both queries without deduplication, making it faster when duplicates are acceptable.",
+      "ar": "UNION تُزيل التكرارات من مجموعة النتائج المدمجة (مثل DISTINCT)، وهذا يتطلب خطوة فرز/هاش إضافية. UNION ALL تضم جميع الصفوف من كلا الاستعلامَين بدون إزالة تكرار، مما يجعلها أسرع عندما يكون وجود التكرارات مقبولاً."
+    },
+    "xp": 15,
+    "tags": ["UNION", "UNION ALL", "set operations"]
+  },
+  {
+    "id": "sql-i-5",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to find all products that have never been ordered. Which query correctly identifies them?",
+      "ar": "تحتاج إلى إيجاد جميع المنتجات التي لم يتم طلبها قط. أي استعلام يُحددها بشكل صحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "SELECT p.name FROM products p LEFT JOIN order_items oi ON p.id = oi.product_id WHERE oi.product_id IS NULL;", "ar": "SELECT p.name FROM products p LEFT JOIN order_items oi ON p.id = oi.product_id WHERE oi.product_id IS NULL;" } },
+      { "id": "b", "text": { "en": "SELECT p.name FROM products p INNER JOIN order_items oi ON p.id = oi.product_id WHERE oi.product_id IS NULL;", "ar": "SELECT p.name FROM products p INNER JOIN order_items oi ON p.id = oi.product_id WHERE oi.product_id IS NULL;" } },
+      { "id": "c", "text": { "en": "SELECT name FROM products WHERE id != ALL (SELECT product_id FROM order_items);", "ar": "SELECT name FROM products WHERE id != ALL (SELECT product_id FROM order_items);" } },
+      { "id": "d", "text": { "en": "SELECT name FROM products WHERE id NOT IN (SELECT product_id FROM order_items);", "ar": "SELECT name FROM products WHERE id NOT IN (SELECT product_id FROM order_items);" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "After a LEFT JOIN, unmatched rows from the right table will have NULL in their columns.",
+      "ar": "بعد LEFT JOIN، الصفوف غير المطابقة من الجدول الأيمن ستكون أعمدتها NULL."
+    },
+    "explanation": {
+      "en": "LEFT JOIN returns all products; the WHERE oi.product_id IS NULL filter keeps only products with no matching order_items. Option B (INNER JOIN) never returns NULLs from the join. Option D is tricky: it fails if any product_id in order_items is NULL (NOT IN with NULLs returns empty set).",
+      "ar": "LEFT JOIN يُعيد جميع المنتجات؛ شرط WHERE oi.product_id IS NULL يُبقي فقط المنتجات التي لا يقابلها طلب. الخيار B (INNER JOIN) لا يُعيد NULL أبداً. الخيار D مخادع: يفشل إذا كانت أي product_id في order_items تساوي NULL (NOT IN مع NULL يُعيد مجموعة فارغة)."
+    },
+    "xp": 15,
+    "tags": ["LEFT JOIN", "NULL", "subquery", "NOT IN"]
+  },
+  {
+    "id": "sql-i-6",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the correct order of SQL query execution clauses?",
+      "ar": "ما الترتيب الصحيح لتنفيذ عبارات استعلام SQL؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY", "ar": "FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY" } },
+      { "id": "b", "text": { "en": "SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY", "ar": "SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY" } },
+      { "id": "c", "text": { "en": "FROM -> SELECT -> WHERE -> GROUP BY -> HAVING -> ORDER BY", "ar": "FROM -> SELECT -> WHERE -> GROUP BY -> HAVING -> ORDER BY" } },
+      { "id": "d", "text": { "en": "WHERE -> FROM -> GROUP BY -> SELECT -> HAVING -> ORDER BY", "ar": "WHERE -> FROM -> GROUP BY -> SELECT -> HAVING -> ORDER BY" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is why you cannot use a SELECT alias in the WHERE clause — WHERE runs before SELECT.",
+      "ar": "هذا هو السبب في عدم استطاعتك استخدام اسم مستعار من SELECT في جملة WHERE — تعمل WHERE قبل SELECT."
+    },
+    "explanation": {
+      "en": "SQL logical execution order: FROM (build the dataset), WHERE (filter rows), GROUP BY (group rows), HAVING (filter groups), SELECT (compute output columns), ORDER BY (sort). This explains why aliases defined in SELECT are not available in WHERE or HAVING.",
+      "ar": "ترتيب تنفيذ SQL المنطقي: FROM (بناء مجموعة البيانات)، WHERE (تصفية الصفوف)، GROUP BY (تجميع الصفوف)، HAVING (تصفية المجموعات)، SELECT (حساب أعمدة الإخراج)، ORDER BY (الترتيب). يُفسّر ذلك سبب عدم توفر الأسماء المستعارة المعرَّفة في SELECT في WHERE أو HAVING."
+    },
+    "xp": 15,
+    "tags": ["query execution order", "SELECT", "WHERE", "HAVING"]
+  },
+  {
+    "id": "sql-i-7",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "true-false",
+    "prompt": {
+      "en": "A FOREIGN KEY constraint prevents inserting a value in the child table that does not exist in the parent table's referenced column.",
+      "ar": "قيد FOREIGN KEY يمنع إدراج قيمة في الجدول الفرعي غير موجودة في العمود المرجعي للجدول الأصلي."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is the core purpose of referential integrity.",
+      "ar": "هذا هو الغرض الأساسي من التكامل المرجعي."
+    },
+    "explanation": {
+      "en": "A FOREIGN KEY ensures referential integrity: every value in the child column must match an existing value in the parent column (or be NULL if the FK column allows it). Attempting to insert a non-existent value raises a constraint violation error.",
+      "ar": "يضمن FOREIGN KEY التكامل المرجعي: يجب أن تتطابق كل قيمة في العمود الفرعي مع قيمة موجودة في العمود الأصلي (أو تكون NULL إذا كان العمود يسمح بذلك). محاولة إدراج قيمة غير موجودة ترفع خطأ انتهاك قيد."
+    },
+    "xp": 15,
+    "tags": ["FOREIGN KEY", "constraints", "referential integrity"]
+  },
+  {
+    "id": "sql-i-8",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this query return from the `employees` table?",
+      "ar": "ماذا يُعيد هذا الاستعلام من جدول employees؟"
+    },
+    "code": "SELECT department, COUNT(*) AS emp_count\nFROM employees\nWHERE status = 'active'\nGROUP BY department\nHAVING COUNT(*) >= 3\nORDER BY emp_count DESC;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Departments with 3 or more active employees, sorted by count descending", "ar": "الأقسام التي تضم 3 موظفين نشطين أو أكثر، مرتّبةً تنازلياً حسب العدد" } },
+      { "id": "b", "text": { "en": "All departments with their employee count, sorted by count descending", "ar": "جميع الأقسام مع عدد موظفيها، مرتّبةً تنازلياً حسب العدد" } },
+      { "id": "c", "text": { "en": "An error because HAVING must use the alias emp_count", "ar": "خطأ لأن HAVING يجب أن تستخدم الاسم المستعار emp_count" } },
+      { "id": "d", "text": { "en": "Departments where status = 'active' AND count >= 3, but status is shown in results", "ar": "الأقسام حيث status = 'active' وعدد >= 3، لكن يظهر status في النتائج" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "WHERE runs before GROUP BY; HAVING runs after.",
+      "ar": "WHERE تعمل قبل GROUP BY؛ وHAVING تعمل بعدها."
+    },
+    "explanation": {
+      "en": "First WHERE filters to active employees only. Then GROUP BY groups by department. HAVING COUNT(*) >= 3 keeps only groups with 3 or more rows. Finally ORDER BY emp_count DESC sorts the result.",
+      "ar": "أولاً، WHERE تصفّي الموظفين النشطين فقط. ثم GROUP BY تجمّع حسب department. HAVING COUNT(*) >= 3 تُبقي المجموعات التي تحتوي على 3 صفوف أو أكثر. أخيراً ORDER BY emp_count DESC تُرتّب النتيجة."
+    },
+    "xp": 15,
+    "tags": ["GROUP BY", "HAVING", "WHERE", "COUNT"]
+  },
+  {
+    "id": "sql-i-9",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which CASE expression correctly assigns a grade label based on a score column?",
+      "ar": "أي تعبير CASE يُسند صحيحاً تسمية درجة بناءً على عمود score؟"
+    },
+    "code": "SELECT student_id, score,\n  CASE\n    WHEN score >= 90 THEN 'A'\n    WHEN score >= 80 THEN 'B'\n    WHEN score >= 70 THEN 'C'\n    ELSE 'F'\n  END AS grade\nFROM scores;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "It works correctly — a score of 85 returns 'B'", "ar": "يعمل بشكل صحيح — درجة 85 تُعيد 'B'" } },
+      { "id": "b", "text": { "en": "A score of 85 returns 'A' because 85 >= 80 is checked first and both are true", "ar": "درجة 85 تُعيد 'A' لأن 85 >= 80 يُفحص أولاً وكلاهما صحيح" } },
+      { "id": "c", "text": { "en": "CASE requires an END CASE keyword, not just END", "ar": "CASE تتطلب الكلمة المفتاحية END CASE وليس END فقط" } },
+      { "id": "d", "text": { "en": "ELSE 'F' will never be reached because all scores are covered", "ar": "لن يتم الوصول أبداً إلى ELSE 'F' لأن جميع الدرجات مشمولة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "CASE WHEN evaluates conditions top to bottom and stops at the first TRUE condition.",
+      "ar": "CASE WHEN يتحقق من الشروط من الأعلى إلى الأسفل ويتوقف عند أول شرط صحيح."
+    },
+    "explanation": {
+      "en": "CASE evaluates conditions in order. A score of 85 fails the first condition (>= 90), then matches >= 80, returning 'B'. END (not END CASE) is correct SQL. ELSE catches any score below 70.",
+      "ar": "CASE يتحقق من الشروط بالترتيب. درجة 85 تفشل في الشرط الأول (>= 90)، ثم تُطابق >= 80 وتُعيد 'B'. END (وليس END CASE) هو SQL الصحيح. ELSE يلتقط أي درجة أقل من 70."
+    },
+    "xp": 15,
+    "tags": ["CASE", "conditional", "SELECT"]
+  },
+  {
+    "id": "sql-i-10",
+    "trackId": "sql",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "A developer runs this query expecting to get customers without orders but gets zero results. Why?",
+      "ar": "يُشغّل مطوّر هذا الاستعلام متوقعاً الحصول على عملاء بدون طلبات لكنه يحصل على صفر نتائج. لماذا؟"
+    },
+    "code": "SELECT * FROM customers\nWHERE id NOT IN (\n  SELECT customer_id FROM orders\n);",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Some customer_id values in orders are NULL, making NOT IN return empty", "ar": "بعض قيم customer_id في orders هي NULL، مما يجعل NOT IN تُعيد مجموعة فارغة" } },
+      { "id": "b", "text": { "en": "NOT IN cannot be used with subqueries", "ar": "لا يمكن استخدام NOT IN مع الاستعلامات الفرعية" } },
+      { "id": "c", "text": { "en": "All customers have at least one order", "ar": "جميع العملاء لديهم طلب واحد على الأقل" } },
+      { "id": "d", "text": { "en": "The subquery must use DISTINCT to work properly", "ar": "يجب أن يستخدم الاستعلام الفرعي DISTINCT ليعمل بشكل صحيح" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "In SQL, X NOT IN (list_with_NULL) is always NULL/unknown, never TRUE.",
+      "ar": "في SQL، X NOT IN (قائمة_تحتوي_NULL) دائماً NULL/مجهولة، وليست TRUE أبداً."
+    },
+    "explanation": {
+      "en": "If the subquery returns any NULL values (e.g., orders with no customer_id), NOT IN evaluates to NULL for every comparison, effectively returning no rows. Use NOT EXISTS instead, which handles NULLs correctly.",
+      "ar": "إذا أعاد الاستعلام الفرعي أي قيم NULL (مثل طلبات بدون customer_id)، فإن NOT IN يُقيَّم إلى NULL لكل مقارنة، مما يُعيد فعلياً لا صفوف. استخدم NOT EXISTS بدلاً من ذلك، وهو يتعامل مع NULL بشكل صحيح."
+    },
+    "xp": 15,
+    "tags": ["NOT IN", "NULL", "subquery", "NOT EXISTS"]
   },
   {
     "id": "sql-a-1",
@@ -51,21 +555,560 @@
     "level": "advanced",
     "type": "multiple-choice",
     "prompt": {
-      "en": "Which clause filters groups created by GROUP BY?",
-      "ar": "أي عبارة تُصفّي المجموعات الناتجة عن GROUP BY؟"
+      "en": "What does the ROW_NUMBER() window function do in this query?",
+      "ar": "ماذا تفعل دالة النافذة ROW_NUMBER() في هذا الاستعلام؟"
     },
+    "code": "SELECT id, department, salary,\n  ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rn\nFROM employees;",
+    "codeLang": "sql",
     "options": [
-      { "id": "a", "text": { "en": "WHERE", "ar": "WHERE" } },
-      { "id": "b", "text": { "en": "HAVING", "ar": "HAVING" } },
-      { "id": "c", "text": { "en": "FILTER", "ar": "FILTER" } },
-      { "id": "d", "text": { "en": "ON", "ar": "ON" } }
+      { "id": "a", "text": { "en": "Assigns a sequential number to each row within each department, ordered by salary descending", "ar": "يُسند رقماً تسلسلياً لكل صف داخل كل قسم مرتّباً حسب الراتب تنازلياً" } },
+      { "id": "b", "text": { "en": "Returns the rank of each employee's salary globally across all departments", "ar": "يُعيد رتبة راتب كل موظف عالمياً عبر جميع الأقسام" } },
+      { "id": "c", "text": { "en": "Groups employees by department and counts rows", "ar": "يجمّع الموظفين حسب القسم ويحسب الصفوف" } },
+      { "id": "d", "text": { "en": "Removes duplicate rows within each department partition", "ar": "يُزيل الصفوف المكررة داخل كل قسم (partition)" } }
     ],
-    "correctOptionId": "b",
+    "correctOptionId": "a",
+    "hint": {
+      "en": "PARTITION BY restarts the numbering for each group; ORDER BY determines the sequence.",
+      "ar": "PARTITION BY يُعيد الترقيم من البداية لكل مجموعة؛ وORDER BY يحدد التسلسل."
+    },
     "explanation": {
-      "en": "HAVING filters aggregated groups, whereas WHERE filters individual rows before grouping.",
-      "ar": "تُصفّي HAVING المجموعات المجمّعة، بينما تُصفّي WHERE الصفوف الفردية قبل التجميع."
+      "en": "ROW_NUMBER() assigns a unique sequential integer to each row within a partition. PARTITION BY department means numbering restarts at 1 for each department. ORDER BY salary DESC means the highest-paid employee in each department gets rn=1. This is commonly used to select the top-N per group.",
+      "ar": "ROW_NUMBER() يُسند رقماً تسلسلياً فريداً لكل صف داخل partition. PARTITION BY department يعني إعادة الترقيم من 1 لكل قسم. ORDER BY salary DESC يعني أن الموظف الأعلى راتباً في كل قسم يحصل على rn=1. يُستخدم هذا شائعاً لاختيار أعلى N عنصر لكل مجموعة."
     },
     "xp": 25,
-    "tags": ["aggregation"]
+    "tags": ["window functions", "ROW_NUMBER", "PARTITION BY"]
+  },
+  {
+    "id": "sql-a-2",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A query on a 10-million-row orders table is slow. The query filters by customer_id and order_date. The table has an index on customer_id only. What is the most likely improvement?",
+      "ar": "استعلام على جدول orders يحتوي على 10 ملايين صف بطيء. الاستعلام يصفّي حسب customer_id وorder_date. الجدول لديه فهرس على customer_id فقط. ما التحسين الأرجح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Create a composite index on (customer_id, order_date)", "ar": "إنشاء فهرس مركّب على (customer_id, order_date)" } },
+      { "id": "b", "text": { "en": "Add a separate index on order_date only", "ar": "إضافة فهرس منفصل على order_date فقط" } },
+      { "id": "c", "text": { "en": "Use SELECT * to avoid column projection overhead", "ar": "استخدام SELECT * لتجنب تكلفة إسقاط الأعمدة" } },
+      { "id": "d", "text": { "en": "Remove the existing index and rely on a full table scan", "ar": "إزالة الفهرس الحالي والاعتماد على مسح الجدول الكامل" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A composite index can satisfy both filter conditions in one index scan.",
+      "ar": "الفهرس المركّب يمكنه تلبية كلا شرطَي التصفية في مسح فهرس واحد."
+    },
+    "explanation": {
+      "en": "A composite index on (customer_id, order_date) allows the engine to satisfy the WHERE clause using index-only lookups. The index on customer_id alone still requires a heap fetch to filter by order_date. A separate index on order_date is less efficient for combined filters.",
+      "ar": "الفهرس المركّب على (customer_id, order_date) يسمح للمحرك بتلبية شرط WHERE باستخدام عمليات بحث في الفهرس فقط. الفهرس على customer_id وحده يتطلب جلب إضافي من heap للتصفية حسب order_date. الفهرس المنفصل على order_date أقل كفاءةً للفلاتر المشتركة."
+    },
+    "xp": 25,
+    "tags": ["indexes", "performance", "composite index"]
+  },
+  {
+    "id": "sql-a-3",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this self-join query return from an `employees` table that has columns (id, name, manager_id)?",
+      "ar": "ماذا يُعيد هذا الاستعلام من نوع self-join من جدول employees ذي الأعمدة (id, name, manager_id)؟"
+    },
+    "code": "SELECT e.name AS employee, m.name AS manager\nFROM employees e\nLEFT JOIN employees m ON e.manager_id = m.id;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "All employees with their manager's name; employees with no manager show NULL in the manager column", "ar": "جميع الموظفين مع اسم مديرهم؛ الموظفون الذين ليس لديهم مدير يظهر NULL في عمود manager" } },
+      { "id": "b", "text": { "en": "Only employees who have a manager", "ar": "الموظفون الذين لديهم مدير فقط" } },
+      { "id": "c", "text": { "en": "An error because you cannot join a table with itself", "ar": "خطأ لأنه لا يمكن ربط جدول مع نفسه" } },
+      { "id": "d", "text": { "en": "All pairs of employees in the company", "ar": "جميع أزواج الموظفين في الشركة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A self-join uses the same table twice with different aliases. LEFT JOIN keeps rows even without a match.",
+      "ar": "Self-join يستخدم نفس الجدول مرتين بأسماء مستعارة مختلفة. LEFT JOIN يحتفظ بالصفوف حتى بدون تطابق."
+    },
+    "explanation": {
+      "en": "The employees table is joined with itself: 'e' represents the employee and 'm' represents their manager (also an employee). LEFT JOIN ensures employees with no manager (e.g., the CEO) still appear with NULL as their manager name.",
+      "ar": "يُربط جدول employees بنفسه: 'e' يمثّل الموظف و'm' يمثّل مديره (وهو أيضاً موظف). LEFT JOIN يضمن ظهور الموظفين الذين ليس لديهم مدير (مثل الرئيس التنفيذي) مع NULL كاسم المدير."
+    },
+    "xp": 25,
+    "tags": ["self-join", "LEFT JOIN", "NULL", "hierarchical"]
+  },
+  {
+    "id": "sql-a-4",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the difference between RANK() and DENSE_RANK() window functions?",
+      "ar": "ما الفرق بين دالتَي النافذة RANK() وDENSE_RANK()؟"
+    },
+    "code": "-- scores: 100, 90, 90, 80\nSELECT score,\n  RANK() OVER (ORDER BY score DESC) AS rnk,\n  DENSE_RANK() OVER (ORDER BY score DESC) AS dense_rnk\nFROM scores;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "RANK() skips numbers after ties (1,2,2,4); DENSE_RANK() does not skip (1,2,2,3)", "ar": "RANK() تتخطى الأرقام بعد التعادل (1,2,2,4)؛ DENSE_RANK() لا تتخطى (1,2,2,3)" } },
+      { "id": "b", "text": { "en": "DENSE_RANK() skips numbers after ties; RANK() does not skip", "ar": "DENSE_RANK() تتخطى الأرقام بعد التعادل؛ RANK() لا تتخطى" } },
+      { "id": "c", "text": { "en": "Both produce identical results; the names differ for historical reasons", "ar": "كلتاهما تُنتج نتائج متطابقة؛ الأسماء تختلف لأسباب تاريخية" } },
+      { "id": "d", "text": { "en": "RANK() assigns random numbers to ties; DENSE_RANK() assigns the average rank", "ar": "RANK() تُسند أرقاماً عشوائية للتعادلات؛ DENSE_RANK() تُسند الرتبة المتوسطة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about what happens to position 3 when two rows tie at position 2.",
+      "ar": "فكّر فيما يحدث للمركز 3 عندما يتعادل صفان في المركز 2."
+    },
+    "explanation": {
+      "en": "With scores 100, 90, 90, 80: RANK() produces 1, 2, 2, 4 (skips 3 because two rows tied at rank 2). DENSE_RANK() produces 1, 2, 2, 3 (never skips). Use DENSE_RANK() when you want continuous ranking without gaps.",
+      "ar": "مع الدرجات 100، 90، 90، 80: RANK() تُنتج 1، 2، 2، 4 (تتخطى 3 لأن صفَّين تعادلا في الرتبة 2). DENSE_RANK() تُنتج 1، 2، 2، 3 (لا تتخطى أبداً). استخدم DENSE_RANK() عندما تريد ترتيباً متواصلاً بدون ثغرات."
+    },
+    "xp": 25,
+    "tags": ["window functions", "RANK", "DENSE_RANK"]
+  },
+  {
+    "id": "sql-a-5",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "This query is supposed to return the monthly revenue trend using LAG(), but the result is wrong. What is the bug?",
+      "ar": "يُفترض أن يُعيد هذا الاستعلام اتجاه الإيرادات الشهرية باستخدام LAG()، لكن النتيجة خاطئة. ما الخطأ؟"
+    },
+    "code": "SELECT month, revenue,\n  LAG(revenue) OVER (ORDER BY revenue) AS prev_month_revenue\nFROM monthly_sales;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "ORDER BY should be ORDER BY month, not ORDER BY revenue", "ar": "ORDER BY يجب أن تكون ORDER BY month وليس ORDER BY revenue" } },
+      { "id": "b", "text": { "en": "LAG() cannot be used with OVER; use a subquery instead", "ar": "LAG() لا يمكن استخدامها مع OVER؛ استخدم استعلاماً فرعياً بدلاً من ذلك" } },
+      { "id": "c", "text": { "en": "LAG() needs a PARTITION BY clause to work correctly", "ar": "LAG() تحتاج إلى جملة PARTITION BY لتعمل بشكل صحيح" } },
+      { "id": "d", "text": { "en": "The alias prev_month_revenue conflicts with the column name revenue", "ar": "الاسم المستعار prev_month_revenue يتعارض مع اسم العمود revenue" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "LAG() looks at the previous row — which column defines 'previous month'?",
+      "ar": "LAG() تنظر إلى الصف السابق — أي عمود يُعرّف 'الشهر السابق'؟"
+    },
+    "explanation": {
+      "en": "LAG() returns the value from the previous row according to the ORDER BY in the OVER clause. To get the previous month's revenue, you need ORDER BY month (chronological order). Ordering by revenue would give the previous row when sorted by amount, not by time.",
+      "ar": "LAG() تُعيد القيمة من الصف السابق وفقاً لـ ORDER BY في جملة OVER. للحصول على إيرادات الشهر السابق، تحتاج ORDER BY month (الترتيب الزمني). الترتيب حسب revenue يُعطي الصف السابق عند الترتيب حسب المبلغ، وليس حسب الزمن."
+    },
+    "xp": 25,
+    "tags": ["window functions", "LAG", "debugging"]
+  },
+  {
+    "id": "sql-a-6",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What are the four ACID properties of a database transaction?",
+      "ar": "ما هي الخصائص الأربع لـ ACID في معاملات قواعد البيانات؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Atomicity, Consistency, Isolation, Durability", "ar": "الذرية (Atomicity)، الاتساق (Consistency)، العزل (Isolation)، الديمومة (Durability)" } },
+      { "id": "b", "text": { "en": "Availability, Consistency, Integrity, Durability", "ar": "التوافر (Availability)، الاتساق (Consistency)، التكامل (Integrity)، الديمومة (Durability)" } },
+      { "id": "c", "text": { "en": "Atomicity, Concurrency, Isolation, Dependability", "ar": "الذرية (Atomicity)، التزامن (Concurrency)، العزل (Isolation)، الاعتمادية (Dependability)" } },
+      { "id": "d", "text": { "en": "Accuracy, Consistency, Isolation, Durability", "ar": "الدقة (Accuracy)، الاتساق (Consistency)، العزل (Isolation)، الديمومة (Durability)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The acronym ACID stands for four guarantees that reliable transactions must provide.",
+      "ar": "الاختصار ACID يرمز لأربعة ضمانات يجب أن توفرها المعاملات الموثوقة."
+    },
+    "explanation": {
+      "en": "ACID: Atomicity (all or nothing — transaction commits fully or rolls back), Consistency (data remains valid before and after), Isolation (concurrent transactions don't interfere), Durability (committed data survives system failures).",
+      "ar": "ACID: الذرية (الكل أو لا شيء — المعاملة تُكتمل بالكامل أو تُلغى)، الاتساق (تبقى البيانات صالحة قبل وبعد)، العزل (المعاملات المتزامنة لا تتداخل)، الديمومة (البيانات المُكتملة تبقى بعد أعطال النظام)."
+    },
+    "xp": 25,
+    "tags": ["transactions", "ACID"]
+  },
+  {
+    "id": "sql-a-7",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A report query running in READ COMMITTED isolation reads a row, then re-reads it seconds later and sees a different value because another transaction committed in between. What phenomenon is this?",
+      "ar": "استعلام تقرير يعمل في عزل READ COMMITTED يقرأ صفاً، ثم يُعيد قراءته بعد ثوانٍ ويرى قيمةً مختلفة لأن معاملةً أخرى اكتملت في الأثناء. ما هذه الظاهرة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Non-repeatable read", "ar": "القراءة غير القابلة للتكرار (Non-repeatable read)" } },
+      { "id": "b", "text": { "en": "Dirty read", "ar": "القراءة القذرة (Dirty read)" } },
+      { "id": "c", "text": { "en": "Phantom read", "ar": "القراءة الوهمية (Phantom read)" } },
+      { "id": "d", "text": { "en": "Lost update", "ar": "التحديث المفقود (Lost update)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "A dirty read involves uncommitted data. This involves committed data changing between two reads.",
+      "ar": "القراءة القذرة تتضمن بيانات غير مكتملة. هذه الظاهرة تتضمن تغيير بيانات مكتملة بين قراءتين."
+    },
+    "explanation": {
+      "en": "A non-repeatable read occurs when the same row is read twice in a transaction and the value changes between reads because another transaction committed. Dirty read is reading uncommitted data. Phantom read is about new rows appearing. REPEATABLE READ isolation prevents non-repeatable reads.",
+      "ar": "القراءة غير القابلة للتكرار تحدث عندما يُقرأ نفس الصف مرتين في معاملة وتتغير القيمة بين القراءتين لأن معاملةً أخرى اكتملت. القراءة القذرة هي قراءة بيانات غير مكتملة. القراءة الوهمية تتعلق بظهور صفوف جديدة. عزل REPEATABLE READ يمنع القراءات غير القابلة للتكرار."
+    },
+    "xp": 25,
+    "tags": ["isolation levels", "transactions", "non-repeatable read"]
+  },
+  {
+    "id": "sql-a-8",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "true-false",
+    "prompt": {
+      "en": "In SQL, EXISTS is generally more efficient than IN when the subquery returns a large result set.",
+      "ar": "في SQL، يكون EXISTS بشكل عام أكثر كفاءةً من IN عندما يُعيد الاستعلام الفرعي مجموعة نتائج كبيرة."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "EXISTS short-circuits — it stops as soon as it finds the first matching row.",
+      "ar": "EXISTS يتوقف فور إيجاد أول صف مطابق (short-circuit)."
+    },
+    "explanation": {
+      "en": "EXISTS stops scanning the subquery as soon as a matching row is found (short-circuit evaluation). IN typically materializes the entire subquery result before comparison. For large subquery results, EXISTS is usually more efficient. Modern optimizers may produce similar plans, but EXISTS is the safer choice with NULLs.",
+      "ar": "EXISTS يتوقف عن مسح الاستعلام الفرعي فور إيجاد صف مطابق (تقييم القصر). IN في العادة يجسّد نتيجة الاستعلام الفرعي بالكامل قبل المقارنة. لنتائج الاستعلامات الفرعية الكبيرة، يكون EXISTS عادةً أكثر كفاءة. قد تُنتج محسّنات حديثة خططاً مماثلة، لكن EXISTS هو الخيار الأكثر أماناً مع NULL."
+    },
+    "xp": 25,
+    "tags": ["EXISTS", "IN", "performance", "subquery"]
+  },
+  {
+    "id": "sql-a-9",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which normalization form eliminates partial functional dependencies (where a non-key column depends on only part of a composite primary key)?",
+      "ar": "أي صيغة تطبيع تُزيل الاعتماديات الوظيفية الجزئية (حيث يعتمد عمود غير مفتاحي على جزء فقط من المفتاح الأساسي المركّب)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Second Normal Form (2NF)", "ar": "الصيغة الطبيعية الثانية (2NF)" } },
+      { "id": "b", "text": { "en": "First Normal Form (1NF)", "ar": "الصيغة الطبيعية الأولى (1NF)" } },
+      { "id": "c", "text": { "en": "Third Normal Form (3NF)", "ar": "الصيغة الطبيعية الثالثة (3NF)" } },
+      { "id": "d", "text": { "en": "Boyce-Codd Normal Form (BCNF)", "ar": "صيغة بويس-كود الطبيعية (BCNF)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "1NF eliminates repeating groups. 2NF eliminates something related to composite keys.",
+      "ar": "1NF تُزيل المجموعات المتكررة. 2NF تُزيل شيئاً يتعلق بالمفاتيح المركّبة."
+    },
+    "explanation": {
+      "en": "2NF requires that every non-key attribute is fully functionally dependent on the entire primary key (relevant only when the PK is composite). 1NF ensures atomic values. 3NF eliminates transitive dependencies. BCNF is a stricter form of 3NF.",
+      "ar": "2NF تتطلب أن يعتمد كل سمة غير مفتاحية اعتماداً وظيفياً كاملاً على المفتاح الأساسي بأكمله (ذات صلة فقط عندما يكون المفتاح مركّباً). 1NF تضمن القيم الذرية. 3NF تُزيل الاعتماديات التعدّية. BCNF هي صيغة أكثر صرامة من 3NF."
+    },
+    "xp": 25,
+    "tags": ["normalization", "2NF", "database design"]
+  },
+  {
+    "id": "sql-a-10",
+    "trackId": "sql",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "A web app runs this query inside a loop for each user in the application layer. There are 1,000 users. What database-level problem does this cause?",
+      "ar": "تطبيق ويب يُشغّل هذا الاستعلام داخل حلقة لكل مستخدم في طبقة التطبيق. هناك 1,000 مستخدم. ما المشكلة على مستوى قاعدة البيانات؟"
+    },
+    "code": "SELECT * FROM orders WHERE customer_id = ?;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "N+1 query problem: 1,001 queries run instead of 1 or 2", "ar": "مشكلة N+1: تعمل 1,001 استعلام بدلاً من 1 أو 2" } },
+      { "id": "b", "text": { "en": "SQL injection vulnerability because of the placeholder ?", "ar": "ثغرة حقن SQL بسبب العنصر النائب ?" } },
+      { "id": "c", "text": { "en": "A deadlock because multiple queries touch the same table", "ar": "حالة إقفال متبادل (deadlock) لأن استعلامات متعددة تصل إلى نفس الجدول" } },
+      { "id": "d", "text": { "en": "A syntax error because parameterized queries are not valid SQL", "ar": "خطأ نحوي لأن الاستعلامات ذات المعاملات ليست SQL صالحة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Think about how many total round trips to the database happen when processing 1,000 users.",
+      "ar": "فكّر في إجمالي رحلات الذهاب والإياب إلى قاعدة البيانات عند معالجة 1,000 مستخدم."
+    },
+    "explanation": {
+      "en": "The N+1 problem: 1 query to get users, then N queries (1 per user) to get their orders = 1,001 total queries. The fix is to load all orders in one query using IN or a JOIN. Parameterized queries (?) actually prevent SQL injection — that's the correct pattern.",
+      "ar": "مشكلة N+1: استعلام واحد للحصول على المستخدمين، ثم N استعلام (1 لكل مستخدم) للحصول على طلباتهم = 1,001 استعلام إجمالاً. الحل هو تحميل جميع الطلبات في استعلام واحد باستخدام IN أو JOIN. الاستعلامات ذات المعاملات (?) تمنع حقن SQL فعلياً — وهذا هو النمط الصحيح."
+    },
+    "xp": 25,
+    "tags": ["N+1", "performance", "query optimization"]
+  },
+  {
+    "id": "sql-e-1",
+    "trackId": "sql",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this recursive CTE return given employees: (1,'Alice',NULL), (2,'Bob',1), (3,'Carol',1), (4,'Dave',2)?",
+      "ar": "ماذا يُعيد هذا الـ CTE التكراري بالنظر إلى بيانات employees: (1,'Alice',NULL), (2,'Bob',1), (3,'Carol',1), (4,'Dave',2)؟"
+    },
+    "code": "WITH RECURSIVE org AS (\n  SELECT id, name, manager_id, 0 AS depth\n  FROM employees WHERE manager_id IS NULL\n  UNION ALL\n  SELECT e.id, e.name, e.manager_id, o.depth + 1\n  FROM employees e\n  JOIN org o ON e.manager_id = o.id\n)\nSELECT name, depth FROM org ORDER BY depth, name;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Alice(0), Bob(1), Carol(1), Dave(2) — the full hierarchy with depth levels", "ar": "Alice(0)، Bob(1)، Carol(1)، Dave(2) — التسلسل الهرمي الكامل مع مستويات العمق" } },
+      { "id": "b", "text": { "en": "Only Alice(0) because NULL manager_id stops recursion", "ar": "Alice(0) فقط لأن manager_id بقيمة NULL يوقف التكرار" } },
+      { "id": "c", "text": { "en": "An error because recursive CTEs cannot self-reference", "ar": "خطأ لأن CTEs التكرارية لا يمكنها الإشارة إلى نفسها" } },
+      { "id": "d", "text": { "en": "Alice(0), Bob(1), Carol(1) — Dave is skipped because his manager is not in the anchor", "ar": "Alice(0)، Bob(1)، Carol(1) — Dave يُتخطى لأن مديره ليس في الـ anchor" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The anchor selects the root (manager_id IS NULL). Each recursive step joins employees to the current org result.",
+      "ar": "الـ anchor يختار الجذر (manager_id IS NULL). كل خطوة تكرارية تربط employees بنتيجة org الحالية."
+    },
+    "explanation": {
+      "en": "Iteration 1 (anchor): Alice (depth 0). Iteration 2: Bob and Carol join on manager_id=1=Alice.id (depth 1). Iteration 3: Dave joins on manager_id=2=Bob.id (depth 2). No more rows. Final result ordered by depth then name: Alice(0), Bob(1), Carol(1), Dave(2).",
+      "ar": "التكرار 1 (anchor): Alice (عمق 0). التكرار 2: Bob وCarol ينضمان على manager_id=1=Alice.id (عمق 1). التكرار 3: Dave ينضم على manager_id=2=Bob.id (عمق 2). لا مزيد من الصفوف. النتيجة النهائية مرتّبةً حسب العمق ثم الاسم: Alice(0)، Bob(1)، Carol(1)، Dave(2)."
+    },
+    "xp": 30,
+    "tags": ["CTE", "recursive CTE", "hierarchical"]
+  },
+  {
+    "id": "sql-e-2",
+    "trackId": "sql",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "Two transactions run concurrently. Transaction A: locks row 1 then tries to lock row 2. Transaction B: locks row 2 then tries to lock row 1. What happens and how do databases handle it?",
+      "ar": "تعمل معاملتان بشكل متزامن. المعاملة A: تقفل الصف 1 ثم تحاول قفل الصف 2. المعاملة B: تقفل الصف 2 ثم تحاول قفل الصف 1. ماذا يحدث وكيف تتعامل قواعد البيانات معه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "A deadlock occurs; the database detects it and rolls back one transaction", "ar": "يحدث إقفال متبادل (deadlock)؛ تكتشفه قاعدة البيانات وتُلغي إحدى المعاملتين" } },
+      { "id": "b", "text": { "en": "Both transactions wait forever (livelock)", "ar": "كلتا المعاملتين تنتظر إلى الأبد (livelock)" } },
+      { "id": "c", "text": { "en": "Transaction A wins because it started first", "ar": "المعاملة A تفوز لأنها بدأت أولاً" } },
+      { "id": "d", "text": { "en": "SQL automatically merges both transactions into one", "ar": "SQL تدمج المعاملتين تلقائياً في معاملة واحدة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is the classic deadlock scenario: a circular wait between two transactions.",
+      "ar": "هذا هو سيناريو الإقفال المتبادل الكلاسيكي: انتظار دائري بين معاملتين."
+    },
+    "explanation": {
+      "en": "This is a classic deadlock (circular wait). Modern databases (PostgreSQL, MySQL InnoDB) use a deadlock detection algorithm. When detected, the database chooses a 'victim' (typically the transaction that has done less work) and rolls it back with an error. The other transaction proceeds.",
+      "ar": "هذا إقفال متبادل كلاسيكي (انتظار دائري). قواعد البيانات الحديثة (PostgreSQL، MySQL InnoDB) تستخدم خوارزمية كشف الإقفال المتبادل. عند اكتشافه، تختار قاعدة البيانات 'ضحية' (عادةً المعاملة التي أنجزت عملاً أقل) وتُلغيها بخطأ. المعاملة الأخرى تستمر."
+    },
+    "xp": 30,
+    "tags": ["deadlock", "transactions", "locking"]
+  },
+  {
+    "id": "sql-e-3",
+    "trackId": "sql",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "Given a `sales` table with rows: (Jan, 100), (Feb, 200), (Mar, 150), what does this query return for the Feb row? (months sorted alphabetically: Feb, Jan, Mar)",
+      "ar": "بفرض وجود جدول sales بصفوف: (Jan, 100)، (Feb, 200)، (Mar, 150)، ماذا يُعيد هذا الاستعلام لصف Feb؟ (الأشهر مرتّبة أبجدياً: Feb، Jan، Mar)"
+    },
+    "code": "SELECT month, revenue,\n  LAG(revenue, 1, 0) OVER (ORDER BY month) AS prev_rev,\n  revenue - LAG(revenue, 1, 0) OVER (ORDER BY month) AS change\nFROM sales;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "month=Feb, revenue=200, prev_rev=0, change=200 (Feb is first alphabetically, no previous row)", "ar": "month=Feb, revenue=200, prev_rev=0, change=200 (Feb هو الأول أبجدياً، لا يوجد صف سابق)" } },
+      { "id": "b", "text": { "en": "month=Feb, revenue=200, prev_rev=100, change=100", "ar": "month=Feb، revenue=200، prev_rev=100، change=100" } },
+      { "id": "c", "text": { "en": "month=Feb, revenue=200, prev_rev=150, change=50", "ar": "month=Feb، revenue=200، prev_rev=150، change=50" } },
+      { "id": "d", "text": { "en": "month=Feb, revenue=200, prev_rev=NULL, change=NULL", "ar": "month=Feb، revenue=200، prev_rev=NULL، change=NULL" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "LAG(revenue, 1, 0) means: look back 1 row, default to 0 if no previous row. ORDER BY month sorts alphabetically.",
+      "ar": "LAG(revenue, 1, 0) تعني: انظر صفاً واحداً للخلف، افتراضي 0 إذا لم يوجد صف سابق. ORDER BY month يُرتّب أبجدياً."
+    },
+    "explanation": {
+      "en": "ORDER BY month sorts alphabetically: Feb, Jan, Mar. Feb is the first row — there is no previous row, so the default value 0 is used. prev_rev=0, change=200-0=200. For Jan (second row): prev_rev=200 (Feb's revenue), change=100-200=-100.",
+      "ar": "ORDER BY month يُرتّب أبجدياً: Feb، Jan، Mar. Feb هو الصف الأول — لا يوجد صف سابق، فتُستخدم القيمة الافتراضية 0. prev_rev=0، change=200-0=200. لـ Jan (الصف الثاني): prev_rev=200 (إيرادات Feb)، change=100-200=-100."
+    },
+    "xp": 30,
+    "tags": ["window functions", "LAG", "LEAD", "ORDER BY"]
+  },
+  {
+    "id": "sql-e-4",
+    "trackId": "sql",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "A query uses a LIKE filter: WHERE email LIKE '%@gmail.com'. An index exists on the email column. Will the index be used?",
+      "ar": "استعلام يستخدم مرشح LIKE: WHERE email LIKE '%@gmail.com'. يوجد فهرس على عمود email. هل سيُستخدم الفهرس؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "No — a leading wildcard (%) prevents index usage; a full table scan occurs", "ar": "لا — الحرف البديل في البداية (%) يمنع استخدام الفهرس؛ يحدث مسح كامل للجدول" } },
+      { "id": "b", "text": { "en": "Yes — the index is always used with LIKE", "ar": "نعم — يُستخدم الفهرس دائماً مع LIKE" } },
+      { "id": "c", "text": { "en": "Yes — but only in PostgreSQL, not MySQL", "ar": "نعم — لكن في PostgreSQL فقط، وليس MySQL" } },
+      { "id": "d", "text": { "en": "The query will return an error because LIKE is incompatible with indexed columns", "ar": "سيُعيد الاستعلام خطأ لأن LIKE غير متوافق مع الأعمدة المفهرسة" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "B-tree indexes work by comparing from the leftmost character. What happens when the pattern starts with a wildcard?",
+      "ar": "تعمل فهارس B-tree بالمقارنة من أقصى يسار النص. ماذا يحدث عندما يبدأ النمط بحرف بديل؟"
+    },
+    "explanation": {
+      "en": "B-tree indexes support prefix searches (email LIKE 'john%') but cannot efficiently handle leading wildcards ('%@gmail.com') because the index is sorted by the leftmost characters. The engine cannot skip to relevant entries, so it falls back to a full table scan. Solutions: reverse the string, use full-text search, or store domain separately.",
+      "ar": "فهارس B-tree تدعم البحث بالبادئة (email LIKE 'john%') لكن لا تستطيع التعامل بكفاءة مع الحرف البديل في البداية ('%@gmail.com') لأن الفهرس مرتّب حسب الأحرف الأولى. لا يستطيع المحرك القفز إلى الإدخالات ذات الصلة، فيلجأ إلى مسح الجدول الكامل. الحلول: عكس النص، استخدام البحث النصي الكامل، أو تخزين النطاق بشكل منفصل."
+    },
+    "xp": 30,
+    "tags": ["indexes", "LIKE", "performance", "B-tree"]
+  },
+  {
+    "id": "sql-e-5",
+    "trackId": "sql",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the key difference between INTERSECT and INNER JOIN when combining data from two tables?",
+      "ar": "ما الفرق الرئيسي بين INTERSECT وINNER JOIN عند دمج البيانات من جدولين؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "INTERSECT returns rows that appear in both result sets (set operation on all columns); INNER JOIN matches rows on specified key columns", "ar": "INTERSECT تُعيد الصفوف الموجودة في كلتا مجموعتَي النتائج (عملية مجموعة على جميع الأعمدة)؛ INNER JOIN تُطابق الصفوف على أعمدة مفتاح محددة" } },
+      { "id": "b", "text": { "en": "INTERSECT and INNER JOIN produce exactly the same results", "ar": "INTERSECT وINNER JOIN يُنتجان نتائج متطابقة تماماً" } },
+      { "id": "c", "text": { "en": "INTERSECT can only be used with the same table; INNER JOIN combines different tables", "ar": "INTERSECT يمكن استخدامه مع نفس الجدول فقط؛ INNER JOIN يجمع جداول مختلفة" } },
+      { "id": "d", "text": { "en": "INNER JOIN is a set operation; INTERSECT is a join operation", "ar": "INNER JOIN هو عملية مجموعة؛ INTERSECT هو عملية ربط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "INTERSECT is a set operation — it compares entire rows across queries with identical column structures.",
+      "ar": "INTERSECT هي عملية مجموعة — تقارن الصفوف بأكملها عبر استعلامات ذات بنية أعمدة متطابقة."
+    },
+    "explanation": {
+      "en": "INTERSECT returns distinct rows present in both SELECT results; the queries must have the same number and type of columns. INNER JOIN combines rows from different tables based on a join condition (ON clause) and can produce new columns from both tables. They solve different problems.",
+      "ar": "INTERSECT تُعيد الصفوف المتمايزة الموجودة في كلا نتيجتَي SELECT؛ يجب أن تمتلك الاستعلامات نفس عدد الأعمدة ونوعها. INNER JOIN تجمع الصفوف من جداول مختلفة بناءً على شرط الربط (جملة ON) ويمكنها إنتاج أعمدة جديدة من كلا الجدولين. كلتاهما تحل مشكلات مختلفة."
+    },
+    "xp": 30,
+    "tags": ["INTERSECT", "INNER JOIN", "set operations"]
+  },
+  {
+    "id": "sql-boss-1",
+    "trackId": "sql",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "A table `t` has rows: (1, NULL), (2, 5), (3, 10). What does this query return?",
+      "ar": "جدول t يحتوي على صفوف: (1, NULL)، (2, 5)، (3, 10). ماذا يُعيد هذا الاستعلام؟"
+    },
+    "code": "SELECT\n  COUNT(*) AS cnt_star,\n  COUNT(val) AS cnt_val,\n  SUM(val) AS sum_val,\n  AVG(val) AS avg_val\nFROM t;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "cnt_star=3, cnt_val=2, sum_val=15, avg_val=7.5", "ar": "cnt_star=3، cnt_val=2، sum_val=15، avg_val=7.5" } },
+      { "id": "b", "text": { "en": "cnt_star=3, cnt_val=3, sum_val=15, avg_val=5", "ar": "cnt_star=3، cnt_val=3، sum_val=15، avg_val=5" } },
+      { "id": "c", "text": { "en": "cnt_star=3, cnt_val=2, sum_val=15, avg_val=5", "ar": "cnt_star=3، cnt_val=2، sum_val=15، avg_val=5" } },
+      { "id": "d", "text": { "en": "cnt_star=3, cnt_val=2, sum_val=NULL, avg_val=NULL", "ar": "cnt_star=3، cnt_val=2، sum_val=NULL، avg_val=NULL" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Aggregate functions ignore NULLs except COUNT(*). AVG divides by the count of non-NULL values.",
+      "ar": "دوال التجميع تتجاهل NULL باستثناء COUNT(*). AVG تقسم على عدد القيم غير الـ NULL."
+    },
+    "explanation": {
+      "en": "COUNT(*) counts all rows = 3. COUNT(val) ignores NULL = 2. SUM(val) = 5+10 = 15 (NULL ignored). AVG(val) = SUM/COUNT(non-null) = 15/2 = 7.5, NOT 15/3=5. This surprises many developers: AVG denominates over non-NULL rows only.",
+      "ar": "COUNT(*) تحسب جميع الصفوف = 3. COUNT(val) تتجاهل NULL = 2. SUM(val) = 5+10 = 15 (NULL مُتجاهَل). AVG(val) = المجموع/عدد(غير NULL) = 15/2 = 7.5، وليس 15/3=5. هذا يُفاجئ كثيراً من المطوّرين: AVG تقسم على الصفوف غير الـ NULL فقط."
+    },
+    "xp": 50,
+    "tags": ["NULL", "aggregates", "COUNT", "AVG", "SUM"]
+  },
+  {
+    "id": "sql-boss-2",
+    "trackId": "sql",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "Given orders table: (id=1, cid=1, amt=100), (id=2, cid=2, amt=200), (id=3, cid=1, amt=150). What does this window query return for the row with id=1?",
+      "ar": "بفرض جدول orders: (id=1, cid=1, amt=100)، (id=2, cid=2, amt=200)، (id=3, cid=1, amt=150). ماذا يُعيد استعلام النافذة هذا للصف ذي id=1؟"
+    },
+    "code": "SELECT id, cid, amt,\n  SUM(amt) OVER (PARTITION BY cid ORDER BY id\n    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total\nFROM orders;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "id=1, cid=1, amt=100, running_total=100", "ar": "id=1، cid=1، amt=100، running_total=100" } },
+      { "id": "b", "text": { "en": "id=1, cid=1, amt=100, running_total=250", "ar": "id=1، cid=1، amt=100، running_total=250" } },
+      { "id": "c", "text": { "en": "id=1, cid=1, amt=100, running_total=450", "ar": "id=1، cid=1، amt=100، running_total=450" } },
+      { "id": "d", "text": { "en": "id=1, cid=1, amt=100, running_total=NULL", "ar": "id=1، cid=1، amt=100، running_total=NULL" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "PARTITION BY cid means the running total resets per customer. For cid=1, id=1 is the first row in that partition.",
+      "ar": "PARTITION BY cid يعني إعادة ضبط الإجمالي المتراكم لكل عميل. بالنسبة لـ cid=1، id=1 هو أول صف في ذلك الـ partition."
+    },
+    "explanation": {
+      "en": "PARTITION BY cid divides rows by customer. For cid=1: rows are id=1 (amt=100) and id=3 (amt=150), ordered by id. For id=1 (first row in partition): ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW includes only this row, so running_total=100. For id=3: running_total=100+150=250.",
+      "ar": "PARTITION BY cid يقسّم الصفوف حسب العميل. لـ cid=1: الصفوف هي id=1 (amt=100) وid=3 (amt=150)، مرتّبةً حسب id. لـ id=1 (أول صف في partition): ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW يشمل هذا الصف فقط، لذا running_total=100. لـ id=3: running_total=100+150=250."
+    },
+    "xp": 50,
+    "tags": ["window functions", "SUM", "PARTITION BY", "running total"]
+  },
+  {
+    "id": "sql-boss-3",
+    "trackId": "sql",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "A security audit finds this code in a web application. What is the critical vulnerability and the correct fix?",
+      "ar": "يجد تدقيق أمني هذا الكود في تطبيق ويب. ما الثغرة الحرجة والإصلاح الصحيح؟"
+    },
+    "code": "-- Python pseudocode\nquery = \"SELECT * FROM users WHERE username='\" + username + \"'\";\ndb.execute(query);",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "SQL injection — fix by using parameterized queries: db.execute('SELECT * FROM users WHERE username=?', [username])", "ar": "حقن SQL — الإصلاح باستخدام استعلامات ذات معاملات: db.execute('SELECT * FROM users WHERE username=?', [username])" } },
+      { "id": "b", "text": { "en": "Cross-site scripting (XSS) — fix by HTML-encoding the username", "ar": "برمجة عبر المواقع (XSS) — الإصلاح بترميز username بـ HTML" } },
+      { "id": "c", "text": { "en": "Race condition — fix by wrapping the query in a transaction", "ar": "حالة سباق (race condition) — الإصلاح بتغليف الاستعلام في معاملة" } },
+      { "id": "d", "text": { "en": "Slow query — fix by adding an index on the username column", "ar": "استعلام بطيء — الإصلاح بإضافة فهرس على عمود username" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "What happens if username is: ' OR '1'='1",
+      "ar": "ماذا يحدث إذا كانت قيمة username: ' OR '1'='1"
+    },
+    "explanation": {
+      "en": "String concatenation with user input allows SQL injection. Input ' OR '1'='1 makes the query return all users. Parameterized queries (prepared statements) separate SQL logic from data, so user input is always treated as a literal value, never as SQL code.",
+      "ar": "دمج نص مع مدخلات المستخدم يسمح بحقن SQL. المدخل ' OR '1'='1 يجعل الاستعلام يُعيد جميع المستخدمين. الاستعلامات ذات المعاملات (prepared statements) تفصل منطق SQL عن البيانات، لذا تُعامَل مدخلات المستخدم دائماً كقيمة حرفية وليست كود SQL."
+    },
+    "xp": 50,
+    "tags": ["SQL injection", "security", "parameterized queries"]
+  },
+  {
+    "id": "sql-boss-4",
+    "trackId": "sql",
+    "level": "boss",
+    "type": "code-output",
+    "prompt": {
+      "en": "Table `nums` has rows: (1), (2), (3), (NULL). What do these two queries return?",
+      "ar": "جدول nums يحتوي على صفوف: (1)، (2)، (3)، (NULL). ماذا يُعيد هذان الاستعلامان؟"
+    },
+    "code": "-- Query A\nSELECT * FROM nums WHERE n NOT IN (1, 2, NULL);\n\n-- Query B\nSELECT * FROM nums WHERE n NOT IN (1, 2);",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Query A: empty result; Query B: returns row (3)", "ar": "الاستعلام A: نتيجة فارغة؛ الاستعلام B: يُعيد الصف (3)" } },
+      { "id": "b", "text": { "en": "Query A: returns (3); Query B: returns (3) and (NULL)", "ar": "الاستعلام A: يُعيد (3)؛ الاستعلام B: يُعيد (3) و(NULL)" } },
+      { "id": "c", "text": { "en": "Both queries return the same result: (3)", "ar": "كلا الاستعلامَين يُعيدان نفس النتيجة: (3)" } },
+      { "id": "d", "text": { "en": "Both queries return an error because NULL cannot be in an IN list", "ar": "كلا الاستعلامَين يُعيدان خطأ لأن NULL لا يمكن أن يكون في قائمة IN" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "X NOT IN (list) is equivalent to X != val1 AND X != val2 AND X != NULL. What does X != NULL evaluate to?",
+      "ar": "X NOT IN (قائمة) مكافئ لـ X != val1 AND X != val2 AND X != NULL. ما الذي يُعطيه X != NULL؟"
+    },
+    "explanation": {
+      "en": "Query A: NOT IN (1, 2, NULL) expands to n!=1 AND n!=2 AND n!=NULL. Since n!=NULL is always NULL (unknown), the AND chain is always NULL — no row passes. Query A returns empty. Query B: NOT IN (1, 2) — row 3 passes (3!=1 AND 3!=2 = TRUE). NULL row: NULL!=1 is NULL, chain is NULL, so NULL row is excluded too. Query B returns only (3).",
+      "ar": "الاستعلام A: NOT IN (1, 2, NULL) يتوسّع إلى n!=1 AND n!=2 AND n!=NULL. بما أن n!=NULL دائماً NULL (مجهول)، سلسلة AND دائماً NULL — لا صف يجتاز. الاستعلام A يُعيد فارغاً. الاستعلام B: NOT IN (1, 2) — الصف 3 يجتاز (3!=1 AND 3!=2 = TRUE). صف NULL: NULL!=1 هو NULL، السلسلة NULL، لذا يُستثنى صف NULL أيضاً. الاستعلام B يُعيد (3) فقط."
+    },
+    "xp": 50,
+    "tags": ["NULL", "NOT IN", "logic", "tricky"]
+  },
+  {
+    "id": "sql-boss-5",
+    "trackId": "sql",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "A data analyst needs the top 3 highest-paid employees per department, showing ties (equal salaries) as the same rank without gaps. Which query correctly solves this?",
+      "ar": "يحتاج محلل بيانات إلى أعلى 3 موظفين راتباً لكل قسم، مع إظهار التعادلات (الرواتب المتساوية) بنفس الرتبة بدون ثغرات. أي استعلام يحل هذا بشكل صحيح؟"
+    },
+    "code": "-- Option A\nSELECT * FROM (\n  SELECT *, DENSE_RANK() OVER\n    (PARTITION BY department ORDER BY salary DESC) AS dr\n  FROM employees\n) ranked WHERE dr <= 3;\n\n-- Option B\nSELECT * FROM (\n  SELECT *, ROW_NUMBER() OVER\n    (PARTITION BY department ORDER BY salary DESC) AS rn\n  FROM employees\n) ranked WHERE rn <= 3;\n\n-- Option C\nSELECT * FROM (\n  SELECT *, RANK() OVER\n    (PARTITION BY department ORDER BY salary DESC) AS r\n  FROM employees\n) ranked WHERE r <= 3;",
+    "codeLang": "sql",
+    "options": [
+      { "id": "a", "text": { "en": "Option A (DENSE_RANK) — ties share the same rank and no numbers are skipped, so exactly the top-3 salary levels are included", "ar": "الخيار A (DENSE_RANK) — التعادلات تشترك في نفس الرتبة ولا تُتخطى أرقام، لذا تُضمَّن مستويات الرواتب الـ3 الأعلى بالضبط" } },
+      { "id": "b", "text": { "en": "Option B (ROW_NUMBER) — it correctly handles ties by giving each tied row a unique number", "ar": "الخيار B (ROW_NUMBER) — يتعامل بشكل صحيح مع التعادلات بإعطاء كل صف متعادل رقماً فريداً" } },
+      { "id": "c", "text": { "en": "Option C (RANK) — RANK handles ties better than DENSE_RANK for this case", "ar": "الخيار C (RANK) — RANK يتعامل مع التعادلات بشكل أفضل من DENSE_RANK في هذه الحالة" } },
+      { "id": "d", "text": { "en": "All three options produce identical results for this requirement", "ar": "الخيارات الثلاثة جميعها تُنتج نتائج متطابقة لهذا المتطلب" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Consider: if salaries are 90, 90, 80, 70. How many rows does each option return with filter <= 3?",
+      "ar": "ضع في الاعتبار: إذا كانت الرواتب 90، 90، 80، 70. كم صفاً يُعيد كل خيار مع مرشح <= 3؟"
+    },
+    "explanation": {
+      "en": "For salaries 90,90,80,70: DENSE_RANK gives 1,1,2,3 — filter <=3 returns 4 rows (top 3 salary levels, including both 90s). RANK gives 1,1,3,4 — filter <=3 returns only 2 rows (both 90s, skips 80). ROW_NUMBER gives 1,2,3,4 — filter <=3 returns exactly 3 rows but arbitrarily breaks ties (one 90 is excluded). DENSE_RANK correctly meets the requirement.",
+      "ar": "للرواتب 90،90،80،70: DENSE_RANK تُعطي 1،1،2،3 — المرشح <=3 يُعيد 4 صفوف (أعلى 3 مستويات رواتب، بما فيها كلا الـ90). RANK تُعطي 1،1،3،4 — المرشح <=3 يُعيد 2 صفوف فقط (كلا الـ90، تتخطى 80). ROW_NUMBER تُعطي 1،2،3،4 — المرشح <=3 يُعيد 3 صفوف بالضبط لكن يكسر التعادلات بشكل تعسفي (أحد الـ90 مُستثنى). DENSE_RANK تُلبّي المتطلب بشكل صحيح."
+    },
+    "xp": 50,
+    "tags": ["window functions", "DENSE_RANK", "ROW_NUMBER", "RANK", "top-N per group"]
   }
 ]
