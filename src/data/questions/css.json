@@ -5,67 +5,1100 @@
     "level": "beginner",
     "type": "multiple-choice",
     "prompt": {
-      "en": "Which property changes the text color?",
-      "ar": "أي خاصية تغيّر لون النص؟"
+      "en": "Which CSS property controls the space between the content and the element's border?",
+      "ar": "أي خاصية CSS تتحكم في المسافة بين المحتوى وحدود العنصر؟"
     },
     "options": [
-      { "id": "a", "text": { "en": "font-color", "ar": "font-color" } },
-      { "id": "b", "text": { "en": "color", "ar": "color" } },
-      { "id": "c", "text": { "en": "text-style", "ar": "text-style" } },
-      { "id": "d", "text": { "en": "foreground", "ar": "foreground" } }
+      { "id": "a", "text": { "en": "margin", "ar": "margin" } },
+      { "id": "b", "text": { "en": "padding", "ar": "padding" } },
+      { "id": "c", "text": { "en": "border-spacing", "ar": "border-spacing" } },
+      { "id": "d", "text": { "en": "gap", "ar": "gap" } }
     ],
     "correctOptionId": "b",
+    "hint": {
+      "en": "Think of the box model: content → padding → border → margin.",
+      "ar": "فكّر في نموذج الصندوق: المحتوى ← padding ← border ← margin."
+    },
     "explanation": {
-      "en": "The `color` property sets the foreground (text) color of an element.",
-      "ar": "تحدّد الخاصية `color` لون المقدّمة (النص) للعنصر."
+      "en": "padding is the space between the element's content and its border. margin is the space outside the border.",
+      "ar": "padding هي المسافة بين محتوى العنصر وحدوده (border). أما margin فهي المسافة خارج الحدود."
     },
     "xp": 10,
-    "tags": ["basics"]
+    "tags": ["box-model", "padding"]
+  },
+  {
+    "id": "css-b-2",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "Setting `display: inline` on an element allows you to set a width and height on it.",
+      "ar": "تعيين display: inline على عنصر يتيح لك ضبط عرضه وارتفاعه."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "inline elements only take as much width as their content needs.",
+      "ar": "العناصر inline تأخذ فقط العرض الذي يحتاجه محتواها."
+    },
+    "explanation": {
+      "en": "Inline elements ignore width and height properties. Use display: inline-block or display: block to control dimensions.",
+      "ar": "العناصر ذات display: inline تتجاهل خصائص width و height. استخدم inline-block أو block للتحكم في الأبعاد."
+    },
+    "xp": 10,
+    "tags": ["display", "inline"]
+  },
+  {
+    "id": "css-b-3",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "What is the default value of the `position` property?",
+      "ar": "ما القيمة الافتراضية لخاصية position؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "relative", "ar": "relative" } },
+      { "id": "b", "text": { "en": "absolute", "ar": "absolute" } },
+      { "id": "c", "text": { "en": "static", "ar": "static" } },
+      { "id": "d", "text": { "en": "fixed", "ar": "fixed" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "This value means the element follows normal document flow and top/left/right/bottom have no effect.",
+      "ar": "هذه القيمة تعني أن العنصر يتبع التدفق الطبيعي للمستند، ولا تؤثر فيه خصائص top/left/right/bottom."
+    },
+    "explanation": {
+      "en": "position: static is the default. Elements in static position are laid out in normal document flow; offset properties have no effect.",
+      "ar": "position: static هي القيمة الافتراضية. العناصر ذات الوضع static تتبع التدفق الطبيعي للمستند ولا تتأثر بخصائص الإزاحة."
+    },
+    "xp": 10,
+    "tags": ["position"]
+  },
+  {
+    "id": "css-b-4",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "code-output",
+    "prompt": {
+      "en": "What color will the paragraph text be?",
+      "ar": "ما لون نص الفقرة؟"
+    },
+    "code": "body {\n  color: blue;\n}\np {\n  /* no color set */\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "black (browser default)", "ar": "أسود (الافتراضي في المتصفح)" } },
+      { "id": "b", "text": { "en": "blue (inherited from body)", "ar": "أزرق (موروث من body)" } },
+      { "id": "c", "text": { "en": "transparent", "ar": "شفاف" } },
+      { "id": "d", "text": { "en": "It will throw an error", "ar": "سيرمي خطأ" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The color property is inherited by child elements.",
+      "ar": "خاصية color موروثة من العناصر الأب."
+    },
+    "explanation": {
+      "en": "color is an inherited property. Since the p element has no explicit color, it inherits blue from body.",
+      "ar": "خاصية color قابلة للوراثة. بما أن عنصر p لا يحدد لوناً صريحاً، فإنه يرث اللون الأزرق من body."
+    },
+    "xp": 10,
+    "tags": ["cascade", "inheritance", "color"]
+  },
+  {
+    "id": "css-b-5",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which selector has the highest specificity?",
+      "ar": "أي من المحددات التالية له أعلى تحديد (specificity)؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": ".card", "ar": ".card" } },
+      { "id": "b", "text": { "en": "div", "ar": "div" } },
+      { "id": "c", "text": { "en": "#header", "ar": "#header" } },
+      { "id": "d", "text": { "en": "div.card", "ar": "div.card" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "ID selectors have the highest specificity among regular selectors.",
+      "ar": "محددات المعرف (ID) لها أعلى تحديد بين المحددات العادية."
+    },
+    "explanation": {
+      "en": "Specificity is calculated as (IDs, classes, elements). #header = (1,0,0), div.card = (0,1,1), .card = (0,1,0), div = (0,0,1). #header wins.",
+      "ar": "يُحسب التحديد على شكل (معرفات، فئات، عناصر). #header = (1,0,0) وهو الأعلى."
+    },
+    "xp": 10,
+    "tags": ["specificity", "selectors"]
+  },
+  {
+    "id": "css-b-6",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "fill-blank",
+    "prompt": {
+      "en": "To make a flex container wrap its items onto multiple lines, you set `flex-wrap` to ______.",
+      "ar": "لجعل حاوية flex تلتف على أسطر متعددة، تضع قيمة flex-wrap على ______."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "wrap", "ar": "wrap" } },
+      { "id": "b", "text": { "en": "nowrap", "ar": "nowrap" } },
+      { "id": "c", "text": { "en": "auto", "ar": "auto" } },
+      { "id": "d", "text": { "en": "wrap-reverse", "ar": "wrap-reverse" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "The default is nowrap, which squeezes items into one line.",
+      "ar": "القيمة الافتراضية هي nowrap، التي تضغط العناصر في سطر واحد."
+    },
+    "explanation": {
+      "en": "flex-wrap: wrap allows flex items to flow onto the next line when they exceed the container's width.",
+      "ar": "flex-wrap: wrap يسمح لعناصر flex بالانتقال إلى السطر التالي عند تجاوز عرض الحاوية."
+    },
+    "xp": 10,
+    "tags": ["flexbox", "flex-wrap"]
+  },
+  {
+    "id": "css-b-7",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which unit is relative to the root element's font size?",
+      "ar": "أي وحدة تكون نسبية إلى حجم خط العنصر الجذر؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "em", "ar": "em" } },
+      { "id": "b", "text": { "en": "rem", "ar": "rem" } },
+      { "id": "c", "text": { "en": "vh", "ar": "vh" } },
+      { "id": "d", "text": { "en": "ch", "ar": "ch" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The 'r' stands for 'root'.",
+      "ar": "الحرف 'r' يرمز إلى 'root' أي الجذر."
+    },
+    "explanation": {
+      "en": "rem (root em) is relative to the font-size of the html element, while em is relative to the current element's own font-size.",
+      "ar": "rem (root em) نسبية إلى font-size الخاص بعنصر html، بينما em نسبية إلى حجم خط العنصر الحالي."
+    },
+    "xp": 10,
+    "tags": ["units", "rem", "em"]
+  },
+  {
+    "id": "css-b-8",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "debugging",
+    "prompt": {
+      "en": "A developer wants to center a div horizontally on the page. What is wrong with this code?",
+      "ar": "يريد مطوّر توسيط div أفقياً في الصفحة. ما الخطأ في هذا الكود؟"
+    },
+    "code": ".container {\n  width: 500px;\n  margin: auto;\n  display: inline;\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "margin: auto only works on block-level elements with a defined width", "ar": "margin: auto تعمل فقط على العناصر block-level ذات العرض المحدد" } },
+      { "id": "b", "text": { "en": "width cannot be set in pixels", "ar": "لا يمكن تحديد العرض بالبكسل" } },
+      { "id": "c", "text": { "en": "auto is not a valid margin value", "ar": "auto ليست قيمة صالحة لـ margin" } },
+      { "id": "d", "text": { "en": "The container needs a height too", "ar": "تحتاج الحاوية إلى تحديد ارتفاع أيضاً" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "display: inline ignores width, which means margin: auto has nothing to work with.",
+      "ar": "display: inline يتجاهل العرض، مما يعني أن margin: auto لن تعمل."
+    },
+    "explanation": {
+      "en": "margin: auto for horizontal centering requires a block-level element with a set width. display: inline removes block behavior, so the centering fails. Fix: remove display: inline or use display: block.",
+      "ar": "يتطلب margin: auto للتوسيط الأفقي عنصراً من نوع block مع عرض محدد. display: inline يُزيل سلوك block، مما يُفشل التوسيط. الحل: احذف display: inline أو استخدم display: block."
+    },
+    "xp": 10,
+    "tags": ["centering", "margin", "display"]
+  },
+  {
+    "id": "css-b-9",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which pseudo-class targets an element when the user hovers over it?",
+      "ar": "أي شبه فئة (pseudo-class) تستهدف العنصر عندما يمرر المستخدم المؤشر فوقه؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": ":focus", "ar": ":focus" } },
+      { "id": "b", "text": { "en": ":active", "ar": ":active" } },
+      { "id": "c", "text": { "en": ":hover", "ar": ":hover" } },
+      { "id": "d", "text": { "en": ":visited", "ar": ":visited" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "Think about what happens when your mouse pointer is over a button.",
+      "ar": "فكّر فيما يحدث عندما يكون مؤشر الفأرة فوق زر."
+    },
+    "explanation": {
+      "en": ":hover is triggered when the pointer is over the element. :focus is for keyboard/input focus, :active is while being clicked, :visited is for visited links.",
+      "ar": ":hover يُفعَّل عندما يكون المؤشر فوق العنصر. :focus للتركيز عبر لوحة المفاتيح، :active أثناء النقر، :visited للروابط المزارة."
+    },
+    "xp": 10,
+    "tags": ["pseudo-classes"]
+  },
+  {
+    "id": "css-b-10",
+    "trackId": "css",
+    "level": "beginner",
+    "type": "true-false",
+    "prompt": {
+      "en": "The `border-box` value of `box-sizing` includes padding and border inside the element's stated width and height.",
+      "ar": "قيمة border-box للخاصية box-sizing تتضمن padding و border ضمن العرض والارتفاع المحددَين للعنصر."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "This is why most modern CSS resets apply box-sizing: border-box globally.",
+      "ar": "هذا هو سبب تطبيق معظم إعادة ضبط CSS الحديثة لـ box-sizing: border-box بشكل عام."
+    },
+    "explanation": {
+      "en": "With box-sizing: border-box, padding and border are included within the element's width/height. The default content-box adds them on top of the declared dimensions.",
+      "ar": "مع box-sizing: border-box يُحتسب padding و border ضمن العرض والارتفاع المحددَين. القيمة الافتراضية content-box تُضيفهما فوق الأبعاد المحددة."
+    },
+    "xp": 10,
+    "tags": ["box-model", "box-sizing"]
   },
   {
     "id": "css-i-1",
     "trackId": "css",
     "level": "intermediate",
-    "type": "multiple-choice",
+    "type": "debugging",
     "prompt": {
-      "en": "Which display value enables a one-dimensional flexible layout?",
-      "ar": "أي قيمة لـ display تفعّل تخطيطًا مرنًا أحادي البعد؟"
+      "en": "A developer sets z-index: 999 on an element but it still appears behind another element. Which of the following is the most likely cause?",
+      "ar": "يضع مطوّر z-index: 999 على عنصر لكنه لا يزال يظهر خلف عنصر آخر. ما السبب الأرجح لذلك؟"
     },
+    "code": ".parent {\n  position: relative;\n  z-index: 1;\n}\n.child {\n  position: absolute;\n  z-index: 999;\n}\n.rival {\n  position: relative;\n  z-index: 2;\n}",
+    "codeLang": "css",
     "options": [
-      { "id": "a", "text": { "en": "grid", "ar": "grid" } },
-      { "id": "b", "text": { "en": "block", "ar": "block" } },
-      { "id": "c", "text": { "en": "flex", "ar": "flex" } },
-      { "id": "d", "text": { "en": "inline", "ar": "inline" } }
+      { "id": "a", "text": { "en": "z-index only works on position: static elements", "ar": "z-index يعمل فقط على عناصر position: static" } },
+      { "id": "b", "text": { "en": "The child's stacking context is confined within its parent, whose z-index (1) is lower than rival's (2)", "ar": "سياق التكديس للعنصر الابن محصور داخل أبيه الذي له z-index: 1 وهو أقل من z-index: 2 للعنصر المنافس" } },
+      { "id": "c", "text": { "en": "z-index: 999 is too high and is clamped by the browser", "ar": "z-index: 999 مرتفع جداً ويُقيَّد بواسطة المتصفح" } },
+      { "id": "d", "text": { "en": "position: absolute removes elements from stacking context entirely", "ar": "position: absolute يُزيل العناصر من سياق التكديس كلياً" } }
     ],
-    "correctOptionId": "c",
+    "correctOptionId": "b",
+    "hint": {
+      "en": "A positioned element with a z-index creates a new stacking context for its children.",
+      "ar": "العنصر ذو الموضع المحدد مع z-index يُنشئ سياق تكديس جديداً لأبنائه."
+    },
     "explanation": {
-      "en": "`display: flex` creates a flex container for one-dimensional layouts (row or column).",
-      "ar": "تنشئ `display: flex` حاوية مرنة للتخطيطات أحادية البعد (صف أو عمود)."
+      "en": "When .parent creates a stacking context (position + z-index: 1), its children compete only within that context. Since .parent (z-index:1) is below .rival (z-index:2), no child of .parent can appear above .rival regardless of its own z-index.",
+      "ar": "عندما يُنشئ .parent سياق تكديس (position + z-index: 1)، يتنافس أبناؤه فقط داخل هذا السياق. بما أن .parent (z-index:1) أقل من .rival (z-index:2)، لا يمكن لأي ابن من .parent الظهور فوق .rival بصرف النظر عن قيمة z-index الخاصة به."
     },
     "xp": 15,
-    "tags": ["layout", "flexbox"]
+    "tags": ["z-index", "stacking-context", "position"]
+  },
+  {
+    "id": "css-i-2",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need a layout with a fixed sidebar (250px) and a fluid main content area that fills the rest. Which CSS Grid template is the correct approach?",
+      "ar": "تحتاج إلى تخطيط بشريط جانبي ثابت (250px) ومنطقة محتوى رئيسية تملأ الباقي. أي قالب CSS Grid هو النهج الصحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "grid-template-columns: 250px auto", "ar": "grid-template-columns: 250px auto" } },
+      { "id": "b", "text": { "en": "grid-template-columns: 250px 1fr", "ar": "grid-template-columns: 250px 1fr" } },
+      { "id": "c", "text": { "en": "grid-template-columns: 250px 100%", "ar": "grid-template-columns: 250px 100%" } },
+      { "id": "d", "text": { "en": "grid-template-columns: 250px minmax(0, 100%)", "ar": "grid-template-columns: 250px minmax(0, 100%)" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "The fr unit is designed specifically to distribute remaining free space.",
+      "ar": "وحدة fr مصممة خصيصاً لتوزيع المساحة الحرة المتبقية."
+    },
+    "explanation": {
+      "en": "250px 1fr gives a fixed 250px column and lets the second column take all remaining space. Using 100% would cause overflow since it's 100% of the container plus 250px. auto works similarly to 1fr but can behave unexpectedly with wide content.",
+      "ar": "250px 1fr يعطي عموداً ثابتاً بـ 250px ويُتيح للعمود الثاني أخذ كل المساحة المتبقية. استخدام 100% يُسبب تجاوزاً لأنه 100% من الحاوية زائد 250px. auto يعمل بشكل مشابه لـ 1fr لكنه قد يتصرف بشكل غير متوقع مع المحتوى الواسع."
+    },
+    "xp": 15,
+    "tags": ["css-grid", "fr-unit", "layout"]
+  },
+  {
+    "id": "css-i-3",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What is the computed specificity of the selector `nav > ul li.active a:hover`?",
+      "ar": "ما هو التحديد المحسوب للمحدد nav > ul li.active a:hover؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "(0, 1, 4) — 1 class, 4 elements", "ar": "(0, 1, 4) — فئة واحدة، 4 عناصر" } },
+      { "id": "b", "text": { "en": "(0, 2, 4) — .active + :hover = 2 classes, nav + ul + li + a = 4 elements", "ar": "(0, 2, 4) — .active + :hover = فئتان، nav + ul + li + a = 4 عناصر" } },
+      { "id": "c", "text": { "en": "(0, 1, 3) — 1 class, 3 elements", "ar": "(0, 1, 3) — فئة واحدة، 3 عناصر" } },
+      { "id": "d", "text": { "en": "(1, 1, 3) — 1 ID, 1 class, 3 elements", "ar": "(1, 1, 3) — معرف واحد، فئة واحدة، 3 عناصر" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Count: IDs=0, classes+pseudo-classes+attributes=?, element types+pseudo-elements=?",
+      "ar": "عُدَّ: معرفات=0، فئات+شبه فئات+سمات=؟، أنواع عناصر+شبه عناصر=؟"
+    },
+    "explanation": {
+      "en": "nav, ul, li, a are 4 element type selectors. .active and :hover are 2 class-level selectors. No IDs. Result: (0, 2, 4).",
+      "ar": "nav و ul و li و a هي 4 محددات من نوع العنصر. .active و :hover هما محددان على مستوى الفئة. لا معرفات. النتيجة: (0, 2, 4)."
+    },
+    "xp": 15,
+    "tags": ["specificity", "selectors", "pseudo-classes"]
+  },
+  {
+    "id": "css-i-4",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "debugging",
+    "prompt": {
+      "en": "Why does the top margin of the inner div appear outside the parent div instead of inside it?",
+      "ar": "لماذا يظهر margin العلوي للـ div الداخلي خارج الـ div الأب بدلاً من الداخل؟"
+    },
+    "code": ".parent {\n  background: lightblue;\n  /* no padding, no border, no overflow */\n}\n.child {\n  margin-top: 40px;\n  background: coral;\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "margin: auto collapses margins", "ar": "margin: auto يضغط الهوامش" } },
+      { "id": "b", "text": { "en": "Margin collapse: adjacent block margins merge when there is no border/padding/overflow between parent and child", "ar": "انهيار الهوامش: تندمج الهوامش المتجاورة للكتل عندما لا يوجد border أو padding أو overflow بين الأب والابن" } },
+      { "id": "c", "text": { "en": "The child needs position: relative", "ar": "يحتاج العنصر الابن إلى position: relative" } },
+      { "id": "d", "text": { "en": "lightblue backgrounds absorb margin values", "ar": "خلفيات lightblue تمتص قيم margin" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This is called 'margin collapsing'. It only happens with vertical margins.",
+      "ar": "هذا ما يُسمى 'انهيار الهامش'. يحدث فقط مع الهوامش الرأسية."
+    },
+    "explanation": {
+      "en": "Margin collapse occurs between a parent and its first/last child when there is no border, padding, or overflow (other than visible) separating them. The child's margin-top collapses with the parent's, appearing as if it's outside the parent.",
+      "ar": "ينهار الهامش بين الأب وأول/آخر ابن عندما لا يوجد border أو padding أو overflow (غير visible) يفصل بينهما. يندمج margin-top للابن مع هامش الأب ويظهر كما لو كان خارجه."
+    },
+    "xp": 15,
+    "tags": ["margin-collapse", "box-model"]
+  },
+  {
+    "id": "css-i-5",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which flexbox property controls how space is distributed along the main axis?",
+      "ar": "أي خاصية flexbox تتحكم في توزيع المساحة على المحور الرئيسي؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "align-items", "ar": "align-items" } },
+      { "id": "b", "text": { "en": "justify-content", "ar": "justify-content" } },
+      { "id": "c", "text": { "en": "align-content", "ar": "align-content" } },
+      { "id": "d", "text": { "en": "flex-direction", "ar": "flex-direction" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Remember: justify → main axis, align → cross axis.",
+      "ar": "تذكّر: justify → المحور الرئيسي، align → المحور المتقاطع."
+    },
+    "explanation": {
+      "en": "justify-content distributes space along the main axis (horizontal by default). align-items aligns items on the cross axis. align-content distributes space between rows/columns when wrapping.",
+      "ar": "justify-content يوزع المساحة على المحور الرئيسي (أفقياً افتراضياً). align-items يُوازن العناصر على المحور المتقاطع. align-content يوزع المساحة بين الصفوف/الأعمدة عند الالتفاف."
+    },
+    "xp": 15,
+    "tags": ["flexbox", "justify-content"]
+  },
+  {
+    "id": "css-i-6",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which CSS property would you use to make a sticky header stay visible while scrolling?",
+      "ar": "أي خاصية CSS تستخدمها لإبقاء رأس الصفحة (header) مرئياً أثناء التمرير؟"
+    },
+    "code": "header {\n  position: ______;\n  top: 0;\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "fixed — stays relative to the viewport", "ar": "fixed — يبقى نسبةً إلى منفذ العرض" } },
+      { "id": "b", "text": { "en": "sticky — stays until its scroll container is scrolled past", "ar": "sticky — يبقى حتى يُمرَّر حاوي التمرير الخاص به" } },
+      { "id": "c", "text": { "en": "absolute — removes from flow and sticks to the page top", "ar": "absolute — يُخرجه من التدفق ويلصقه بأعلى الصفحة" } },
+      { "id": "d", "text": { "en": "relative — offsets from its normal position", "ar": "relative — يُزيحه من موضعه الطبيعي" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "sticky requires at least one offset property (top, left, etc.) and the element must be inside a scrolling ancestor.",
+      "ar": "يتطلب sticky خاصية إزاحة واحدة على الأقل (top، left، إلخ) ويجب أن يكون العنصر داخل عنصر أب قابل للتمرير."
+    },
+    "explanation": {
+      "en": "position: sticky behaves like relative until the scroll threshold is reached, then becomes fixed within its scroll container. position: fixed is always relative to the viewport and is removed from document flow.",
+      "ar": "position: sticky يتصرف كـ relative حتى يُصل إلى عتبة التمرير، ثم يصبح ثابتاً داخل حاوي التمرير. position: fixed دائماً نسبي لمنفذ العرض ومُزال من تدفق المستند."
+    },
+    "xp": 15,
+    "tags": ["position", "sticky", "scroll"]
+  },
+  {
+    "id": "css-i-7",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "scenario",
+    "prompt": {
+      "en": "A card has `overflow: hidden` and `border-radius: 12px`, but the child image still breaks out of the rounded corners in Safari. What is the fix?",
+      "ar": "بطاقة تحتوي على overflow: hidden و border-radius: 12px، لكن الصورة الابنة لا تزال تكسر الزوايا المستديرة في Safari. ما هو الحل؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Add -webkit-overflow-scrolling: touch to the card", "ar": "أضف -webkit-overflow-scrolling: touch إلى البطاقة" } },
+      { "id": "b", "text": { "en": "Add transform: translateZ(0) or isolation: isolate to the card to force a stacking context", "ar": "أضف transform: translateZ(0) أو isolation: isolate إلى البطاقة لإجبار سياق التكديس" } },
+      { "id": "c", "text": { "en": "Add border-radius: 12px directly to the image", "ar": "أضف border-radius: 12px مباشرةً إلى الصورة" } },
+      { "id": "d", "text": { "en": "Change overflow to scroll", "ar": "غيّر overflow إلى scroll" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This is a known Safari compositing bug. Forcing a new stacking context on the parent often fixes clipping issues.",
+      "ar": "هذه مشكلة تجميع معروفة في Safari. إجبار سياق تكديس جديد على الأب غالباً ما يُصلح مشاكل القطع."
+    },
+    "explanation": {
+      "en": "Safari has a known bug where overflow: hidden + border-radius doesn't clip children properly unless the parent creates a new stacking context. Adding transform: translateZ(0) or isolation: isolate to the card forces this and fixes the clipping.",
+      "ar": "يعاني Safari من خلل معروف حيث لا يقوم overflow: hidden + border-radius بقص الأبناء بشكل صحيح إلا إذا أنشأ الأب سياق تكديس جديداً. إضافة transform: translateZ(0) أو isolation: isolate إلى البطاقة يُجبر هذا السياق ويُصلح القص."
+    },
+    "xp": 15,
+    "tags": ["overflow", "border-radius", "stacking-context", "safari"]
+  },
+  {
+    "id": "css-i-8",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "code-output",
+    "prompt": {
+      "en": "What transition will this element have?",
+      "ar": "ما الانتقال الذي سيكون لهذا العنصر؟"
+    },
+    "code": ".box {\n  transition: all 0.3s ease;\n  transition: opacity 0.5s linear;\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "Both transitions will apply simultaneously", "ar": "سيُطبَّق كلا الانتقالين في آنٍ واحد" } },
+      { "id": "b", "text": { "en": "Only opacity 0.5s linear — the second declaration overrides the first", "ar": "فقط opacity 0.5s linear — الإعلان الثاني يُلغي الأول" } },
+      { "id": "c", "text": { "en": "Only all 0.3s ease — the first one has higher specificity", "ar": "فقط all 0.3s ease — الأول له تحديد أعلى" } },
+      { "id": "d", "text": { "en": "The browser will throw a parse error", "ar": "سيرمي المتصفح خطأ في التحليل" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "CSS rules in the same block follow cascade order: last wins.",
+      "ar": "قواعد CSS في الكتلة ذاتها تتبع ترتيب المتتالية: الأخيرة تفوز."
+    },
+    "explanation": {
+      "en": "When the same property is declared twice in the same rule, the second declaration wins (cascade). So only opacity 0.5s linear takes effect, overriding the all 0.3s ease transition.",
+      "ar": "عند الإعلان عن نفس الخاصية مرتين في نفس القاعدة، يفوز الإعلان الثاني (المتتالية). لذا سيُطبَّق فقط opacity 0.5s linear ويُلغي الانتقال all 0.3s ease."
+    },
+    "xp": 15,
+    "tags": ["transitions", "cascade"]
+  },
+  {
+    "id": "css-i-9",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which CSS custom property (variable) declaration is correct?",
+      "ar": "أي إعلان متغير CSS مخصص صحيح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "$primary-color: #3498db;", "ar": "$primary-color: #3498db;" } },
+      { "id": "b", "text": { "en": "@primary-color: #3498db;", "ar": "@primary-color: #3498db;" } },
+      { "id": "c", "text": { "en": "--primary-color: #3498db;", "ar": "--primary-color: #3498db;" } },
+      { "id": "d", "text": { "en": "var-primary-color: #3498db;", "ar": "var-primary-color: #3498db;" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "CSS custom properties start with two dashes. SCSS uses $ and LESS uses @.",
+      "ar": "متغيرات CSS المخصصة تبدأ بشرطتين. SCSS يستخدم $ و LESS يستخدم @."
+    },
+    "explanation": {
+      "en": "CSS custom properties are declared with -- prefix (e.g. --primary-color: #3498db) and accessed with var(--primary-color). $ is SCSS syntax, @ is LESS syntax.",
+      "ar": "تُعلَن متغيرات CSS المخصصة ببادئة -- (مثل --primary-color: #3498db) ويُوصل إليها باستخدام var(--primary-color). $ صيغة SCSS و @ صيغة LESS."
+    },
+    "xp": 15,
+    "tags": ["custom-properties", "variables"]
+  },
+  {
+    "id": "css-i-10",
+    "trackId": "css",
+    "level": "intermediate",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "You want text to be bold only when it is directly inside a section (not deeper). Which selector achieves this?",
+      "ar": "تريد جعل النص عريضاً فقط عندما يكون مباشرةً داخل section (وليس أعمق). أي محدد يحقق ذلك؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "section p { font-weight: bold; }", "ar": "section p { font-weight: bold; }" } },
+      { "id": "b", "text": { "en": "section + p { font-weight: bold; }", "ar": "section + p { font-weight: bold; }" } },
+      { "id": "c", "text": { "en": "section > p { font-weight: bold; }", "ar": "section > p { font-weight: bold; }" } },
+      { "id": "d", "text": { "en": "section ~ p { font-weight: bold; }", "ar": "section ~ p { font-weight: bold; }" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "The > combinator selects only direct children, not all descendants.",
+      "ar": "المدمج > يحدد الأبناء المباشرين فقط، وليس كل الأحفاد."
+    },
+    "explanation": {
+      "en": "section > p targets only p elements that are direct children of section. section p targets all descendant p elements. + is adjacent sibling, ~ is general sibling.",
+      "ar": "section > p يستهدف عناصر p الأبناء المباشرين لـ section فقط. section p يستهدف كل عناصر p الأحفاد. + للأخ المجاور، ~ للأخ العام."
+    },
+    "xp": 15,
+    "tags": ["selectors", "combinators"]
   },
   {
     "id": "css-a-1",
     "trackId": "css",
     "level": "advanced",
-    "type": "multiple-choice",
+    "type": "debugging",
     "prompt": {
-      "en": "What is the specificity of the selector `#nav .item a`?",
-      "ar": "ما هي خصوصية المحدّد `#nav .item a`؟"
+      "en": "A developer applies `position: sticky; top: 0` to a sidebar but it doesn't stick. Which is NOT a valid reason for sticky failing?",
+      "ar": "يطبّق مطوّر position: sticky; top: 0 على شريط جانبي لكنه لا يلتصق. أيٌّ من التالي ليس سبباً صحيحاً لفشل sticky؟"
     },
+    "code": ".sidebar {\n  position: sticky;\n  top: 0;\n}",
+    "codeLang": "css",
     "options": [
-      { "id": "a", "text": { "en": "0,1,1,1", "ar": "0,1,1,1" } },
-      { "id": "b", "text": { "en": "1,1,1,0", "ar": "1,1,1,0" } },
-      { "id": "c", "text": { "en": "0,1,0,2", "ar": "0,1,0,2" } },
-      { "id": "d", "text": { "en": "1,0,1,1", "ar": "1,0,1,1" } }
+      { "id": "a", "text": { "en": "A parent has overflow: hidden, preventing sticky from finding a scroll container", "ar": "أحد الآباء لديه overflow: hidden، مما يمنع sticky من إيجاد حاوي التمرير" } },
+      { "id": "b", "text": { "en": "The sidebar's parent is not tall enough to allow scrolling", "ar": "الأب غير طويل بما يكفي للسماح بالتمرير" } },
+      { "id": "c", "text": { "en": "The sidebar has display: flex applied to it", "ar": "الشريط الجانبي لديه display: flex مطبّق عليه" } },
+      { "id": "d", "text": { "en": "A parent has overflow: auto set", "ar": "أحد الآباء لديه overflow: auto مضبوط" } }
     ],
-    "correctOptionId": "a",
+    "correctOptionId": "c",
+    "hint": {
+      "en": "Think about which CSS properties actually break sticky positioning.",
+      "ar": "فكّر في خصائص CSS التي تكسر فعلاً التموضع sticky."
+    },
     "explanation": {
-      "en": "One id (#nav), one class (.item), one element (a) → specificity 0,1,1,1.",
-      "ar": "معرّف واحد (#nav) وصنف واحد (.item) وعنصر واحد (a) ← الخصوصية 0,1,1,1."
+      "en": "display: flex on the sidebar itself doesn't break sticky. The real culprits are: a parent/ancestor with overflow: hidden/auto/scroll (which creates the scroll container, confining sticky), or the scroll container not being tall enough.",
+      "ar": "display: flex على الشريط الجانبي نفسه لا يكسر sticky. الأسباب الحقيقية: أب أو سلف لديه overflow: hidden/auto/scroll (مما يُنشئ حاوي التمرير ويحصر sticky داخله)، أو حاوي التمرير ليس طويلاً بما يكفي."
     },
     "xp": 25,
-    "tags": ["specificity"]
+    "tags": ["position", "sticky", "overflow", "debugging"]
+  },
+  {
+    "id": "css-a-2",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What computed value does `font-size` resolve to for .child if the root html font-size is 16px?",
+      "ar": "ما القيمة المحسوبة التي يصل إليها font-size لـ .child إذا كان font-size الجذر html هو 16px؟"
+    },
+    "code": "html { font-size: 16px; }\n.parent { font-size: 1.5em; }\n.child { font-size: 0.5em; }",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "8px — 0.5 × 16px", "ar": "8px — 0.5 × 16px" } },
+      { "id": "b", "text": { "en": "12px — 0.5 × 24px (inherits parent's computed 24px)", "ar": "12px — 0.5 × 24px (يرث القيمة المحسوبة 24px من الأب)" } },
+      { "id": "c", "text": { "en": "16px — em resets to root each time", "ar": "16px — em تُعيد الضبط إلى الجذر في كل مرة" } },
+      { "id": "d", "text": { "en": "24px — same as parent", "ar": "24px — نفس قيمة الأب" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "em is always relative to the current element's computed font-size, which it inherits from its parent.",
+      "ar": "em دائماً نسبية إلى font-size المحسوبة للعنصر الحالي، التي يرثها من أبيه."
+    },
+    "explanation": {
+      "en": ".parent computes to 1.5 × 16px = 24px. .child inherits that 24px as its base, then 0.5em = 0.5 × 24px = 12px. This is the notorious em compounding problem.",
+      "ar": "يُحسب .parent كـ 1.5 × 16px = 24px. يرث .child القيمة 24px كأساس له، ثم 0.5em = 0.5 × 24px = 12px. هذه هي مشكلة تراكم em الشهيرة."
+    },
+    "xp": 25,
+    "tags": ["units", "em", "inheritance", "font-size"]
+  },
+  {
+    "id": "css-a-3",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You want a responsive fluid typography that is at least 16px, at most 24px, and scales between viewport widths 320px and 1280px. Which CSS approach is most elegant?",
+      "ar": "تريد طباعة سائلة متجاوبة لا تقل عن 16px ولا تزيد عن 24px وتتدرج بين عرضَي منفذ العرض 320px و1280px. أي نهج CSS هو الأكثر أناقة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "font-size: clamp(16px, 2vw + 12px, 24px)", "ar": "font-size: clamp(16px, 2vw + 12px, 24px)" } },
+      { "id": "b", "text": { "en": "font-size: calc(16px + 1vw)", "ar": "font-size: calc(16px + 1vw)" } },
+      { "id": "c", "text": { "en": "font-size: min(16px, 24px)", "ar": "font-size: min(16px, 24px)" } },
+      { "id": "d", "text": { "en": "Use separate @media breakpoints for 16px and 24px only", "ar": "استخدم نقاط توقف @media منفصلة لـ 16px و24px فقط" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "clamp(min, preferred, max) enforces both a floor and a ceiling.",
+      "ar": "clamp(min, preferred, max) يُطبّق حداً أدنى وأقصى معاً."
+    },
+    "explanation": {
+      "en": "clamp(16px, preferred, 24px) guarantees the font is never below 16px or above 24px, with a fluid preferred value in between. calc(16px + 1vw) has no upper bound. Media queries create hard breakpoints rather than smooth scaling.",
+      "ar": "clamp(16px, preferred, 24px) يضمن ألا يقل حجم الخط عن 16px أو يزيد عن 24px، مع قيمة مفضلة سائلة بينهما. calc(16px + 1vw) ليس له حد أقصى. الاستعلامات الإعلامية تُنشئ نقاط توقف صلبة بدلاً من التدرج السلس."
+    },
+    "xp": 25,
+    "tags": ["clamp", "fluid-typography", "responsive", "units"]
+  },
+  {
+    "id": "css-a-4",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which CSS property creates a new stacking context WITHOUT affecting layout?",
+      "ar": "أي خاصية CSS تُنشئ سياق تكديس جديداً دون التأثير على التخطيط؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "position: relative; z-index: 0", "ar": "position: relative; z-index: 0" } },
+      { "id": "b", "text": { "en": "isolation: isolate", "ar": "isolation: isolate" } },
+      { "id": "c", "text": { "en": "overflow: hidden", "ar": "overflow: hidden" } },
+      { "id": "d", "text": { "en": "opacity: 0.99", "ar": "opacity: 0.99" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This property was designed specifically for managing stacking contexts.",
+      "ar": "صُمِّمت هذه الخاصية خصيصاً لإدارة سياقات التكديس."
+    },
+    "explanation": {
+      "en": "isolation: isolate creates a new stacking context without any side effects on layout, positioning, or visibility. opacity: 0.99 also creates one but visually affects rendering. position + z-index affects layout. overflow: hidden clips content.",
+      "ar": "isolation: isolate ينشئ سياق تكديس جديداً دون أي آثار جانبية على التخطيط أو التموضع أو الرؤية. opacity: 0.99 ينشئه أيضاً لكنه يؤثر بصرياً على العرض. position + z-index يؤثر على التخطيط. overflow: hidden يقص المحتوى."
+    },
+    "xp": 25,
+    "tags": ["stacking-context", "isolation", "z-index"]
+  },
+  {
+    "id": "css-a-5",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "debugging",
+    "prompt": {
+      "en": "An animation causes constant layout recalculation (reflow). Which change makes it GPU-composited and avoids reflow?",
+      "ar": "تتسبب إحدى الرسوم المتحركة في إعادة حساب التخطيط (reflow) باستمرار. أي تغيير يجعلها مُركَّبة بواسطة GPU ويتجنب reflow؟"
+    },
+    "code": "@keyframes slide {\n  from { left: 0; }\n  to { left: 200px; }\n}\n.box { position: relative; animation: slide 1s infinite; }",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "Use margin-left instead of left", "ar": "استخدم margin-left بدلاً من left" } },
+      { "id": "b", "text": { "en": "Use transform: translateX(200px) instead of left: 200px", "ar": "استخدم transform: translateX(200px) بدلاً من left: 200px" } },
+      { "id": "c", "text": { "en": "Add will-change: left to prepare the browser", "ar": "أضف will-change: left لإعداد المتصفح" } },
+      { "id": "d", "text": { "en": "Use animation-fill-mode: forwards", "ar": "استخدم animation-fill-mode: forwards" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Only opacity and transform can be GPU-composited without triggering reflow.",
+      "ar": "فقط opacity و transform يمكن تركيبهما بواسطة GPU دون تفعيل reflow."
+    },
+    "explanation": {
+      "en": "Animating left/top/margin triggers reflow (layout recalculation) on every frame. transform: translateX() runs on the compositor thread without reflow or repaint, giving 60fps performance. will-change: left promotes the layer but doesn't remove the reflow.",
+      "ar": "تحريك left/top/margin يُشغّل reflow (إعادة حساب التخطيط) في كل إطار. transform: translateX() يعمل على خيط المركّب دون reflow أو repaint، مما يمنح أداء 60fps. will-change: left يُرقي الطبقة لكنه لا يُزيل reflow."
+    },
+    "xp": 25,
+    "tags": ["performance", "animation", "transform", "reflow", "gpu"]
+  },
+  {
+    "id": "css-a-6",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which CSS Grid feature allows you to name lines and reference them in placement?",
+      "ar": "أي ميزة في CSS Grid تسمح لك بتسمية الخطوط والإشارة إليها في التموضع؟"
+    },
+    "code": ".grid {\n  grid-template-columns: [sidebar-start] 250px [sidebar-end content-start] 1fr [content-end];\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "grid-template-areas with quoted names", "ar": "grid-template-areas مع أسماء بين علامات اقتباس" } },
+      { "id": "b", "text": { "en": "Named grid lines using bracket notation", "ar": "خطوط شبكة مُسمّاة باستخدام صيغة الأقواس" } },
+      { "id": "c", "text": { "en": "grid-column-name property", "ar": "خاصية grid-column-name" } },
+      { "id": "d", "text": { "en": "CSS custom properties for grid indices", "ar": "متغيرات CSS مخصصة لمؤشرات الشبكة" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Look at the code snippet — the bracket notation [name] defines named lines.",
+      "ar": "انظر إلى مقتطف الكود — صيغة الأقواس [name] تُعرِّف الخطوط المُسمّاة."
+    },
+    "explanation": {
+      "en": "Named grid lines use bracket notation in grid-template-columns/rows. A child can then use grid-column: sidebar-start / content-end instead of numeric indices, making layouts more maintainable.",
+      "ar": "تستخدم خطوط الشبكة المُسمّاة صيغة الأقواس في grid-template-columns/rows. يمكن للعنصر الابن بعد ذلك استخدام grid-column: sidebar-start / content-end بدلاً من المؤشرات الرقمية، مما يجعل التخطيطات أكثر قابلية للصيانة."
+    },
+    "xp": 25,
+    "tags": ["css-grid", "named-lines"]
+  },
+  {
+    "id": "css-a-7",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "true-false",
+    "prompt": {
+      "en": "A CSS @keyframes animation that only animates `transform` and `opacity` will never trigger a reflow in a modern browser.",
+      "ar": "رسم متحرك CSS @keyframes يُحرّك فقط transform و opacity لن يُشغّل reflow أبداً في متصفح حديث."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "True", "ar": "صحيح" } },
+      { "id": "b", "text": { "en": "False", "ar": "خطأ" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "These two properties are the only ones that can be handled entirely by the GPU compositor.",
+      "ar": "هاتان الخاصيتان هما الوحيدتان اللتان يمكن معالجتهما بالكامل بواسطة مركّب GPU."
+    },
+    "explanation": {
+      "en": "In modern browsers, transform and opacity are composited properties handled by the GPU compositor thread, completely bypassing layout (reflow) and paint (repaint) phases. This is why they are the preferred properties for animations.",
+      "ar": "في المتصفحات الحديثة، transform و opacity هما خصائص مركّبة تُعالجها خيط مركّب GPU بالكامل، متجاوزةً مراحل التخطيط (reflow) والرسم (repaint). لهذا السبب هما الخاصيتان المفضّلتان للرسوم المتحركة."
+    },
+    "xp": 25,
+    "tags": ["performance", "animation", "reflow", "repaint", "gpu"]
+  },
+  {
+    "id": "css-a-8",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "scenario",
+    "prompt": {
+      "en": "You have a BEM component `.card` with a modifier `.card--featured`. What is the correct BEM class for a card title element inside a featured card?",
+      "ar": "لديك مكوّن BEM .card مع معدِّل .card--featured. ما الفئة الصحيحة في BEM لعنصر عنوان البطاقة داخل بطاقة مميزة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": ".card--featured__title", "ar": ".card--featured__title" } },
+      { "id": "b", "text": { "en": ".card__title--featured", "ar": ".card__title--featured" } },
+      { "id": "c", "text": { "en": ".card__title (targeted via .card--featured .card__title)", "ar": ".card__title (يُستهدف عبر .card--featured .card__title)" } },
+      { "id": "d", "text": { "en": ".featured-card__title", "ar": ".featured-card__title" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "In BEM, elements always belong to the block, not to the modifier.",
+      "ar": "في BEM، العناصر دائماً تنتمي إلى الكتلة، وليس إلى المعدِّل."
+    },
+    "explanation": {
+      "en": "BEM elements are always children of the block: .card__title. To style it differently in a featured card, you use the selector .card--featured .card__title. Nesting modifiers inside element names (card--featured__title) breaks BEM convention.",
+      "ar": "عناصر BEM دائماً أبناء الكتلة: .card__title. لتنسيقه بشكل مختلف في بطاقة مميزة، تستخدم المحدد .card--featured .card__title. تداخل المعدِّلات داخل أسماء العناصر (card--featured__title) يكسر اتفاقية BEM."
+    },
+    "xp": 25,
+    "tags": ["BEM", "naming-convention", "css-architecture"]
+  },
+  {
+    "id": "css-a-9",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does `calc(100% - 2rem)` compute to if the parent is 400px wide and the root font-size is 16px?",
+      "ar": "ما الذي يحسبه calc(100% - 2rem) إذا كان عرض الأب 400px وحجم خط الجذر 16px؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "368px (400px - 32px)", "ar": "368px (400px - 32px)" } },
+      { "id": "b", "text": { "en": "384px (400px - 16px)", "ar": "384px (400px - 16px)" } },
+      { "id": "c", "text": { "en": "400px - 2rem is not computed until runtime", "ar": "400px - 2rem لا يُحسب حتى وقت التشغيل" } },
+      { "id": "d", "text": { "en": "398px (400px - 2px)", "ar": "398px (400px - 2px)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "2rem = 2 × root font-size. Root font-size is 16px.",
+      "ar": "2rem = 2 × حجم خط الجذر. حجم خط الجذر هو 16px."
+    },
+    "explanation": {
+      "en": "100% of 400px = 400px. 2rem = 2 × 16px = 32px. calc(400px - 32px) = 368px.",
+      "ar": "100% من 400px = 400px. 2rem = 2 × 16px = 32px. calc(400px - 32px) = 368px."
+    },
+    "xp": 25,
+    "tags": ["calc", "units", "rem"]
+  },
+  {
+    "id": "css-a-10",
+    "trackId": "css",
+    "level": "advanced",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which pseudo-element is used to style the first letter of a paragraph with the correct modern CSS syntax?",
+      "ar": "أي شبه عنصر يُستخدم لتنسيق الحرف الأول من الفقرة بصيغة CSS الحديثة الصحيحة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": ":first-letter (single colon)", "ar": ":first-letter (شرطة واحدة)" } },
+      { "id": "b", "text": { "en": "::first-letter (double colon)", "ar": "::first-letter (شرطتان)" } },
+      { "id": "c", "text": { "en": "::first-char", "ar": "::first-char" } },
+      { "id": "d", "text": { "en": ":initial-letter", "ar": ":initial-letter" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Modern CSS uses double colon :: for pseudo-elements to distinguish them from pseudo-classes.",
+      "ar": "يستخدم CSS الحديث شرطتين :: لشبه العناصر لتمييزها عن شبه الفئات."
+    },
+    "explanation": {
+      "en": "::first-letter is the correct modern syntax for pseudo-elements (double colon). The single colon :first-letter still works for backward compatibility but the double colon is the standard. ::first-char doesn't exist.",
+      "ar": "::first-letter هي الصيغة الحديثة الصحيحة لشبه العناصر (شرطتان). الشرطة الواحدة :first-letter لا تزال تعمل للتوافق مع الإصدارات القديمة لكن الشرطتين هما المعيار. ::first-char غير موجودة."
+    },
+    "xp": 25,
+    "tags": ["pseudo-elements", "typography"]
+  },
+  {
+    "id": "css-e-1",
+    "trackId": "css",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "You want a component's styles to respond to its own width, not the viewport width. Which CSS feature enables this?",
+      "ar": "تريد أن تستجيب أنماط مكوّن لعرضه الخاص، وليس لعرض منفذ العرض. أي ميزة CSS تُتيح هذا؟"
+    },
+    "code": "@container (min-width: 400px) {\n  .card {\n    flex-direction: row;\n  }\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "Media queries with element queries polyfill", "ar": "استعلامات الوسائط مع polyfill لاستعلامات العناصر" } },
+      { "id": "b", "text": { "en": "CSS Container Queries", "ar": "استعلامات الحاوية CSS" } },
+      { "id": "c", "text": { "en": "CSS Grid auto-fit columns", "ar": "أعمدة auto-fit في CSS Grid" } },
+      { "id": "d", "text": { "en": "CSS Viewport units with vw fallback", "ar": "وحدات منفذ العرض CSS مع احتياطي vw" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "This feature requires the parent to declare `container-type` or `container`.",
+      "ar": "تتطلب هذه الميزة أن يُعلن الأب عن container-type أو container."
+    },
+    "explanation": {
+      "en": "CSS Container Queries (@container) let elements respond to the size of their nearest container ancestor (declared with container-type: inline-size). This enables truly reusable components that adapt to their placement context rather than the viewport.",
+      "ar": "استعلامات الحاوية CSS (@container) تُتيح للعناصر الاستجابة لحجم أقرب عنصر حاوية (مُعلَن بـ container-type: inline-size). هذا يُمكّن مكوّنات قابلة لإعادة الاستخدام حقاً تتكيف مع سياق تموضعها بدلاً من منفذ العرض."
+    },
+    "xp": 30,
+    "tags": ["container-queries", "responsive", "advanced"]
+  },
+  {
+    "id": "css-e-2",
+    "trackId": "css",
+    "level": "expert",
+    "type": "debugging",
+    "prompt": {
+      "en": "An element has `will-change: transform` applied permanently in CSS. What problem can this cause in production?",
+      "ar": "عنصر لديه will-change: transform مطبّقاً بشكل دائم في CSS. ما المشكلة التي يمكن أن يُسببها هذا في الإنتاج؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "It prevents the element from being animated", "ar": "يمنع العنصر من التحريك" } },
+      { "id": "b", "text": { "en": "It causes the browser to allocate extra GPU memory and promote the layer indefinitely, wasting resources", "ar": "يتسبب في تخصيص المتصفح لذاكرة GPU إضافية وترقية الطبقة بشكل غير محدود، مما يُهدر الموارد" } },
+      { "id": "c", "text": { "en": "It disables hardware acceleration entirely", "ar": "يُعطّل تسريع الأجهزة بالكامل" } },
+      { "id": "d", "text": { "en": "It forces all animations to use the CPU", "ar": "يُجبر جميع الرسوم المتحركة على استخدام المعالج" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "will-change is a hint to the browser — overusing it defeats the purpose.",
+      "ar": "will-change هي تلميح للمتصفح — الإفراط في استخدامه يُبطل الغرض منه."
+    },
+    "explanation": {
+      "en": "will-change tells the browser to pre-optimize by promoting the element to its own compositor layer. Applied permanently, it wastes GPU memory and VRAM for elements that aren't actually animating. Best practice: add it via JavaScript just before an animation and remove it after.",
+      "ar": "will-change يُخبر المتصفح بالتحسين المسبق عن طريق ترقية العنصر إلى طبقة مركّبة خاصة به. عند تطبيقه بشكل دائم، يُهدر ذاكرة GPU وVRAM للعناصر التي لا تُحرَّك فعلاً. أفضل الممارسات: أضفه عبر JavaScript قبيل الرسوم المتحركة مباشرةً وأزله بعدها."
+    },
+    "xp": 30,
+    "tags": ["will-change", "performance", "gpu", "memory"]
+  },
+  {
+    "id": "css-e-3",
+    "trackId": "css",
+    "level": "expert",
+    "type": "multiple-choice",
+    "prompt": {
+      "en": "Which selector uses the `:has()` pseudo-class to style a label that directly precedes an invalid input?",
+      "ar": "أي محدد يستخدم شبه الفئة :has() لتنسيق تسمية (label) تسبق مباشرةً حقل إدخال غير صالح؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "label:has(+ input:invalid)", "ar": "label:has(+ input:invalid)" } },
+      { "id": "b", "text": { "en": "label + input:invalid", "ar": "label + input:invalid" } },
+      { "id": "c", "text": { "en": "input:invalid ~ label", "ar": "input:invalid ~ label" } },
+      { "id": "d", "text": { "en": ":has(label, input:invalid)", "ar": ":has(label, input:invalid)" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": ":has() is a relational pseudo-class that selects elements based on what they contain or what follows them.",
+      "ar": ":has() هي شبه فئة علائقية تختار العناصر بناءً على ما تحتوي عليه أو ما يتبعها."
+    },
+    "explanation": {
+      "en": "label:has(+ input:invalid) selects a label whose immediately following sibling is an invalid input. This enables 'parent' selection which was previously impossible in CSS. The + combinator inside :has() refers to the adjacent sibling of the label.",
+      "ar": "label:has(+ input:invalid) يحدد label يعقبه مباشرةً أخ input غير صالح. يُتيح هذا 'اختيار الأب' الذي كان مستحيلاً سابقاً في CSS. المدمج + داخل :has() يشير إلى الأخ المجاور للـ label."
+    },
+    "xp": 30,
+    "tags": ["has-selector", "pseudo-classes", "advanced-selectors"]
+  },
+  {
+    "id": "css-e-4",
+    "trackId": "css",
+    "level": "expert",
+    "type": "scenario",
+    "prompt": {
+      "en": "You need to support both left-to-right and right-to-left layouts. Which CSS approach is the most maintainable?",
+      "ar": "تحتاج إلى دعم تخطيطات من اليسار إلى اليمين ومن اليمين إلى اليسار. أي نهج CSS هو الأكثر قابلية للصيانة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Use a [dir='rtl'] attribute selector with mirrored values", "ar": "استخدم محدد سمة [dir='rtl'] مع قيم معكوسة" } },
+      { "id": "b", "text": { "en": "CSS Logical Properties (margin-inline-start, padding-block-end, etc.)", "ar": "الخصائص المنطقية لـ CSS (margin-inline-start, padding-block-end, إلخ)" } },
+      { "id": "c", "text": { "en": "Duplicate all CSS with [lang='ar'] selectors", "ar": "كرّر كل CSS مع محددات [lang='ar']" } },
+      { "id": "d", "text": { "en": "Use JavaScript to swap left/right values at runtime", "ar": "استخدم JavaScript لتبديل قيم left/right في وقت التشغيل" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "These properties automatically adapt to the writing direction set by the document or element.",
+      "ar": "هذه الخصائص تتكيف تلقائياً مع اتجاه الكتابة المحدد في المستند أو العنصر."
+    },
+    "explanation": {
+      "en": "CSS Logical Properties like margin-inline-start, padding-block-end adapt automatically to the writing mode and direction, eliminating the need for duplicate RTL overrides. margin-inline-start maps to margin-left in LTR and margin-right in RTL.",
+      "ar": "الخصائص المنطقية لـ CSS مثل margin-inline-start و padding-block-end تتكيف تلقائياً مع وضع الكتابة والاتجاه، مما يُلغي الحاجة إلى تكرار تجاوزات RTL. margin-inline-start تُعيَّن إلى margin-left في LTR و margin-right في RTL."
+    },
+    "xp": 30,
+    "tags": ["logical-properties", "rtl", "internationalization"]
+  },
+  {
+    "id": "css-e-5",
+    "trackId": "css",
+    "level": "expert",
+    "type": "code-output",
+    "prompt": {
+      "en": "What does this CSS Custom Property fallback chain produce if --brand-color is not defined?",
+      "ar": "ما الذي ينتج عن سلسلة الاحتياط هذه لمتغير CSS إذا لم يُعرَّف --brand-color؟"
+    },
+    "code": ".button {\n  background: var(--brand-color, var(--fallback-color, hotpink));\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "An error — nested var() is invalid", "ar": "خطأ — var() المتداخلة غير صالحة" } },
+      { "id": "b", "text": { "en": "transparent — the browser ignores invalid fallbacks", "ar": "شفاف — المتصفح يتجاهل الاحتياطات غير الصالحة" } },
+      { "id": "c", "text": { "en": "hotpink if --fallback-color is also not defined; otherwise the value of --fallback-color", "ar": "hotpink إذا لم يُعرَّف --fallback-color أيضاً؛ وإلا قيمة --fallback-color" } },
+      { "id": "d", "text": { "en": "The inherited background color", "ar": "لون الخلفية الموروث" } }
+    ],
+    "correctOptionId": "c",
+    "hint": {
+      "en": "var() fallbacks can be nested to create a chain of fallbacks.",
+      "ar": "يمكن تداخل احتياطات var() لإنشاء سلسلة من الاحتياطات."
+    },
+    "explanation": {
+      "en": "var() allows nested fallbacks. If --brand-color is undefined, the browser tries the second argument: var(--fallback-color, hotpink). If --fallback-color is also undefined, it falls back to hotpink. This chaining pattern is valid CSS.",
+      "ar": "يسمح var() بالاحتياطات المتداخلة. إذا لم يُعرَّف --brand-color، يحاول المتصفح الوسيطة الثانية: var(--fallback-color, hotpink). إذا لم يُعرَّف --fallback-color أيضاً، يستخدم hotpink كاحتياط. هذا النمط المتسلسل صالح في CSS."
+    },
+    "xp": 30,
+    "tags": ["custom-properties", "variables", "fallback"]
+  },
+  {
+    "id": "css-boss-1",
+    "trackId": "css",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "A senior developer reviews your component and says: 'This will cause a layout thrash on every animation frame.' Looking at the code, what is causing it and what is the fix?",
+      "ar": "يراجع مطوّر أول مكوّنك ويقول: 'سيُسبّب هذا اضطراباً في التخطيط في كل إطار رسوم متحركة.' بالنظر إلى الكود، ما السبب وما الحل؟"
+    },
+    "code": "function animate() {\n  const width = element.offsetWidth; // read\n  element.style.width = width + 1 + 'px'; // write\n  // CSS: transition: none; animation done via JS\n  requestAnimationFrame(animate);\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "Reading offsetWidth then writing style forces the browser to flush and recalculate layout each frame; fix: batch reads before writes or use transforms", "ar": "قراءة offsetWidth ثم كتابة style يُجبر المتصفح على مسح التخطيط وإعادة حسابه في كل إطار؛ الحل: جمع القراءات قبل الكتابات أو استخدام transforms" } },
+      { "id": "b", "text": { "en": "requestAnimationFrame is deprecated; use setInterval instead", "ar": "requestAnimationFrame مهمل؛ استخدم setInterval عوضاً" } },
+      { "id": "c", "text": { "en": "style.width should use rem units", "ar": "يجب أن تستخدم style.width وحدات rem" } },
+      { "id": "d", "text": { "en": "The element needs will-change: width to fix the thrash", "ar": "يحتاج العنصر إلى will-change: width لإصلاح الاضطراب" } }
+    ],
+    "correctOptionId": "a",
+    "hint": {
+      "en": "Forced synchronous layout happens when you read a layout property after a write, forcing the browser to recalculate immediately.",
+      "ar": "يحدث التخطيط المتزامن المُجبَر عند قراءة خاصية تخطيط بعد كتابة، مما يُجبر المتصفح على إعادة الحساب فوراً."
+    },
+    "explanation": {
+      "en": "Reading a layout property (offsetWidth, clientHeight, getBoundingClientRect, etc.) after a DOM write causes forced synchronous layout — the browser must stop, flush pending writes, and recalculate layout immediately. Fix: read all values before any writes, or better yet, animate using CSS transforms (GPU-composited, no layout).",
+      "ar": "قراءة خاصية تخطيط (offsetWidth, clientHeight, getBoundingClientRect، إلخ) بعد كتابة DOM تُسبّب تخطيطاً متزامناً مُجبَراً — يجب على المتصفح التوقف ومسح الكتابات المعلّقة وإعادة حساب التخطيط فوراً. الحل: اقرأ كل القيم قبل أي كتابات، أو بشكل أفضل، حرّك باستخدام CSS transforms (مركّبة GPU، بلا تخطيط)."
+    },
+    "xp": 50,
+    "tags": ["performance", "reflow", "layout-thrash", "javascript-css"]
+  },
+  {
+    "id": "css-boss-2",
+    "trackId": "css",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "A pixel-perfect design requires a card grid where each card is exactly the same height as its tallest sibling in the same row, with no JavaScript. The grid currently uses `display: flex; flex-wrap: wrap`. Why do cards in the same row NOT share height, and what is the correct fix?",
+      "ar": "يتطلب تصميم دقيق شبكة بطاقات حيث كل بطاقة لها نفس ارتفاع أطول أخت في نفس الصف، دون JavaScript. تستخدم الشبكة حالياً display: flex; flex-wrap: wrap. لماذا لا تشترك البطاقات في نفس الصف في الارتفاع، وما الحل الصحيح؟"
+    },
+    "code": ".grid {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.card {\n  width: calc(33.333% - 11px);\n}",
+    "codeLang": "css",
+    "options": [
+      { "id": "a", "text": { "en": "Cards need align-self: stretch explicitly; flexbox doesn't stretch by default", "ar": "تحتاج البطاقات إلى align-self: stretch صريح؛ flexbox لا يمتد افتراضياً" } },
+      { "id": "b", "text": { "en": "flex-wrap creates independent flex lines; items in the same row are already equal-height by default. Switch to CSS Grid for guaranteed row coordination across all rows.", "ar": "flex-wrap ينشئ خطوط flex مستقلة؛ عناصر الصف الواحد متساوية الارتفاع افتراضياً. انتقل إلى CSS Grid لضمان تنسيق الصفوف عبر جميع الصفوف." } },
+      { "id": "c", "text": { "en": "Add height: 100% to each card", "ar": "أضف height: 100% لكل بطاقة" } },
+      { "id": "d", "text": { "en": "Use min-height instead of height on the cards", "ar": "استخدم min-height بدلاً من height على البطاقات" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Flex rows are independent — they don't share height information with each other across rows.",
+      "ar": "صفوف Flex مستقلة — لا تتشارك معلومات الارتفاع فيما بينها عبر الصفوف."
+    },
+    "explanation": {
+      "en": "In a flex container with flex-wrap, each row is an independent flex line. align-items: stretch (the default) equalizes heights within a single row, but rows don't coordinate heights across them. CSS Grid with grid-template-columns: repeat(3, 1fr) is the correct solution: items in the same row automatically share the height of the tallest cell.",
+      "ar": "في حاوية flex مع flex-wrap، كل صف خط flex مستقل. align-items: stretch (الافتراضي) يُسوّي الارتفاعات داخل صف واحد، لكن الصفوف لا تُنسّق الارتفاعات عبرها. CSS Grid مع grid-template-columns: repeat(3, 1fr) هو الحل الصحيح: العناصر في نفس الصف تتشارك تلقائياً ارتفاع أطول خلية."
+    },
+    "xp": 50,
+    "tags": ["flexbox", "css-grid", "equal-height", "layout"]
+  },
+  {
+    "id": "css-boss-3",
+    "trackId": "css",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You discover that removing a single CSS rule causes a massive visual regression across the site. After investigation, the rule is `* { box-sizing: border-box; }`. Explain the most likely cascade of visual failures when this rule is absent.",
+      "ar": "تكتشف أن إزالة قاعدة CSS واحدة تُسبّب انهياراً بصرياً ضخماً عبر الموقع. بعد التحقيق، القاعدة هي * { box-sizing: border-box; }. اشرح سلسلة الفشل البصري الأرجح عند غياب هذه القاعدة."
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Only input elements are affected since they default to border-box", "ar": "فقط عناصر input تتأثر لأنها تستخدم border-box افتراضياً" } },
+      { "id": "b", "text": { "en": "All elements revert to content-box: padding and border are added ON TOP of width/height, causing elements to overflow their containers, breaking grid columns, and misaligning layouts built with percentage widths", "ar": "تعود جميع العناصر إلى content-box: يُضاف padding و border فوق العرض/الارتفاع، مما يُسبّب تجاوز العناصر لحاوياتها وكسر أعمدة الشبكة وإساءة محاذاة التخطيطات المبنية بعرض بالنسبة المئوية" } },
+      { "id": "c", "text": { "en": "Colors and fonts revert to browser defaults", "ar": "تعود الألوان والخطوط إلى إعدادات المتصفح الافتراضية" } },
+      { "id": "d", "text": { "en": "Flexbox and Grid stop working", "ar": "Flexbox و Grid يتوقفان عن العمل" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "Think about what content-box means for a column that is width: calc(50% - 16px) with padding: 16px.",
+      "ar": "فكّر في معنى content-box لعمود بعرض calc(50% - 16px) مع padding: 16px."
+    },
+    "explanation": {
+      "en": "Without box-sizing: border-box, all elements use content-box (the browser default), where padding and borders are added to the stated width. A div with width: 50% and padding: 16px will be 50% + 32px wide, overflowing its row. Grid and flex columns computed in percentages will overflow. This is the foundational reason every modern CSS reset/framework includes the border-box reset.",
+      "ar": "بدون box-sizing: border-box، تستخدم جميع العناصر content-box (الافتراضي في المتصفح)، حيث يُضاف padding والحدود إلى العرض المحدد. div بعرض 50% و padding: 16px سيكون بعرض 50% + 32px، متجاوزاً صفه. أعمدة Grid و flex المحسوبة بالنسب المئوية ستتجاوز الحاوية. هذا هو السبب الجوهري لتضمين كل reset/framework CSS حديث لإعادة ضبط border-box."
+    },
+    "xp": 50,
+    "tags": ["box-model", "box-sizing", "cascade", "reset"]
+  },
+  {
+    "id": "css-boss-4",
+    "trackId": "css",
+    "level": "boss",
+    "type": "debugging",
+    "prompt": {
+      "en": "A large single-page application reports high paint costs in Chrome DevTools. The profiler shows that scrolling causes full-page repaints. Which CSS technique most effectively isolates paint regions to prevent full-page repaints?",
+      "ar": "يُبلّغ تطبيق أحادي الصفحة كبير عن تكاليف رسم عالية في Chrome DevTools. يُظهر المحلل أن التمرير يُسبّب إعادة رسم الصفحة بالكامل. أي تقنية CSS تُعزل مناطق الرسم بفعالية لمنع إعادة الرسم الكاملة للصفحة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Add overflow: hidden to the body element", "ar": "أضف overflow: hidden إلى عنصر body" } },
+      { "id": "b", "text": { "en": "Use contain: paint or contain: strict on expensive components to create paint containment regions", "ar": "استخدم contain: paint أو contain: strict على المكوّنات المكلفة لإنشاء مناطق احتواء الرسم" } },
+      { "id": "c", "text": { "en": "Add will-change: scroll-position to the scrollable container", "ar": "أضف will-change: scroll-position إلى الحاوية القابلة للتمرير" } },
+      { "id": "d", "text": { "en": "Use display: contents on wrapper elements to reduce DOM layers", "ar": "استخدم display: contents على عناصر التغليف لتقليل طبقات DOM" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "CSS Containment was designed specifically to let browsers optimize rendering by limiting the scope of layout, paint, and style calculations.",
+      "ar": "صُمِّم CSS Containment خصيصاً للسماح للمتصفحات بتحسين العرض عن طريق تحديد نطاق حسابات التخطيط والرسم والأنماط."
+    },
+    "explanation": {
+      "en": "contain: paint tells the browser that the element's contents won't visually overflow the element (creating a paint region). The browser can then skip repainting this component when unrelated parts of the page change. contain: strict is shorthand for contain: layout style paint. This is the correct CSS performance tool for isolating repaint regions.",
+      "ar": "contain: paint يُخبر المتصفح أن محتويات العنصر لن تتجاوز بصرياً العنصر (مما ينشئ منطقة رسم). يمكن للمتصفح بعد ذلك تخطّي إعادة رسم هذا المكوّن عند تغيّر أجزاء غير ذات صلة من الصفحة. contain: strict هو اختصار لـ contain: layout style paint. هذه هي أداة CSS الصحيحة لعزل مناطق إعادة الرسم."
+    },
+    "xp": 50,
+    "tags": ["performance", "css-containment", "repaint", "devtools"]
+  },
+  {
+    "id": "css-boss-5",
+    "trackId": "css",
+    "level": "boss",
+    "type": "scenario",
+    "prompt": {
+      "en": "You are architecting CSS for a large design system. A component's styles must: (1) never leak out, (2) not be affected by page-level styles, (3) respond to the container's size, and (4) support theming via custom properties. Which combination of CSS technologies best satisfies ALL four constraints?",
+      "ar": "تُعمارة CSS لنظام تصميم كبير. يجب أن تتميز أنماط المكوّن بـ: (1) عدم التسرّب للخارج أبداً، (2) عدم التأثر بأنماط مستوى الصفحة، (3) الاستجابة لحجم الحاوية، (4) دعم التسمية عبر خصائص مخصصة. أي مجموعة من تقنيات CSS تُلبّي أفضل جميع القيود الأربعة؟"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "BEM + CSS Modules + media queries + Sass variables", "ar": "BEM + CSS Modules + استعلامات الوسائط + متغيرات Sass" } },
+      { "id": "b", "text": { "en": "Shadow DOM (CSS encapsulation) + container queries + CSS custom properties (inheritable through shadow boundary)", "ar": "Shadow DOM (تغليف CSS) + استعلامات الحاوية + خصائص CSS المخصصة (قابلة للوراثة عبر حدود shadow)" } },
+      { "id": "c", "text": { "en": "CSS-in-JS with scoped class names + viewport units + CSS variables", "ar": "CSS-in-JS مع أسماء فئات محددة النطاق + وحدات منفذ العرض + متغيرات CSS" } },
+      { "id": "d", "text": { "en": "Inline styles + data attributes + JavaScript resize observers", "ar": "أنماط مضمّنة + سمات بيانات + مراقبو تغيير الحجم في JavaScript" } }
+    ],
+    "correctOptionId": "b",
+    "hint": {
+      "en": "One of these technologies provides style encapsulation at the browser level, not just naming convention level.",
+      "ar": "إحدى هذه التقنيات توفر تغليف الأنماط على مستوى المتصفح، وليس فقط على مستوى اتفاقية التسمية."
+    },
+    "explanation": {
+      "en": "Shadow DOM provides true CSS encapsulation — styles don't leak in or out. Container queries (@container) respond to the component's own container size, not the viewport. CSS custom properties pierce the shadow boundary via inheritance, enabling external theming. This combination is the gold standard for truly reusable, encapsulated, themeable, container-aware components. CSS Modules and BEM are naming conventions that simulate encapsulation but can still leak with specificity battles.",
+      "ar": "Shadow DOM يوفر تغليفاً حقيقياً لـ CSS — الأنماط لا تتسرب للداخل أو الخارج. استعلامات الحاوية (@container) تستجيب لحجم الحاوية الخاصة بالمكوّن، وليس منفذ العرض. خصائص CSS المخصصة تخترق حدود shadow عبر الوراثة، مما يُتيح التسمية الخارجية. هذا المزيج هو المعيار الذهبي للمكوّنات القابلة لإعادة الاستخدام حقاً، المُغلَّفة، القابلة للتسمية، والمدركة للحاوية. CSS Modules و BEM هي اتفاقيات تسمية تحاكي التغليف لكن يمكن أن تتسرب مع نزاعات التحديد."
+    },
+    "xp": 50,
+    "tags": ["shadow-dom", "container-queries", "custom-properties", "css-architecture", "design-system"]
   }
 ]
