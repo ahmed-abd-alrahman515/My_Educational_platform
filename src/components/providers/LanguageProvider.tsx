@@ -18,6 +18,8 @@ import {
 interface LanguageContextValue {
   language: Language;
   dir: "ltr" | "rtl";
+  /** True briefly while a language switch fade is in progress. */
+  switching: boolean;
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
   /** Translate a UI dictionary key. */
@@ -30,12 +32,22 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const LANG_KEY = "codequest:language";
 
+/** Honor the user's reduced-motion preference for the switch fade. */
+function prefersReducedMotion(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
 /**
  * Provides the active language, direction, and translation helpers. Keeps the
- * <html lang> and <html dir> attributes in sync so RTL works platform-wide.
+ * <html lang> and <html dir> attributes in sync so RTL works platform-wide, and
+ * coordinates a brief cross-fade when the language changes.
  */
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(DEFAULT_LANGUAGE);
+  const [switching, setSwitching] = useState(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem(LANG_KEY) as Language | null;
@@ -47,10 +59,26 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.dir = getDirection(language);
   }, [language]);
 
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    window.localStorage.setItem(LANG_KEY, lang);
-  }, []);
+  const setLanguage = useCallback(
+    (lang: Language) => {
+      if (lang === language) return;
+      window.localStorage.setItem(LANG_KEY, lang);
+
+      // Instant swap when reduced motion is preferred.
+      if (prefersReducedMotion()) {
+        setLanguageState(lang);
+        return;
+      }
+
+      // Fade out → swap text + direction at the midpoint → fade back in.
+      setSwitching(true);
+      window.setTimeout(() => {
+        setLanguageState(lang);
+        window.setTimeout(() => setSwitching(false), 180);
+      }, 180);
+    },
+    [language],
+  );
 
   const toggleLanguage = useCallback(() => {
     setLanguage(language === "en" ? "ar" : "en");
@@ -61,12 +89,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     return {
       language,
       dir: getDirection(language),
+      switching,
       setLanguage,
       toggleLanguage,
       t: (key) => dict[key] ?? key,
       tc: (text) => text[language] ?? text.en,
     };
-  }, [language, setLanguage, toggleLanguage]);
+  }, [language, switching, setLanguage, toggleLanguage]);
 
   return (
     <LanguageContext.Provider value={value}>

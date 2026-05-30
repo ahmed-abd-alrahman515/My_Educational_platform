@@ -69,7 +69,7 @@ export function Navbar() {
             type="button"
             className="grid h-10 w-10 place-items-center rounded-xl border border-line md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={t("a11y.menu")}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

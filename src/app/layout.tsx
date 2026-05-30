@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppProviders } from "@/components/providers/AppProviders";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { LanguageTransition } from "@/components/layout/LanguageTransition";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -92,11 +93,13 @@ export default function RootLayout({
         className={`${inter.variable} ${mono.variable} ${cairo.variable} font-sans antialiased`}
       >
         <AppProviders>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+          <LanguageTransition>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </LanguageTransition>
         </AppProviders>
       </body>
     </html>

@@ -231,6 +231,15 @@ export const translations = {
     "footer.connect": "Connect",
     "footer.explore": "Explore",
     "footer.madeWith": "Designed & built with passion for learners everywhere.",
+
+    "notFound.code": "404",
+    "notFound.title": "Page not found",
+    "notFound.body": "The quest you’re looking for doesn’t exist.",
+    "notFound.home": "Back to home",
+
+    "a11y.menu": "Menu",
+    "a11y.copyCode": "Copy code",
+    "a11y.github": "GitHub",
   },
 
   ar: {
@@ -456,6 +465,15 @@ export const translations = {
     "footer.connect": "تواصل",
     "footer.explore": "استكشف",
     "footer.madeWith": "صُمّم وبُني بشغف للمتعلّمين في كل مكان.",
+
+    "notFound.code": "٤٠٤",
+    "notFound.title": "الصفحة غير موجودة",
+    "notFound.body": "المهمة التي تبحث عنها غير موجودة.",
+    "notFound.home": "العودة إلى الرئيسية",
+
+    "a11y.menu": "القائمة",
+    "a11y.copyCode": "نسخ الكود",
+    "a11y.github": "GitHub",
   },
 } as const;
 

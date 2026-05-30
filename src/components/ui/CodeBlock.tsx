@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Copy, Terminal } from "lucide-react";
 import type { QuestionLanguage } from "@/types";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
@@ -39,6 +40,7 @@ export function CodeBlock({
   noLineNumbers,
   className,
 }: CodeBlockProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const lines = code.replace(/\n$/, "").split("\n");
 
@@ -80,7 +82,7 @@ export function CodeBlock({
         <button
           type="button"
           onClick={copy}
-          aria-label="Copy code"
+          aria-label={t("a11y.copyCode")}
           className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-mono text-xs text-slate-400 transition-colors hover:bg-white/10 hover:text-slate-200"
         >
           {copied ? (
